@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.3",
-  "status": "first_canonical_source_adopted",
+  "status": "first_source_passage_and_citation_closed_out",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -12,8 +12,8 @@
     "docs/BUCHANAN_THREAD_HANDOVER.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001E.2",
-    "name": "Adopt Selected Candidate Into Canonical Sources Only",
+    "phase": "BDP-001E.5",
+    "name": "Record Citation and Passage Closeout in State and Handover",
     "concept": "Body without Organs",
     "database_scope": [
       "schema_migrations",
@@ -41,7 +41,14 @@
       "passages_inserted": false,
       "citations_inserted": false,
       "interpretations_inserted": false
-    }
+    },
+    "type": "docs_state_closeout_only",
+    "database_boundary": "no_database_mutation",
+    "source_boundary": "no_new_sources",
+    "passage_boundary": "no_new_passages",
+    "citation_boundary": "no_new_citations",
+    "interpretation_boundary": "no_interpretations_inserted",
+    "next_step": "BDP-001F — Link first cited passage to Body without Organs concept mention"
   },
   "drift_protection": {
     "schema_locked": false,
@@ -58,7 +65,7 @@
     "system_synthesis",
     "user_interpretation"
   ],
-  "next_step": "BDP-001E.3 — Insert first cited passage only.",
+  "next_step": "BDP-001F — Link first cited passage to Body without Organs concept mention",
   "controlled_vocabularies": {
     "source_types": [
       "book",
@@ -152,5 +159,12 @@
     "bibliographic_metadata_is_not_source_evidence": true,
     "review_readiness_is_not_adoption": true,
     "source_adoption_is_not_interpretive_authority": true
-  }
+  },
+  "current_database_invariant": {
+    "sources_count": 1,
+    "passages_count": 1,
+    "citations_count": 1,
+    "interpretations_count": 0
+  },
+  "next_phase": "BDP-001F"
 }

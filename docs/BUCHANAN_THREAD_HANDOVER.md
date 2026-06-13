@@ -272,3 +272,48 @@ Next step:
 
 BDP-001E.3 — Insert first cited passage only.
 
+
+
+## BDP-001E.5 Closeout
+
+BDP-001E is now closed through E.5.
+
+Completed:
+
+1. Recorded BDP-001E.5 in `ai_boot/BUCHANAN_SYSTEM_STATE.json`.
+2. Confirmed the first canonical source has been adopted: `A Thousand Plateaus: Capitalism and Schizophrenia`.
+3. Confirmed the first short cited passage has been inserted.
+4. Confirmed the first citation record has been inserted and linked to the canonical source and first passage.
+5. Confirmed no interpretations have been inserted.
+6. Preserved the source/passage/citation chain as ready for concept-linking.
+7. Preserved the database scope and current verified invariant.
+
+Current invariant:
+
+```text
+sources_count = 1
+passages_count = 1
+citations_count = 1
+interpretations_count = 0
+BDP-001E.4 migration_count = 1
+```
+
+Boundary:
+
+```text
+No SQL migration was added.
+No database mutation was performed.
+No source was inserted.
+No passage was inserted.
+No citation was inserted.
+No interpretation was inserted.
+No concept mention was inserted.
+No concept relation was inserted.
+No interpretive claim was created.
+```
+
+Next step:
+
+```text
+BDP-001F — Link first cited passage to Body without Organs concept mention
+```
