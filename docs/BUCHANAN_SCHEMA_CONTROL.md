@@ -324,3 +324,69 @@ BDP-001D is valid only if verification proves:
 5. the `passages` table remains empty.
 6. the `interpretations` table remains empty.
 
+## BDP-001L Canonical Source Metadata Adoption Patch
+
+BDP-001L adopts the reviewed Buchanan article into the canonical `sources` table as metadata only.
+
+### sources extension
+
+Added field when missing:
+
+```text
+metadata JSONB
+```
+
+Purpose:
+
+```text
+Preserve article-specific bibliographic metadata without treating bibliographic existence as passage evidence or interpretive authority.
+```
+
+BDP-001L metadata keys include:
+
+```text
+doi
+journal
+volume
+issue
+pages
+publication_date
+publisher
+display_rule
+pdf_access_status
+source_text_available_for_review
+canonical_metadata_adoption_readiness
+adopted_from_phases
+passage_ingestion_ready
+citation_insertion_ready
+concept_mention_ready
+concept_relation_ready
+interpretation_ready
+buchanan_claim_ready
+bdp_phase
+```
+
+### Migration Note
+
+BDP-001L changes canonical source metadata storage only.
+
+It does not alter passage storage, concept identity, citation behaviour, authority-level logic, or interpretation storage.
+
+It does not create a passage, citation, concept mention, concept relation, interpretation, synthesis, or Buchanan-specific claim.
+
+### Validation Addition
+
+BDP-001L is valid only if verification proves:
+
+1. `sources_count = 2`.
+2. `source_candidates_count = 3`.
+3. one canonical Buchanan article source exists with the reviewed metadata.
+4. the reviewed Buchanan source candidate is preserved as approved/adopted review history.
+5. `passages_count = 1`.
+6. `citations_count = 1`.
+7. `concept_mentions_count = 1`.
+8. `concept_relations_count = 0`.
+9. `interpretations_count = 0`.
+10. no passage or citation is attached to the newly adopted Buchanan article source.
+11. `BDP-001L migration_count = 1`.
+

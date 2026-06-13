@@ -235,3 +235,30 @@ anchor concept
 ```
 
 Buchanan-specific claims remain blocked until an exact Buchanan source passage is specified, reviewed, cited, and linked.
+
+## BDP-001L Metadata-Only Canonical Source Adoption
+
+BDP-001L promotes the reviewed Buchanan article candidate into canonical `sources` as metadata only.
+
+Controlled sequence:
+
+```text
+BDP-001J exact source specified
+→ BDP-001K PDF availability and adoption readiness reviewed
+→ BDP-001L canonical source metadata adopted
+→ BDP-001M passage candidate preparation may begin later
+```
+
+Boundary:
+
+```text
+canonical source metadata is not source text
+source text availability is not passage evidence
+passage preparation is not passage insertion
+citation insertion remains blocked until a passage is approved
+interpretation remains blocked until evidence exists
+Buchanan-specific claims remain blocked until an exact passage and citation are linked
+```
+
+The original source candidate remains review history and is not deleted.
+

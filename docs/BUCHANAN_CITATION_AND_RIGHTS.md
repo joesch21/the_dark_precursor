@@ -151,3 +151,29 @@ display_rule = metadata_reference_only_in_bdp_001k
 BDP-001K permits metadata-readiness review only.
 
 It does not authorize article reproduction, long quotation, passage insertion, citation insertion, or Buchanan interpretation.
+
+## BDP-001L Canonical Metadata Adoption Rights Boundary
+
+The reviewed Buchanan article metadata has been adopted into canonical `sources` only.
+
+Canonical source:
+
+```text
+Ian Buchanan, "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?", Body & Society 3(3), September 1997, pp. 73-91. DOI: 10.1177/1357034X97003003004.
+```
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+pdf_access_status = user_provided_pdf_available
+display_rule = reference_only
+source_text_available_for_review = true
+```
+
+BDP-001L authorizes canonical bibliographic metadata only.
+
+It does not authorize article reproduction, long quotation, passage insertion, citation insertion, concept mention insertion, concept relation insertion, interpretation, synthesis, or a Buchanan-specific claim.
+
+The uploaded PDF availability remains metadata for later controlled review and does not change the quotation boundary.
+

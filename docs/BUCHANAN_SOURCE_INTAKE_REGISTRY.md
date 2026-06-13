@@ -169,3 +169,54 @@ Next step:
 ```text
 BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.
 ```
+
+## BDP-001L Canonical Metadata Adoption Record
+
+The exact Buchanan source candidate reviewed in BDP-001J and BDP-001K has been adopted as canonical source metadata only.
+
+Adopted canonical metadata:
+
+```text
+title = The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?
+author = Ian Buchanan
+type = article
+publication_year = 1997
+journal = Body & Society
+volume = 3
+issue = 3
+pages = 73-91
+doi = 10.1177/1357034X97003003004
+url_or_reference = https://doi.org/10.1177/1357034X97003003004
+publisher = SAGE Publications
+rights_status = restricted
+reliability_level = high
+status = canonical
+```
+
+Candidate-history treatment:
+
+```text
+source_candidates_count remains 3
+reviewed candidate is preserved as approved/adopted review history
+adopted_from = BDP-001J + BDP-001K
+pdf_access_status = user_provided_pdf_available
+display_rule = reference_only
+```
+
+Boundary:
+
+```text
+BDP-001L adopts metadata only.
+BDP-001L does not insert source text.
+BDP-001L does not insert a passage.
+BDP-001L does not insert a citation.
+BDP-001L does not create a concept mention or relation.
+BDP-001L does not create an interpretation or Buchanan claim.
+```
+
+Next step:
+
+```text
+BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.
+```
+

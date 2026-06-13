@@ -638,3 +638,55 @@ Next step:
 ```text
 BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.
 ```
+
+## BDP-001L Handover Update
+
+Reviewed Buchanan source metadata has been adopted into canonical `sources` as a metadata-only governed slice.
+
+Completed:
+
+1. Inserted one canonical `sources` record for Ian Buchanan's 1997 article `The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?`.
+2. Preserved the existing Buchanan source candidate as review history.
+3. Marked the reviewed Buchanan source candidate as approved/adopted metadata history.
+4. Recorded adoption from BDP-001J exact-source specification and BDP-001K PDF availability review.
+5. Preserved uploaded PDF availability as metadata only.
+6. Confirmed no Buchanan article passage was inserted.
+7. Confirmed no citation record was inserted for the Buchanan article.
+8. Confirmed no concept mention, concept relation, interpretation, generated synthesis, or Buchanan claim was created.
+9. Added `sql/012_adopt_bdp_001l_buchanan_source_metadata_only.sql`.
+10. Added `scripts/read_bdp_001l_buchanan_source_metadata.py`.
+11. Added `scripts/verify_bdp_001l_buchanan_source_metadata_only.py`.
+12. Added `scripts/update_bdp_001l_system_state.py`.
+
+Current invariant:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001L migration_count = 1
+```
+
+Boundary:
+
+```text
+No passage insertion.
+No citation insertion.
+No concept mention insertion.
+No concept relation insertion.
+No interpretation insertion.
+No generated Buchanan claim.
+No long quotation from the PDF.
+No claim that Buchanan argues anything yet.
+```
+
+Next step:
+
+```text
+BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.
+```
+
