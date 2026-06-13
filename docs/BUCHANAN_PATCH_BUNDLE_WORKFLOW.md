@@ -59,3 +59,18 @@ If the phase applies a SQL migration, the apply script must:
 ## Current Use
 
 BDP-001I records this method as the preferred working pattern for the Buchanan Platform.
+
+## BDP-001J.0 Patch Bundle Lesson
+
+Patch bundles should remain the default working method:
+
+```text
+make patch bundle
+→ download zip
+→ unzip locally
+→ apply with git apply --check
+→ run verifiers
+→ commit/push from local repo
+```
+
+Compatibility repairs should avoid brittle exact-string replacement where possible.

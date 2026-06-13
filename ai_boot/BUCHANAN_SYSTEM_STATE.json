@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.3",
-  "status": "buchanan_placeholder_candidate_selected_only",
+  "status": "concept_evidence_depth_tiers_recorded",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -13,10 +13,10 @@
     "docs/BUCHANAN_PATCH_BUNDLE_WORKFLOW.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001I",
-    "name": "Select First Buchanan Source Candidate for Body without Organs",
+    "phase": "BDP-001J.0",
+    "name": "Add Concept Evidence Depth Tiers",
     "concept": "Body without Organs",
-    "type": "selection_only_exact_source_block",
+    "type": "concept_evidence_depth_tiers_doctrine",
     "database_scope": [
       "schema_migrations",
       "source_candidates",
@@ -32,16 +32,14 @@
       "ingestion_events",
       "user_interactions"
     ],
-    "database_boundary": "selection_metadata_update_only",
-    "candidate_boundary": "existing_candidate_selected_only_no_new_candidate",
-    "source_boundary": "no_canonical_buchanan_source_until_exact_source_specified",
-    "exact_source_required": true,
-    "canonical_adoption_blocked": true,
-    "canonical_adoption_blocker": "Exact Buchanan publication, lecture, transcript, interview, or teaching source has not yet been specified.",
-    "patch_bundle_workflow": "make patch bundle \u2192 download zip \u2192 unzip locally \u2192 apply with git apply --check \u2192 run verifiers \u2192 commit/push from local repo",
+    "database_boundary": "no_database_mutation",
+    "concept_boundary": "tiered_evidence_depth_not_full_treatment_for_every_concept",
+    "authority_boundary": "concept_detail_follows_authority_level",
+    "buchanan_claim_boundary": "no_buchanan_specific_claim_without_exact_buchanan_source_passage",
+    "source_boundary": "no_new_candidate_or_canonical_source",
     "passage_boundary": "no_new_passage",
     "citation_boundary": "no_new_citation",
-    "concept_boundary": "no_new_concept_mention_or_relation",
+    "relation_boundary": "no_concept_relation",
     "interpretation_boundary": "no_interpretation_or_synthesis",
     "next_step": "BDP-001J \u2014 Specify exact Buchanan source for Body without Organs candidate review."
   },
@@ -157,13 +155,18 @@
   },
   "current_database_invariant": {
     "sources_count": 1,
-    "source_candidates_count": 3,
     "passages_count": 1,
     "citations_count": 1,
     "concept_mentions_count": 1,
     "concept_relations_count": 0,
-    "interpretations_count": 0,
-    "bdp_001i_migration_count": 1
+    "interpretations_count": 0
   },
-  "next_phase": "BDP-001J"
+  "next_phase": "BDP-001J",
+  "concept_evidence_depth_tiers": {
+    "rule": "concept_detail_follows_authority",
+    "anchor_concepts": "full_citation_backed_treatment",
+    "supporting_concepts": "reviewed_mention_or_relation_evidence",
+    "contextual_terms": "proposed_lightweight_until_promoted",
+    "buchanan_claim_requirement": "exact_buchanan_source_passage_required"
+  }
 }

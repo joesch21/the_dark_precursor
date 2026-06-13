@@ -216,3 +216,22 @@ Next step:
 ```text
 BDP-001J — Specify exact Buchanan source for Body without Organs candidate review.
 ```
+
+## BDP-001J.0 Concept Evidence Depth Tiers
+
+BDP-001J.0 records that concepts do not all require the same evidence depth.
+
+The ingestion workflow should scale evidence requirements by intended authority:
+
+```text
+contextual term
+→ proposed record only
+
+supporting concept
+→ reviewed mention evidence
+
+anchor concept
+→ citation-backed source, passage, concept mention, and later relation or interpretation evidence
+```
+
+Buchanan-specific claims remain blocked until an exact Buchanan source passage is specified, reviewed, cited, and linked.

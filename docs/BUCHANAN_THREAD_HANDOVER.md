@@ -522,3 +522,47 @@ Next step:
 ```text
 BDP-001J — Specify exact Buchanan source for Body without Organs candidate review.
 ```
+
+## BDP-001J.0 Handover Update
+
+Concept evidence depth tiers recorded as a doctrine-only slice.
+
+Completed:
+
+1. Added `docs/BUCHANAN_CONCEPT_EVIDENCE_DEPTH_TIERS.md`.
+2. Added `scripts/verify_bdp_001j0_concept_evidence_depth_tiers.py`.
+3. Updated `ai_boot/BUCHANAN_SYSTEM_STATE.json` for BDP-001J.0.
+4. Updated concept ontology and ingestion workflow with tiered evidence depth.
+5. Preserved the patch-bundle workflow as the preferred application method.
+6. Confirmed no database mutation was performed.
+7. Confirmed no new source, passage, citation, concept mention, concept relation, interpretation, or Buchanan claim was created.
+
+Doctrine:
+
+```text
+Not every concept requires full-source treatment.
+Concept detail follows authority.
+Anchor concepts require full citation-backed treatment.
+Supporting concepts require reviewed mention or relation evidence.
+Contextual terms may remain proposed until promoted.
+No Buchanan-specific claim may be made without an exact Buchanan source passage.
+```
+
+Current invariant:
+
+```text
+sources_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001I migration_count = 1
+BDP-001J.0 migration_count = 0
+```
+
+Next step:
+
+```text
+BDP-001J — Specify exact Buchanan source for Body without Organs candidate review.
+```

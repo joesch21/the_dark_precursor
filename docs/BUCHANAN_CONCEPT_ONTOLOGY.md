@@ -137,3 +137,36 @@ operationalises
 ```
 
 Relation vocabulary changes are ontology changes. They require evidence, review status, state update, and schema-control update.
+
+## BDP-001J.0 Concept Evidence Depth Tiers
+
+Not every concept requires full-source treatment.
+
+Concept detail follows authority:
+
+```text
+show term exists
+→ light record
+
+show concept is mentioned
+→ concept mention + passage
+
+show relation between concepts
+→ relation + evidence passage
+
+say Buchanan argues something
+→ exact Buchanan source + passage + citation
+
+generate synthesis
+→ multiple evidence-backed records + authority label
+```
+
+Concept tiers:
+
+```text
+Tier 1 — Anchor Concepts: full citation-backed treatment.
+Tier 2 — Supporting Concepts: reviewed mention or relation evidence.
+Tier 3 — Contextual Terms: proposed lightweight status until promoted.
+```
+
+No Buchanan-specific claim may be made without an exact Buchanan source passage.
