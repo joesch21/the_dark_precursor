@@ -159,3 +159,29 @@ No passage records.
 No interpretation records.
 ```
 
+## BDP-001H Source Intake Registry
+
+BDP-001H adds a read-only source intake registry and candidate creation preview layer.
+
+Purpose:
+
+```text
+Make future Buchanan / Deleuze source intake inspectable before any source candidate is inserted.
+```
+
+Boundary:
+
+```text
+Preview is not creation.
+Candidate is not canonical source.
+Canonical source is not passage evidence.
+Passage evidence is not interpretation.
+```
+
+BDP-001H does not create source candidates, canonical sources, passages, citations, concept mentions, concept relations, or interpretations.
+
+Next step:
+
+```text
+BDP-001I — Select first Buchanan source candidate for Body without Organs.
+```

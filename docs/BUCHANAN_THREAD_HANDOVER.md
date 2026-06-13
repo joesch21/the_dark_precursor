@@ -411,3 +411,52 @@ Next step:
 ```text
 BDP-001H — Define source intake and candidate staging workflow
 ```
+
+## BDP-001H Handover Update
+
+Source intake registry and candidate creation readback prepared as a read-only slice.
+
+Completed:
+
+1. Added `docs/BUCHANAN_SOURCE_INTAKE_REGISTRY.md`.
+2. Added `scripts/read_bdp_001h_source_intake_registry.py`.
+3. Added `scripts/preview_bdp_001h_candidate_creation.py`.
+4. Added `scripts/verify_bdp_001h_source_intake_registry.py`.
+5. Updated `ai_boot/BUCHANAN_SYSTEM_STATE.json` for BDP-001H.
+6. Updated ingestion workflow with the source intake registry boundary.
+7. Preserved the existing database invariant.
+8. Confirmed no source candidate, canonical source, passage, citation, concept mention, concept relation, or interpretation was inserted.
+
+Current invariant:
+
+```text
+sources_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001F migration_count = 1
+BDP-001H migration_count = 0
+```
+
+Boundary:
+
+```text
+No SQL migration was added.
+No database mutation was performed.
+No source candidate was inserted.
+No canonical source was inserted.
+No passage was inserted.
+No citation was inserted.
+No concept mention was inserted.
+No concept relation was inserted.
+No interpretation was inserted.
+No generated Buchanan claim was created.
+```
+
+Next step:
+
+```text
+BDP-001I — Select first Buchanan source candidate for Body without Organs.
+```
