@@ -1,117 +1,74 @@
--- BDP-001D — Review and enrich source candidates before canonical source adoption
--- Boundary: candidate enrichment only.
--- This migration does not create canonical sources, passages, or interpretations.
-
 BEGIN;
 
-INSERT INTO schema_migrations (phase, description)
-SELECT
-    'BDP-001D',
-    'Add structured review metadata to source_candidates and enrich initial Buchanan/Deleuze source candidates without canonical adoption.'
-WHERE NOT EXISTS (
-    SELECT 1 FROM schema_migrations WHERE phase = 'BDP-001D'
-);
-
 ALTER TABLE source_candidates
-    ADD COLUMN IF NOT EXISTS metadata JSONB NOT NULL DEFAULT '{}'::jsonb;
-
-COMMENT ON COLUMN source_candidates.metadata IS
-    'Structured candidate-review metadata. Candidate metadata is not source evidence, canonical adoption, passage text, or interpretive authority.';
+ADD COLUMN IF NOT EXISTS metadata JSONB NOT NULL DEFAULT '{}'::jsonb;
 
 UPDATE source_candidates
 SET
-    author = 'Gilles Deleuze and Félix Guattari',
-    type = 'book',
     status = 'candidate',
-    review_notes = 'BDP-001D review-ready candidate metadata added. Primary-text candidate only. Requires operator confirmation of exact edition/translation, rights basis, and locator strategy before canonical source adoption.',
+    review_notes = 'Primary Deleuze and Guattari candidate. Review-ready metadata added for bibliographic, rights, reliability, and operator adoption review. Candidate remains non-canonical; no passages or interpretations are authorized by this record.',
     metadata = metadata || jsonb_build_object(
+        'phase', 'BDP-001D',
         'candidate_status', 'candidate',
-        'review_notes', 'Primary Deleuze and Guattari source candidate. Candidate remains non-canonical until operator adoption review is explicitly recorded.',
-        'bibliographic_edition_or_version_note', 'Review candidate for Anti-Oedipus: Capitalism and Schizophrenia. Confirm exact edition, translation, publisher, year, and locator scheme before adoption.',
+        'bibliographic_edition_or_version_note', 'Requires operator selection of edition before canonical adoption; recommended review target is a stable published English edition with full citation metadata.',
         'rights_status_recommendation', 'fair_use_reference_only',
-        'reliability_level_recommendation', 'high_after_edition_confirmation_primary_text',
-        'adoption_readiness', 'review_ready_not_adoption_ready',
-        'operator_review_requirement', 'operator must approve canonical source adoption before any source record, passage extraction, citation claim, or interpretation is created',
-        'canonical_adoption_boundary', 'source candidate ≠ canonical source; bibliographic metadata ≠ source evidence; review readiness ≠ adoption; source adoption ≠ interpretive authority',
-        'bdp_phase', 'BDP-001D'
+        'reliability_level_recommendation', 'primary_text',
+        'adoption_readiness', 'review_ready_not_adopted',
+        'operator_review_requirement', 'Operator must confirm edition, rights handling, citation format, and adoption decision before promotion into sources.',
+        'canonical_adoption', false,
+        'passages_authorized', false,
+        'interpretations_authorized', false,
+        'review_notes', 'Candidate metadata only. Bibliographic enrichment is not evidence adoption.'
     )
 WHERE title = 'Anti-Oedipus: Capitalism and Schizophrenia';
 
 UPDATE source_candidates
 SET
-    author = 'Gilles Deleuze and Félix Guattari',
-    type = 'book',
     status = 'candidate',
-    review_notes = 'BDP-001D review-ready candidate metadata added. Primary-text candidate only. Requires operator confirmation of exact edition/translation, rights basis, and locator strategy before canonical source adoption.',
+    review_notes = 'Primary Deleuze and Guattari candidate. Review-ready metadata added for bibliographic, rights, reliability, and operator adoption review. Candidate remains non-canonical; no passages or interpretations are authorized by this record.',
     metadata = metadata || jsonb_build_object(
+        'phase', 'BDP-001D',
         'candidate_status', 'candidate',
-        'review_notes', 'Primary Deleuze and Guattari source candidate. Candidate remains non-canonical until operator adoption review is explicitly recorded.',
-        'bibliographic_edition_or_version_note', 'Review candidate for A Thousand Plateaus: Capitalism and Schizophrenia. Confirm exact edition, translation, publisher, year, and locator scheme before adoption.',
+        'bibliographic_edition_or_version_note', 'Requires operator selection of edition before canonical adoption; recommended review target is a stable published English edition with full citation metadata.',
         'rights_status_recommendation', 'fair_use_reference_only',
-        'reliability_level_recommendation', 'high_after_edition_confirmation_primary_text',
-        'adoption_readiness', 'review_ready_not_adoption_ready',
-        'operator_review_requirement', 'operator must approve canonical source adoption before any source record, passage extraction, citation claim, or interpretation is created',
-        'canonical_adoption_boundary', 'source candidate ≠ canonical source; bibliographic metadata ≠ source evidence; review readiness ≠ adoption; source adoption ≠ interpretive authority',
-        'bdp_phase', 'BDP-001D'
+        'reliability_level_recommendation', 'primary_text',
+        'adoption_readiness', 'review_ready_not_adopted',
+        'operator_review_requirement', 'Operator must confirm edition, rights handling, citation format, and adoption decision before promotion into sources.',
+        'canonical_adoption', false,
+        'passages_authorized', false,
+        'interpretations_authorized', false,
+        'review_notes', 'Candidate metadata only. Bibliographic enrichment is not evidence adoption.'
     )
 WHERE title = 'A Thousand Plateaus: Capitalism and Schizophrenia';
 
 UPDATE source_candidates
 SET
-    author = 'Ian Buchanan',
-    type = 'bibliography_record',
     status = 'candidate',
-    review_notes = 'BDP-001D review-ready candidate metadata added. Buchanan-source candidate only. Requires operator identification of exact Buchanan work, bibliographic version, rights basis, and source locator before canonical source adoption.',
+    review_notes = 'Buchanan-specific source candidate enriched for review. This remains a placeholder candidate until an exact Buchanan publication, lecture, transcript, interview, or teaching source is selected and reviewed. Candidate remains non-canonical; no passages or interpretations are authorized by this record.',
     metadata = metadata || jsonb_build_object(
+        'phase', 'BDP-001D',
         'candidate_status', 'candidate',
-        'review_notes', 'Buchanan source candidate for Body without Organs research. Candidate remains non-canonical until exact source identity and rights status are reviewed by the operator.',
-        'bibliographic_edition_or_version_note', 'Placeholder candidate for a Buchanan Body without Organs source. Confirm exact title, publication form, edition/version, publisher or URL, date, and locator scheme before adoption.',
+        'bibliographic_edition_or_version_note', 'Exact Buchanan source still required. Replace placeholder with precise publication, lecture, transcript, interview, or teaching-material metadata before canonical adoption.',
         'rights_status_recommendation', 'unknown',
-        'reliability_level_recommendation', 'medium_pending_source_identification_buchanan_direct_candidate',
-        'adoption_readiness', 'not_ready_for_adoption_until_exact_source_identified',
-        'operator_review_requirement', 'operator must identify and approve exact Buchanan source before any canonical source record, passage extraction, citation claim, or interpretation is created',
-        'canonical_adoption_boundary', 'source candidate ≠ canonical source; bibliographic metadata ≠ source evidence; review readiness ≠ adoption; source adoption ≠ interpretive authority',
-        'bdp_phase', 'BDP-001D'
+        'reliability_level_recommendation', 'buchanan_direct_pending_source_confirmation',
+        'adoption_readiness', 'needs_exact_source_before_adoption',
+        'operator_review_requirement', 'Operator must identify exact Buchanan source, confirm rights status, confirm bibliographic metadata, and approve adoption before promotion into sources.',
+        'canonical_adoption', false,
+        'passages_authorized', false,
+        'interpretations_authorized', false,
+        'review_notes', 'Candidate metadata only. No Buchanan claim may be made from this placeholder without exact source evidence.'
     )
 WHERE title = 'Ian Buchanan Body without Organs source candidate';
 
-DO $$
-DECLARE
-    expected_count INTEGER;
-    sources_count INTEGER;
-    passages_count INTEGER;
-    interpretations_count INTEGER;
-BEGIN
-    SELECT COUNT(*) INTO expected_count
-    FROM source_candidates
-    WHERE title IN (
-        'Anti-Oedipus: Capitalism and Schizophrenia',
-        'A Thousand Plateaus: Capitalism and Schizophrenia',
-        'Ian Buchanan Body without Organs source candidate'
-    )
-      AND status = 'candidate'
-      AND metadata->>'bdp_phase' = 'BDP-001D'
-      AND metadata ? 'operator_review_requirement'
-      AND metadata ? 'canonical_adoption_boundary';
-
-    IF expected_count <> 3 THEN
-        RAISE EXCEPTION 'BDP-001D expected 3 enriched candidate records, found %', expected_count;
-    END IF;
-
-    SELECT COUNT(*) INTO sources_count FROM sources;
-    IF sources_count <> 0 THEN
-        RAISE EXCEPTION 'BDP-001D must not create canonical sources; sources table contains % rows', sources_count;
-    END IF;
-
-    SELECT COUNT(*) INTO passages_count FROM passages;
-    IF passages_count <> 0 THEN
-        RAISE EXCEPTION 'BDP-001D must not insert passages; passages table contains % rows', passages_count;
-    END IF;
-
-    SELECT COUNT(*) INTO interpretations_count FROM interpretations;
-    IF interpretations_count <> 0 THEN
-        RAISE EXCEPTION 'BDP-001D must not insert interpretations; interpretations table contains % rows', interpretations_count;
-    END IF;
-END $$;
+INSERT INTO schema_migrations (id, phase, description)
+SELECT
+    '003_enrich_bdp_001d_source_candidates',
+    'BDP-001D',
+    'Added structured review metadata to source_candidates and enriched initial candidates without canonical source adoption.'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM schema_migrations
+    WHERE id = '003_enrich_bdp_001d_source_candidates'
+);
 
 COMMIT;

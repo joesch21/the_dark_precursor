@@ -168,3 +168,25 @@ Next step:
 BDP-001E — Adopt first reviewed source and insert first cited passage.
 ```
 
+
+## BDP-001D Repair Closeout
+
+BDP-001D required a repair after the first pushed commit because the live `schema_migrations.id` column requires an explicit text ID and the original migration attempted to insert only phase and description.
+
+Repair completed:
+
+1. Removed accidental nested patch folder from the repository.
+2. Corrected `sql/003_enrich_bdp_001d_source_candidates.sql` to insert explicit schema migration ID.
+3. Confirmed `source_candidates.metadata` is JSONB.
+4. Enriched all three initial source candidates with review-ready metadata.
+5. Confirmed all enriched records remain candidate-only.
+6. Confirmed no canonical sources were created.
+7. Confirmed no passages were inserted.
+8. Confirmed no interpretations were inserted.
+9. Verified BDP-001D with `scripts/verify_bdp_001d_candidates.py`.
+
+Next step:
+
+```text
+BDP-001E — Adopt first reviewed source and insert first cited passage.
+
