@@ -390,3 +390,71 @@ BDP-001L is valid only if verification proves:
 10. no passage or citation is attached to the newly adopted Buchanan article source.
 11. `BDP-001L migration_count = 1`.
 
+## BDP-001M Passage Candidate Staging Patch
+
+BDP-001M introduces candidate passage staging so the platform can prepare passage review targets without collapsing them into canonical evidence.
+
+### passage_candidates
+
+Stores passage candidates before canonical passage insertion.
+
+Fields:
+
+```text
+id
+source_id
+concept_id
+candidate_label
+candidate_status
+candidate_scope
+candidate_text
+candidate_text_status
+page_or_timestamp
+chapter_or_section
+locator_status
+rights_status
+display_rule
+review_status
+extraction_status
+inserted_as_passage
+citation_ready
+concept_mention_ready
+interpretation_ready
+buchanan_claim_ready
+created_at
+reviewed_at
+metadata
+```
+
+Purpose:
+
+```text
+A passage candidate can identify what should be reviewed next without becoming a passage, citation, concept mention, relation, interpretation, or claim.
+```
+
+### Migration Note
+
+BDP-001M creates the `passage_candidates` staging table when missing and inserts one metadata-only candidate envelope for the adopted Buchanan article.
+
+It does not insert a canonical passage into `passages`.
+
+It does not insert a citation into `citations`.
+
+It does not insert a concept mention, concept relation, interpretation, generated synthesis, or Buchanan-specific claim.
+
+### Validation Addition
+
+BDP-001M is valid only if verification proves:
+
+1. `sources_count = 2`.
+2. `source_candidates_count = 3`.
+3. `passage_candidates_count = 1`.
+4. `passages_count = 1`.
+5. `citations_count = 1`.
+6. `concept_mentions_count = 1`.
+7. `concept_relations_count = 0`.
+8. `interpretations_count = 0`.
+9. the Buchanan article has zero canonical passages attached.
+10. the Buchanan article has zero citations attached.
+11. the passage candidate stores no Buchanan article text.
+12. `BDP-001M migration_count = 1`.

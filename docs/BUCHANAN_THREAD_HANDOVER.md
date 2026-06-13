@@ -690,3 +690,55 @@ Next step:
 BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.
 ```
 
+## BDP-001M Handover Update
+
+First Buchanan passage candidate preparation completed as a candidate-only governed slice.
+
+Completed:
+
+1. Created `passage_candidates` as a staging table for candidate passages before canonical passage insertion.
+2. Prepared one passage-candidate envelope for Ian Buchanan's 1997 article `The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?`.
+3. Linked the candidate envelope to the adopted canonical Buchanan source.
+4. Linked the candidate envelope to the `Body without Organs` concept as an intended review target.
+5. Preserved the candidate as metadata-only and review-pending.
+6. Stored no Buchanan article text in the candidate.
+7. Selected no page locator yet.
+8. Inserted no canonical passage, citation, concept mention, concept relation, interpretation, generated synthesis, or Buchanan claim.
+9. Added `sql/013_prepare_bdp_001m_first_buchanan_passage_candidate.sql`.
+10. Added `scripts/read_bdp_001m_first_buchanan_passage_candidate.py`.
+11. Added `scripts/verify_bdp_001m_first_buchanan_passage_candidate.py`.
+12. Added `scripts/verify_bdp_001m_phase_chain_invariant.py`.
+13. Added `scripts/update_bdp_001m_docs_and_state.py`.
+
+Current invariant:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001M migration_count = 1
+```
+
+Boundary:
+
+```text
+No Buchanan article passage inserted.
+No Buchanan article citation inserted.
+No Buchanan article concept mention inserted.
+No concept relation inserted.
+No interpretation inserted.
+No generated Buchanan claim.
+No long quotation from the PDF.
+No candidate text stored yet.
+```
+
+Next step:
+
+```text
+BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.
+```

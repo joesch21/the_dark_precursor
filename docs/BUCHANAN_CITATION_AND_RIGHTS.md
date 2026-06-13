@@ -177,3 +177,20 @@ It does not authorize article reproduction, long quotation, passage insertion, c
 
 The uploaded PDF availability remains metadata for later controlled review and does not change the quotation boundary.
 
+## BDP-001M Passage Candidate Rights Boundary
+
+BDP-001M prepares a passage-candidate envelope from the adopted Buchanan article metadata only.
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+candidate_text_stored = false
+long_quotation_stored = false
+article_reproduction_authorized = false
+```
+
+BDP-001M does not authorize quotation display, article reproduction, citation insertion, interpretation, generated synthesis, or a Buchanan-specific claim.
+
+A later phase must review any proposed short excerpt and locator before the system may insert a canonical passage or citation.

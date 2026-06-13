@@ -220,3 +220,38 @@ Next step:
 BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.
 ```
 
+## BDP-001M Passage Candidate Preparation Record
+
+The adopted Buchanan article has now been used to prepare a passage-candidate envelope only.
+
+Candidate metadata:
+
+```text
+candidate_label = BDP-001M first Buchanan passage candidate for Body without Organs
+source = Ian Buchanan, "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?"
+target_concept = Body without Organs
+candidate_status = candidate
+review_status = prepared
+candidate_scope = passage_candidate_envelope_metadata_only
+candidate_text_stored = false
+locator_selected = false
+rights_status = restricted
+display_rule = reference_only
+```
+
+Boundary:
+
+```text
+A passage candidate is not a canonical passage.
+A candidate envelope is not article text.
+PDF availability is not permission to reproduce the article.
+Candidate preparation does not authorize citation insertion.
+Candidate preparation does not authorize interpretation.
+Candidate preparation does not authorize a Buchanan-specific claim.
+```
+
+Next step:
+
+```text
+BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.
+```

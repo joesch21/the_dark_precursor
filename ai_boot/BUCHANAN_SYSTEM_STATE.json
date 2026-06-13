@@ -165,7 +165,7 @@
     "concept_relations_count": 0,
     "interpretations_count": 0
   },
-  "next_phase": "BDP-001M",
+  "next_phase": "BDP-001N",
   "concept_evidence_depth_tiers": {
     "rule": "concept_detail_follows_authority",
     "anchor_concepts": "full_citation_backed_treatment",
@@ -173,8 +173,8 @@
     "contextual_terms": "proposed_lightweight_until_promoted",
     "buchanan_claim_requirement": "exact_buchanan_source_passage_required"
   },
-  "last_completed_phase": "BDP-001L",
-  "current_phase": "BDP-001L",
+  "last_completed_phase": "BDP-001M",
+  "current_phase": "BDP-001M",
   "bdp_001l_metadata_only_source_adoption": {
     "phase": "BDP-001L",
     "status": "complete",
@@ -230,5 +230,56 @@
       "long_pdf_quotation": false
     },
     "next_step": "BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet."
+  },
+  "bdp_001m_passage_candidate_preparation": {
+    "phase": "BDP-001M",
+    "status": "complete",
+    "title": "Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet",
+    "controlled_slice": "passage_candidate_preparation_only",
+    "database_change": {
+      "created_table_when_missing": "passage_candidates",
+      "inserted_passage_candidates": 1,
+      "inserted_canonical_passages": 0,
+      "inserted_citations": 0,
+      "inserted_concept_mentions": 0,
+      "inserted_concept_relations": 0,
+      "inserted_interpretations": 0
+    },
+    "passage_candidate": {
+      "candidate_label": "BDP-001M first Buchanan passage candidate for Body without Organs",
+      "source_title": "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?",
+      "source_author": "Ian Buchanan",
+      "source_doi": "10.1177/1357034X97003003004",
+      "target_concept": "Body without Organs",
+      "candidate_status": "candidate",
+      "review_status": "prepared",
+      "candidate_scope": "passage_candidate_envelope_metadata_only",
+      "candidate_text_stored": false,
+      "locator_selected": false,
+      "display_rule": "reference_only",
+      "rights_status": "restricted"
+    },
+    "verified_invariant": {
+      "sources_count": 2,
+      "source_candidates_count": 3,
+      "passage_candidates_count": 1,
+      "passages_count": 1,
+      "citations_count": 1,
+      "concept_mentions_count": 1,
+      "concept_relations_count": 0,
+      "interpretations_count": 0,
+      "BDP-001M migration_count": 1
+    },
+    "boundaries": {
+      "canonical_passage_insertion": false,
+      "citation_insertion": false,
+      "concept_mention_insertion": false,
+      "concept_relation_insertion": false,
+      "interpretation_insertion": false,
+      "generated_buchanan_claim": false,
+      "long_pdf_quotation": false,
+      "candidate_text_storage": false
+    },
+    "next_step": "BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion."
   }
 }

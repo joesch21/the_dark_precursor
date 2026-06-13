@@ -262,3 +262,30 @@ Buchanan-specific claims remain blocked until an exact passage and citation are 
 
 The original source candidate remains review history and is not deleted.
 
+## BDP-001M Passage Candidate Preparation
+
+BDP-001M adds a controlled staging step between canonical source metadata and canonical passage insertion.
+
+Updated controlled sequence:
+
+```text
+canonical source metadata
+→ passage candidate envelope
+→ operator review of exact text and locator
+→ approved passage insertion
+→ citation insertion
+→ concept mention
+→ relation or interpretation only after evidence exists
+```
+
+Boundary:
+
+```text
+candidate envelope is not passage evidence
+candidate text absent means no quotation authority
+locator pending means no citation authority
+prepared candidate does not authorize interpretation
+prepared candidate does not authorize Buchanan-specific claims
+```
+
+This keeps the adopted Buchanan source available for later passage review without treating bibliographic adoption as textual evidence.
