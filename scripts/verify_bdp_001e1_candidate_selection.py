@@ -145,10 +145,11 @@ def main():
     if payload.get("bdp_001e3_count") == 1:
         print("[OK] later BDP-001E.3 passage insertion tolerated")
     else:
+        print("[OK] no passages were inserted")
         if payload.get("bdp_001e3_count") == 1:
             print("[OK] later BDP-001E.3 passage insertion tolerated")
-    else:
-        print("[OK] no passage was inserted")
+        else:
+            print("[OK] no passage was inserted")
     print("[OK] no interpretation was inserted")
     print()
     print("BDP-001E.1 first adoption candidate selection verification passed.")
