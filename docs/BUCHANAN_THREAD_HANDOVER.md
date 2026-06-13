@@ -216,3 +216,31 @@ Next step:
 
 BDP-001E.2 — Adopt selected candidate into canonical sources only.
 
+
+## BDP-001E.1 Cleanup Closeout
+
+BDP-001E.1 completed as a selection-only governed slice.
+
+Completed:
+
+1. Selected `A Thousand Plateaus: Capitalism and Schizophrenia` as the first candidate for canonical adoption review.
+2. Locked the selection in `source_candidates.metadata`.
+3. Preserved candidate status as `candidate`.
+4. Removed premature full-adoption and passage files from the repository.
+5. Restored `BUCHANAN_SYSTEM_STATE.json` database scope expected by `verify_init.py`.
+6. Confirmed no canonical source was created.
+7. Confirmed no passage was inserted.
+8. Confirmed no interpretation was inserted.
+
+Current invariant:
+
+```text
+sources_count = 0
+passages_count = 0
+interpretations_count = 0
+BDP-001E.1 migration_count = 1
+
+Next step:
+
+BDP-001E.2 — Adopt selected candidate into canonical sources only.
+
