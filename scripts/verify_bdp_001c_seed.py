@@ -24,9 +24,6 @@ REQUIRED_SOURCE_CANDIDATES = {
 
 def run_sql(sql: str) -> str:
     cmd = [
-        "sudo",
-        "-u",
-        "postgres",
         "psql",
         "-d",
         DB_NAME,

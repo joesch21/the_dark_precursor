@@ -35,9 +35,6 @@ def fail(message):
 
 def run_psql(query):
     command = [
-        "sudo",
-        "-u",
-        "postgres",
         "psql",
         "-X",
         "-A",
