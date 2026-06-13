@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.3",
-  "status": "first_source_adopted_first_cited_passage_inserted",
+  "status": "first_adoption_candidate_selected",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -12,31 +12,37 @@
     "docs/BUCHANAN_THREAD_HANDOVER.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001E",
-    "name": "Adopt First Reviewed Source and Insert First Cited Passage",
+    "phase": "BDP-001E.1",
+    "name": "Select and Lock First Adoption Candidate",
     "concept": "Body without Organs",
-    "source_scope": "Adopt A Thousand Plateaus as the first canonical primary-text source and insert one short cited passage.",
-    "adopted_source": {
+    "source_scope": "Metadata-only selection of A Thousand Plateaus as the first candidate for canonical adoption review.",
+    "database_scope": [
+      "schema_migrations",
+      "source_candidates",
+      "sources",
+      "raw_documents",
+      "clean_documents",
+      "passages",
+      "concepts",
+      "concept_mentions",
+      "concept_relations",
+      "interpretations",
+      "citations",
+      "ingestion_events",
+      "user_interactions"
+    ],
+    "selected_candidate": {
       "title": "A Thousand Plateaus: Capitalism and Schizophrenia",
-      "author": "Gilles Deleuze and Félix Guattari; translated by Brian Massumi",
-      "type": "book",
-      "year": 1987,
-      "publisher": "University of Minnesota Press",
-      "rights_status": "fair_use_reference_only",
-      "reliability_level": "primary_text",
-      "status": "canonical"
+      "selection_status": "selected_for_canonical_adoption_review",
+      "selection_lock": true,
+      "candidate_remains_canonical": false,
+      "candidate_status": "candidate"
     },
-    "passage_scope": {
-      "count": 1,
-      "locator": "p. 150",
-      "chapter_or_section": "Plateau 6: How Do You Make Yourself a Body without Organs?",
-      "display_rule": "short_quote_plus_citation_only"
-    },
-    "interpretations_inserted": false,
-    "canonical_boundary": {
-      "source_candidate_is_not_canonical_source": true,
-      "source_adoption_does_not_create_interpretive_authority": true,
-      "passage_insertion_does_not_create_interpretation": true
+    "safety_invariants": {
+      "canonical_source_adoption": false,
+      "passages_inserted": false,
+      "citations_inserted": false,
+      "interpretations_inserted": false
     }
   },
   "drift_protection": {
@@ -54,7 +60,7 @@
     "system_synthesis",
     "user_interpretation"
   ],
-  "next_step": "BDP-001F — Link first cited passage to Body without Organs concept mention.",
+  "next_step": "BDP-001E.2 — Adopt selected candidate into canonical sources only.",
   "controlled_vocabularies": {
     "source_types": [
       "book",
