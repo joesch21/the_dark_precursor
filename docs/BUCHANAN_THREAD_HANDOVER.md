@@ -566,3 +566,39 @@ Next step:
 ```text
 BDP-001J — Specify exact Buchanan source for Body without Organs candidate review.
 ```
+
+## BDP-001J Handover Update
+
+Exact Buchanan source specified for Body without Organs candidate review.
+
+Completed:
+
+1. Refined the existing `Ian Buchanan Body without Organs source candidate`.
+2. Recorded the exact source as Ian Buchanan's 1997 article `The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?`.
+3. Preserved the candidate as non-canonical.
+4. Recorded canonical adoption as blocked pending operator review.
+5. Added `sql/010_specify_bdp_001j_exact_buchanan_source_candidate_review.sql`.
+6. Added `scripts/read_bdp_001j_exact_buchanan_source.py`.
+7. Added `scripts/verify_bdp_001j_exact_buchanan_source.py`.
+8. Updated system state, source intake registry, and citation/rights policy.
+9. Confirmed no new source, passage, citation, concept mention, relation, interpretation, or Buchanan claim was created.
+
+Current invariant:
+
+```text
+sources_count = 1
+source_candidates_count = 3
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001I migration_count = 1
+BDP-001J migration_count = 1
+```
+
+Next step:
+
+```text
+BDP-001K — Review exact Buchanan source candidate for canonical adoption readiness.
+```

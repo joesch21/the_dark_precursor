@@ -113,3 +113,25 @@ rather than:
 ```text
 This definitively means...
 ```
+
+## BDP-001J Exact Buchanan Source Rights Note
+
+The exact Buchanan source specified for Body without Organs candidate review is:
+
+```text
+Ian Buchanan, "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?", Body & Society 3(3), September 1997, pp. 73-91. DOI: 10.1177/1357034X97003003004.
+```
+
+Rights and display boundary:
+
+```text
+rights_status_recommendation = restricted
+display_rule = reference_only
+```
+
+BDP-001J records bibliographic metadata only.
+
+No article passage is inserted.
+No citation record is inserted.
+No Buchanan interpretation is inserted.
+No generated Buchanan claim is authorized.

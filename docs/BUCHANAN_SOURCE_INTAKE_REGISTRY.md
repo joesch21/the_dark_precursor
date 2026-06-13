@@ -104,3 +104,34 @@ BDP-001H prepares the intake readback layer for future sources, especially Bucha
 ```text
 BDP-001I — Select first Buchanan source candidate for Body without Organs.
 ```
+
+## BDP-001J Exact Buchanan Source Specification
+
+The selected Buchanan placeholder candidate has been refined with an exact source for candidate review.
+
+Exact source:
+
+```text
+Ian Buchanan, "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?", Body & Society 3(3), September 1997, pp. 73-91. DOI: 10.1177/1357034X97003003004.
+```
+
+Review status:
+
+```text
+specified_not_reviewed_for_canonical_adoption
+```
+
+Boundary:
+
+```text
+Exact source specified does not mean canonical source adopted.
+Exact source specified does not authorize passage insertion.
+Exact source specified does not authorize citation insertion.
+Exact source specified does not authorize Buchanan interpretation.
+```
+
+Next step:
+
+```text
+BDP-001K — Review exact Buchanan source candidate for canonical adoption readiness.
+```

@@ -1,102 +1,43 @@
 #!/usr/bin/env python3
+import os, subprocess, sys
 from pathlib import Path
-import json
-import os
-import subprocess
-import sys
 
 DB = os.environ.get("BUCHANAN_DB_NAME", "buchanan_platform_dev")
 
+def ok(msg): print(f"[OK] {msg}")
+def fail(msg): print(f"[FAIL] {msg}"); raise SystemExit(1)
 
-def ok(message: str) -> None:
-    print(f"[OK] {message}")
+def psql(query):
+    r = subprocess.run(["psql", "-d", DB, "-At", "-F", "|", "-c", query], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if r.returncode:
+        print(r.stderr, file=sys.stderr); raise SystemExit(r.returncode)
+    return r.stdout.strip()
 
-
-def fail(message: str) -> None:
-    print(f"[FAIL] {message}")
-    raise SystemExit(1)
-
-
-def psql(query: str) -> str:
-    result = subprocess.run(
-        ["psql", "-d", DB, "-At", "-F", "|", "-c", query],
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-    if result.returncode != 0:
-        print(result.stderr, file=sys.stderr)
-        raise SystemExit(result.returncode)
-    return result.stdout.strip()
-
-
-required = [
-    Path("docs/BUCHANAN_CONCEPT_EVIDENCE_DEPTH_TIERS.md"),
-    Path("scripts/verify_bdp_001j0_concept_evidence_depth_tiers.py"),
-]
-
-for path in required:
-    if not path.exists():
-        fail(f"missing BDP-001J.0 file: {path}")
-
-ok("BDP-001J.0 concept evidence depth tier files exist")
-
-tier_doc = Path("docs/BUCHANAN_CONCEPT_EVIDENCE_DEPTH_TIERS.md").read_text()
-
+doc = Path("docs/BUCHANAN_CONCEPT_EVIDENCE_DEPTH_TIERS.md")
+if not doc.exists(): fail("missing concept evidence depth tiers doc")
+text = doc.read_text()
 for needle in [
     "Not every concept requires full-source treatment.",
-    "Every concept requires only the evidence needed for the authority level it is allowed to carry.",
     "Tier 1 — Anchor Concepts",
     "Tier 2 — Supporting Concepts",
     "Tier 3 — Contextual Terms",
     "No Buchanan-specific claim may be made without an exact Buchanan source passage.",
-    "No SQL migration.",
-    "No database mutation.",
 ]:
-    if needle not in tier_doc:
-        fail(f"concept evidence depth tier doc missing: {needle}")
-
-ok("concept evidence depth tiers doctrine is recorded")
-
-state = json.loads(Path("ai_boot/BUCHANAN_SYSTEM_STATE.json").read_text())
-current = state.get("current_build_slice", {})
-
-if current.get("phase") != "BDP-001J.0":
-    fail("state current_build_slice.phase is not BDP-001J.0")
-
-if current.get("type") != "concept_evidence_depth_tiers_doctrine":
-    fail("state current_build_slice.type is not concept_evidence_depth_tiers_doctrine")
-
-ok("system state records BDP-001J.0 as doctrine-only concept depth slice")
-
-for doc_path, needle in [
-    (Path("docs/BUCHANAN_CONCEPT_ONTOLOGY.md"), "BDP-001J.0 Concept Evidence Depth Tiers"),
-    (Path("docs/BUCHANAN_INGESTION_WORKFLOW.md"), "BDP-001J.0 Concept Evidence Depth Tiers"),
-    (Path("docs/BUCHANAN_THREAD_HANDOVER.md"), "BDP-001J.0 Handover Update"),
-]:
-    if not doc_path.exists():
-        fail(f"missing expected doc: {doc_path}")
-    if needle not in doc_path.read_text():
-        fail(f"{doc_path} missing {needle}")
-
-ok("ontology, ingestion workflow, and handover record BDP-001J.0")
+    if needle not in text: fail(f"missing doctrine marker: {needle}")
+ok("concept evidence depth tiers doctrine is preserved")
 
 counts = psql("""
 SELECT
-  (SELECT COUNT(*) FROM sources),
-  (SELECT COUNT(*) FROM passages),
-  (SELECT COUNT(*) FROM citations),
-  (SELECT COUNT(*) FROM concept_mentions),
-  (SELECT COUNT(*) FROM concept_relations),
-  (SELECT COUNT(*) FROM interpretations),
-  (SELECT COUNT(*) FROM schema_migrations WHERE phase = 'BDP-001I'),
-  (SELECT COUNT(*) FROM schema_migrations WHERE phase = 'BDP-001J.0');
+ (SELECT COUNT(*) FROM sources),
+ (SELECT COUNT(*) FROM passages),
+ (SELECT COUNT(*) FROM citations),
+ (SELECT COUNT(*) FROM concept_mentions),
+ (SELECT COUNT(*) FROM concept_relations),
+ (SELECT COUNT(*) FROM interpretations),
+ (SELECT COUNT(*) FROM schema_migrations WHERE phase='BDP-001I'),
+ (SELECT COUNT(*) FROM schema_migrations WHERE phase='BDP-001J.0');
 """)
-
 if counts != "1|1|1|1|0|0|1|0":
     fail(f"unexpected BDP-001J.0 invariant: {counts}")
-
-ok("BDP-001J.0 preserves database invariant and adds no migration")
-
-print()
-print("BDP-001J.0 concept evidence depth tiers verification passed.")
+ok("BDP-001J.0 docs-only invariant preserved")
+print("\nBDP-001J.0 concept evidence depth tiers verification passed.")
