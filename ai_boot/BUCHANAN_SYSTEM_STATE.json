@@ -42,7 +42,7 @@
       "volume": "3"
     },
     "controlled_slice": "source_metadata_adoption_only",
-    "next_step": "BDP-001M \u2014 Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.",
+    "next_step": "BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.",
     "pdf_availability_metadata": {
       "display_rule": "reference_only",
       "pdf_access_status": "user_provided_pdf_available",
@@ -83,7 +83,7 @@
       "inserted_interpretations": 0,
       "inserted_passage_candidates": 1
     },
-    "next_step": "BDP-001N \u2014 Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.",
+    "next_step": "BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.",
     "passage_candidate": {
       "candidate_label": "BDP-001M first Buchanan passage candidate for Body without Organs",
       "candidate_scope": "passage_candidate_envelope_metadata_only",
@@ -269,7 +269,7 @@
     "interpretation_boundary": "no_interpretation_or_synthesis",
     "metadata_adoption_readiness": "ready_for_metadata_adoption_only",
     "name": "Review exact Buchanan source candidate for canonical adoption readiness",
-    "next_step": "BDP-001L \u2014 Adopt reviewed Buchanan source metadata into canonical sources only.",
+    "next_step": "BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.",
     "passage_boundary": "no_new_passage",
     "pdf_access_status": "user_provided_pdf_available",
     "pdf_file_name_observed": "7daa2f5c56c085aba493f7cdc309cddb.pdf",
@@ -313,7 +313,7 @@
   "last_completed_phase": "BDP-001M",
   "last_updated_phase": "BDP-002A",
   "next_phase": "BDP-001N",
-  "next_step": "BDP-001L \u2014 Adopt reviewed Buchanan source metadata into canonical sources only.",
+  "next_step": "BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.",
   "phase_history": {
     "BDP-002A": {
       "authority_boundary": {
@@ -351,5 +351,40 @@
     "source_adoption_is_not_interpretive_authority": true,
     "source_candidate_is_not_canonical_source": true
   },
-  "status": "buchanan_pdf_source_reviewed_for_metadata_adoption_readiness"
+  "status": "buchanan_pdf_source_reviewed_for_metadata_adoption_readiness",
+  "doctrine_records": {
+    "BDP-002A.2": {
+      "phase": "BDP-002A.2",
+      "title": "Record psycho-linguistic semantic architecture doctrine",
+      "type": "doctrine_only",
+      "database_mutation": false,
+      "sql_migration": false,
+      "new_tables": false,
+      "reader_state_tracking": false,
+      "psycho_linguistic_tables": false,
+      "buchanan_specific_claim": false,
+      "generated_interpretation": false,
+      "frontend_renderer": false,
+      "doctrine_file": "docs/BUCHANAN_PSYCHOLINGUISTIC_SEMANTIC_ARCHITECTURE.md",
+      "governance_boundary": [
+        "citation authority outranks model inference",
+        "psycho-linguistic observation is not citation authority",
+        "LLM inference is not consciousness, mind-reading, or psychological certainty",
+        "reader/listener transformation modelling requires later explicit governance",
+        "no Buchanan-specific claim without exact passage, citation, and concept link"
+      ],
+      "next_step": "BDP-001N — Review first Buchanan passage candidate locator and short text, without inserting citation or interpretation.",
+      "recorded_at": "2026-06-13T23:00:27+00:00"
+    }
+  },
+  "last_buchanan_platform_phase": "BDP-002A.2",
+  "last_buchanan_platform_phase_title": "Record psycho-linguistic semantic architecture doctrine",
+  "last_updated_utc": "2026-06-13T23:00:27+00:00",
+  "recent_phase_notes": [
+    {
+      "phase": "BDP-002A.2",
+      "summary": "Recorded psycho-linguistic semantic architecture doctrine as a no-migration, no-database-mutation governance slice.",
+      "recorded_at": "2026-06-13T23:00:27+00:00"
+    }
+  ]
 }

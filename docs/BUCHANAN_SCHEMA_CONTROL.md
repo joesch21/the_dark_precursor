@@ -484,3 +484,23 @@ Read-only verification must inspect SQL execution boundaries, not arbitrary oper
 ```
 
 A verifier must not treat a future-action phrase such as `Insert Buchanan cited passage in later phase` as a database mutation unless that phrase is part of SQL executed against the database.
+
+
+## BDP-002A.2 Psycho-Linguistic Architecture Doctrine
+
+BDP-002A.2 records architecture doctrine only.
+
+It does not introduce a schema change.
+
+Controlled status:
+
+```text
+sql_migration = false
+database_mutation = false
+new_tables = false
+new_columns = false
+reader_state_tracking = false
+psycho_linguistic_tables = false
+```
+
+Future psycho-linguistic modelling or reader/listener transformation storage will require a separate schema proposal, explicit governance rules, state update, workflow update, and verifier.

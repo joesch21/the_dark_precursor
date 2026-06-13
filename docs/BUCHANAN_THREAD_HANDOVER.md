@@ -826,3 +826,55 @@ Inspect SQL passed to psql helpers rather than all explanatory text.
 Record this tooling boundary in schema/workbench docs.
 Run verifier before the corrective commit.
 ```
+
+
+## BDP-002A.2 Handover Update
+
+Psycho-linguistic semantic architecture doctrine has been recorded as a doctrine-only slice.
+
+Completed:
+
+1. Added `docs/BUCHANAN_PSYCHOLINGUISTIC_SEMANTIC_ARCHITECTURE.md`.
+2. Updated architecture doctrine with the four-layer interpretive stack.
+3. Updated semantic workbench doctrine with psycho-linguistic observation boundaries.
+4. Updated concept ontology with the distinction between psycho-linguistic modelling metadata and concept claims.
+5. Updated schema control with an explicit no-schema-change boundary.
+6. Added `scripts/update_bdp_002a2_system_state.py`.
+7. Added `scripts/verify_bdp_002a2_psycholinguistic_architecture.py`.
+8. Preserved the patch-bundle workflow as the preferred application method.
+9. Confirmed no SQL migration is added for BDP-002A.2.
+
+Core doctrine:
+
+```text
+The platform does not only ask what an author says.
+It also preserves the architectural question of how philosophical language moves, pressures, destabilises, and transforms interpretation.
+```
+
+Current boundary:
+
+```text
+No SQL migration.
+No database mutation.
+No psycho-linguistic tables.
+No reader-state tracking.
+No canonical passage insertion.
+No citation insertion.
+No concept mention insertion.
+No concept relation insertion.
+No interpretation insertion.
+No Buchanan-specific claim.
+No frontend renderer.
+```
+
+Next step:
+
+```text
+BDP-001N — Review first Buchanan passage candidate locator and short text, without inserting citation or interpretation.
+```
+
+Alternative next step:
+
+```text
+BDP-002B — Add semantic workbench card renderer / frontend preview.
+```

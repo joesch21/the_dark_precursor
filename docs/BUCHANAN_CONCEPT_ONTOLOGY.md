@@ -192,3 +192,30 @@ The first workbench card treats `Body without Organs` as an anchor concept with 
 Buchanan-specific explanation remains blocked until a Buchanan passage is reviewed, inserted as a canonical passage, cited, and linked through a concept mention.
 
 The workbench may list related concept candidates such as `organism`, `desire`, `assemblage`, and `strata`, but BDP-002A does not create relation records.
+
+
+## BDP-002A.2 Psycho-Linguistic Concept Boundary
+
+A concept may later carry psycho-linguistic modelling metadata, but such metadata is not the same as a concept claim.
+
+Examples of future modelling dimensions:
+
+```text
+metaphor_density
+abstraction_gradient
+conceptual_recursion
+semantic_elasticity
+affective_pressure_point
+rhetorical_destabilisation
+tonal_transition
+interpretive_openness
+```
+
+Governance rule:
+
+```text
+Psycho-linguistic modelling may describe how language moves.
+It may not upgrade authority beyond the available source evidence.
+```
+
+No Buchanan-specific psycho-linguistic interpretation may be promoted without an exact Buchanan passage, citation, and reviewed concept link.

@@ -91,3 +91,34 @@ For `Body without Organs`, BDP-002A introduces a JSON-like concept card that can
 Every explanation in the workbench must carry an authority label.
 
 BDP-002A is intentionally lightweight. It creates a readback script, a verifier, and doctrine before any frontend renderer is added.
+
+
+## BDP-002A.2 Psycho-Linguistic Semantic Architecture
+
+BDP-002A.2 records the platform's higher architectural direction: philosophical meaning must be modelled not only as retrievable information, but as conceptual movement through language.
+
+The long-term architecture now distinguishes four interpretive layers:
+
+1. citation and provenance.
+2. semantic concept modelling.
+3. psycho-linguistic modelling.
+4. reader / listener transformation modelling.
+
+This direction does not weaken the evidence spine. It strengthens the need for governance: psycho-linguistic observations are modelling claims, not source authority.
+
+Controlled boundary:
+
+```text
+No SQL migration.
+No database mutation.
+No reader-state tracking.
+No psycho-linguistic tables yet.
+No Buchanan-specific claim.
+No generated interpretation.
+```
+
+The dedicated doctrine file is:
+
+```text
+docs/BUCHANAN_PSYCHOLINGUISTIC_SEMANTIC_ARCHITECTURE.md
+```

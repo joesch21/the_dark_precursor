@@ -138,3 +138,31 @@ Check all explanation sections carry authority labels.
 Check SQL strings passed to psql helpers for mutation keywords.
 Do not scan explanatory prose as if it were SQL.
 ```
+
+
+## BDP-002A.2 Psycho-Linguistic Workbench Direction
+
+The semantic workbench may later expose psycho-linguistic observations, but only as labelled modelling surfaces over governed evidence.
+
+Allowed future observation types include:
+
+1. conceptual recursion.
+2. metaphor density.
+3. abstraction gradient.
+4. rhetorical destabilisation.
+5. affective pressure point.
+6. tonal transition.
+7. ambiguity structure.
+8. semantic drift.
+
+BDP-002A.2 does not implement these fields yet.
+
+Boundary:
+
+```text
+Psycho-linguistic observation is not citation authority.
+Reader transformation modelling is not hidden psychological profiling.
+LLM inference is not mind-reading or psychological certainty.
+```
+
+All future psycho-linguistic workbench fields must carry authority labels and evidence posture.
