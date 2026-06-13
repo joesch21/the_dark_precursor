@@ -244,3 +244,31 @@ Next step:
 
 BDP-001E.2 — Adopt selected candidate into canonical sources only.
 
+
+## BDP-001E.2 Handover Update
+
+Selected source adoption completed as a source-only governed slice.
+
+Completed:
+
+1. Adopted `A Thousand Plateaus: Capitalism and Schizophrenia` into `sources`.
+2. Marked the adopted source as canonical.
+3. Preserved the original source candidate as review history.
+4. Confirmed no passage was inserted.
+5. Confirmed no citation was inserted.
+6. Confirmed no interpretation was inserted.
+7. Added `sql/005_adopt_bdp_001e2_selected_candidate_source_only.sql`.
+8. Added `scripts/verify_bdp_001e2_source_only.py`.
+
+Current invariant:
+
+```text
+sources_count = 1
+passages_count = 0
+citations_count = 0
+interpretations_count = 0
+
+Next step:
+
+BDP-001E.3 — Insert first cited passage only.
+
