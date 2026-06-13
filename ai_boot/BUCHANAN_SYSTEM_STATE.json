@@ -113,6 +113,53 @@
             "sources_count": 2
         }
     },
+    "bdp_001n1_description_rule": {
+        "allowed_now": [
+            "Describe the reviewed Buchanan passage candidate record.",
+            "Describe the locator and short excerpt as reviewed candidate evidence posture.",
+            "Describe that the candidate is ready for later governed passage and citation insertion."
+        ],
+        "authority_ladder": [
+            "metadata",
+            "locator",
+            "short_excerpt",
+            "source_bound_description",
+            "citation_backed_passage",
+            "concept_mention",
+            "interpretation",
+            "synthesis"
+        ],
+        "boundaries": {
+            "canonical_passage_insertion": false,
+            "citation_insertion": false,
+            "concept_mention_insertion": false,
+            "concept_relation_insertion": false,
+            "frontend_work": false,
+            "generated_buchanan_claim": false,
+            "interpretation_insertion": false,
+            "psycho_linguistic_modelling_implementation": false
+        },
+        "controlled_slice": "doctrine_only_description_rule",
+        "database_mutation": false,
+        "next_step": "BDP-001O \u2014 Insert reviewed Buchanan passage and citation only, if operator approves.",
+        "phase": "BDP-001N.1",
+        "rule": {
+            "authority_requirement": "Descriptions must carry authority labels. Claims require stronger governed evidence.",
+            "claim_threshold": "A description becomes a claim when it attributes a position, argument, intention, conceptual meaning, or theoretical consequence to Buchanan, Deleuze, Guattari, or another author.",
+            "description_definition": "The platform may describe reviewed records, locators, excerpts, and evidence posture without creating interpretive claims.",
+            "description_not_claim": true
+        },
+        "sql_migration": false,
+        "status": "complete",
+        "still_blocked": [
+            "Buchanan argues X.",
+            "Buchanan's view is X.",
+            "The meaning of the Body without Organs in Buchanan is X.",
+            "Any author-position claim without governed evidence."
+        ],
+        "title": "Record description versus claim authority rule before BDP-001O",
+        "updated_at": "2026-06-13T23:50:24.923685+00:00"
+    },
     "bdp_001n_passage_candidate_review": {
         "boundaries": {
             "article_reproduction_authorized": false,
@@ -343,7 +390,7 @@
         "source_candidates_count": 3,
         "sources_count": 1
     },
-    "current_phase": "BDP-001N",
+    "current_phase": "BDP-001N.1",
     "current_verified_invariant": {
         "BDP-001L_migration_count": 1,
         "BDP-001M_migration_count": 1,

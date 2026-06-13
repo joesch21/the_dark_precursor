@@ -166,3 +166,33 @@ LLM inference is not mind-reading or psychological certainty.
 ```
 
 All future psycho-linguistic workbench fields must carry authority labels and evidence posture.
+
+## BDP-001N.1 Description Authority Rule
+
+The semantic workbench may show source-bound descriptions when they describe governed records rather than authorial positions.
+
+Allowed workbench description:
+
+```text
+A Buchanan passage candidate has a reviewed short excerpt and locator for the Body without Organs concept.
+```
+
+Blocked author-position claim:
+
+```text
+Buchanan argues that the Body without Organs means X.
+```
+
+All descriptions must carry authority labels.
+
+Recommended authority labels for descriptions:
+
+```text
+record_description
+source_bound_description
+citation_backed
+buchanan_pending
+needs_review
+```
+
+A description does not become an interpretation unless it attributes conceptual meaning or theoretical consequence to an author.

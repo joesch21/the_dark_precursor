@@ -219,3 +219,34 @@ It may not upgrade authority beyond the available source evidence.
 ```
 
 No Buchanan-specific psycho-linguistic interpretation may be promoted without an exact Buchanan passage, citation, and reviewed concept link.
+
+## BDP-001N.1 Description Versus Claim Rule
+
+Concept records may contain descriptions of evidence posture without creating concept claims.
+
+Allowed:
+
+```text
+This concept has a reviewed Buchanan passage candidate.
+```
+
+Blocked until stronger evidence:
+
+```text
+Buchanan's interpretation of the concept is X.
+```
+
+A description becomes a claim when it attributes a position, argument, intention, conceptual meaning, or theoretical consequence to Buchanan, Deleuze, Guattari, or another author.
+
+Authority ladder:
+
+```text
+metadata
+→ locator
+→ short excerpt
+→ source-bound description
+→ citation-backed passage
+→ concept mention
+→ interpretation
+→ synthesis
+```

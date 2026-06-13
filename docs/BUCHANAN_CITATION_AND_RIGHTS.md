@@ -215,3 +215,27 @@ BDP-001N does not authorize article reproduction.
 It does not insert a canonical passage or citation.
 
 The reviewed short excerpt may support a later governed passage-and-citation insertion phase, but it is not yet canonical evidence.
+
+## BDP-001N.1 Description Rule Rights Boundary
+
+A rights-aware description may describe reviewed metadata, locator, excerpt status, and evidence posture without reproducing source material.
+
+Allowed description:
+
+```text
+The reviewed candidate excerpt is short, restricted, reference-only, and located at printed article page 76 / PDF page 4.
+```
+
+Blocked claim without stronger governed evidence:
+
+```text
+Buchanan argues X.
+```
+
+Rule:
+
+```text
+Descriptions must carry authority labels.
+Claims require stronger governed evidence.
+Short excerpt handling does not authorize article reproduction.
+```

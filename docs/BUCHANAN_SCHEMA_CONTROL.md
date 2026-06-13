@@ -546,3 +546,52 @@ BDP-001N is valid only if verification proves:
 8. `buchanan_claim_ready = false`.
 9. canonical table counts are preserved.
 10. `BDP-001N migration_count = 1`.
+
+## BDP-001N.1 Description Versus Claim Authority Rule
+
+BDP-001N.1 records a doctrine-only rule. It does not introduce a schema change.
+
+The platform now distinguishes:
+
+```text
+description ≠ claim
+```
+
+A description may report the state of reviewed records, locators, excerpts, and evidence posture.
+
+A description becomes a claim when it attributes any of the following to Buchanan, Deleuze, Guattari, or another author:
+
+```text
+position
+argument
+intention
+conceptual meaning
+theoretical consequence
+```
+
+Descriptions must carry authority labels.
+
+Claims require stronger governed evidence.
+
+Authority ladder:
+
+```text
+metadata
+→ locator
+→ short excerpt
+→ source-bound description
+→ citation-backed passage
+→ concept mention
+→ interpretation
+→ synthesis
+```
+
+Controlled status:
+
+```text
+sql_migration = false
+database_mutation = false
+new_tables = false
+new_columns = false
+authority_rule_update = true
+```

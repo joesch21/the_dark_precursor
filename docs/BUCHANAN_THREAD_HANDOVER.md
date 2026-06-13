@@ -932,3 +932,62 @@ Next step:
 ```text
 BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.
 ```
+
+## BDP-001N.1 Handover Update
+
+The description-versus-claim authority rule has been recorded before BDP-001O.
+
+Completed:
+
+1. Added the BDP Description Rule.
+2. Distinguished reviewed-record descriptions from interpretive claims.
+3. Added the authority ladder from metadata to synthesis.
+4. Confirmed descriptions must still carry authority labels.
+5. Confirmed claims require stronger governed evidence.
+6. Preserved the BDP-001N database invariant.
+7. Added `scripts/update_bdp_001n1_description_rule.py`.
+8. Added `scripts/verify_bdp_001n1_description_rule.py`.
+
+BDP Description Rule:
+
+```text
+The platform may generate descriptions of reviewed records, locators, excerpts, and evidence posture without creating interpretive claims.
+
+A description becomes a claim when it attributes a position, argument, intention, conceptual meaning, or theoretical consequence to Buchanan, Deleuze, Guattari, or another author.
+
+Descriptions must carry authority labels.
+Claims require stronger governed evidence.
+```
+
+Authority ladder:
+
+```text
+metadata
+→ locator
+→ short excerpt
+→ source-bound description
+→ citation-backed passage
+→ concept mention
+→ interpretation
+→ synthesis
+```
+
+Boundary:
+
+```text
+No SQL migration.
+No database mutation.
+No canonical passage insertion.
+No citation insertion.
+No concept mention insertion.
+No concept relation insertion.
+No interpretation insertion.
+No generated Buchanan claim.
+No frontend work.
+```
+
+Next step:
+
+```text
+BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.
+```

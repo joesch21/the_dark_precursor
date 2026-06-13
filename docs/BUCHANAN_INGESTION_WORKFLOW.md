@@ -317,3 +317,26 @@ concept mention remains blocked
 interpretation remains blocked
 Buchanan-specific claims remain blocked
 ```
+
+## BDP-001N.1 Description Layer
+
+BDP-001N.1 adds a missing layer between short excerpt review and canonical interpretation.
+
+Updated ladder:
+
+```text
+metadata
+→ locator
+→ short excerpt
+→ source-bound description
+→ citation-backed passage
+→ concept mention
+→ interpretation
+→ synthesis
+```
+
+A source-bound description may describe the reviewed record and evidence posture.
+
+It must not attribute a position, argument, intention, conceptual meaning, or theoretical consequence to an author unless the stronger governed evidence layer exists.
+
+This prevents the system from jumping directly from excerpt review to interpretation.
