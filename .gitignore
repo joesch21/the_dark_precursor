@@ -1,0 +1,20 @@
+# Patch/temp artifacts
+_bdp_001a_patch/
+*.bak.*
+bdp_001a_apply_patch.py
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local database/runtime
+.env
+*.log

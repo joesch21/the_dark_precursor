@@ -1,0 +1,124 @@
+{
+  "project": "buchanan_deleuze_intelligence_platform",
+  "schema_version": "0.1.1",
+  "status": "control_plane_alignment",
+  "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
+  "canonical_docs": [
+    "docs/BUCHANAN_ARCHITECTURE.md",
+    "docs/BUCHANAN_SCHEMA_CONTROL.md",
+    "docs/BUCHANAN_INGESTION_WORKFLOW.md",
+    "docs/BUCHANAN_CONCEPT_ONTOLOGY.md",
+    "docs/BUCHANAN_CITATION_AND_RIGHTS.md",
+    "docs/BUCHANAN_THREAD_HANDOVER.md"
+  ],
+  "current_build_slice": {
+    "phase": "BDP-001A",
+    "name": "Schema and Ontology Alignment Before Database Prototype",
+    "concept": "Body without Organs",
+    "source_scope": "Ian Buchanan plus Deleuze and Guattari primary passages",
+    "database_scope": [
+      "schema_migrations",
+      "source_candidates",
+      "sources",
+      "raw_documents",
+      "clean_documents",
+      "passages",
+      "concepts",
+      "concept_mentions",
+      "concept_relations",
+      "interpretations",
+      "citations",
+      "ingestion_events",
+      "user_interactions"
+    ]
+  },
+  "drift_protection": {
+    "schema_locked": false,
+    "requires_migration_for_schema_change": true,
+    "requires_state_update_for_workflow_change": true,
+    "requires_citation_for_interpretive_claims": true,
+    "requires_operator_review_for_source_adoption": true,
+    "requires_controlled_vocabulary_alignment": true
+  },
+  "authority_levels": [
+    "primary_text",
+    "buchanan_direct",
+    "secondary_scholarship",
+    "system_synthesis",
+    "user_interpretation"
+  ],
+  "next_step": "Run BDP-001A verifier, then apply the initial PostgreSQL migration in a local database.",
+  "controlled_vocabularies": {
+    "source_types": [
+      "book",
+      "article",
+      "chapter",
+      "lecture",
+      "interview",
+      "video_transcript",
+      "conference_paper",
+      "teaching_note",
+      "user_note",
+      "bibliography_record",
+      "other"
+    ],
+    "source_statuses": [
+      "candidate",
+      "approved",
+      "rejected",
+      "imported",
+      "cleaned",
+      "chunked",
+      "embedded",
+      "concept_tagged",
+      "reviewed",
+      "canonical"
+    ],
+    "rights_statuses": [
+      "unknown",
+      "public_url",
+      "licensed",
+      "user_provided",
+      "fair_use_reference_only",
+      "restricted"
+    ],
+    "authority_levels": [
+      "primary_text",
+      "buchanan_direct",
+      "secondary_scholarship",
+      "system_synthesis",
+      "user_interpretation"
+    ],
+    "mention_types": [
+      "direct",
+      "implied",
+      "contested",
+      "related",
+      "metaphorical"
+    ],
+    "review_statuses": [
+      "proposed",
+      "accepted",
+      "rejected",
+      "needs_review"
+    ],
+    "relation_types": [
+      "explains",
+      "depends_on",
+      "opposes",
+      "modifies",
+      "intensifies",
+      "emerges_from",
+      "is_applied_to",
+      "is_contested_by",
+      "is_translated_as",
+      "is_linked_to",
+      "is_example_of",
+      "develops",
+      "reframes",
+      "extends",
+      "critiques",
+      "operationalises"
+    ]
+  }
+}
