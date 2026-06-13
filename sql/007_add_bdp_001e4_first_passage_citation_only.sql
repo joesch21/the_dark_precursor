@@ -63,14 +63,14 @@ BEGIN
             'Plateau 6: How Do You Make Yourself a Body without Organs?',
             'University of Minnesota Press English translation; ISBN 9780816614028.',
             'fair_use_reference_only',
-            'short_quote_plus_citation_only',
+            'reference_only',
             jsonb_build_object(
                 'phase', 'BDP-001E.4',
                 'source_id', v_source_id::text,
                 'passage_id', v_passage_id::text,
                 'citation_record_inserted', true,
                 'interpretation_created', false,
-                'rights_boundary', 'short quotation plus citation only'
+                'rights_boundary', 'citation record only; no interpretation inserted'
             )
         );
     END IF;
@@ -81,7 +81,7 @@ BEGIN
         'citation_inserted', true,
         'interpretation_created', false,
         'first_citation_scope', 'citation record only',
-        'first_citation_display_rule', 'short_quote_plus_citation_only'
+        'first_citation_display_rule', 'reference_only'
     )
     WHERE title = 'A Thousand Plateaus: Capitalism and Schizophrenia';
 END

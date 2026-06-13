@@ -5,6 +5,7 @@ import subprocess
 import sys
 
 DB_NAME = os.environ.get("BUCHANAN_DB_NAME", "buchanan_platform_dev")
+DISPLAY_RULE = "reference_only"
 
 
 def fail(message):
@@ -24,7 +25,7 @@ def run_psql(query):
 
 
 def main():
-    query = r"""
+    query = f"""
     SELECT jsonb_build_object(
         'migration_count', (
             SELECT COUNT(*)
@@ -42,7 +43,7 @@ def main():
               AND c.interpretation_id IS NULL
               AND c.citation_format = 'short_note'
               AND c.rights_status = 'fair_use_reference_only'
-              AND c.display_rule = 'short_quote_plus_citation_only'
+              AND c.display_rule = '{DISPLAY_RULE}'
         ),
         'candidate', (
             SELECT jsonb_build_object(
