@@ -114,3 +114,27 @@ All semantic explanations carry authority labels.
 No Buchanan claim is generated.
 No SQL migration is added.
 ```
+
+## BDP-002A.1 Workbench Tooling Boundary
+
+The semantic workbench is read-only.
+
+Implementation boundary:
+
+```text
+No psycopg dependency.
+No psycopg2 dependency.
+Use existing psql subprocess readback style.
+No SQL migration.
+No database mutation.
+```
+
+Verifier boundary:
+
+```text
+Check database counts before and after readback.
+Check Buchanan explanation remains pending and blocked.
+Check all explanation sections carry authority labels.
+Check SQL strings passed to psql helpers for mutation keywords.
+Do not scan explanatory prose as if it were SQL.
+```

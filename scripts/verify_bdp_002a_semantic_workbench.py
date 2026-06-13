@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """BDP-002A read-only semantic workbench verifier.
 
-Uses psql through subprocess, matching the existing Buchanan verifier style.
-No psycopg dependency.
+Repair note:
+- Uses the existing Buchanan repo pattern: Python subprocess -> psql CLI.
+- Does not require psycopg or psycopg2.
+- Checks mutating SQL only in SQL strings passed to psql helpers.
+- Does not falsely scan operator-facing prose such as "Insert ... later phase".
 """
 
 from __future__ import annotations
 
+import ast
 import json
 import os
 import re
@@ -40,6 +44,8 @@ ALLOWED_AUTHORITY_LABELS = {
     "user_interpretation",
     "system_synthesis",
 }
+
+FORBIDDEN_IMPORTS = {"psycopg", "psycopg2"}
 
 FORBIDDEN_BUCHANAN_CLAIM_PHRASES = [
     "buchanan argues",
@@ -121,17 +127,59 @@ def assert_expected_counts(counts: dict[str, int], label: str) -> None:
         raise AssertionError(f"{label}: {migration_key} must remain 0")
 
 
-def assert_readback_script_is_read_only() -> None:
-    text = READBACK_SCRIPT.read_text(encoding="utf-8")
+def literal_string(node: ast.AST) -> str | None:
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value
 
-    for line_no, line in enumerate(text.splitlines(), start=1):
-        stripped = line.strip()
-        if stripped.startswith("#"):
-            continue
-        if MUTATING_SQL_PATTERN.search(stripped):
-            raise AssertionError(
-                f"mutating SQL keyword found in readback script on line {line_no}: {stripped}"
-            )
+    if isinstance(node, ast.JoinedStr):
+        parts: list[str] = []
+        for value in node.values:
+            if isinstance(value, ast.Constant) and isinstance(value.value, str):
+                parts.append(value.value)
+            elif isinstance(value, ast.FormattedValue):
+                parts.append("{dynamic}")
+        return "".join(parts)
+
+    if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
+        left = literal_string(node.left)
+        right = literal_string(node.right)
+        if left is not None and right is not None:
+            return left + right
+
+    return None
+
+
+def assert_readback_script_boundary() -> None:
+    source = READBACK_SCRIPT.read_text(encoding="utf-8")
+    tree = ast.parse(source, filename=str(READBACK_SCRIPT))
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                root_name = alias.name.split(".")[0]
+                if root_name in FORBIDDEN_IMPORTS:
+                    raise AssertionError(f"forbidden postgres driver import: {alias.name}")
+
+        if isinstance(node, ast.ImportFrom):
+            root_name = (node.module or "").split(".")[0]
+            if root_name in FORBIDDEN_IMPORTS:
+                raise AssertionError(f"forbidden postgres driver import: {node.module}")
+
+        if isinstance(node, ast.Call):
+            func = node.func
+            func_name = func.id if isinstance(func, ast.Name) else None
+            if func_name not in {"psql", "psql_json"}:
+                continue
+
+            if not node.args:
+                continue
+
+            sql_text = literal_string(node.args[0])
+            if sql_text and MUTATING_SQL_PATTERN.search(sql_text):
+                raise AssertionError(
+                    "mutating SQL keyword found in SQL passed to "
+                    f"{func_name}(): {sql_text.strip()}"
+                )
 
     sql_files = sorted(REPO_ROOT.glob("sql/*002a*.sql")) + sorted(
         REPO_ROOT.glob("sql/*BDP-002A*.sql")
@@ -225,7 +273,7 @@ def assert_card_boundary(card: dict[str, Any]) -> None:
 
 
 def main() -> int:
-    assert_readback_script_is_read_only()
+    assert_readback_script_boundary()
 
     before = snapshot_counts()
     assert_expected_counts(before, "before readback")

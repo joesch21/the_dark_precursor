@@ -800,3 +800,29 @@ Alternative next step:
 ```text
 BDP-002B — Add semantic workbench card renderer / frontend preview.
 ```
+
+## BDP-002A.1 Repair Note
+
+BDP-002A was committed and pushed, but the first verifier failed after the readback preview.
+
+Observed drift:
+
+1. The initial readback used `psycopg/psycopg2`, while existing Buchanan scripts use `psql` through Python `subprocess`.
+2. The verifier falsely detected the word `Insert` inside operator-facing prose as mutating SQL.
+3. The phase was pushed before verifier success.
+
+Repair action:
+
+```text
+BDP-002A.1 — Repair semantic workbench verifier drift.
+```
+
+Required correction:
+
+```text
+Keep BDP-002A read-only.
+Use the existing psql subprocess pattern.
+Inspect SQL passed to psql helpers rather than all explanatory text.
+Record this tooling boundary in schema/workbench docs.
+Run verifier before the corrective commit.
+```

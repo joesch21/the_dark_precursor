@@ -458,3 +458,29 @@ BDP-001M is valid only if verification proves:
 10. the Buchanan article has zero citations attached.
 11. the passage candidate stores no Buchanan article text.
 12. `BDP-001M migration_count = 1`.
+
+## BDP-002A.1 Tooling Drift Repair
+
+BDP-002A exposed a tooling drift risk.
+
+The semantic workbench readback initially introduced a Python PostgreSQL driver dependency even though the existing Buchanan verifier/readback convention uses:
+
+```text
+Python subprocess
+→ psql CLI
+→ JSON or scalar readback
+```
+
+Repair rule:
+
+```text
+New Buchanan readback and verifier scripts should follow the existing psql subprocess pattern unless a phase explicitly records and justifies a dependency change.
+```
+
+Verifier rule:
+
+```text
+Read-only verification must inspect SQL execution boundaries, not arbitrary operator-facing prose.
+```
+
+A verifier must not treat a future-action phrase such as `Insert Buchanan cited passage in later phase` as a database mutation unless that phrase is part of SQL executed against the database.
