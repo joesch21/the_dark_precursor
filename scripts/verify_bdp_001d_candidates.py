@@ -180,6 +180,9 @@ def main():
     if payload.get("bdp_001e3_count") == 1:
         print("[OK] later BDP-001E.3 passage insertion tolerated")
     else:
+        if payload.get("bdp_001e3_count") == 1:
+        print("[OK] later BDP-001E.3 passage insertion tolerated")
+    else:
         print("[OK] no passages were inserted")
     print("[OK] no interpretations were inserted")
     print()
