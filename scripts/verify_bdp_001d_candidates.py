@@ -99,6 +99,11 @@ def main():
             FROM schema_migrations
             WHERE phase = 'BDP-001E.2'
         ),
+        'bdp_001e3_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.3'
+        ),
         'passages_count', (SELECT COUNT(*) FROM passages),
         'interpretations_count', (SELECT COUNT(*) FROM interpretations)
     )::text;
@@ -160,8 +165,9 @@ def main():
     if payload.get("sources_count") != 0 and payload.get("bdp_001e2_count") != 1:
         fail("canonical sources were inserted before an approved later adoption phase")
 
-    if payload.get("passages_count") != 0:
-        fail("passages were inserted")
+    expected_passages = 1 if payload.get("bdp_001e3_count") == 1 else 0
+    if payload.get("passages_count") != expected_passages:
+        fail(f"unexpected passage count after phase chain: {payload.get('passages_count')}")
 
     if payload.get("interpretations_count") != 0:
         fail("interpretations were inserted")
@@ -171,7 +177,10 @@ def main():
     print("[OK] required source candidates exist")
     print("[OK] source candidates have enriched review metadata")
     print("[OK] source candidates remain non-canonical")
-    print("[OK] no passages were inserted")
+    if payload.get("bdp_001e3_count") == 1:
+        print("[OK] later BDP-001E.3 passage insertion tolerated")
+    else:
+        print("[OK] no passages were inserted")
     print("[OK] no interpretations were inserted")
     print()
     print("BDP-001D source candidate review verification passed.")

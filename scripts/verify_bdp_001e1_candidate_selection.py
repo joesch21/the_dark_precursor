@@ -59,6 +59,11 @@ def main():
             FROM schema_migrations
             WHERE phase = 'BDP-001E.2'
         ),
+        'bdp_001e3_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.3'
+        ),
         'passages_count', (SELECT COUNT(*) FROM passages),
         'interpretations_count', (SELECT COUNT(*) FROM interpretations)
     )::text;
@@ -99,8 +104,12 @@ def main():
     elif metadata.get("source_adoption_created") is not False:
         fail("metadata incorrectly indicates source adoption before BDP-001E.2")
 
-    if metadata.get("passage_inserted") is not False:
-        fail("metadata incorrectly indicates passage insertion")
+    later_e3_applied = payload.get("bdp_001e3_count") == 1
+    if later_e3_applied:
+        if metadata.get("passage_inserted") is not True:
+            fail("metadata should record passage insertion after BDP-001E.3")
+    elif metadata.get("passage_inserted") is not False:
+        fail("metadata incorrectly indicates passage insertion before BDP-001E.3")
 
     if metadata.get("citation_inserted") is not False:
         fail("metadata incorrectly indicates citation insertion")
@@ -112,8 +121,9 @@ def main():
     if payload.get("sources_count") != expected_sources:
         fail(f"unexpected canonical source count after phase chain: {payload.get('sources_count')}")
 
-    if payload.get("passages_count") != 0:
-        fail("passage was inserted during selection-only phase")
+    expected_passages = 1 if payload.get("bdp_001e3_count") == 1 else 0
+    if payload.get("passages_count") != expected_passages:
+        fail(f"unexpected passage count after phase chain: {payload.get('passages_count')}")
 
     if payload.get("interpretations_count") != 0:
         fail("interpretation was inserted during selection-only phase")
@@ -122,7 +132,10 @@ def main():
     print("[OK] exactly one first adoption candidate selected")
     print("[OK] selected candidate remains candidate-only")
     print("[OK] no canonical source was created")
-    print("[OK] no passage was inserted")
+    if payload.get("bdp_001e3_count") == 1:
+        print("[OK] later BDP-001E.3 passage insertion tolerated")
+    else:
+        print("[OK] no passage was inserted")
     print("[OK] no interpretation was inserted")
     print()
     print("BDP-001E.1 first adoption candidate selection verification passed.")
