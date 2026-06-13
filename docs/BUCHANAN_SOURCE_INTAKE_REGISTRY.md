@@ -135,3 +135,37 @@ Next step:
 ```text
 BDP-001K — Review exact Buchanan source candidate for canonical adoption readiness.
 ```
+
+## BDP-001K PDF Availability and Canonical Metadata Adoption Readiness
+
+The exact Buchanan source candidate has been reviewed against the uploaded PDF availability.
+
+Observed uploaded PDF:
+
+```text
+7daa2f5c56c085aba493f7cdc309cddb.pdf
+```
+
+Review result:
+
+```text
+pdf_access_status = user_provided_pdf_available
+source_text_available_for_review = true
+canonical_metadata_adoption_readiness = ready_for_metadata_adoption_only
+```
+
+Boundary:
+
+```text
+BDP-001K does not adopt a canonical source.
+BDP-001K does not insert a passage.
+BDP-001K does not insert a citation.
+BDP-001K does not create a concept mention or relation.
+BDP-001K does not create an interpretation or Buchanan claim.
+```
+
+Next step:
+
+```text
+BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.
+```

@@ -135,3 +135,19 @@ No article passage is inserted.
 No citation record is inserted.
 No Buchanan interpretation is inserted.
 No generated Buchanan claim is authorized.
+
+## BDP-001K Uploaded PDF Rights Boundary
+
+The operator has provided a PDF copy of the exact Buchanan article selected in BDP-001J.
+
+Rights and use boundary:
+
+```text
+access_status = user_provided_pdf_available
+rights_status_review = user_provided_pdf_reference_only_short_quotation_later
+display_rule = metadata_reference_only_in_bdp_001k
+```
+
+BDP-001K permits metadata-readiness review only.
+
+It does not authorize article reproduction, long quotation, passage insertion, citation insertion, or Buchanan interpretation.

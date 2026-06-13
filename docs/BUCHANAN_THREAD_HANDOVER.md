@@ -602,3 +602,39 @@ Next step:
 ```text
 BDP-001K — Review exact Buchanan source candidate for canonical adoption readiness.
 ```
+
+## BDP-001K Handover Update
+
+Exact Buchanan source candidate reviewed for canonical metadata adoption readiness.
+
+Completed:
+
+1. Recorded uploaded PDF availability for the exact Buchanan article.
+2. Confirmed the candidate remains non-canonical.
+3. Recorded readiness for metadata-only canonical source adoption.
+4. Kept passage ingestion blocked.
+5. Kept citation insertion blocked.
+6. Kept concept relation and interpretation blocked.
+7. Added `sql/011_review_bdp_001k_buchanan_pdf_adoption_readiness.sql`.
+8. Added `scripts/read_bdp_001k_buchanan_pdf_readiness.py`.
+9. Added `scripts/verify_bdp_001k_buchanan_pdf_readiness.py`.
+
+Current invariant:
+
+```text
+sources_count = 1
+source_candidates_count = 3
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001J migration_count = 1
+BDP-001K migration_count = 1
+```
+
+Next step:
+
+```text
+BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.
+```
