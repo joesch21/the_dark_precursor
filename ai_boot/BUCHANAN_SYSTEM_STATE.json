@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.3",
-  "status": "first_adoption_candidate_selected",
+  "status": "first_canonical_source_adopted",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -12,10 +12,9 @@
     "docs/BUCHANAN_THREAD_HANDOVER.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001E.1",
-    "name": "Select and Lock First Adoption Candidate",
+    "phase": "BDP-001E.2",
+    "name": "Adopt Selected Candidate Into Canonical Sources Only",
     "concept": "Body without Organs",
-    "source_scope": "Metadata-only selection of A Thousand Plateaus as the first candidate for canonical adoption review.",
     "database_scope": [
       "schema_migrations",
       "source_candidates",
@@ -31,15 +30,14 @@
       "ingestion_events",
       "user_interactions"
     ],
-    "selected_candidate": {
+    "adopted_source": {
       "title": "A Thousand Plateaus: Capitalism and Schizophrenia",
-      "selection_status": "selected_for_canonical_adoption_review",
-      "selection_lock": true,
-      "candidate_remains_canonical": false,
-      "candidate_status": "candidate"
+      "status": "canonical",
+      "reliability_level": "primary_text",
+      "rights_status": "fair_use_reference_only"
     },
     "safety_invariants": {
-      "canonical_source_adoption": false,
+      "sources_count": 1,
       "passages_inserted": false,
       "citations_inserted": false,
       "interpretations_inserted": false
@@ -60,7 +58,7 @@
     "system_synthesis",
     "user_interpretation"
   ],
-  "next_step": "BDP-001E.2 — Adopt selected candidate into canonical sources only.",
+  "next_step": "BDP-001E.3 — Insert first cited passage only.",
   "controlled_vocabularies": {
     "source_types": [
       "book",
