@@ -52,6 +52,11 @@ def main():
             LIMIT 1
         ),
         'sources_total', (SELECT COUNT(*) FROM sources),
+        'bdp_001e3_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.3'
+        ),
         'passages_total', (SELECT COUNT(*) FROM passages),
         'citations_total', (SELECT COUNT(*) FROM citations),
         'interpretations_total', (SELECT COUNT(*) FROM interpretations)
@@ -78,8 +83,12 @@ def main():
     if metadata.get("candidate_record_is_canonical") is not False:
         fail("candidate metadata incorrectly treats candidate row as canonical")
 
-    if metadata.get("passage_inserted") is not False:
-        fail("metadata incorrectly indicates passage insertion")
+    later_e3_applied = payload.get("bdp_001e3_count") == 1
+    if later_e3_applied:
+        if metadata.get("passage_inserted") is not True:
+            fail("metadata should record passage insertion after BDP-001E.3")
+    elif metadata.get("passage_inserted") is not False:
+        fail("metadata incorrectly indicates passage insertion before BDP-001E.3")
 
     if metadata.get("citation_inserted") is not False:
         fail("metadata incorrectly indicates citation insertion")
@@ -90,8 +99,9 @@ def main():
     if payload["sources_total"] != 1:
         fail("unexpected total source count")
 
-    if payload["passages_total"] != 0:
-        fail("passages were inserted")
+    expected_passages = 1 if later_e3_applied else 0
+    if payload["passages_total"] != expected_passages:
+        fail(f"unexpected passage count after phase chain: {payload['passages_total']}")
 
     if payload["citations_total"] != 0:
         fail("citations were inserted")
