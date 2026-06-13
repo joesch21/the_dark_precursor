@@ -190,3 +190,29 @@ Next step:
 ```text
 BDP-001E — Adopt first reviewed source and insert first cited passage.
 
+
+## BDP-001E.1 Handover Update
+
+First adoption candidate selection completed as a metadata-only governed slice.
+
+Completed:
+
+1. Selected `A Thousand Plateaus: Capitalism and Schizophrenia` as the first candidate for canonical adoption review.
+2. Locked the selection in `source_candidates.metadata`.
+3. Preserved candidate status as `candidate`.
+4. Confirmed no canonical source was created.
+5. Confirmed no passage was inserted.
+6. Confirmed no interpretation was inserted.
+7. Added `sql/004_select_bdp_001e1_first_adoption_candidate.sql`.
+8. Added `scripts/verify_bdp_001e1_candidate_selection.py`.
+
+Current invariant:
+
+```text
+sources_count = 0
+passages_count = 0
+interpretations_count = 0
+Next step:
+
+BDP-001E.2 — Adopt selected candidate into canonical sources only.
+
