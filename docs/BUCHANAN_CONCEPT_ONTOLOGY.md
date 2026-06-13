@@ -170,3 +170,25 @@ Tier 3 — Contextual Terms: proposed lightweight status until promoted.
 ```
 
 No Buchanan-specific claim may be made without an exact Buchanan source passage.
+
+## BDP-002A Semantic Workbench Authority Contract
+
+The `Body without Organs` semantic workbench may display explanation scaffolds only when they are explicitly labelled.
+
+Allowed BDP-002A authority labels:
+
+```text
+citation_backed
+primary_text_backed
+buchanan_pending
+provisional_synthesis
+needs_review
+user_interpretation
+system_synthesis
+```
+
+The first workbench card treats `Body without Organs` as an anchor concept with one existing primary-text evidence chain and one Buchanan passage-candidate envelope.
+
+Buchanan-specific explanation remains blocked until a Buchanan passage is reviewed, inserted as a canonical passage, cited, and linked through a concept mention.
+
+The workbench may list related concept candidates such as `organism`, `desire`, `assemblage`, and `strata`, but BDP-002A does not create relation records.

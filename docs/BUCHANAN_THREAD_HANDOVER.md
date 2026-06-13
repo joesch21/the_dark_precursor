@@ -742,3 +742,61 @@ Next step:
 ```text
 BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.
 ```
+
+## BDP-002A Handover Update
+
+Body without Organs semantic workbench prepared as a read-only demo slice.
+
+Completed:
+
+1. Added `docs/BUCHANAN_SEMANTIC_WORKBENCH.md`.
+2. Added `scripts/read_bdp_002a_bwo_semantic_workbench.py`.
+3. Added `scripts/verify_bdp_002a_semantic_workbench.py`.
+4. Added `scripts/update_bdp_002a_system_state.py`.
+5. Updated architecture and concept ontology docs with the semantic workbench authority boundary.
+6. Preserved the current database invariant.
+7. Confirmed the workbench generates no Buchanan-specific interpretation or claim.
+8. Confirmed all explanation fields carry explicit authority labels.
+9. Confirmed no SQL migration is added for BDP-002A.
+
+Current invariant:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001L migration_count = 1
+BDP-001M migration_count = 1
+BDP-002A migration_count = 0
+```
+
+Boundary:
+
+```text
+No SQL migration was added.
+No database mutation was performed.
+No canonical passage was inserted.
+No citation was inserted.
+No concept mention was inserted.
+No concept relation was inserted.
+No interpretation was inserted.
+No generated Buchanan claim was created.
+Buchanan-specific explanation remains pending and blocked.
+```
+
+Next step:
+
+```text
+BDP-001N — Review first Buchanan passage candidate locator and short text, without inserting citation or interpretation.
+```
+
+Alternative next step:
+
+```text
+BDP-002B — Add semantic workbench card renderer / frontend preview.
+```

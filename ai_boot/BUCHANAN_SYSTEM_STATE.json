@@ -1,8 +1,145 @@
 {
-  "project": "buchanan_deleuze_intelligence_platform",
-  "schema_version": "0.1.3",
-  "status": "buchanan_pdf_source_reviewed_for_metadata_adoption_readiness",
-  "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
+  "authority_levels": [
+    "primary_text",
+    "buchanan_direct",
+    "secondary_scholarship",
+    "system_synthesis",
+    "user_interpretation"
+  ],
+  "bdp_001l_metadata_only_source_adoption": {
+    "adopted_from_phases": [
+      "BDP-001J",
+      "BDP-001K"
+    ],
+    "boundaries": {
+      "citation_insertion": false,
+      "concept_mention_insertion": false,
+      "concept_relation_insertion": false,
+      "generated_buchanan_claim": false,
+      "interpretation_insertion": false,
+      "long_pdf_quotation": false,
+      "passage_insertion": false
+    },
+    "candidate_history": {
+      "history_status": "approved_adopted_metadata_history",
+      "preserved_in_source_candidates": true,
+      "status": "approved"
+    },
+    "canonical_source_adopted": {
+      "author": "Ian Buchanan",
+      "doi": "10.1177/1357034X97003003004",
+      "issue": "3",
+      "journal": "Body & Society",
+      "pages": "73-91",
+      "publication_year": 1997,
+      "publisher": "SAGE Publications",
+      "reliability_level": "high",
+      "rights_status": "restricted",
+      "status": "canonical",
+      "title": "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?",
+      "type": "article",
+      "url_or_reference": "https://doi.org/10.1177/1357034X97003003004",
+      "volume": "3"
+    },
+    "controlled_slice": "source_metadata_adoption_only",
+    "next_step": "BDP-001M \u2014 Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.",
+    "pdf_availability_metadata": {
+      "display_rule": "reference_only",
+      "pdf_access_status": "user_provided_pdf_available",
+      "source_text_available_for_review": true
+    },
+    "phase": "BDP-001L",
+    "status": "complete",
+    "title": "Adopt reviewed Buchanan source metadata into canonical sources only",
+    "verified_invariant": {
+      "BDP-001L migration_count": 1,
+      "citations_count": 1,
+      "concept_mentions_count": 1,
+      "concept_relations_count": 0,
+      "interpretations_count": 0,
+      "passages_count": 1,
+      "source_candidates_count": 3,
+      "sources_count": 2
+    }
+  },
+  "bdp_001m_passage_candidate_preparation": {
+    "boundaries": {
+      "candidate_text_storage": false,
+      "canonical_passage_insertion": false,
+      "citation_insertion": false,
+      "concept_mention_insertion": false,
+      "concept_relation_insertion": false,
+      "generated_buchanan_claim": false,
+      "interpretation_insertion": false,
+      "long_pdf_quotation": false
+    },
+    "controlled_slice": "passage_candidate_preparation_only",
+    "database_change": {
+      "created_table_when_missing": "passage_candidates",
+      "inserted_canonical_passages": 0,
+      "inserted_citations": 0,
+      "inserted_concept_mentions": 0,
+      "inserted_concept_relations": 0,
+      "inserted_interpretations": 0,
+      "inserted_passage_candidates": 1
+    },
+    "next_step": "BDP-001N \u2014 Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.",
+    "passage_candidate": {
+      "candidate_label": "BDP-001M first Buchanan passage candidate for Body without Organs",
+      "candidate_scope": "passage_candidate_envelope_metadata_only",
+      "candidate_status": "candidate",
+      "candidate_text_stored": false,
+      "display_rule": "reference_only",
+      "locator_selected": false,
+      "review_status": "prepared",
+      "rights_status": "restricted",
+      "source_author": "Ian Buchanan",
+      "source_doi": "10.1177/1357034X97003003004",
+      "source_title": "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?",
+      "target_concept": "Body without Organs"
+    },
+    "phase": "BDP-001M",
+    "status": "complete",
+    "title": "Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet",
+    "verified_invariant": {
+      "BDP-001M migration_count": 1,
+      "citations_count": 1,
+      "concept_mentions_count": 1,
+      "concept_relations_count": 0,
+      "interpretations_count": 0,
+      "passage_candidates_count": 1,
+      "passages_count": 1,
+      "source_candidates_count": 3,
+      "sources_count": 2
+    }
+  },
+  "bdp_002a_semantic_workbench": {
+    "authority_boundary": {
+      "buchanan_explanation": "buchanan_pending",
+      "plain_explanation": "provisional_synthesis",
+      "technical_explanation": "provisional_synthesis"
+    },
+    "buchanan_specific_explanation_status": "blocked_until_buchanan_passage_citation",
+    "concept": "Body without Organs",
+    "database_mutation": false,
+    "phase": "BDP-002A",
+    "schema_migration": false,
+    "status": "prepared_read_only_semantic_workbench",
+    "updated_at": "2026-06-13T22:18:24+00:00",
+    "verified_invariant": {
+      "BDP-001L_migration_count": 1,
+      "BDP-001M_migration_count": 1,
+      "BDP-002A_migration_count": 0,
+      "citations_count": 1,
+      "concept_mentions_count": 1,
+      "concept_relations_count": 0,
+      "interpretations_count": 0,
+      "passage_candidates_count": 1,
+      "passages_count": 1,
+      "source_candidates_count": 3,
+      "sources_count": 2
+    }
+  },
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
     "docs/BUCHANAN_SCHEMA_CONTROL.md",
@@ -12,90 +149,14 @@
     "docs/BUCHANAN_THREAD_HANDOVER.md",
     "docs/BUCHANAN_PATCH_BUNDLE_WORKFLOW.md"
   ],
-  "current_build_slice": {
-    "phase": "BDP-001K",
-    "name": "Review exact Buchanan source candidate for canonical adoption readiness",
-    "concept": "Body without Organs",
-    "type": "pdf_availability_and_metadata_adoption_readiness_review",
-    "database_scope": [
-      "schema_migrations",
-      "source_candidates",
-      "sources",
-      "raw_documents",
-      "clean_documents",
-      "passages",
-      "concepts",
-      "concept_mentions",
-      "concept_relations",
-      "interpretations",
-      "citations",
-      "ingestion_events",
-      "user_interactions"
-    ],
-    "database_boundary": "readiness_metadata_update_only",
-    "pdf_access_status": "user_provided_pdf_available",
-    "pdf_file_name_observed": "7daa2f5c56c085aba493f7cdc309cddb.pdf",
-    "pdf_page_count_observed": 19,
-    "source_text_available_for_review": true,
-    "metadata_adoption_readiness": "ready_for_metadata_adoption_only",
-    "source_boundary": "no_canonical_source_adoption_until_bdp_001l",
-    "passage_boundary": "no_new_passage",
-    "citation_boundary": "no_new_citation",
-    "concept_boundary": "no_new_concept_mention_or_relation",
-    "interpretation_boundary": "no_interpretation_or_synthesis",
-    "buchanan_claim_boundary": "no_buchanan_specific_claim_until_later_cited_passage_phase",
-    "next_step": "BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only."
+  "concept_evidence_depth_tiers": {
+    "anchor_concepts": "full_citation_backed_treatment",
+    "buchanan_claim_requirement": "exact_buchanan_source_passage_required",
+    "contextual_terms": "proposed_lightweight_until_promoted",
+    "rule": "concept_detail_follows_authority",
+    "supporting_concepts": "reviewed_mention_or_relation_evidence"
   },
-  "drift_protection": {
-    "schema_locked": false,
-    "requires_migration_for_schema_change": true,
-    "requires_state_update_for_workflow_change": true,
-    "requires_citation_for_interpretive_claims": true,
-    "requires_operator_review_for_source_adoption": true,
-    "requires_controlled_vocabulary_alignment": true
-  },
-  "authority_levels": [
-    "primary_text",
-    "buchanan_direct",
-    "secondary_scholarship",
-    "system_synthesis",
-    "user_interpretation"
-  ],
-  "next_step": "BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.",
   "controlled_vocabularies": {
-    "source_types": [
-      "book",
-      "article",
-      "chapter",
-      "lecture",
-      "interview",
-      "video_transcript",
-      "conference_paper",
-      "teaching_note",
-      "user_note",
-      "bibliography_record",
-      "other"
-    ],
-    "source_statuses": [
-      "candidate",
-      "approved",
-      "rejected",
-      "imported",
-      "cleaned",
-      "chunked",
-      "embedded",
-      "concept_tagged",
-      "reviewed",
-      "canonical"
-    ],
-    "rights_statuses": [
-      "unknown",
-      "public_url",
-      "licensed",
-      "user_provided",
-      "fair_use_reference_only",
-      "restricted"
-    ],
     "authority_levels": [
       "primary_text",
       "buchanan_direct",
@@ -103,18 +164,27 @@
       "system_synthesis",
       "user_interpretation"
     ],
+    "candidate_adoption_readiness": [
+      "review_ready_not_adoption_ready",
+      "not_ready_for_adoption_until_exact_source_identified"
+    ],
+    "candidate_metadata_keys": [
+      "candidate_status",
+      "review_notes",
+      "bibliographic_edition_or_version_note",
+      "rights_status_recommendation",
+      "reliability_level_recommendation",
+      "adoption_readiness",
+      "operator_review_requirement",
+      "canonical_adoption_boundary",
+      "bdp_phase"
+    ],
     "mention_types": [
       "direct",
       "implied",
       "contested",
       "related",
       "metaphorical"
-    ],
-    "review_statuses": [
-      "proposed",
-      "accepted",
-      "rejected",
-      "needs_review"
     ],
     "relation_types": [
       "explains",
@@ -134,152 +204,152 @@
       "critiques",
       "operationalises"
     ],
-    "candidate_adoption_readiness": [
-      "review_ready_not_adoption_ready",
-      "not_ready_for_adoption_until_exact_source_identified"
+    "review_statuses": [
+      "proposed",
+      "accepted",
+      "rejected",
+      "needs_review"
     ],
-    "candidate_metadata_keys": [
-      "candidate_status",
-      "review_notes",
-      "bibliographic_edition_or_version_note",
-      "rights_status_recommendation",
-      "reliability_level_recommendation",
-      "adoption_readiness",
-      "operator_review_requirement",
-      "canonical_adoption_boundary",
-      "bdp_phase"
+    "rights_statuses": [
+      "unknown",
+      "public_url",
+      "licensed",
+      "user_provided",
+      "fair_use_reference_only",
+      "restricted"
+    ],
+    "source_statuses": [
+      "candidate",
+      "approved",
+      "rejected",
+      "imported",
+      "cleaned",
+      "chunked",
+      "embedded",
+      "concept_tagged",
+      "reviewed",
+      "canonical"
+    ],
+    "source_types": [
+      "book",
+      "article",
+      "chapter",
+      "lecture",
+      "interview",
+      "video_transcript",
+      "conference_paper",
+      "teaching_note",
+      "user_note",
+      "bibliography_record",
+      "other"
     ]
   },
-  "source_candidate_adoption_boundary": {
-    "source_candidate_is_not_canonical_source": true,
-    "bibliographic_metadata_is_not_source_evidence": true,
-    "review_readiness_is_not_adoption": true,
-    "source_adoption_is_not_interpretive_authority": true
+  "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
+  "current_build_slice": {
+    "buchanan_claim_boundary": "no_buchanan_specific_claim_until_later_cited_passage_phase",
+    "citation_boundary": "no_new_citation",
+    "concept": "Body without Organs",
+    "concept_boundary": "no_new_concept_mention_or_relation",
+    "database_boundary": "readiness_metadata_update_only",
+    "database_scope": [
+      "schema_migrations",
+      "source_candidates",
+      "sources",
+      "raw_documents",
+      "clean_documents",
+      "passages",
+      "concepts",
+      "concept_mentions",
+      "concept_relations",
+      "interpretations",
+      "citations",
+      "ingestion_events",
+      "user_interactions"
+    ],
+    "interpretation_boundary": "no_interpretation_or_synthesis",
+    "metadata_adoption_readiness": "ready_for_metadata_adoption_only",
+    "name": "Review exact Buchanan source candidate for canonical adoption readiness",
+    "next_step": "BDP-001L \u2014 Adopt reviewed Buchanan source metadata into canonical sources only.",
+    "passage_boundary": "no_new_passage",
+    "pdf_access_status": "user_provided_pdf_available",
+    "pdf_file_name_observed": "7daa2f5c56c085aba493f7cdc309cddb.pdf",
+    "pdf_page_count_observed": 19,
+    "phase": "BDP-001K",
+    "source_boundary": "no_canonical_source_adoption_until_bdp_001l",
+    "source_text_available_for_review": true,
+    "type": "pdf_availability_and_metadata_adoption_readiness_review"
   },
   "current_database_invariant": {
-    "sources_count": 1,
-    "source_candidates_count": 3,
-    "passages_count": 1,
     "citations_count": 1,
     "concept_mentions_count": 1,
     "concept_relations_count": 0,
-    "interpretations_count": 0
+    "interpretations_count": 0,
+    "passages_count": 1,
+    "source_candidates_count": 3,
+    "sources_count": 1
   },
-  "next_phase": "BDP-001N",
-  "concept_evidence_depth_tiers": {
-    "rule": "concept_detail_follows_authority",
-    "anchor_concepts": "full_citation_backed_treatment",
-    "supporting_concepts": "reviewed_mention_or_relation_evidence",
-    "contextual_terms": "proposed_lightweight_until_promoted",
-    "buchanan_claim_requirement": "exact_buchanan_source_passage_required"
+  "current_phase": "BDP-002A",
+  "current_verified_invariant": {
+    "BDP-001L_migration_count": 1,
+    "BDP-001M_migration_count": 1,
+    "BDP-002A_migration_count": 0,
+    "citations_count": 1,
+    "concept_mentions_count": 1,
+    "concept_relations_count": 0,
+    "interpretations_count": 0,
+    "passage_candidates_count": 1,
+    "passages_count": 1,
+    "source_candidates_count": 3,
+    "sources_count": 2
+  },
+  "drift_protection": {
+    "requires_citation_for_interpretive_claims": true,
+    "requires_controlled_vocabulary_alignment": true,
+    "requires_migration_for_schema_change": true,
+    "requires_operator_review_for_source_adoption": true,
+    "requires_state_update_for_workflow_change": true,
+    "schema_locked": false
   },
   "last_completed_phase": "BDP-001M",
-  "current_phase": "BDP-001M",
-  "bdp_001l_metadata_only_source_adoption": {
-    "phase": "BDP-001L",
-    "status": "complete",
-    "title": "Adopt reviewed Buchanan source metadata into canonical sources only",
-    "controlled_slice": "source_metadata_adoption_only",
-    "canonical_source_adopted": {
-      "title": "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?",
-      "author": "Ian Buchanan",
-      "type": "article",
-      "publication_year": 1997,
-      "journal": "Body & Society",
-      "volume": "3",
-      "issue": "3",
-      "pages": "73-91",
-      "doi": "10.1177/1357034X97003003004",
-      "url_or_reference": "https://doi.org/10.1177/1357034X97003003004",
-      "publisher": "SAGE Publications",
-      "rights_status": "restricted",
-      "reliability_level": "high",
-      "status": "canonical"
-    },
-    "adopted_from_phases": [
-      "BDP-001J",
-      "BDP-001K"
-    ],
-    "candidate_history": {
-      "preserved_in_source_candidates": true,
-      "status": "approved",
-      "history_status": "approved_adopted_metadata_history"
-    },
-    "pdf_availability_metadata": {
-      "pdf_access_status": "user_provided_pdf_available",
-      "source_text_available_for_review": true,
-      "display_rule": "reference_only"
-    },
-    "verified_invariant": {
-      "sources_count": 2,
-      "source_candidates_count": 3,
-      "passages_count": 1,
-      "citations_count": 1,
-      "concept_mentions_count": 1,
-      "concept_relations_count": 0,
-      "interpretations_count": 0,
-      "BDP-001L migration_count": 1
-    },
-    "boundaries": {
-      "passage_insertion": false,
-      "citation_insertion": false,
-      "concept_mention_insertion": false,
-      "concept_relation_insertion": false,
-      "interpretation_insertion": false,
-      "generated_buchanan_claim": false,
-      "long_pdf_quotation": false
-    },
-    "next_step": "BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet."
+  "last_updated_phase": "BDP-002A",
+  "next_phase": "BDP-001N",
+  "next_step": "BDP-001L \u2014 Adopt reviewed Buchanan source metadata into canonical sources only.",
+  "phase_history": {
+    "BDP-002A": {
+      "authority_boundary": {
+        "buchanan_explanation": "buchanan_pending",
+        "plain_explanation": "provisional_synthesis",
+        "technical_explanation": "provisional_synthesis"
+      },
+      "buchanan_specific_explanation_status": "blocked_until_buchanan_passage_citation",
+      "concept": "Body without Organs",
+      "database_mutation": false,
+      "phase": "BDP-002A",
+      "schema_migration": false,
+      "status": "prepared_read_only_semantic_workbench",
+      "updated_at": "2026-06-13T22:18:24+00:00",
+      "verified_invariant": {
+        "BDP-001L_migration_count": 1,
+        "BDP-001M_migration_count": 1,
+        "BDP-002A_migration_count": 0,
+        "citations_count": 1,
+        "concept_mentions_count": 1,
+        "concept_relations_count": 0,
+        "interpretations_count": 0,
+        "passage_candidates_count": 1,
+        "passages_count": 1,
+        "source_candidates_count": 3,
+        "sources_count": 2
+      }
+    }
   },
-  "bdp_001m_passage_candidate_preparation": {
-    "phase": "BDP-001M",
-    "status": "complete",
-    "title": "Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet",
-    "controlled_slice": "passage_candidate_preparation_only",
-    "database_change": {
-      "created_table_when_missing": "passage_candidates",
-      "inserted_passage_candidates": 1,
-      "inserted_canonical_passages": 0,
-      "inserted_citations": 0,
-      "inserted_concept_mentions": 0,
-      "inserted_concept_relations": 0,
-      "inserted_interpretations": 0
-    },
-    "passage_candidate": {
-      "candidate_label": "BDP-001M first Buchanan passage candidate for Body without Organs",
-      "source_title": "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?",
-      "source_author": "Ian Buchanan",
-      "source_doi": "10.1177/1357034X97003003004",
-      "target_concept": "Body without Organs",
-      "candidate_status": "candidate",
-      "review_status": "prepared",
-      "candidate_scope": "passage_candidate_envelope_metadata_only",
-      "candidate_text_stored": false,
-      "locator_selected": false,
-      "display_rule": "reference_only",
-      "rights_status": "restricted"
-    },
-    "verified_invariant": {
-      "sources_count": 2,
-      "source_candidates_count": 3,
-      "passage_candidates_count": 1,
-      "passages_count": 1,
-      "citations_count": 1,
-      "concept_mentions_count": 1,
-      "concept_relations_count": 0,
-      "interpretations_count": 0,
-      "BDP-001M migration_count": 1
-    },
-    "boundaries": {
-      "canonical_passage_insertion": false,
-      "citation_insertion": false,
-      "concept_mention_insertion": false,
-      "concept_relation_insertion": false,
-      "interpretation_insertion": false,
-      "generated_buchanan_claim": false,
-      "long_pdf_quotation": false,
-      "candidate_text_storage": false
-    },
-    "next_step": "BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion."
-  }
+  "project": "buchanan_deleuze_intelligence_platform",
+  "schema_version": "0.1.3",
+  "source_candidate_adoption_boundary": {
+    "bibliographic_metadata_is_not_source_evidence": true,
+    "review_readiness_is_not_adoption": true,
+    "source_adoption_is_not_interpretive_authority": true,
+    "source_candidate_is_not_canonical_source": true
+  },
+  "status": "buchanan_pdf_source_reviewed_for_metadata_adoption_readiness"
 }

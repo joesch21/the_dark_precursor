@@ -73,3 +73,21 @@ The system must distinguish between:
 5. What users propose.
 
 No generated synthesis should be treated as canonical without review.
+
+## BDP-002A Semantic Workbench Layer
+
+The semantic workbench is an operator-facing readback layer over the existing source, passage, citation, and concept records.
+
+It does not create evidence. It displays evidence posture.
+
+For `Body without Organs`, BDP-002A introduces a JSON-like concept card that can show provisional explanatory scaffolding while preserving the boundary between:
+
+1. primary-text-backed evidence.
+2. Buchanan metadata.
+3. Buchanan passage candidates.
+4. Buchanan-specific claims that remain blocked.
+5. generated system synthesis that remains provisional.
+
+Every explanation in the workbench must carry an authority label.
+
+BDP-002A is intentionally lightweight. It creates a readback script, a verifier, and doctrine before any frontend renderer is added.
