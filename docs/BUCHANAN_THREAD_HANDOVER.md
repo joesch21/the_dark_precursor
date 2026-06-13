@@ -96,3 +96,24 @@ Next step:
 ```text
 Run scripts/verify_init.py, then apply sql/001_buchanan_control_plane.sql to local PostgreSQL.
 ```
+
+## BDP-001C Handover Update
+
+Initial seed records have been applied to the live local PostgreSQL database.
+
+Completed:
+
+1. Seeded canonical concept target: `Body without Organs`.
+2. Seeded related proposed concepts: `organism`, `desire`, `assemblage`, `strata`.
+3. Seeded source candidates only.
+4. Confirmed source candidates remain non-canonical.
+5. Confirmed no passages or interpretations were inserted.
+6. Added and pushed `sql/002_seed_bdp_001c.sql`.
+7. Added and pushed `scripts/verify_bdp_001c_seed.py`.
+
+Next step:
+
+```text
+BDP-001D — Review and enrich source candidates before canonical source adoption.
+
+

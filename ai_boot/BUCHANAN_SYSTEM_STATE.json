@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.1",
-  "status": "control_plane_alignment",
+  "status": "initial_seed_applied",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -12,10 +12,10 @@
     "docs/BUCHANAN_THREAD_HANDOVER.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001A",
-    "name": "Schema and Ontology Alignment Before Database Prototype",
+    "phase": "BDP-001C",
+    "name": "Seed First Canonical Concept and Source Candidate Records",
     "concept": "Body without Organs",
-    "source_scope": "Ian Buchanan plus Deleuze and Guattari primary passages",
+    "source_scope": "Candidate-only intake for Deleuze and Guattari primary texts plus Buchanan Body without Organs source candidate",
     "database_scope": [
       "schema_migrations",
       "source_candidates",
@@ -30,7 +30,24 @@
       "citations",
       "ingestion_events",
       "user_interactions"
-    ]
+    ],
+    "seed_records": {
+      "concepts": [
+        "Body without Organs",
+        "organism",
+        "desire",
+        "assemblage",
+        "strata"
+      ],
+      "source_candidates": [
+        "Anti-Oedipus: Capitalism and Schizophrenia",
+        "A Thousand Plateaus: Capitalism and Schizophrenia",
+        "Ian Buchanan Body without Organs source candidate"
+      ],
+      "canonical_source_adoption": false,
+      "passages_inserted": false,
+      "interpretations_inserted": false
+    }
   },
   "drift_protection": {
     "schema_locked": false,
@@ -47,7 +64,7 @@
     "system_synthesis",
     "user_interpretation"
   ],
-  "next_step": "Run BDP-001A verifier, then apply the initial PostgreSQL migration in a local database.",
+  "next_step": "BDP-001D \u2014 Review and enrich source candidates before canonical source adoption.",
   "controlled_vocabularies": {
     "source_types": [
       "book",
