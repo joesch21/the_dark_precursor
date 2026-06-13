@@ -57,6 +57,11 @@ def main():
             FROM schema_migrations
             WHERE phase = 'BDP-001E.3'
         ),
+        'bdp_001e4_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.4'
+        ),
         'passages_total', (SELECT COUNT(*) FROM passages),
         'citations_total', (SELECT COUNT(*) FROM citations),
         'interpretations_total', (SELECT COUNT(*) FROM interpretations)
@@ -90,8 +95,12 @@ def main():
     elif metadata.get("passage_inserted") is not False:
         fail("metadata incorrectly indicates passage insertion before BDP-001E.3")
 
-    if metadata.get("citation_inserted") is not False:
-        fail("metadata incorrectly indicates citation insertion")
+    later_e4_applied = payload.get("bdp_001e4_count") == 1
+    if later_e4_applied:
+        if metadata.get("citation_inserted") is not True:
+            fail("metadata should record citation insertion after BDP-001E.4")
+    elif metadata.get("citation_inserted") is not False:
+        fail("metadata incorrectly indicates citation insertion before BDP-001E.4")
 
     if metadata.get("interpretation_created") is not False:
         fail("metadata incorrectly indicates interpretation creation")
@@ -103,8 +112,9 @@ def main():
     if payload["passages_total"] != expected_passages:
         fail(f"unexpected passage count after phase chain: {payload['passages_total']}")
 
-    if payload["citations_total"] != 0:
-        fail("citations were inserted")
+    expected_citations = 1 if payload.get("bdp_001e4_count") == 1 else 0
+    if payload["citations_total"] != expected_citations:
+        fail(f"unexpected citation count after phase chain: {payload['citations_total']}")
 
     if payload["interpretations_total"] != 0:
         fail("interpretations were inserted")

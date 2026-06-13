@@ -67,6 +67,11 @@ def main():
             WHERE title = 'A Thousand Plateaus: Capitalism and Schizophrenia'
             LIMIT 1
         ),
+        'bdp_001e4_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.4'
+        ),
         'sources_total', (SELECT COUNT(*) FROM sources),
         'passages_total', (SELECT COUNT(*) FROM passages),
         'citations_total', (SELECT COUNT(*) FROM citations),
@@ -104,8 +109,12 @@ def main():
     if metadata.get("passage_inserted") is not True:
         fail("candidate metadata does not record passage insertion")
 
-    if metadata.get("citation_inserted") is not False:
-        fail("metadata incorrectly indicates citation-table insertion")
+    later_e4_applied = payload.get("bdp_001e4_count") == 1
+    if later_e4_applied:
+        if metadata.get("citation_inserted") is not True:
+            fail("metadata should record citation-table insertion after BDP-001E.4")
+    elif metadata.get("citation_inserted") is not False:
+        fail("metadata incorrectly indicates citation-table insertion before BDP-001E.4")
 
     if metadata.get("interpretation_created") is not False:
         fail("metadata incorrectly indicates interpretation creation")
@@ -116,8 +125,9 @@ def main():
     if payload["passages_total"] != 1:
         fail("unexpected passage count")
 
-    if payload["citations_total"] != 0:
-        fail("citation-table records were inserted")
+    expected_citations = 1 if payload.get("bdp_001e4_count") == 1 else 0
+    if payload["citations_total"] != expected_citations:
+        fail(f"unexpected citation count after phase chain: {payload['citations_total']}")
 
     if payload["interpretations_total"] != 0:
         fail("interpretations were inserted")
@@ -125,7 +135,10 @@ def main():
     print("[OK] BDP-001E.3 migration ledger recorded")
     print("[OK] first short cited passage inserted")
     print("[OK] passage is linked to canonical source")
-    print("[OK] citation-table remains empty")
+    if payload.get("bdp_001e4_count") == 1:
+        print("[OK] later BDP-001E.4 citation insertion tolerated")
+    else:
+        print("[OK] citation-table remains empty")
     print("[OK] no interpretations inserted")
     print()
     print("BDP-001E.3 first cited passage-only verification passed.")

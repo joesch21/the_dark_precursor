@@ -64,7 +64,13 @@ def main():
             FROM schema_migrations
             WHERE phase = 'BDP-001E.3'
         ),
+        'bdp_001e4_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.4'
+        ),
         'passages_count', (SELECT COUNT(*) FROM passages),
+        'citations_count', (SELECT COUNT(*) FROM citations),
         'interpretations_count', (SELECT COUNT(*) FROM interpretations)
     )::text;
     """
@@ -111,8 +117,12 @@ def main():
     elif metadata.get("passage_inserted") is not False:
         fail("metadata incorrectly indicates passage insertion before BDP-001E.3")
 
-    if metadata.get("citation_inserted") is not False:
-        fail("metadata incorrectly indicates citation insertion")
+    later_e4_applied = payload.get("bdp_001e4_count") == 1
+    if later_e4_applied:
+        if metadata.get("citation_inserted") is not True:
+            fail("metadata should record citation insertion after BDP-001E.4")
+    elif metadata.get("citation_inserted") is not False:
+        fail("metadata incorrectly indicates citation insertion before BDP-001E.4")
 
     if metadata.get("interpretation_created") is not False:
         fail("metadata incorrectly indicates interpretation creation")
