@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.3",
-  "status": "first_passage_linked_to_body_without_organs_concept",
+  "status": "first_citation_backed_concept_readback_prepared",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -12,8 +12,8 @@
     "docs/BUCHANAN_THREAD_HANDOVER.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001F",
-    "name": "Link First Cited Passage to Body without Organs Concept Mention",
+    "phase": "BDP-001G",
+    "name": "Prepare First Citation-Backed Body without Organs Concept Readback",
     "concept": "Body without Organs",
     "database_scope": [
       "schema_migrations",
@@ -42,14 +42,23 @@
       "citations_inserted": false,
       "interpretations_inserted": false
     },
-    "type": "concept_mention_link_only",
-    "database_boundary": "concept_mentions_insert_only",
+    "type": "read_only_concept_readback",
+    "database_boundary": "select_only_no_database_mutation",
     "source_boundary": "no_new_sources",
     "passage_boundary": "no_new_passages",
     "citation_boundary": "no_new_citations",
     "interpretation_boundary": "no_interpretations_inserted",
-    "next_step": "BDP-001G \u2014 Prepare first citation-backed Body without Organs concept readback",
-    "relation_boundary": "no_concept_relations_inserted"
+    "next_step": "BDP-001H — Define source intake and candidate staging workflow",
+    "relation_boundary": "no_concept_relations_inserted",
+    "concept_mention_boundary": "no_new_concept_mentions",
+    "concept_relation_boundary": "no_concept_relations_inserted",
+    "readback_chain": [
+      "concepts",
+      "concept_mentions",
+      "passages",
+      "citations",
+      "sources"
+    ]
   },
   "drift_protection": {
     "schema_locked": false,
@@ -66,7 +75,7 @@
     "system_synthesis",
     "user_interpretation"
   ],
-  "next_step": "BDP-001G \u2014 Prepare first citation-backed Body without Organs concept readback",
+  "next_step": "BDP-001H — Define source intake and candidate staging workflow",
   "controlled_vocabularies": {
     "source_types": [
       "book",
@@ -169,5 +178,5 @@
     "concept_relations_count": 0,
     "interpretations_count": 0
   },
-  "next_phase": "BDP-001G"
+  "next_phase": "BDP-001H"
 }

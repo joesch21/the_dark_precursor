@@ -363,3 +363,51 @@ Next step:
 ```text
 BDP-001G — Prepare first citation-backed Body without Organs concept readback
 ```
+
+
+## BDP-001G Handover Update
+
+First citation-backed concept readback prepared for `Body without Organs`.
+
+Completed:
+
+1. Added `scripts/read_bdp_001g_bwo_concept_readback.py`.
+2. Added `scripts/verify_bdp_001g_concept_readback.py`.
+3. Prepared a read-only evidence card over the chain `concepts → concept_mentions → passages → citations → sources`.
+4. Confirmed the readback resolves the accepted direct `Body without Organs` concept mention.
+5. Confirmed the readback is linked to the first cited passage from `A Thousand Plateaus: Capitalism and Schizophrenia`.
+6. Confirmed the citation chain remains reference-only and interpretation-free.
+7. Confirmed no sources, passages, citations, concept mentions, concept relations, or interpretations were inserted by this phase.
+
+Current invariant:
+
+```text
+sources_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001F migration_count = 1
+```
+
+Boundary:
+
+```text
+No SQL migration was added.
+No database mutation was performed.
+No source was inserted.
+No passage was inserted.
+No citation was inserted.
+No concept mention was inserted.
+No concept relation was inserted.
+No interpretation was inserted.
+No Buchanan interpretation was generated.
+No system synthesis was generated.
+```
+
+Next step:
+
+```text
+BDP-001H — Define source intake and candidate staging workflow
+```
