@@ -317,3 +317,49 @@ Next step:
 ```text
 BDP-001F — Link first cited passage to Body without Organs concept mention
 ```
+
+
+## BDP-001F Handover Update
+
+The first cited passage has been linked to the `Body without Organs` concept through a reviewed concept mention.
+
+Completed:
+
+1. Added one `concept_mentions` row linking the first cited passage to `Body without Organs`.
+2. Preserved the canonical source count at one.
+3. Preserved the passage count at one.
+4. Preserved the citation count at one.
+5. Confirmed no interpretations were inserted.
+6. Confirmed no concept relations were inserted.
+7. Added `sql/008_link_bdp_001f_first_passage_to_bwo_concept.sql`.
+8. Added `scripts/verify_bdp_001f_concept_mention.py`.
+9. Updated `ai_boot/BUCHANAN_SYSTEM_STATE.json` for BDP-001F.
+
+Current invariant:
+
+```text
+sources_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001F migration_count = 1
+```
+
+Boundary:
+
+```text
+No source was inserted.
+No passage was inserted.
+No citation was inserted.
+No interpretation was inserted.
+No concept relation was inserted.
+No interpretive claim was created.
+```
+
+Next step:
+
+```text
+BDP-001G — Prepare first citation-backed Body without Organs concept readback
+```
