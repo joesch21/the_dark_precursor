@@ -54,6 +54,11 @@ def main():
             LIMIT 1
         ),
         'sources_count', (SELECT COUNT(*) FROM sources),
+        'bdp_001e2_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.2'
+        ),
         'passages_count', (SELECT COUNT(*) FROM passages),
         'interpretations_count', (SELECT COUNT(*) FROM interpretations)
     )::text;
@@ -78,14 +83,21 @@ def main():
     if selected.get("title") != SELECTED_TITLE:
         fail(f"wrong candidate selected: {selected.get('title')}")
 
-    if selected.get("status") != "candidate":
-        fail("selected candidate must remain status=candidate")
+    later_e2_applied = payload.get("bdp_001e2_count") == 1
+    if later_e2_applied:
+        if selected.get("status") not in {"candidate", "approved"}:
+            fail("selected candidate has unexpected post-selection status")
+    elif selected.get("status") != "candidate":
+        fail("selected candidate must remain status=candidate before adoption")
 
     if metadata.get("adoption_selection_status") != "selected_for_canonical_adoption_review":
         fail("selection status metadata missing or incorrect")
 
-    if metadata.get("source_adoption_created") is not False:
-        fail("metadata incorrectly indicates source adoption")
+    if later_e2_applied:
+        if metadata.get("source_adoption_created") is not True:
+            fail("metadata should record source adoption after BDP-001E.2")
+    elif metadata.get("source_adoption_created") is not False:
+        fail("metadata incorrectly indicates source adoption before BDP-001E.2")
 
     if metadata.get("passage_inserted") is not False:
         fail("metadata incorrectly indicates passage insertion")
@@ -96,8 +108,9 @@ def main():
     if metadata.get("interpretation_created") is not False:
         fail("metadata incorrectly indicates interpretation creation")
 
-    if payload.get("sources_count") != 0:
-        fail("canonical source was created during selection-only phase")
+    expected_sources = 1 if later_e2_applied else 0
+    if payload.get("sources_count") != expected_sources:
+        fail(f"unexpected canonical source count after phase chain: {payload.get('sources_count')}")
 
     if payload.get("passages_count") != 0:
         fail("passage was inserted during selection-only phase")

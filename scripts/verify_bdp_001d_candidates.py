@@ -94,6 +94,11 @@ def main():
             )
         ), '[]'::jsonb),
         'sources_count', (SELECT COUNT(*) FROM sources),
+        'bdp_001e2_count', (
+            SELECT COUNT(*)
+            FROM schema_migrations
+            WHERE phase = 'BDP-001E.2'
+        ),
         'passages_count', (SELECT COUNT(*) FROM passages),
         'interpretations_count', (SELECT COUNT(*) FROM interpretations)
     )::text;
@@ -125,7 +130,11 @@ def main():
             if not candidate.get(field):
                 fail(f"{title} missing required field: {field}")
 
-        if candidate.get("status") != "candidate":
+        later_e2_applied = payload.get("bdp_001e2_count") == 1
+        if title == "A Thousand Plateaus: Capitalism and Schizophrenia" and later_e2_applied:
+            if candidate.get("status") not in {"candidate", "approved"}:
+                fail(f"{title} has unexpected post-selection status: {candidate.get('status')}")
+        elif candidate.get("status") != "candidate":
             fail(f"{title} is not still marked candidate")
 
         metadata = candidate.get("metadata") or {}
@@ -148,8 +157,8 @@ def main():
         if metadata.get("interpretations_authorized") is not False:
             fail(f"{title} incorrectly authorizes interpretations")
 
-    if payload.get("sources_count") != 0:
-        fail("canonical sources were inserted")
+    if payload.get("sources_count") != 0 and payload.get("bdp_001e2_count") != 1:
+        fail("canonical sources were inserted before an approved later adoption phase")
 
     if payload.get("passages_count") != 0:
         fail("passages were inserted")
