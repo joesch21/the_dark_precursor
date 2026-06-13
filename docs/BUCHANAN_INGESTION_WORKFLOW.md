@@ -185,3 +185,34 @@ Next step:
 ```text
 BDP-001I — Select first Buchanan source candidate for Body without Organs.
 ```
+
+## BDP-001I Buchanan Placeholder Candidate Selection
+
+BDP-001I selects the existing Ian Buchanan Body without Organs placeholder candidate as the next review target.
+
+This is selection-only.
+
+Boundary:
+
+```text
+The placeholder candidate remains a candidate.
+No canonical Buchanan source is created.
+Canonical adoption is hard-blocked until an exact Buchanan publication, lecture, transcript, interview, or teaching source is specified.
+```
+
+Preferred repository working method:
+
+```text
+make patch bundle
+→ download zip
+→ unzip locally
+→ apply with git apply --check
+→ run verifiers
+→ commit/push from local repo
+```
+
+Next step:
+
+```text
+BDP-001J — Specify exact Buchanan source for Body without Organs candidate review.
+```

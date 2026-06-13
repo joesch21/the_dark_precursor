@@ -56,15 +56,16 @@ for needle in [
 
 ok("source intake registry records candidate and canonical adoption boundaries")
 
-state = json.loads(Path("ai_boot/BUCHANAN_SYSTEM_STATE.json").read_text())
+handover_text = Path("docs/BUCHANAN_THREAD_HANDOVER.md").read_text()
+workflow_text = Path("docs/BUCHANAN_INGESTION_WORKFLOW.md").read_text()
 
-if state.get("current_build_slice", {}).get("phase") != "BDP-001H":
-    fail("state current_build_slice.phase is not BDP-001H")
+if "## BDP-001H Handover Update" not in handover_text:
+    fail("handover does not preserve BDP-001H closeout")
 
-if state.get("current_build_slice", {}).get("type") != "read_only_source_intake_registry":
-    fail("state current_build_slice.type is not read_only_source_intake_registry")
+if "## BDP-001H Source Intake Registry" not in workflow_text:
+    fail("ingestion workflow does not preserve BDP-001H source intake registry")
 
-ok("system state records BDP-001H as read-only source intake registry")
+ok("system docs preserve BDP-001H source intake registry after later phases")
 
 counts = psql("""
 SELECT

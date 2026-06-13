@@ -460,3 +460,65 @@ Next step:
 ```text
 BDP-001I — Select first Buchanan source candidate for Body without Organs.
 ```
+
+## BDP-001I Handover Update
+
+First Buchanan source candidate selection completed as a selection-only governed slice.
+
+Completed:
+
+1. Selected the existing `Ian Buchanan Body without Organs source candidate` as the next Buchanan review target.
+2. Preserved the candidate as `status = candidate`.
+3. Recorded an explicit hard block against canonical Buchanan source adoption until the exact Buchanan source is specified.
+4. Added `docs/BUCHANAN_PATCH_BUNDLE_WORKFLOW.md` as the preferred repository working method.
+5. Added `sql/009_select_bdp_001i_buchanan_placeholder_candidate_only.sql`.
+6. Added `scripts/read_bdp_001i_buchanan_candidate_selection.py`.
+7. Added `scripts/verify_bdp_001i_buchanan_candidate_selection.py`.
+8. Updated `ai_boot/BUCHANAN_SYSTEM_STATE.json` for BDP-001I.
+9. Updated ingestion workflow with the BDP-001I selection-only boundary.
+
+Preferred working method:
+
+```text
+make patch bundle
+→ download zip
+→ unzip locally
+→ apply with git apply --check
+→ run verifiers
+→ commit/push from local repo
+```
+
+Current invariant:
+
+```text
+sources_count = 1
+source_candidates_count = 3
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001F migration_count = 1
+BDP-001H migration_count = 0
+BDP-001I migration_count = 1
+```
+
+Boundary:
+
+```text
+No new source candidate was inserted.
+No canonical Buchanan source was inserted.
+No passage was inserted.
+No citation was inserted.
+No concept mention was inserted.
+No concept relation was inserted.
+No interpretation was inserted.
+No generated Buchanan claim was created.
+Canonical adoption is blocked until the exact Buchanan source is specified.
+```
+
+Next step:
+
+```text
+BDP-001J — Specify exact Buchanan source for Body without Organs candidate review.
+```

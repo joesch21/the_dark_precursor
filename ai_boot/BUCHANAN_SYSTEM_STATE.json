@@ -1,7 +1,7 @@
 {
   "project": "buchanan_deleuze_intelligence_platform",
   "schema_version": "0.1.3",
-  "status": "source_intake_registry_readback_prepared",
+  "status": "buchanan_placeholder_candidate_selected_only",
   "created_for": "Buchanan-grounded Deleuze and Guattari intelligence platform",
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -9,13 +9,14 @@
     "docs/BUCHANAN_INGESTION_WORKFLOW.md",
     "docs/BUCHANAN_CONCEPT_ONTOLOGY.md",
     "docs/BUCHANAN_CITATION_AND_RIGHTS.md",
-    "docs/BUCHANAN_THREAD_HANDOVER.md"
+    "docs/BUCHANAN_THREAD_HANDOVER.md",
+    "docs/BUCHANAN_PATCH_BUNDLE_WORKFLOW.md"
   ],
   "current_build_slice": {
-    "phase": "BDP-001H",
-    "name": "Source Intake Registry and Candidate Creation Readback",
+    "phase": "BDP-001I",
+    "name": "Select First Buchanan Source Candidate for Body without Organs",
     "concept": "Body without Organs",
-    "type": "read_only_source_intake_registry",
+    "type": "selection_only_exact_source_block",
     "database_scope": [
       "schema_migrations",
       "source_candidates",
@@ -31,14 +32,18 @@
       "ingestion_events",
       "user_interactions"
     ],
-    "database_boundary": "no_database_mutation",
-    "candidate_boundary": "preview_only_no_source_candidate_insert",
-    "source_boundary": "no_new_canonical_source",
+    "database_boundary": "selection_metadata_update_only",
+    "candidate_boundary": "existing_candidate_selected_only_no_new_candidate",
+    "source_boundary": "no_canonical_buchanan_source_until_exact_source_specified",
+    "exact_source_required": true,
+    "canonical_adoption_blocked": true,
+    "canonical_adoption_blocker": "Exact Buchanan publication, lecture, transcript, interview, or teaching source has not yet been specified.",
+    "patch_bundle_workflow": "make patch bundle \u2192 download zip \u2192 unzip locally \u2192 apply with git apply --check \u2192 run verifiers \u2192 commit/push from local repo",
     "passage_boundary": "no_new_passage",
     "citation_boundary": "no_new_citation",
     "concept_boundary": "no_new_concept_mention_or_relation",
     "interpretation_boundary": "no_interpretation_or_synthesis",
-    "next_step": "BDP-001I \u2014 Select first Buchanan source candidate for Body without Organs."
+    "next_step": "BDP-001J \u2014 Specify exact Buchanan source for Body without Organs candidate review."
   },
   "drift_protection": {
     "schema_locked": false,
@@ -55,7 +60,7 @@
     "system_synthesis",
     "user_interpretation"
   ],
-  "next_step": "BDP-001I \u2014 Select first Buchanan source candidate for Body without Organs.",
+  "next_step": "BDP-001J \u2014 Specify exact Buchanan source for Body without Organs candidate review.",
   "controlled_vocabularies": {
     "source_types": [
       "book",
@@ -152,11 +157,13 @@
   },
   "current_database_invariant": {
     "sources_count": 1,
+    "source_candidates_count": 3,
     "passages_count": 1,
     "citations_count": 1,
     "concept_mentions_count": 1,
     "concept_relations_count": 0,
-    "interpretations_count": 0
+    "interpretations_count": 0,
+    "bdp_001i_migration_count": 1
   },
-  "next_phase": "BDP-001I"
+  "next_phase": "BDP-001J"
 }
