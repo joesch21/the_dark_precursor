@@ -504,3 +504,45 @@ psycho_linguistic_tables = false
 ```
 
 Future psycho-linguistic modelling or reader/listener transformation storage will require a separate schema proposal, explicit governance rules, state update, workflow update, and verifier.
+
+## BDP-001N Passage Candidate Locator and Short Text Review Patch
+
+BDP-001N updates the existing `passage_candidates` row for the adopted Buchanan article.
+
+It records:
+
+```text
+candidate_text_status = reviewed_short_excerpt
+locator_status = reviewed
+review_status = approved
+review_status_detail = reviewed_for_later_passage_insertion
+citation_ready = true
+concept_mention_ready = false
+interpretation_ready = false
+buchanan_claim_ready = false
+inserted_as_passage = false
+```
+
+Migration note:
+
+```text
+BDP-001N updates candidate review metadata only.
+It does not create a canonical passage.
+It does not create a citation.
+It does not create a concept mention, concept relation, interpretation, synthesis, or Buchanan-specific claim.
+```
+
+Validation addition:
+
+BDP-001N is valid only if verification proves:
+
+1. exactly one Buchanan article passage candidate exists.
+2. the candidate stores only a short reviewed excerpt.
+3. the candidate locator is reviewed.
+4. `citation_ready = true`.
+5. `inserted_as_passage = false`.
+6. `concept_mention_ready = false`.
+7. `interpretation_ready = false`.
+8. `buchanan_claim_ready = false`.
+9. canonical table counts are preserved.
+10. `BDP-001N migration_count = 1`.

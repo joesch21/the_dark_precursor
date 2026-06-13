@@ -255,3 +255,37 @@ Next step:
 ```text
 BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.
 ```
+
+## BDP-001N Passage Candidate Review Record
+
+The adopted Buchanan article now has one reviewed passage-candidate locator and short excerpt for `Body without Organs`.
+
+Candidate review metadata:
+
+```text
+candidate_text_status = reviewed_short_excerpt
+locator_status = reviewed
+page_or_timestamp = printed article page 76; PDF page 4
+chapter_or_section = opening section before Spinoza
+review_status = approved
+review_status_detail = reviewed_for_later_passage_insertion
+citation_ready = true
+concept_mention_ready = false
+interpretation_ready = false
+buchanan_claim_ready = false
+inserted_as_passage = false
+```
+
+Boundary:
+
+```text
+The candidate is still not a canonical passage.
+Citation insertion is not performed in BDP-001N.
+No Buchanan-specific claim is authorized yet.
+```
+
+Next step:
+
+```text
+BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.
+```

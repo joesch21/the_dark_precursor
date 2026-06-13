@@ -878,3 +878,57 @@ Alternative next step:
 ```text
 BDP-002B — Add semantic workbench card renderer / frontend preview.
 ```
+
+## BDP-001N Handover Update
+
+First Buchanan passage candidate locator and short text review completed.
+
+Completed:
+
+1. Reviewed the existing `passage_candidates` row for Ian Buchanan's 1997 article.
+2. Recorded one short rights-aware candidate excerpt.
+3. Recorded locator as printed article page 76 / PDF page 4.
+4. Marked the candidate as reviewed for later passage insertion.
+5. Marked citation readiness as true for a later governed citation phase.
+6. Preserved concept mention, interpretation, and Buchanan-claim readiness as false.
+7. Confirmed the candidate is still not a canonical passage.
+8. Confirmed no citation, concept mention, concept relation, interpretation, or Buchanan claim was inserted.
+9. Added `sql/014_review_bdp_001n_buchanan_passage_candidate_locator_text.sql`.
+10. Added `scripts/read_bdp_001n_buchanan_passage_candidate_review.py`.
+11. Added `scripts/verify_bdp_001n_buchanan_passage_candidate_review.py`.
+12. Added `scripts/update_bdp_001n_docs_and_state.py`.
+
+Current invariant:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 1
+citations_count = 1
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001M migration_count = 1
+BDP-001N migration_count = 1
+BDP-002A migration_count = 0
+```
+
+Boundary:
+
+```text
+No canonical Buchanan article passage inserted.
+No Buchanan article citation inserted.
+No Buchanan article concept mention inserted.
+No concept relation inserted.
+No interpretation inserted.
+No generated Buchanan claim.
+No long quotation from the PDF.
+The reviewed candidate excerpt is short and rights-aware.
+```
+
+Next step:
+
+```text
+BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.
+```

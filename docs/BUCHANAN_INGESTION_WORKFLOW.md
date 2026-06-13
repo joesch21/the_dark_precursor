@@ -289,3 +289,31 @@ prepared candidate does not authorize Buchanan-specific claims
 ```
 
 This keeps the adopted Buchanan source available for later passage review without treating bibliographic adoption as textual evidence.
+
+## BDP-001N Passage Candidate Review
+
+BDP-001N completes the controlled review step between passage-candidate preparation and canonical passage insertion.
+
+Updated controlled sequence:
+
+```text
+canonical source metadata
+→ passage candidate envelope
+→ operator review of exact short text and locator
+→ reviewed passage candidate
+→ approved passage insertion later
+→ citation insertion later
+→ concept mention later
+→ relation or interpretation only after evidence exists
+```
+
+Boundary:
+
+```text
+reviewed candidate text is not canonical passage evidence
+reviewed locator is not citation insertion
+citation_ready means ready for later governed insertion
+concept mention remains blocked
+interpretation remains blocked
+Buchanan-specific claims remain blocked
+```

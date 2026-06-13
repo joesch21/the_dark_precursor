@@ -194,3 +194,24 @@ article_reproduction_authorized = false
 BDP-001M does not authorize quotation display, article reproduction, citation insertion, interpretation, generated synthesis, or a Buchanan-specific claim.
 
 A later phase must review any proposed short excerpt and locator before the system may insert a canonical passage or citation.
+
+## BDP-001N Passage Candidate Short Excerpt Rights Boundary
+
+BDP-001N reviews one short candidate excerpt and locator from the user-provided Buchanan PDF.
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+display_rule_detail = reference_only_short_excerpt_candidate
+candidate_text_status = reviewed_short_excerpt
+long_quotation_stored = false
+article_reproduction_authorized = false
+```
+
+BDP-001N does not authorize article reproduction.
+
+It does not insert a canonical passage or citation.
+
+The reviewed short excerpt may support a later governed passage-and-citation insertion phase, but it is not yet canonical evidence.
