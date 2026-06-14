@@ -248,3 +248,35 @@ Buchanan argues that the Body without Organs means X.
 ```
 
 The workbench must keep Buchanan-specific interpretation marked blocked until a later governed interpretation layer exists.
+
+## BDP-001Q Buchanan Evidence Card Readback
+
+BDP-001Q prepares the first Buchanan-specific `Body without Organs` evidence card as a read-only workbench surface.
+
+The card may show:
+
+```text
+concept identity
+Buchanan source metadata
+citation locator
+citation-backed passage status
+reviewed concept mention status
+rights display rule
+blocked relation status
+blocked interpretation status
+blocked Buchanan claim status
+```
+
+Allowed workbench description:
+
+```text
+A citation-backed Buchanan passage is linked to Body without Organs through a reviewed concept mention.
+```
+
+Blocked workbench claim:
+
+```text
+Buchanan argues that the Body without Organs means X.
+```
+
+The evidence card must display `passage_text_display = omitted_by_rights_policy` for restricted passage text.

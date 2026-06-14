@@ -1099,3 +1099,61 @@ Next step:
 ```text
 BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.
 ```
+
+## BDP-001Q Handover Update
+
+The Buchanan `Body without Organs` evidence readback has been prepared as a read-only slice.
+
+Completed:
+
+1. Added `scripts/read_bdp_001q_buchanan_bwo_evidence_readback.py`.
+2. Added `scripts/verify_bdp_001q_buchanan_bwo_evidence_readback.py`.
+3. Added `scripts/update_bdp_001q_docs_and_state.py`.
+4. Added `scripts/verify_bdp_001q_docs_and_state.py`.
+5. Prepared a rights-aware evidence card over `concepts → concept_mentions → passages → citations → sources`.
+6. Confirmed no SQL migration was added.
+7. Confirmed no database mutation was performed.
+8. Confirmed no source, passage, citation, concept mention, concept relation, interpretation, generated Buchanan claim, or frontend work was created.
+9. Confirmed restricted passage text is not displayed.
+
+Current invariant after successful verification:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 2
+citations_count = 2
+concept_mentions_count = 2
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001P migration_count = 1
+BDP-001Q migration_count = 0
+buchanan_article_passage_count = 1
+buchanan_article_citation_count = 1
+buchanan_article_concept_mention_count = 1
+```
+
+Boundary:
+
+```text
+No SQL migration.
+No database mutation.
+No canonical source inserted.
+No source candidate inserted.
+No passage candidate inserted.
+No passage inserted.
+No citation inserted.
+No concept mention inserted.
+No concept relation inserted.
+No interpretation inserted.
+No generated Buchanan claim created.
+No frontend work.
+Restricted passage text not displayed.
+```
+
+Next step:
+
+```text
+BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.
+```

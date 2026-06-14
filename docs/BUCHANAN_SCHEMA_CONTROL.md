@@ -670,3 +670,42 @@ BDP-001P is valid only if verification proves:
 8. `concept_relations_count = 0`.
 9. `interpretations_count = 0`.
 10. `BDP-001P migration_count = 1`.
+
+## BDP-001Q Evidence Readback Boundary
+
+BDP-001Q prepares a read-only evidence readback for the `Body without Organs` concept after the Buchanan passage has been linked through a reviewed concept mention.
+
+Schema status:
+
+```text
+sql_migration = false
+database_mutation = false
+new_tables = false
+new_columns = false
+```
+
+Readback chain:
+
+```text
+concepts
+→ concept_mentions
+→ passages
+→ citations
+→ sources
+```
+
+Validation addition:
+
+BDP-001Q is valid only if verification proves:
+
+1. `sources_count = 2`.
+2. `source_candidates_count = 3`.
+3. `passage_candidates_count = 1`.
+4. `passages_count = 2`.
+5. `citations_count = 2`.
+6. `concept_mentions_count = 2`.
+7. exactly one reviewed direct Buchanan `Body without Organs` concept mention is readable through the evidence chain.
+8. `concept_relations_count = 0`.
+9. `interpretations_count = 0`.
+10. `BDP-001Q migration_count = 0`.
+11. restricted passage text is not displayed.

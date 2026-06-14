@@ -402,6 +402,7 @@
     "interpretations_count": 0,
     "bdp_001o_migration_count": 1,
     "bdp_001p_migration_count": 1,
+    "bdp_001q_migration_count": 0,
     "buchanan_article_passage_count": 1,
     "buchanan_article_citation_count": 1,
     "buchanan_article_concept_mention_count": 1
@@ -446,7 +447,7 @@
   "last_updated_utc": "2026-06-14T02:03:56+00:00",
   "next_phase": "BDP-001P",
   "next_recommended_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
-  "next_step": "BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.",
+  "next_step": "BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
   "phase_history": {
     "BDP-002A": {
       "authority_boundary": {
@@ -591,5 +592,69 @@
       "frontend_work": false
     },
     "next_step": "BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation."
+  },
+  "bdp_001q_buchanan_bwo_evidence_readback": {
+    "phase": "BDP-001Q",
+    "title": "Prepare Buchanan Body without Organs evidence readback only",
+    "status": "complete",
+    "completed_at": "2026-06-14T02:28:21+00:00",
+    "controlled_slice": "read_only_evidence_readback_only",
+    "database_mutation": false,
+    "sql_migration": false,
+    "inserted_rows": {
+      "sources": 0,
+      "source_candidates": 0,
+      "passage_candidates": 0,
+      "passages": 0,
+      "citations": 0,
+      "concept_mentions": 0,
+      "concept_relations": 0,
+      "interpretations": 0,
+      "schema_migrations": 0
+    },
+    "readback_target": {
+      "concept": "Body without Organs",
+      "source_author": "Ian Buchanan",
+      "source_title": "The Problem of the Body in Deleuze and Guattari, Or, What Can a Body Do?",
+      "evidence_chain": "concepts -> concept_mentions -> passages -> citations -> sources",
+      "passage_text_display": "omitted_by_rights_policy",
+      "rights_status": "restricted"
+    },
+    "verified_invariant": {
+      "sources_count": 2,
+      "source_candidates_count": 3,
+      "passage_candidates_count": 1,
+      "passages_count": 2,
+      "citations_count": 2,
+      "concept_mentions_count": 2,
+      "concept_relations_count": 0,
+      "interpretations_count": 0,
+      "bdp_001o_migration_count": 1,
+      "bdp_001p_migration_count": 1,
+      "bdp_001q_migration_count": 0,
+      "buchanan_article_passage_count": 1,
+      "buchanan_article_citation_count": 1,
+      "buchanan_article_concept_mention_count": 1
+    },
+    "authority_boundary": {
+      "source_bound_description_allowed": true,
+      "buchanan_interpretation": false,
+      "buchanan_claim": false,
+      "generated_synthesis": false,
+      "concept_relation": false
+    },
+    "boundary": {
+      "new_source": false,
+      "new_source_candidate": false,
+      "new_passage_candidate": false,
+      "new_passage": false,
+      "new_citation": false,
+      "new_concept_mention": false,
+      "concept_relation": false,
+      "interpretation": false,
+      "generated_buchanan_claim": false,
+      "frontend_work": false
+    },
+    "next_step": "BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation."
   }
 }

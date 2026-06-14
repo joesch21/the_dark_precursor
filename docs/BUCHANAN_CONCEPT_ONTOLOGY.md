@@ -291,3 +291,23 @@ Buchanan argues that the Body without Organs means X.
 ```
 
 The next ontology step is readback, not interpretation.
+
+## BDP-001Q Body without Organs Evidence Readback Boundary
+
+BDP-001Q treats `Body without Organs` as an anchor concept with one Buchanan evidence chain available for readback.
+
+Allowed after BDP-001Q:
+
+```text
+The platform can show that a citation-backed Buchanan passage is linked to Body without Organs by a reviewed concept mention.
+```
+
+Still blocked after BDP-001Q:
+
+```text
+Buchanan's interpretation of the Body without Organs is X.
+Buchanan argues that the Body without Organs means X.
+Body without Organs has a reviewed Buchanan relation to another concept.
+```
+
+BDP-001Q is an evidence card, not an interpretation layer.

@@ -350,3 +350,36 @@ Next step:
 ```text
 BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.
 ```
+
+## BDP-001Q Evidence Readback Record
+
+The Buchanan `Body without Organs` evidence chain is now prepared for read-only display.
+
+Successful BDP-001Q result:
+
+```text
+canonical Buchanan source exists = true
+canonical Buchanan passage exists = true
+Buchanan citation exists = true
+Buchanan concept mention exists = true
+evidence readback prepared = true
+concept relation inserted = false
+interpretation inserted = false
+buchanan claim inserted = false
+```
+
+Boundary:
+
+```text
+The readback is not a new source.
+The readback is not a new passage.
+The readback is not a new citation.
+The readback is not a new concept mention.
+The readback is not a relation, interpretation, or synthesis.
+```
+
+Next step:
+
+```text
+BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.
+```

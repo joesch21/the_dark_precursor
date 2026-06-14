@@ -278,3 +278,21 @@ concept_mention_backed_by_citation = true
 BDP-001P authorizes only the controlled concept mention link over the existing citation-backed passage.
 
 It does not authorize article reproduction, long quotation display, concept relation insertion, interpretation, synthesis, or a Buchanan-specific claim.
+
+## BDP-001Q Evidence Readback Rights Boundary
+
+BDP-001Q prepares a read-only evidence card over the existing restricted Buchanan passage, citation, and concept mention.
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+passage_text_display = omitted_by_rights_policy
+long_quotation_displayed = false
+article_reproduction_authorized = false
+```
+
+BDP-001Q may display bibliographic metadata, locator, citation display rule, concept mention status, and authority boundary.
+
+It must not display the restricted passage text or convert the evidence chain into a Buchanan interpretation or generated claim.
