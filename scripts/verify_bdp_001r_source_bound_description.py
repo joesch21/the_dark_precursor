@@ -4,6 +4,10 @@ BDP-001R verifier.
 
 Verifies the source-bound description candidate remains read-only, labelled,
 rights-aware, and non-interpretive.
+
+Repair note:
+The SQL mutation checker strips quoted SQL literals before scanning keywords,
+so article titles such as "What Can a Body Do?" do not trigger false DO matches.
 """
 
 from __future__ import annotations
@@ -111,9 +115,17 @@ def walk_values(value: Any) -> Iterable[str]:
         yield str(value)
 
 
+def strip_sql_literals_and_comments(sql: str) -> str:
+    sql = re.sub(r"--.*?$", " ", sql, flags=re.MULTILINE)
+    sql = re.sub(r"/\*.*?\*/", " ", sql, flags=re.DOTALL)
+    sql = re.sub(r"'(?:''|[^'])*'", "''", sql)
+    sql = re.sub(r'"(?:""|[^"])*"', '""', sql)
+    return sql
+
+
 def check_script_static() -> None:
     text = SCRIPT_PATH.read_text()
-    if "import psycopg" in text or "import psycopg2" in text:
+    if re.search(r"^\s*import\s+psycopg\b|^\s*import\s+psycopg2\b", text, flags=re.MULTILINE):
         fail("generator imports psycopg/psycopg2")
     if "subprocess.run" not in text or "psql" not in text:
         fail("generator does not use subprocess + psql pattern")
@@ -124,12 +136,18 @@ def check_sql_boundaries(module) -> None:
     queries = getattr(module, "SQL_QUERIES", None)
     if not isinstance(queries, dict) or not queries:
         fail("generator exposes no SQL_QUERIES dictionary")
+
     for name, sql in queries.items():
         stripped = sql.strip()
-        if not stripped.upper().startswith("SELECT"):
+        sql_without_literals = strip_sql_literals_and_comments(stripped)
+
+        if not sql_without_literals.upper().lstrip().startswith("SELECT"):
             fail(f"SQL query {name} does not start with SELECT")
-        if FORBIDDEN_SQL.search(stripped):
-            fail(f"SQL query {name} contains mutation keyword")
+
+        match = FORBIDDEN_SQL.search(sql_without_literals)
+        if match:
+            fail(f"SQL query {name} contains mutation keyword: {match.group(1)}")
+
         ok(f"SQL query {name} is SELECT-only")
 
 
@@ -137,6 +155,7 @@ def check_card(card: Dict[str, Any]) -> None:
     sections = card.get("sections")
     if not isinstance(sections, list):
         fail("card sections are not a list")
+
     actual_ids = [s.get("section_id") for s in sections]
     if actual_ids != REQUIRED_SECTIONS:
         fail(f"section order mismatch: {actual_ids}")
@@ -146,14 +165,17 @@ def check_card(card: Dict[str, Any]) -> None:
         label = sec.get("authority_label")
         if label not in CONTROLLED_AUTHORITY_LABELS:
             fail(f"section {sec.get('section_id')} has invalid authority label {label}")
+
         fields = sec.get("fields")
         if not isinstance(fields, list) or not fields:
             fail(f"section {sec.get('section_id')} has no fields")
+
         for item in fields:
             if item.get("authority_label") not in CONTROLLED_AUTHORITY_LABELS:
                 fail(f"field {item.get('field_id')} has invalid authority label {item.get('authority_label')}")
             if "field_id" not in item or "value" not in item:
                 fail(f"field missing field_id or value in section {sec.get('section_id')}")
+
     ok("all sections and fields carry controlled authority labels")
 
     invariant = card.get("invariant_at_generation")
@@ -180,6 +202,7 @@ def check_card(card: Dict[str, Any]) -> None:
     for needle in required_strings:
         if needle.lower() not in combined:
             fail(f"required boundary string missing: {needle}")
+
     ok("Buchanan, blocked-layer, metadata-only, and rights boundaries present")
 
 
@@ -198,6 +221,7 @@ def run_generator_json() -> Dict[str, Any]:
 def main() -> None:
     print("=== BDP-001R source-bound description verifier ===")
     module = load_generator()
+
     check_script_static()
     check_sql_boundaries(module)
 
