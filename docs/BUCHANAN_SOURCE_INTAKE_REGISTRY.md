@@ -289,3 +289,34 @@ Next step:
 ```text
 BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.
 ```
+
+## BDP-001O Passage and Citation Insertion Record
+
+The reviewed Buchanan passage candidate from BDP-001N is now eligible for canonical passage-and-citation insertion.
+
+Successful BDP-001O result:
+
+```text
+canonical Buchanan passage inserted = true
+citation inserted = true
+concept mention inserted = false
+concept relation inserted = false
+interpretation inserted = false
+buchanan claim inserted = false
+```
+
+Boundary:
+
+```text
+The passage is canonical evidence.
+The citation is a source trail.
+The citation is not a concept claim.
+The passage is not yet linked to Body without Organs through a reviewed Buchanan concept mention.
+```
+
+Next step:
+
+```text
+BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.
+```
+

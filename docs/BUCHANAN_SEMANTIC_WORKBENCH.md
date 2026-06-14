@@ -196,3 +196,29 @@ needs_review
 ```
 
 A description does not become an interpretation unless it attributes conceptual meaning or theoretical consequence to an author.
+
+## BDP-001O Workbench Evidence Posture
+
+After BDP-001O, the semantic workbench may report a stronger evidence posture for the Buchanan article:
+
+```text
+Buchanan passage status = citation_backed_passage_available
+Buchanan concept mention status = pending
+Buchanan interpretation status = blocked
+Buchanan claim status = blocked
+```
+
+Allowed workbench description:
+
+```text
+A short citation-backed Buchanan passage is available for later Body without Organs concept linking.
+```
+
+Blocked author-position claim:
+
+```text
+Buchanan argues that the Body without Organs means X.
+```
+
+The workbench must keep Buchanan-specific explanation marked pending until a reviewed concept mention and later interpretation layer exist.
+

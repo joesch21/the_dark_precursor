@@ -991,3 +991,57 @@ Next step:
 ```text
 BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.
 ```
+
+## BDP-001O Handover Update
+
+Reviewed Buchanan passage and citation insertion completed as a passage-and-citation-only governed slice.
+
+Completed:
+
+1. Inserted one canonical `passages` row from the approved BDP-001N Buchanan passage candidate.
+2. Inserted one `citations` row linked to the new Buchanan passage and canonical Buchanan source.
+3. Preserved the reviewed `passage_candidates` row as staging history.
+4. Marked the reviewed candidate as inserted into `passages` without upgrading it to interpretation authority.
+5. Preserved the existing primary-text concept mention count.
+6. Confirmed no Buchanan article concept mention was inserted in this phase.
+7. Confirmed no concept relation was inserted.
+8. Confirmed no interpretation or generated Buchanan claim was inserted.
+9. Added `sql/015_insert_bdp_001o_buchanan_passage_and_citation_only.sql`.
+10. Added `scripts/read_bdp_001o_buchanan_passage_and_citation.py`.
+11. Added `scripts/verify_bdp_001o_buchanan_passage_and_citation_only.py`.
+12. Added `scripts/update_bdp_001o_docs_and_state.py`.
+
+Current invariant after successful verification:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 2
+citations_count = 2
+concept_mentions_count = 1
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001O migration_count = 1
+```
+
+Boundary:
+
+```text
+No canonical source inserted.
+No source candidate inserted.
+No passage candidate inserted.
+No Buchanan article concept mention inserted.
+No concept relation inserted.
+No interpretation inserted.
+No generated Buchanan claim created.
+No long quotation from the PDF authorized.
+The inserted Buchanan passage remains short, restricted, citation-backed, and reference-only.
+```
+
+Next step:
+
+```text
+BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.
+```
+

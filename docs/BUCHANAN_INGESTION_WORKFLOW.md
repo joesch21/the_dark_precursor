@@ -340,3 +340,32 @@ A source-bound description may describe the reviewed record and evidence posture
 It must not attribute a position, argument, intention, conceptual meaning, or theoretical consequence to an author unless the stronger governed evidence layer exists.
 
 This prevents the system from jumping directly from excerpt review to interpretation.
+
+## BDP-001O Reviewed Passage and Citation Insertion
+
+BDP-001O completes the first canonical Buchanan passage-and-citation insertion after BDP-001N review.
+
+Updated controlled sequence:
+
+```text
+canonical source metadata
+→ passage candidate envelope
+→ operator review of exact short text and locator
+→ reviewed passage candidate
+→ canonical passage insertion
+→ citation insertion
+→ concept mention later
+→ relation or interpretation only after evidence exists
+```
+
+Boundary:
+
+```text
+citation-backed passage is not yet a concept mention
+citation-backed passage is not yet a Buchanan interpretation
+citation-backed passage does not authorize a generated Buchanan claim
+concept mention remains blocked until the next governed phase
+interpretation remains blocked
+Buchanan-specific claims remain blocked
+```
+

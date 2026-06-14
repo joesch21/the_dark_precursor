@@ -250,3 +250,25 @@ metadata
 → interpretation
 → synthesis
 ```
+
+## BDP-001O Citation-Backed Passage Boundary
+
+The first Buchanan article passage may now exist as citation-backed passage evidence after BDP-001O.
+
+This upgrades the evidence spine from reviewed candidate to canonical passage plus citation, but it does not yet create a Buchanan concept mention or interpretation.
+
+Allowed after BDP-001O:
+
+```text
+The platform has a citation-backed Buchanan passage record available for later Body without Organs concept linking.
+```
+
+Blocked until a later governed phase:
+
+```text
+Buchanan's interpretation of the Body without Organs is X.
+Buchanan argues that the Body without Organs means X.
+```
+
+The next ontology step is a reviewed `concept_mentions` row linking the inserted Buchanan passage to `Body without Organs`.
+

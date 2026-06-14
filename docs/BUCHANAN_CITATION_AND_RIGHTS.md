@@ -239,3 +239,23 @@ Descriptions must carry authority labels.
 Claims require stronger governed evidence.
 Short excerpt handling does not authorize article reproduction.
 ```
+
+## BDP-001O Passage and Citation Rights Boundary
+
+BDP-001O inserts the reviewed short Buchanan excerpt as a canonical passage and adds a citation record.
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+display_rule_detail = reference_only_short_excerpt
+long_quotation_stored = false
+article_reproduction_authorized = false
+citation_backed_passage = true
+```
+
+BDP-001O authorizes only the controlled short-excerpt passage record and citation trail.
+
+It does not authorize article reproduction, long quotation display, concept mention insertion, concept relation insertion, interpretation, synthesis, or a Buchanan-specific claim.
+

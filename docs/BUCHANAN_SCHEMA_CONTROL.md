@@ -595,3 +595,44 @@ new_tables = false
 new_columns = false
 authority_rule_update = true
 ```
+
+## BDP-001O Reviewed Passage and Citation Insertion Patch
+
+BDP-001O promotes the already-reviewed Buchanan passage candidate into canonical evidence.
+
+It inserts:
+
+```text
+one passages row
+one citations row linked to that passage
+```
+
+It updates the existing `passage_candidates` row only to record that the reviewed candidate has been inserted as a canonical passage.
+
+Migration note:
+
+```text
+BDP-001O changes canonical passage and citation storage.
+It does not change schema shape.
+It does not create a concept mention.
+It does not create a concept relation.
+It does not create an interpretation, synthesis, or Buchanan-specific claim.
+```
+
+Validation addition:
+
+BDP-001O is valid only if verification proves:
+
+1. `sources_count = 2`.
+2. `source_candidates_count = 3`.
+3. `passage_candidates_count = 1`.
+4. `passages_count = 2`.
+5. `citations_count = 2`.
+6. exactly one canonical passage is attached to the Buchanan article source.
+7. exactly one citation is attached to the inserted Buchanan passage.
+8. the reviewed passage candidate is marked `inserted_as_passage = true`.
+9. `concept_mentions_count = 1`.
+10. `concept_relations_count = 0`.
+11. `interpretations_count = 0`.
+12. `BDP-001O migration_count = 1`.
+
