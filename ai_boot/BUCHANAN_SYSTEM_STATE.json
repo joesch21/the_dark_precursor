@@ -967,7 +967,7 @@
       "status": "complete",
       "type": "doctrine_ux_contract",
       "description": "Defined Inspect / Pause / Reset / Override UX contract for future adaptive presentation",
-      "completed_at": "2026-06-14T06:37:21.571924Z",
+      "completed_at": "2026-06-14T07:00:16.478104Z",
       "deliverables": [
         "docs/BDP_002D2_ADAPTATION_CONTROL_UX_CONTRACT.md",
         "scripts/update_bdp_002d2_adaptation_control_ux_contract.py",
