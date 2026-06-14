@@ -1327,3 +1327,22 @@ This distinction protects the evidence-first principles while allowing the workb
 The platform is now ready for future adaptive implementation phases under governed user controls.
 
 **Next step:** Future implementation planning phase (to be scoped later).
+
+## BDP-002D.2 Handover Update
+
+**Adaptation Control UX Contract** defined as a doctrine-only phase.
+
+**Completed:**
+- Created `docs/BDP_002D2_ADAPTATION_CONTROL_UX_CONTRACT.md`
+- Defined the four core user controls: **Inspect**, **Pause**, **Reset**, and **Override**
+- Mandated a visible **Explanatory Layer** for any future adaptive presentation
+- Established that adaptation is **session-scoped by default**
+- Required **explicit informed consent** for any persistence
+- Maintained clear separation between text psycho-linguistics and interface adaptation
+- Updated relevant doctrine files and system state
+
+**No frontend implementation, database changes, SQL migrations, or user profiling** were introduced.
+
+The platform is now ready for future adaptive implementation phases under governed user controls.
+
+**Next step:** Future implementation planning phase (to be scoped later).

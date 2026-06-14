@@ -297,3 +297,20 @@ All adaptive behaviour must be accompanied by a visible **Explanatory Layer**.
 - It must never be presented as analysis of the user’s psychological state, cognitive profile, or mental condition.
 - Adaptation is session-scoped by default.
 - Persistence requires explicit informed consent and must be revocable by the user.
+
+## BDP-002D.2 — User Control Requirements
+
+Before any adaptive presentation behaviour is implemented, the platform must define clear, user-accessible controls covering:
+
+- **Inspect** — The user can view what interaction signals are currently being observed and how they are influencing the view.
+- **Pause** — The user can temporarily disable adaptation.
+- **Reset** — The user can clear session-scoped adaptation state.
+- **Override** — The user can manually choose presentation preferences (e.g. more visual, deeper technical, less metaphor).
+
+All adaptive behaviour must be accompanied by a visible **Explanatory Layer**.
+
+**Governance Requirements:**
+- Interaction adaptation must remain clearly distinguished from text psycho-linguistics.
+- It must never be presented as analysis of the user’s psychological state, cognitive profile, or mental condition.
+- Adaptation is session-scoped by default.
+- Persistence requires explicit informed consent and must be revocable by the user.

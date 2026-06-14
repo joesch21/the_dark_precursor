@@ -487,3 +487,20 @@ The semantic workbench must provide a visible and accessible **Explanatory Layer
 - Any persistence of adaptation preferences beyond the current session requires **explicit informed consent**.
 - Manual override always takes precedence over system-inferred adaptation.
 - This contract applies only to interface presentation adaptation. It does not authorise psychological profiling or reader-state modelling.
+
+## BDP-002D.2 — Adaptation Control UX Contract
+
+BDP-002D.2 defines the required user controls for any future adaptive presentation layer in the platform.
+
+The semantic workbench must provide a visible and accessible **Explanatory Layer** (for example: “How this view is adapting”) that allows the user to:
+
+- **Inspect**: View the current adaptation signals being used and how they are affecting the presentation.
+- **Pause**: Temporarily disable adaptive presentation and receive a neutral/default view.
+- **Reset**: Clear all session-scoped adaptation state and return to the platform default.
+- **Override**: Manually select a preferred presentation mode at any time.
+
+**Key Rules:**
+- Adaptation is **session-scoped by default**.
+- Any persistence of adaptation preferences beyond the current session requires **explicit informed consent**.
+- Manual override always takes precedence over system-inferred adaptation.
+- This contract applies only to interface presentation adaptation. It does not authorise psychological profiling or reader-state modelling.
