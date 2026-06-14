@@ -980,6 +980,22 @@
         "user_profiling": false,
         "psychological_assessment": false
       }
+    },
+    "BDP-002F": {
+      "status": "in_progress",
+      "type": "passage_review_preparation",
+      "description": "Review and prepare key passages from Ian Buchanan's Assemblage Theory and Method (2021)",
+      "updated_at": "2026-06-14T07:25:20.960846Z",
+      "deliverables": [
+        "docs/BDP_002F_ASSEMBLAGE_PASSAGE_REVIEW_PLAN.md",
+        "docs/BDP_002F_KEY_PASSAGES_REVIEWED.md"
+      ],
+      "boundaries": {
+        "database_insertion": false,
+        "citation_creation": false,
+        "concept_mention_creation": false,
+        "interpretation": false
+      }
     }
   }
 }
