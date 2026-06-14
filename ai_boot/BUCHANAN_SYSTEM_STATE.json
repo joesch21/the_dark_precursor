@@ -42,7 +42,7 @@
       "volume": "3"
     },
     "controlled_slice": "source_metadata_adoption_only",
-    "next_step": "BDP-001M \u2014 Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.",
+    "next_step": "BDP-001M — Prepare first Buchanan passage candidate from the adopted article, without inserting citation or interpretation yet.",
     "pdf_availability_metadata": {
       "display_rule": "reference_only",
       "pdf_access_status": "user_provided_pdf_available",
@@ -83,7 +83,7 @@
       "inserted_interpretations": 0,
       "inserted_passage_candidates": 1
     },
-    "next_step": "BDP-001N \u2014 Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.",
+    "next_step": "BDP-001N — Review selected Buchanan passage candidate text and locator before any citation or interpretation insertion.",
     "passage_candidate": {
       "candidate_label": "BDP-001M first Buchanan passage candidate for Body without Organs",
       "candidate_scope": "passage_candidate_envelope_metadata_only",
@@ -141,7 +141,7 @@
     },
     "controlled_slice": "doctrine_only_description_rule",
     "database_mutation": false,
-    "next_step": "BDP-001O \u2014 Insert reviewed Buchanan passage and citation only, if operator approves.",
+    "next_step": "BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.",
     "phase": "BDP-001N.1",
     "rule": {
       "authority_requirement": "Descriptions must carry authority labels. Claims require stronger governed evidence.",
@@ -174,7 +174,7 @@
       "psycho_linguistic_modelling_implementation": false
     },
     "controlled_slice": "passage_candidate_locator_text_review_only",
-    "next_step": "BDP-001O \u2014 Insert reviewed Buchanan passage and citation only, if operator approves.",
+    "next_step": "BDP-001O — Insert reviewed Buchanan passage and citation only, if operator approves.",
     "passage_candidate_review": {
       "buchanan_claim_ready": false,
       "candidate_excerpt_word_count": 9,
@@ -243,7 +243,7 @@
       "sources_count": 2
     },
     "migration_id": "bdp_001o_insert_buchanan_passage_and_citation_only",
-    "next_step": "BDP-001P \u2014 Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
+    "next_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
     "phase": "BDP-001O",
     "sql_migration": true,
     "status": "complete",
@@ -272,7 +272,7 @@
       "schema_migrations": 1,
       "sources": 0
     },
-    "next_step": "BDP-001Q \u2014 Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.",
+    "next_step": "BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.",
     "phase": "BDP-001P",
     "sql_migration": true,
     "status": "complete",
@@ -335,7 +335,7 @@
       "source_candidates": 0,
       "sources": 0
     },
-    "next_step": "BDP-001R \u2014 Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
+    "next_step": "BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
     "phase": "BDP-001Q",
     "readback_target": {
       "concept": "Body without Organs",
@@ -437,36 +437,17 @@
     "verifier": "scripts/verify_bdp_002b_bwo_evidence_card.py"
   },
   "bdp_002c_richer_semantic_readback_surface": {
-    "anchor_concept": "Body without Organs",
-    "buchanan_claim_status": "blocked_until_interpretive_authority_exists",
-    "buchanan_explanation_status": "buchanan_pending",
-    "buchanan_interpretation_status": "blocked_until_governed_interpretation_phase",
-    "card_section_count": 15,
-    "controlled_slice": "read_only_semantic_readback_surface",
+    "buchanan_specific_claim_status": "blocked_until_interpretive_authority_exists",
+    "buchanan_specific_explanation_status": "buchanan_pending",
+    "buchanan_specific_interpretation_status": "blocked_until_governed_interpretation_phase",
+    "card_contract": "15_section_richer_semantic_readback_surface",
+    "concept": "Body without Organs",
     "database_mutation": false,
-    "evidence_depth_tier": "Tier 1 \u2014 Anchor Concept",
-    "expected_invariant": {
-      "bdp_001p_migration_count": 1,
-      "bdp_002c_migration_count": 0,
-      "buchanan_article_citation_count": 1,
-      "buchanan_article_concept_mention_count": 1,
-      "buchanan_article_passage_count": 1,
-      "citations_count": 2,
-      "concept_mentions_count": 2,
-      "concept_relations_count": 0,
-      "interpretations_count": 0,
-      "passage_candidates_count": 1,
-      "passages_count": 2,
-      "source_candidates_count": 3,
-      "sources_count": 2
-    },
     "frontend_renderer": false,
-    "new_columns": false,
-    "new_tables": false,
-    "next_recommended_operator_action": "BDP-001R \u2014 Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
+    "next_recommended_operator_action": "BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
     "phase": "BDP-002C",
     "psql_subprocess_only": true,
-    "psycho_linguistic_status": {
+    "psycho_linguistic_boundary": {
       "authority_label": "experimental_modelling",
       "current_ceiling": "Level 2 Embedding Deviation",
       "objective_score_claimed": false,
@@ -477,12 +458,94 @@
     "rights_boundary": {
       "article_reproduction_authorized": false,
       "long_quotation_displayed": false,
+      "new_pdf_display_rule": "reference_only_metadata_only_until_later_review",
       "passage_text_display": "omitted_by_rights_policy"
     },
+    "source_candidates_database_boundary": {
+      "database_source_candidates_inserted_by_bdp_002c": false,
+      "expected_live_database_source_candidates_count_remains": 3,
+      "later_governed_database_intake_required": true
+    },
+    "source_candidates_state_registry": [
+      {
+        "author_or_editor": "Ian Buchanan and Gregg Lambert, eds.",
+        "buchanan_claim_authorized": false,
+        "canonical_source_adopted": false,
+        "citation_inserted": false,
+        "concept_mention_inserted": false,
+        "database_source_candidate_inserted": false,
+        "display_rule": "reference_only",
+        "evidence_depth_tier": "Tier 2 — Supporting Scholarship",
+        "intended_concept_links": [
+          "assemblage",
+          "Body without Organs",
+          "smooth space",
+          "striated space"
+        ],
+        "interpretation_inserted": false,
+        "passage_extracted": false,
+        "pdf_document_id": "VtUTk",
+        "reliability_level": "high",
+        "rights_status": "restricted",
+        "status": "state_recorded_source_candidate_pending_database_intake",
+        "title": "Deleuze and Space",
+        "type": "edited_collection",
+        "year": 2005
+      },
+      {
+        "author_or_editor": "Ian Buchanan",
+        "buchanan_claim_authorized": false,
+        "canonical_source_adopted": false,
+        "citation_inserted": false,
+        "concept_mention_inserted": false,
+        "database_source_candidate_inserted": false,
+        "display_rule": "reference_only",
+        "evidence_depth_tier": "Tier 2 — Supporting Scholarship",
+        "intended_concept_links": [
+          "assemblage",
+          "method",
+          "Body without Organs",
+          "desire"
+        ],
+        "interpretation_inserted": false,
+        "passage_extracted": false,
+        "pdf_document_id": "XJVks",
+        "reliability_level": "high",
+        "rights_status": "restricted",
+        "status": "state_recorded_source_candidate_pending_database_intake",
+        "title": "Assemblage Theory and Method",
+        "type": "book",
+        "year": 2021
+      },
+      {
+        "author_or_editor": "Ian Buchanan",
+        "buchanan_claim_authorized": false,
+        "canonical_source_adopted": false,
+        "citation_inserted": false,
+        "concept_mention_inserted": false,
+        "database_source_candidate_inserted": false,
+        "display_rule": "reference_only",
+        "evidence_depth_tier": "Tier 2 — Supporting Scholarship",
+        "intended_concept_links": [
+          "desire",
+          "schizoanalysis",
+          "Body without Organs",
+          "Anti-Oedipus"
+        ],
+        "interpretation_inserted": false,
+        "passage_extracted": false,
+        "pdf_document_id": "Tl9xR",
+        "reliability_level": "high",
+        "rights_status": "restricted",
+        "status": "state_recorded_source_candidate_pending_database_intake",
+        "title": "Deleuze and Guattari's Anti-Oedipus: A Reader's Guide",
+        "type": "book",
+        "year": 2008
+      }
+    ],
     "sql_migration": false,
     "status": "prepared",
-    "title": "Richer Semantic Readback Surface",
-    "updated_at": "2026-06-14T03:18:00+00:00"
+    "updated_at": "2026-06-14T03:38:06+00:00"
   },
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
@@ -614,7 +677,7 @@
     "interpretation_boundary": "no_interpretation_or_synthesis",
     "metadata_adoption_readiness": "ready_for_metadata_adoption_only",
     "name": "Review exact Buchanan source candidate for canonical adoption readiness",
-    "next_step": "BDP-001L \u2014 Adopt reviewed Buchanan source metadata into canonical sources only.",
+    "next_step": "BDP-001L — Adopt reviewed Buchanan source metadata into canonical sources only.",
     "passage_boundary": "no_new_passage",
     "pdf_access_status": "user_provided_pdf_available",
     "pdf_file_name_observed": "7daa2f5c56c085aba493f7cdc309cddb.pdf",
@@ -665,7 +728,7 @@
         "no Buchanan-specific claim without exact passage, citation, and concept link"
       ],
       "new_tables": false,
-      "next_step": "BDP-001N \u2014 Review first Buchanan passage candidate locator and short text, without inserting citation or interpretation.",
+      "next_step": "BDP-001N — Review first Buchanan passage candidate locator and short text, without inserting citation or interpretation.",
       "phase": "BDP-002A.2",
       "psycho_linguistic_tables": false,
       "reader_state_tracking": false,
@@ -689,8 +752,8 @@
   "last_updated_phase": "BDP-001O",
   "last_updated_utc": "2026-06-14T02:03:56+00:00",
   "next_phase": "BDP-001P",
-  "next_recommended_step": "BDP-001P \u2014 Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
-  "next_step": "BDP-001R \u2014 Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
+  "next_recommended_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
+  "next_step": "BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
   "phase_history": {
     "BDP-001O": {
       "buchanan_claim_inserted": false,
@@ -700,7 +763,7 @@
       "concept_relation_inserted": false,
       "interpretation_inserted": false,
       "migration_count": 1,
-      "next_step": "BDP-001P \u2014 Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
+      "next_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
       "passage_inserted": true,
       "status": "complete",
       "title": "Insert reviewed Buchanan passage and citation only",

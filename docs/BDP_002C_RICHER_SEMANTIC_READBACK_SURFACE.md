@@ -1,14 +1,16 @@
 # BDP-002C — Richer Semantic Readback Surface
 
+**Status:** implementation slice  
+**Date:** 14 June 2026  
+**Concept anchor:** `Body without Organs`
+
 ## Purpose
 
-BDP-002C defines and implements a richer read-only semantic readback surface for the anchor concept `Body without Organs`.
+BDP-002C implements a richer read-only semantic readback surface for the anchor concept `Body without Organs`.
 
-It is an evidence card over the governed evidence spine. It is not an interpretation layer, not a relation layer, not a source-ingestion phase, and not a schema change.
+It is an evidence-posture card over the existing governed evidence spine. It is not an interpretation layer, relation layer, source-ingestion phase, SQL migration, frontend renderer, or database mutation phase.
 
 ## Boundary Confirmation
-
-BDP-002C internalises the current governance boundary:
 
 ```text
 read-only semantic readback only
@@ -26,11 +28,12 @@ psql subprocess readback only
 restricted passage text omitted from display
 Buchanan-specific explanation blocked
 psycho-linguistic observations experimental only
+new PDF records are state-level source-candidate intake metadata only unless a later governed database-intake phase inserts them
 ```
 
 ## Current Governed State Reflected
 
-BDP-002C reflects the current known state without inventing new evidence:
+BDP-002C reflects the current governed database state without inventing new evidence:
 
 ```text
 sources_count = 2
@@ -43,21 +46,41 @@ concept_relations_count = 0
 interpretations_count = 0
 BDP-001P migration_count = 1
 BDP-002C migration_count = 0
-```
-
-Supplemental Buchanan evidence-chain counts expected by the readback:
-
-```text
 buchanan_article_passage_count = 1
 buchanan_article_citation_count = 1
 buchanan_article_concept_mention_count = 1
 ```
 
-Current locator reflected:
+The governed Buchanan locator reflected by the card is:
 
 ```text
 printed article page 76 / PDF page 4
 ```
+
+## New Buchanan PDFs Intake Boundary
+
+Three new works are recorded for state-level source-candidate intake metadata:
+
+1. `Deleuze and Space` — Ian Buchanan and Gregg Lambert, eds., 2005 — document ID `VtUTk`.
+2. `Assemblage Theory and Method` — Ian Buchanan, 2021 — document ID `XJVks`.
+3. `Deleuze and Guattari's Anti-Oedipus: A Reader's Guide` — Ian Buchanan, 2008 — document ID `Tl9xR`.
+
+BDP-002C may display these as `secondary_scholarship` metadata-only source candidates.
+
+BDP-002C must not:
+
+```text
+insert these works into source_candidates
+promote them to canonical sources
+extract passages from them
+display long excerpts from them
+create concept mentions from them
+create relations from them
+create interpretations from them
+generate Buchanan-specific claims from them
+```
+
+A later governed database-intake phase is required if the operator wants these three works inserted into the live `source_candidates` table.
 
 ## Authority Label Contract
 
@@ -82,9 +105,12 @@ provisional_synthesis
 system_synthesis
 user_interpretation
 experimental_modelling
+secondary_scholarship
 ```
 
-BDP-002C may use `experimental_modelling` only for psycho-linguistic placeholder observations that are linked to a specific passage locator and flagged as requiring human review.
+`secondary_scholarship` is permitted only for metadata-only descriptions of the three new Buchanan works or later reviewed secondary-scholarship content. In BDP-002C itself, no PDF excerpt has been reviewed or displayed.
+
+`experimental_modelling` is permitted only for psycho-linguistic placeholders linked to a governed locator and flagged for human review.
 
 BDP-002C must not use an unlabelled prose field.
 
@@ -116,9 +142,17 @@ long_quotation_displayed = false
 article_reproduction_authorized = false
 ```
 
-The card may display bibliographic metadata, locator data, citation status, concept mention status, and evidence posture.
+The card may display bibliographic metadata, locator data, citation status, concept mention status, authority labels, and evidence posture.
 
 The card must not display restricted passage text.
+
+The same rights boundary applies to the three new PDFs:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+long_quotation_displayed = false
+```
 
 ## Buchanan Explanation Rule
 
@@ -155,11 +189,11 @@ rhetorical_destabilisation_placeholder
 semantic_drift_placeholder
 ```
 
-The placeholders are modelling hooks only. They are not objective scores, not citation authority, and not Buchanan-specific interpretation.
+The placeholders are modelling hooks only. They are not objective scores, citation authority, Buchanan-specific interpretation, or reader profiling.
 
 ## Expanded 15-Section Card Structure
 
-The BDP-002C card must contain exactly these 15 sections:
+The BDP-002C card must contain exactly these 15 sections, in this order:
 
 1. `concept_identity`
 2. `evidence_depth_tier`
@@ -186,18 +220,22 @@ authority_label
 fields or observations
 ```
 
-Each field or observation must include:
+Each field must include:
 
 ```text
-field_id or observation_id
-label or observation_type
-value or observation_text
+field_id
+label
+value
 authority_label
 ```
 
-Experimental observations must additionally include:
+Each observation must include:
 
 ```text
+observation_id
+observation_type
+observation_text
+authority_label
 linked_passage_locator
 requires_human_review
 current_ceiling
@@ -235,7 +273,9 @@ BDP-002C deliverables:
 
 ```text
 docs/BDP_002C_RICHER_SEMANTIC_READBACK_SURFACE.md
+scripts/read_bdp_002c_bwo_richer_card.py
 scripts/read_bdp_002c_richer_bwo_semantic_card.py
+scripts/verify_bdp_002c_richer_card.py
 scripts/verify_bdp_002c_richer_semantic_readback.py
 scripts/update_bdp_002c_docs_and_state.py
 ```
@@ -271,6 +311,7 @@ The dedicated verifier must prove:
 21. Level 2 Embedding Deviation is the current ceiling.
 22. no objective metaphor-density score is asserted.
 23. no source, passage, citation, concept mention, relation, interpretation, or generated Buchanan claim is created.
+24. the three new PDFs are represented only as state-level metadata source candidates unless a later governed database-intake phase is approved.
 
 ## Next Recommended Operator Action
 
