@@ -122,3 +122,28 @@ The dedicated doctrine file is:
 ```text
 docs/BUCHANAN_PSYCHOLINGUISTIC_SEMANTIC_ARCHITECTURE.md
 ```
+
+## BDP-002D Relational Adaptive Presentation Layer
+
+The platform may later include an adaptive presentation layer for the semantic workbench.
+
+This layer may adjust explanation depth, visual emphasis, metaphor complexity, or exploration path order in response to visible interaction-only signals. It remains subordinate to the evidence spine and must include an explanatory layer showing how the view is being adapted.
+
+User control requirements:
+
+```text
+inspect adaptation
+pause adaptation
+reset adaptation
+manual override
+return to canonical evidence-first view
+```
+
+Governance boundary:
+
+```text
+No long-term user profile without explicit informed consent.
+No psychological assessment framing.
+No hidden personalisation.
+No change to citation, source, concept, relation, interpretation, or Buchanan-claim authority.
+```

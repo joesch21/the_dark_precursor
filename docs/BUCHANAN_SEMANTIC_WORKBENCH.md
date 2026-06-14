@@ -368,3 +368,44 @@ Required authority labels are defined in `docs/BDP_002C_RICHER_SEMANTIC_READBACK
 Buchanan-specific explanation remains `buchanan_pending` and blocked until a governed interpretation phase.
 
 Psycho-linguistic placeholders remain `experimental_modelling`, locator-linked, and human-review gated. Level 2 Embedding Deviation is the current ceiling.
+
+## BDP-002D Relational and Adaptive Presentation Governance
+
+The semantic workbench may adapt presentation depth, visual emphasis, metaphor complexity, or exploration paths in response to observed interaction signals, provided the adaptation is visible, inspectable, reversible, and under user control.
+
+Required visible explanatory layer:
+
+```text
+How I am adapting this view
+```
+
+The explanatory layer must state:
+
+1. what interaction signals were observed.
+2. how those signals influenced the current view.
+3. how the user can inspect, pause, reset, or manually override the adaptation.
+4. that no psychological assessment is being made.
+5. that no long-term user profile is being created unless explicit informed consent exists.
+
+Allowed interaction-only signals:
+
+```text
+navigation patterns
+metaphor selection
+time spent on visual versus textual content
+question style
+depth of follow-up
+preference for visual or conceptual framing
+```
+
+Boundary:
+
+```text
+Adaptive presentation changes display only.
+It does not change citation authority.
+It does not change interpretation status.
+It does not create a Buchanan-specific claim.
+It does not create a long-term user profile.
+It does not perform psychological assessment.
+The default fallback remains the non-adaptive evidence-first readback.
+```

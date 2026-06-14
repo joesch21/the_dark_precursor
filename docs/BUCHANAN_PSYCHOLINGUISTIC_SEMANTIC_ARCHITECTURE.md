@@ -187,3 +187,35 @@ The immediate next evidence task remains:
 ```text
 BDP-001N — Review first Buchanan passage candidate locator and short text, without inserting citation or interpretation.
 ```
+
+## BDP-002D Adaptive Presentation Boundary
+
+Relational and adaptive presentation may support the reader/listener transformation research direction, but it must not become hidden user profiling.
+
+Allowed:
+
+```text
+The workbench is showing a more visual path because the current session has used visual navigation heavily.
+```
+
+Blocked:
+
+```text
+The system has inferred the user's psychological type.
+```
+
+Adaptive presentation may use interaction-only session signals to shape display mode, but any such adaptation must be exposed through a visible explanatory layer and user controls for inspect, pause, reset, and manual override.
+
+Controlled status:
+
+```text
+sql_migration = false
+database_mutation = false
+reader_state_tracking = false
+long_term_user_profile = false
+psychological_assessment = false
+hidden_personalisation = false
+frontend_implementation = false
+```
+
+Future storage of adaptive preferences requires explicit consent, minimisation, inspectability, reset, export, and deletion rules in a later governed phase.

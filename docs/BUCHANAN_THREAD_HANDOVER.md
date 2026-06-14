@@ -1217,3 +1217,33 @@ Next step:
 ```text
 BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.
 ```
+
+## BDP-002D Handover Update
+
+Relational and adaptive presentation governance has been recorded as a documentation-only slice.
+
+Completed:
+
+1. Added `docs/BDP_002D_RELATIONAL_ADAPTIVE_PRESENTATION.md`.
+2. Updated semantic workbench doctrine with adaptive presentation requirements.
+3. Updated psycho-linguistic architecture with an explicit anti-profiling boundary.
+4. Updated architecture doctrine with user-control requirements for adaptive views.
+5. Updated system state for BDP-002D.
+
+Boundary:
+
+```text
+No SQL migration.
+No database mutation.
+No reader-state tracking.
+No long-term user profile.
+No psychological assessment.
+No frontend implementation.
+No source, passage, citation, concept mention, concept relation, interpretation, or generated Buchanan claim.
+```
+
+Next step:
+
+```text
+BDP-001S — Decide the next governed path: secondary-scholarship source-candidate database intake or reviewed relation-evidence preparation.
+```
