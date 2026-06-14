@@ -1247,3 +1247,64 @@ Next step:
 ```text
 BDP-001S — Decide the next governed path: secondary-scholarship source-candidate database intake or reviewed relation-evidence preparation.
 ```
+
+<!-- BDP-002D.1 INTERACTION ADAPTATION BOUNDARY START -->
+
+## BDP-002D.1 Interaction Adaptation vs Text Psycho-Linguistics
+
+The platform distinguishes two different uses of psycho-linguistic and relational modelling.
+
+### Text Psycho-Linguistics — Layer 3
+
+```text
+Focus: how language moves, pressures, and transforms meaning in the texts.
+Authority label: experimental_modelling.
+Evidence requirement: linked to governed passage locators.
+Review requirement: requires human review.
+Boundary: never authorizes Buchanan-specific claims without exact source evidence.
+```
+
+Examples include metaphor density, conceptual recursion, rhetorical destabilisation, affective pressure, abstraction gradient, and semantic drift in Buchanan / Deleuze and Guattari writing.
+
+### Interaction Adaptation — Relational Layer
+
+```text
+Focus: how the interface responds to the user's engagement style during a session.
+Allowed signals: navigation choices, time spent on visuals vs text, question style, metaphor preference, depth of exploration.
+Boundary: the system observes how the user is using the interface; it does not analyse psychological state or cognitive profile.
+```
+
+Interaction adaptation may adjust visual vs textual density, explanation depth, metaphor complexity, or exploration paths.
+
+### Required Explanatory Layer
+
+Any adaptive behaviour must include an always-accessible explanatory layer, such as:
+
+```text
+How this view is adapting
+```
+
+The explanatory layer must state:
+
+```text
+what interaction signals were observed
+how those signals are currently influencing the experience
+how the user can inspect, pause, reset, or manually adjust the adaptation
+```
+
+### Governance Rules
+
+```text
+adaptation_must_be_explicit = true
+adaptation_must_be_user_controllable = true
+session_scoped_by_default = true
+long_term_profile_storage_default = false
+persistence_requires_explicit_informed_consent = true
+psychological_assessment_allowed = false
+objective_psychological_insight_claim_allowed = false
+psycho_linguistic_analysis_remains_text_focused = true
+```
+
+This distinction protects the evidence-first principles while allowing the workbench to become more relational and intuitive.
+
+<!-- BDP-002D.1 INTERACTION ADAPTATION BOUNDARY END -->

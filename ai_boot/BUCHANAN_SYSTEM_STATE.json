@@ -911,5 +911,55 @@
       "does_not_create_buchanan_claim": true
     },
     "next_recommended_step": "BDP-001S — Decide the next governed path: secondary-scholarship source-candidate database intake or reviewed relation-evidence preparation."
+  },
+  "bdp_002d1_interaction_adaptation_vs_text_psycholinguistics": {
+    "phase": "BDP-002D.1",
+    "title": "Interaction Adaptation vs Text Psycho-Linguistics Boundary",
+    "status": "complete",
+    "type": "governance_doctrine_only",
+    "updated_at": "2026-06-14T04:16:09+00:00",
+    "summary": "Records the distinction between passage-linked text psycho-linguistics and session-scoped interface adaptation.",
+    "database_mutation": false,
+    "sql_migration": false,
+    "schema_change": false,
+    "frontend_implementation": false,
+    "reader_state_tracking": false,
+    "long_term_user_profile_storage": false,
+    "psychological_assessment": false,
+    "buchanan_specific_claim": false,
+    "generated_interpretation": false,
+    "text_psycholinguistics": {
+      "focus": "language movement in governed texts",
+      "authority_label": "experimental_modelling",
+      "linked_to_governed_passage_locator": true,
+      "requires_human_review": true,
+      "buchanan_claim_authorized": false
+    },
+    "interaction_adaptation": {
+      "focus": "session-scoped interface response to interaction signals",
+      "allowed_signals": [
+        "navigation choices",
+        "time spent on visuals vs text",
+        "question style",
+        "metaphor preference",
+        "depth of exploration"
+      ],
+      "explanatory_layer_required": true,
+      "inspect_pause_reset_override_required": true,
+      "session_scoped_by_default": true,
+      "persistence_requires_explicit_informed_consent": true,
+      "psychological_state_analysis_allowed": false,
+      "cognitive_profile_analysis_allowed": false,
+      "objective_psychological_insight_claim_allowed": false
+    },
+    "docs": [
+      "docs/BDP_002D1_INTERACTION_ADAPTATION_VS_TEXT_PSYCHOLINGUISTICS.md",
+      "docs/BDP_002D_RELATIONAL_ADAPTIVE_PRESENTATION.md",
+      "docs/BUCHANAN_SEMANTIC_WORKBENCH.md",
+      "docs/BUCHANAN_PSYCHOLINGUISTIC_SEMANTIC_ARCHITECTURE.md",
+      "docs/BUCHANAN_ARCHITECTURE.md",
+      "docs/BUCHANAN_THREAD_HANDOVER.md"
+    ],
+    "next_recommended_action": "BDP-002D.2 — Define inspect/pause/reset/override UX contract before any adaptive frontend implementation."
   }
 }
