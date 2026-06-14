@@ -441,7 +441,7 @@
   "last_buchanan_platform_phase_title": "Insert reviewed Buchanan passage and citation only",
   "last_completed_phase": "BDP-001O",
   "last_updated_phase": "BDP-001O",
-  "last_updated_utc": "2026-06-14T02:02:30+00:00",
+  "last_updated_utc": "2026-06-14T02:03:56+00:00",
   "next_phase": "BDP-001P",
   "next_recommended_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
   "next_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
@@ -485,7 +485,7 @@
       "buchanan_claim_inserted": false,
       "commit": "70bfb15",
       "next_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
-      "updated_at": "2026-06-14T02:02:30+00:00"
+      "updated_at": "2026-06-14T02:03:56+00:00"
     }
   },
   "project": "buchanan_deleuze_intelligence_platform",
@@ -537,6 +537,6 @@
       "frontend_work": false
     },
     "next_step": "BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.",
-    "updated_at": "2026-06-14T02:02:30+00:00"
+    "updated_at": "2026-06-14T02:03:56+00:00"
   }
 }
