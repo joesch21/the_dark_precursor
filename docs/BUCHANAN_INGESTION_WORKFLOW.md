@@ -420,3 +420,28 @@ The platform may now display a rights-aware evidence card.
 The evidence card may describe the chain of records.
 The evidence card must not attribute a position, argument, conceptual meaning, or theoretical consequence to Buchanan.
 ```
+
+## BDP-002C Readback Step
+
+BDP-002C adds no new ingestion stage and performs no database write.
+
+It confirms the controlled sequence has reached a richer readable evidence surface:
+
+```text
+canonical source metadata
+→ reviewed passage candidate
+→ canonical passage
+→ citation
+→ reviewed concept mention
+→ richer semantic readback card
+→ source-bound description candidate later
+→ relation or interpretation only after later governed review
+```
+
+Boundary:
+
+```text
+The readback card may describe the chain of governed records.
+The readback card must not reproduce restricted passage text.
+The readback card must not generate a Buchanan interpretation or author-position claim.
+```

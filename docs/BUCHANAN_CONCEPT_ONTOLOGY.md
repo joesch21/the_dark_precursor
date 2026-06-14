@@ -311,3 +311,25 @@ Body without Organs has a reviewed Buchanan relation to another concept.
 ```
 
 BDP-001Q is an evidence card, not an interpretation layer.
+
+## BDP-002C Richer Semantic Readback Boundary
+
+BDP-002C treats `Body without Organs` as a Tier 1 Anchor Concept with a readable Buchanan evidence spine.
+
+Allowed after BDP-002C:
+
+```text
+The platform may show a 15-section evidence-posture card over the existing citation-backed Buchanan passage and reviewed concept mention.
+```
+
+Still blocked after BDP-002C:
+
+```text
+Buchanan-specific interpretation.
+Buchanan-specific author-position claim.
+Concept relation creation.
+Theoretical consequence attribution.
+Objective psycho-linguistic scoring.
+```
+
+Psycho-linguistic placeholders may appear only as `experimental_modelling` records linked to the governed passage locator and flagged as requiring human review.

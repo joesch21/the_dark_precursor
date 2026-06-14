@@ -344,3 +344,27 @@ No database mutation.
 No frontend work.
 No new source, passage, citation, concept mention, relation, interpretation, or generated Buchanan claim.
 ```
+
+## BDP-002C Richer Semantic Readback Surface
+
+BDP-002C expands the Buchanan `Body without Organs` evidence card into a 15-section read-only semantic readback surface.
+
+The surface remains an evidence-posture card only. It does not create sources, passages, citations, concept mentions, concept relations, interpretations, generated synthesis, or Buchanan-specific claims.
+
+Every section, field, item, and psycho-linguistic observation must carry a controlled authority label.
+
+BDP-002C preserves the BDP-002A.1 tooling repair boundary:
+
+```text
+No psycopg dependency.
+No psycopg2 dependency.
+Use existing psql subprocess readback style.
+No SQL migration.
+No database mutation.
+```
+
+Required authority labels are defined in `docs/BDP_002C_RICHER_SEMANTIC_READBACK_SURFACE.md`.
+
+Buchanan-specific explanation remains `buchanan_pending` and blocked until a governed interpretation phase.
+
+Psycho-linguistic placeholders remain `experimental_modelling`, locator-linked, and human-review gated. Level 2 Embedding Deviation is the current ceiling.

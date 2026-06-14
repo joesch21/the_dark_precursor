@@ -1157,3 +1157,63 @@ Next step:
 ```text
 BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.
 ```
+
+## BDP-002C Handover Update
+
+BDP-002C prepares a richer semantic readback surface for the Buchanan `Body without Organs` evidence spine.
+
+Completed:
+
+1. Added `docs/BDP_002C_RICHER_SEMANTIC_READBACK_SURFACE.md`.
+2. Added `scripts/read_bdp_002c_richer_bwo_semantic_card.py`.
+3. Added `scripts/verify_bdp_002c_richer_semantic_readback.py`.
+4. Added `scripts/update_bdp_002c_docs_and_state.py`.
+5. Defined the expanded 15-section evidence card contract.
+6. Preserved the existing governed evidence spine.
+7. Confirmed no SQL migration is added.
+8. Confirmed no database mutation is performed by the readback.
+9. Confirmed restricted passage text remains omitted by rights policy.
+10. Confirmed Buchanan-specific explanation, relation, interpretation, and claim remain blocked.
+11. Confirmed psycho-linguistic observations remain experimental modelling placeholders only.
+
+Current invariant expected by verifier:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 2
+citations_count = 2
+concept_mentions_count = 2
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001P migration_count = 1
+BDP-002C migration_count = 0
+buchanan_article_passage_count = 1
+buchanan_article_citation_count = 1
+buchanan_article_concept_mention_count = 1
+```
+
+Boundary:
+
+```text
+No SQL migration.
+No database mutation.
+No canonical source inserted.
+No source candidate inserted.
+No passage candidate inserted.
+No passage inserted.
+No citation inserted.
+No concept mention inserted.
+No concept relation inserted.
+No interpretation inserted.
+No generated Buchanan claim created.
+No frontend work.
+Restricted passage text not displayed.
+```
+
+Next step:
+
+```text
+BDP-001R — Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.
+```

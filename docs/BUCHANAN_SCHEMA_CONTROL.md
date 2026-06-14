@@ -709,3 +709,36 @@ BDP-001Q is valid only if verification proves:
 9. `interpretations_count = 0`.
 10. `BDP-001Q migration_count = 0`.
 11. restricted passage text is not displayed.
+
+## BDP-002C Richer Semantic Readback Surface Boundary
+
+BDP-002C is a read-only semantic readback phase.
+
+Schema status:
+
+```text
+sql_migration = false
+database_mutation = false
+new_tables = false
+new_columns = false
+```
+
+Implementation status:
+
+```text
+psql_subprocess_only = true
+psycopg_dependency = false
+psycopg2_dependency = false
+frontend_renderer = false
+```
+
+Validation addition:
+
+BDP-002C is valid only if verification proves:
+
+1. the existing invariant is preserved before and after readback.
+2. `BDP-002C migration_count = 0`.
+3. no SQL string passed to psql contains mutation keywords.
+4. every generated card field has a controlled authority label.
+5. restricted passage text is not displayed.
+6. Buchanan-specific explanation, relation, interpretation, and claim remain blocked.

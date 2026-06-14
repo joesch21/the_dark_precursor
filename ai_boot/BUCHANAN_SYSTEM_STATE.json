@@ -436,6 +436,54 @@
     "updated_at": "2026-06-14T02:57:33+00:00",
     "verifier": "scripts/verify_bdp_002b_bwo_evidence_card.py"
   },
+  "bdp_002c_richer_semantic_readback_surface": {
+    "anchor_concept": "Body without Organs",
+    "buchanan_claim_status": "blocked_until_interpretive_authority_exists",
+    "buchanan_explanation_status": "buchanan_pending",
+    "buchanan_interpretation_status": "blocked_until_governed_interpretation_phase",
+    "card_section_count": 15,
+    "controlled_slice": "read_only_semantic_readback_surface",
+    "database_mutation": false,
+    "evidence_depth_tier": "Tier 1 \u2014 Anchor Concept",
+    "expected_invariant": {
+      "bdp_001p_migration_count": 1,
+      "bdp_002c_migration_count": 0,
+      "buchanan_article_citation_count": 1,
+      "buchanan_article_concept_mention_count": 1,
+      "buchanan_article_passage_count": 1,
+      "citations_count": 2,
+      "concept_mentions_count": 2,
+      "concept_relations_count": 0,
+      "interpretations_count": 0,
+      "passage_candidates_count": 1,
+      "passages_count": 2,
+      "source_candidates_count": 3,
+      "sources_count": 2
+    },
+    "frontend_renderer": false,
+    "new_columns": false,
+    "new_tables": false,
+    "next_recommended_operator_action": "BDP-001R \u2014 Prepare first source-bound Buchanan Body without Organs description candidate, without interpretation.",
+    "phase": "BDP-002C",
+    "psql_subprocess_only": true,
+    "psycho_linguistic_status": {
+      "authority_label": "experimental_modelling",
+      "current_ceiling": "Level 2 Embedding Deviation",
+      "objective_score_claimed": false,
+      "requires_human_review": true
+    },
+    "psycopg2_dependency": false,
+    "psycopg_dependency": false,
+    "rights_boundary": {
+      "article_reproduction_authorized": false,
+      "long_quotation_displayed": false,
+      "passage_text_display": "omitted_by_rights_policy"
+    },
+    "sql_migration": false,
+    "status": "prepared",
+    "title": "Richer Semantic Readback Surface",
+    "updated_at": "2026-06-14T03:18:00+00:00"
+  },
   "canonical_docs": [
     "docs/BUCHANAN_ARCHITECTURE.md",
     "docs/BUCHANAN_SCHEMA_CONTROL.md",

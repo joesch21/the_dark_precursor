@@ -296,3 +296,21 @@ article_reproduction_authorized = false
 BDP-001Q may display bibliographic metadata, locator, citation display rule, concept mention status, and authority boundary.
 
 It must not display the restricted passage text or convert the evidence chain into a Buchanan interpretation or generated claim.
+
+## BDP-002C Richer Readback Rights Boundary
+
+BDP-002C prepares a richer read-only card over the existing restricted Buchanan passage, citation, and concept mention.
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+passage_text_display = omitted_by_rights_policy
+long_quotation_displayed = false
+article_reproduction_authorized = false
+```
+
+The card may display bibliographic metadata, locator data, citation display rule, concept mention status, authority label, and evidence posture.
+
+It must not display restricted passage text or convert the evidence chain into a Buchanan interpretation, theoretical consequence, or generated author-position claim.
