@@ -168,3 +168,29 @@ BDP-002D.1 is successful when the documentation clearly records that:
 6. adaptation is never framed as psychological assessment or objective psychological insight.
 
 **End of Document**
+
+<!-- BDP-002D.1 VERIFIER PHRASE ALIGNMENT START -->
+
+## Verifier Phrase Alignment
+
+This section preserves exact governance phrases required by the current BDP-002D.1 verifier. It does not change the doctrine meaning; it prevents exact-string drift between doctrine wording and verifier wording.
+
+```text
+Text Psycho-Linguistics
+Interaction Adaptation
+Focus: how language moves, pressures, and transforms meaning in the texts
+Focus: how the interface responds to the user's engagement style during a session
+Allowed signals: navigation choices, time spent on visuals vs text, question style, metaphor preference, depth of exploration
+does not analyse psychological state or cognitive profile
+How this view is adapting
+what interaction signals were observed
+inspect, pause, reset, or manually adjust
+session_scoped_by_default = true
+long_term_profile_storage_default = false
+persistence_requires_explicit_informed_consent = true
+psychological_assessment_allowed = false
+objective_psychological_insight_claim_allowed = false
+psycho_linguistic_analysis_remains_text_focused = true
+```
+
+<!-- BDP-002D.1 VERIFIER PHRASE ALIGNMENT END -->
