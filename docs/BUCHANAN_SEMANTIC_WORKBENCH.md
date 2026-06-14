@@ -222,3 +222,29 @@ Buchanan argues that the Body without Organs means X.
 
 The workbench must keep Buchanan-specific explanation marked pending until a reviewed concept mention and later interpretation layer exist.
 
+
+## BDP-001P Workbench Evidence Posture
+
+After BDP-001P, the semantic workbench may report a stronger Buchanan evidence posture:
+
+```text
+Buchanan passage status = citation_backed_passage_available
+Buchanan concept mention status = reviewed_direct_concept_mention_available
+Buchanan relation status = blocked
+Buchanan interpretation status = blocked
+Buchanan claim status = blocked
+```
+
+Allowed workbench description:
+
+```text
+A citation-backed Buchanan passage is linked to Body without Organs through a reviewed concept mention.
+```
+
+Blocked author-position claim:
+
+```text
+Buchanan argues that the Body without Organs means X.
+```
+
+The workbench must keep Buchanan-specific interpretation marked blocked until a later governed interpretation layer exists.

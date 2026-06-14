@@ -272,3 +272,22 @@ Buchanan argues that the Body without Organs means X.
 
 The next ontology step is a reviewed `concept_mentions` row linking the inserted Buchanan passage to `Body without Organs`.
 
+
+## BDP-001P Buchanan Concept Mention Boundary
+
+The inserted citation-backed Buchanan passage is now linked to `Body without Organs` through one reviewed direct `concept_mentions` row.
+
+Allowed after BDP-001P:
+
+```text
+The platform has a reviewed Buchanan concept mention linking the citation-backed Buchanan passage to Body without Organs.
+```
+
+Still blocked after BDP-001P:
+
+```text
+Buchanan's interpretation of the Body without Organs is X.
+Buchanan argues that the Body without Organs means X.
+```
+
+The next ontology step is readback, not interpretation.

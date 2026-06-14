@@ -320,3 +320,33 @@ Next step:
 BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.
 ```
 
+
+## BDP-001P Concept Mention Link Record
+
+The canonical Buchanan passage inserted in BDP-001O is now linked to `Body without Organs`.
+
+Successful BDP-001P result:
+
+```text
+canonical Buchanan passage inserted = already true from BDP-001O
+citation inserted = already true from BDP-001O
+concept mention inserted = true
+concept relation inserted = false
+interpretation inserted = false
+buchanan claim inserted = false
+```
+
+Boundary:
+
+```text
+The concept mention confirms a reviewed concept link.
+The concept mention is not a relation.
+The concept mention is not an interpretation.
+The concept mention is not a Buchanan-specific claim.
+```
+
+Next step:
+
+```text
+BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.
+```

@@ -369,3 +369,30 @@ interpretation remains blocked
 Buchanan-specific claims remain blocked
 ```
 
+
+## BDP-001P Reviewed Concept Mention Link
+
+BDP-001P completes the next controlled step after canonical Buchanan passage and citation insertion.
+
+Updated controlled sequence:
+
+```text
+canonical source metadata
+→ passage candidate envelope
+→ operator review of exact short text and locator
+→ reviewed passage candidate
+→ canonical passage insertion
+→ citation insertion
+→ reviewed concept mention
+→ relation or interpretation only after later evidence review
+```
+
+Boundary:
+
+```text
+The Buchanan passage is now linked to Body without Organs through a reviewed concept mention.
+The concept mention is not a concept relation.
+The concept mention is not an interpretation.
+The concept mention does not authorize a generated Buchanan claim.
+Interpretation remains blocked.
+```

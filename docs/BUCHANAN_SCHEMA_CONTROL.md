@@ -636,3 +636,37 @@ BDP-001O is valid only if verification proves:
 11. `interpretations_count = 0`.
 12. `BDP-001O migration_count = 1`.
 
+
+## BDP-001P Reviewed Concept Mention Link Patch
+
+BDP-001P links the inserted citation-backed Buchanan article passage to `Body without Organs` through one reviewed `concept_mentions` row.
+
+It inserts:
+
+```text
+one concept_mentions row
+one schema_migrations ledger row
+```
+
+Migration note:
+
+```text
+BDP-001P changes concept mention storage only.
+It does not change schema shape.
+It does not create a source, passage, citation, concept relation, interpretation, synthesis, or Buchanan-specific claim.
+```
+
+Validation addition:
+
+BDP-001P is valid only if verification proves:
+
+1. `sources_count = 2`.
+2. `source_candidates_count = 3`.
+3. `passage_candidates_count = 1`.
+4. `passages_count = 2`.
+5. `citations_count = 2`.
+6. `concept_mentions_count = 2`.
+7. exactly one reviewed direct `Body without Organs` concept mention is attached to the Buchanan article passage.
+8. `concept_relations_count = 0`.
+9. `interpretations_count = 0`.
+10. `BDP-001P migration_count = 1`.

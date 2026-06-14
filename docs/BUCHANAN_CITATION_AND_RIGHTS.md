@@ -259,3 +259,22 @@ BDP-001O authorizes only the controlled short-excerpt passage record and citatio
 
 It does not authorize article reproduction, long quotation display, concept mention insertion, concept relation insertion, interpretation, synthesis, or a Buchanan-specific claim.
 
+
+## BDP-001P Concept Mention Rights Boundary
+
+BDP-001P links the existing short citation-backed Buchanan passage to `Body without Organs` through one reviewed concept mention.
+
+Rights and display treatment:
+
+```text
+rights_status = restricted
+display_rule = reference_only
+display_rule_detail = concept_mention_over_restricted_short_excerpt
+long_quotation_stored = false
+article_reproduction_authorized = false
+concept_mention_backed_by_citation = true
+```
+
+BDP-001P authorizes only the controlled concept mention link over the existing citation-backed passage.
+
+It does not authorize article reproduction, long quotation display, concept relation insertion, interpretation, synthesis, or a Buchanan-specific claim.

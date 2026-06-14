@@ -1045,3 +1045,57 @@ Next step:
 BDP-001P — Link the inserted Buchanan passage to Body without Organs through a reviewed concept mention only.
 ```
 
+
+## BDP-001P Handover Update
+
+The inserted Buchanan passage has been linked to `Body without Organs` through one reviewed concept mention.
+
+Completed:
+
+1. Inserted one `concept_mentions` row linking the citation-backed Buchanan passage to `Body without Organs`.
+2. Preserved the canonical source count at two.
+3. Preserved the passage count at two.
+4. Preserved the citation count at two.
+5. Confirmed no concept relation was inserted.
+6. Confirmed no interpretation or generated Buchanan claim was inserted.
+7. Added `sql/016_link_bdp_001p_buchanan_passage_to_bwo_concept_mention_only.sql`.
+8. Added `scripts/read_bdp_001p_buchanan_concept_mention.py`.
+9. Added `scripts/verify_bdp_001p_buchanan_concept_mention_only.py`.
+10. Added `scripts/update_bdp_001p_docs_and_state.py`.
+
+Current invariant after successful verification:
+
+```text
+sources_count = 2
+source_candidates_count = 3
+passage_candidates_count = 1
+passages_count = 2
+citations_count = 2
+concept_mentions_count = 2
+concept_relations_count = 0
+interpretations_count = 0
+BDP-001P migration_count = 1
+buchanan_article_passage_count = 1
+buchanan_article_citation_count = 1
+buchanan_article_concept_mention_count = 1
+```
+
+Boundary:
+
+```text
+No canonical source inserted.
+No source candidate inserted.
+No passage candidate inserted.
+No passage inserted.
+No citation inserted.
+No concept relation inserted.
+No interpretation inserted.
+No generated Buchanan claim created.
+No frontend work.
+```
+
+Next step:
+
+```text
+BDP-001Q — Prepare Buchanan Body without Organs concept readback after reviewed concept mention, without interpretation.
+```
