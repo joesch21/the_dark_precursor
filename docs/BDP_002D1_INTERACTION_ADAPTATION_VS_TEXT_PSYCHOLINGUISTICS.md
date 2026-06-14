@@ -28,6 +28,7 @@ Neither layer authorizes Buchanan-specific claims without governed evidence.
 Focus:
 
 ```text
+Focus: how language moves, pressures, and transforms meaning in the texts.
 How language moves, pressures, and transforms meaning in the texts.
 ```
 
