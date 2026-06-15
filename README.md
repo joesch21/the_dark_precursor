@@ -1,25 +1,43 @@
-# Buchanan Deleuze Intelligence Platform Docs
+# Buchanan Deleuze Intelligence Platform
 
-This folder contains the initial Markdown control-plane documents for the Buchanan-grounded Deleuze and Guattari intelligence platform.
+**Status:** Active Development  
+**Focus:** Governed, evidence-first cognitive research environment for Ian Buchanan’s scholarship and Deleuze & Guattari studies.
 
-## Files
+---
 
-```text
-ai_boot/BUCHANAN_SYSTEM_STATE.json
-docs/BUCHANAN_ARCHITECTURE.md
-docs/BUCHANAN_SCHEMA_CONTROL.md
-docs/BUCHANAN_INGESTION_WORKFLOW.md
-docs/BUCHANAN_CONCEPT_ONTOLOGY.md
-docs/BUCHANAN_CITATION_AND_RIGHTS.md
-docs/BUCHANAN_THREAD_HANDOVER.md
+## Quick Start — The Dark Precursor
+
+The main interface is **The Dark Precursor** — a cinematic, Buchanan-voiced generative experience.
+
+```bash
+cd ~/Applications/the_dark_precursor/buchanan_platform_docs
+
+# 1. Activate the environment
+./activate_env.sh
+
+# 2. Run The Dark Precursor
+streamlit run frontend/dark_precursor.py
 ```
 
-## First Build Phase
+Then open the link shown in your terminal (usually `http://localhost:8501`).
 
-```text
-BDP-001 — Buchanan Platform Control Plane Foundation
-```
+### Key Features
+- Cinematic “wall” interface with typewriter effect
+- Automatic voice narration (Buchanan-style)
+- Dynamic, concept-specific responses
+- Relational follow-up questions
+- Clickable concept exploration
 
-## Next Step
+---
 
-Create the first database prototype with source intake, passage storage, citation trails, concept tagging, and schema drift checks.
+## Important Governance Documents
+
+Before starting new work, read:
+
+- `BUCHANAN_THREAD_HANDOVER.md`
+- `docs/DOCS_UPDATE_POLICY.md`
+- `docs/BDP_003B_DARK_PRECURSOR.md`
+- `BUCHANAN_SYSTEM_STATE.json`
+
+All significant changes should be delivered as **patch bundles**.
+
