@@ -81,3 +81,13 @@ This approval does not generalize to backend persistence, database persistence, 
 ## Next Step
 
 **BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow.**
+
+## BDP-003E.16 Follow-up Safety Gate Review Note
+
+BDP-003E.16 reviewed the wired archive controls against safety gates before any broader archive workflow.
+
+Frontend UX/UI was changed by BDP-003E.15. BDP-003E.16 does not make additional frontend UX/UI changes and does not modify `frontend/dark_precursor.py`.
+
+Broader archive workflow expansion remains blocked.
+
+Next safe step: `BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.`

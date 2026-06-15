@@ -638,3 +638,22 @@ Verifier:
 `scripts/verify_bdp_003e15_archive_controls_ui_wiring.py`
 
 Next safe step: `BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow.`
+
+## BDP-003E.16 — Wired Archive Controls Safety Gate Review
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** safety review only
+
+BDP-003E.16 reviews the BDP-003E.15 wired local reviewed archive controls against the safety gates.
+
+Frontend UX/UI was changed by BDP-003E.15. BDP-003E.16 does not make additional frontend UX/UI changes and does not modify `frontend/dark_precursor.py`.
+
+The review confirms local reviewed payload gating, explicit archive path gating, operator confirmation, local writer only, and continued blocking of broader archive workflow expansion.
+
+No backend services, adapter endpoints, database tables, SQL migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are approved by BDP-003E.16.
+
+Verifier:
+`scripts/verify_bdp_003e16_wired_archive_controls_safety_review.py`
+
+Next safe step: `BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.`

@@ -137,7 +137,7 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003E.15",
+  "last_updated_phase": "BDP-003E.16",
   "last_updated_utc": "2026-06-15T17:25:27+00:00",
   "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
   "bdp_003c_cinematic_experience_reset": {
@@ -431,8 +431,8 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow.",
-  "next_step": "BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow.",
+  "current_next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.",
+  "next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "current_phase": "BDP-003E.12",
@@ -785,5 +785,45 @@
     ],
     "verifier": "scripts/verify_bdp_003e15_archive_controls_ui_wiring.py",
     "next_step": "BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow."
+  },
+  "bdp_003e16_wired_archive_controls_safety_gate_review": {
+    "phase": "BDP-003E.16",
+    "title": "Review wired archive controls in The Dark Precursor UI against safety gates",
+    "status": "complete",
+    "completed_at": "2026-06-15T20:16:41+00:00",
+    "controlled_slice": "wired_archive_controls_safety_review_only",
+    "review_type": "post_frontend_wiring_safety_gate_review",
+    "decision": "The BDP-003E.15 wired archive controls remain within local reviewed archive safety gates. Broader archive workflow expansion is not approved.",
+    "frontend_ux_ui_changed_by_bdp_003e15": true,
+    "frontend_ux_ui_changed_by_bdp_003e16": false,
+    "frontend_modified_by_bdp_003e16": false,
+    "new_frontend_controls_added_by_bdp_003e16": false,
+    "frontend_dark_precursor_sha256_at_review": "8795dbf0ac8987426409de448a836a20c72a32210b8d2bf7051e5321df473e8d",
+    "wired_controls_reviewed": true,
+    "local_reviewed_payload_gate_confirmed": true,
+    "explicit_archive_path_gate_confirmed": true,
+    "operator_confirmation_gate_confirmed": true,
+    "local_writer_only_confirmed": true,
+    "broader_archive_workflow_blocked": true,
+    "broader_archive_workflow_approved": false,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "evidence_promotion_added": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "review_inputs": [
+      "frontend/dark_precursor.py",
+      "scripts/ui_reviewed_concept_card_archive_controls.py",
+      "scripts/local_reviewed_concept_card_archive_writer.py",
+      "docs/BDP_003E15_ARCHIVE_CONTROLS_UI_WIRING.md",
+      "scripts/verify_bdp_003e15_archive_controls_ui_wiring.py"
+    ],
+    "review_output": "docs/BDP_003E16_WIRED_ARCHIVE_CONTROLS_SAFETY_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003e16_wired_archive_controls_safety_review.py",
+    "next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls."
   }
 }
