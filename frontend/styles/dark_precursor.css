@@ -1,0 +1,35 @@
+.stApp {
+        background-color: #050505;
+        color: #e8e8e8;
+    }
+    .cinematic-wall {
+        background-color: #0a0a0a;
+        border: 1px solid #2a2a2a;
+        border-radius: 10px;
+        padding: 60px 80px;
+        margin: 25px 0;
+        box-shadow: 0 0 70px rgba(0,0,0,0.55);
+    }
+    .narrator-text {
+        font-family: 'Georgia', serif;
+        font-size: 1.55rem;
+        line-height: 1.9;
+        color: #e8e8e8;
+        letter-spacing: 0.2px;
+    }
+    .section-label {
+        font-family: 'Georgia', serif;
+        color: #d4af37;
+        font-size: 1.1rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+    .stButton > button {
+        background-color: #1a1a1a;
+        color: #d4af37;
+        border: 1px solid #3a3a3a;
+    }
+    .stButton > button:hover {
+        background-color: #d4af37;
+        color: #050505;
+    }

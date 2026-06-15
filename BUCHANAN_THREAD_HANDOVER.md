@@ -46,3 +46,28 @@ This phase does not create Buchanan-specific claims, insert citations, insert in
 ### Next recommended action
 
 BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example.
+
+## BDP-002H — Dark Precursor Style Split
+
+**Status:** complete  
+**Type:** frontend refactor  
+**Updated:** 2026-06-15T03:18:11+00:00  
+
+### What changed
+
+- Moved the cinematic Streamlit CSS from `frontend/dark_precursor.py` into `frontend/styles/dark_precursor.css`.
+- Added a local CSS loader in `frontend/dark_precursor.py`.
+- Moved `render_differential_engine_panel()` so it executes after `st.set_page_config()`.
+
+### Boundaries
+
+- No database mutation.
+- No SQL migration.
+- No evidence spine change.
+- No Buchanan claim or interpretation created.
+- No generative prompt change.
+
+### Next recommended step
+
+BDP-002I — Decide where the Differential Reading Engine panel belongs inside the main Dark Precursor flow.
+

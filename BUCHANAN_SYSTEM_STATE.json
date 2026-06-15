@@ -51,6 +51,27 @@
       ],
       "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
       "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
+    },
+    "BDP-002H": {
+      "status": "complete",
+      "type": "frontend_refactor",
+      "description": "Split Dark Precursor inline CSS into frontend/styles/dark_precursor.css and ensure page config runs before differential panel render.",
+      "completed_at": "2026-06-15T03:18:11+00:00",
+      "deliverables": [
+        "docs/BDP_002H_DARK_PRECURSOR_STYLE_SPLIT.md",
+        "frontend/styles/dark_precursor.css",
+        "scripts/apply_bdp_002h_dark_precursor_style_split.py",
+        "scripts/update_bdp_002h_dark_precursor_style_split.py",
+        "scripts/verify_bdp_002h_dark_precursor_style_split.py"
+      ],
+      "boundaries": {
+        "database_mutation": false,
+        "sql_migration": false,
+        "evidence_spine_change": false,
+        "buchanan_claim": false,
+        "interpretation": false,
+        "generative_prompt_change": false
+      }
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -103,7 +124,7 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-002G",
-  "last_updated_utc": "2026-06-15T03:12:20+00:00",
-  "next_recommended_step": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
+  "last_updated_phase": "BDP-002H",
+  "last_updated_utc": "2026-06-15T03:18:11+00:00",
+  "next_recommended_step": "BDP-002I — Decide where the Differential Reading Engine panel belongs inside the main Dark Precursor flow after verified CSS split."
 }
