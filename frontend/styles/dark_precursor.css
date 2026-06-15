@@ -1,23 +1,94 @@
-/* BDP-003C — Dark Precursor cinematic experience reset */
+/* BDP-003D — Dark Precursor cinematic video front page */
 
 :root {
-    --dp-bg: #030303;
-    --dp-panel: #080808;
-    --dp-panel-soft: #101010;
-    --dp-border: rgba(212, 175, 55, 0.22);
-    --dp-gold: #d4af37;
-    --dp-gold-soft: rgba(212, 175, 55, 0.18);
-    --dp-text: #f2efe8;
-    --dp-muted: #a9a39a;
-    --dp-red: #7b1e1e;
+    --dp-bg: #050403;
+    --dp-panel: rgba(15, 12, 9, 0.58);
+    --dp-panel-strong: rgba(12, 10, 8, 0.76);
+    --dp-panel-soft: rgba(255, 255, 255, 0.055);
+    --dp-border: rgba(242, 217, 159, 0.24);
+    --dp-gold: #e0bf62;
+    --dp-gold-soft: rgba(224, 191, 98, 0.18);
+    --dp-text: #f6f0e5;
+    --dp-muted: #c9bcaa;
+    --dp-red: #8b2b23;
+    --dp-shadow: rgba(0, 0, 0, 0.64);
 }
 
-.stApp {
-    background:
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 34rem),
-        radial-gradient(circle at 15% 20%, rgba(123, 30, 30, 0.18), transparent 30rem),
-        linear-gradient(180deg, #050505 0%, #020202 100%);
+.stApp,
+[data-testid="stAppViewContainer"] {
+    background: transparent;
     color: var(--dp-text);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+[data-testid="stHeader"] {
+    background: linear-gradient(180deg, rgba(8, 6, 4, 0.36), rgba(8, 6, 4, 0));
+    backdrop-filter: blur(8px);
+}
+
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"] {
+    color: var(--dp-muted);
+}
+
+.dp-background-video,
+.dp-background-vignette,
+.dp-background-fallback {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.dp-background-video {
+    transform: scale(1.06);
+    transform-origin: center center;
+    object-fit: cover;
+    z-index: -3;
+    opacity: 0.86;
+    filter: brightness(0.96) contrast(1.04) saturate(1.08);
+}
+
+.dp-background-vignette {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(2, 2, 2, 0.50) 0%, rgba(2, 2, 2, 0.06) 13%, rgba(2, 2, 2, 0.04) 87%, rgba(2, 2, 2, 0.50) 100%),
+        linear-gradient(180deg, rgba(2, 2, 2, 0.48) 0%, rgba(2, 2, 2, 0.05) 14%, rgba(2, 2, 2, 0.05) 84%, rgba(2, 2, 2, 0.52) 100%);
+    box-shadow:
+        inset 0 0 8.5rem 3.2rem rgba(0, 0, 0, 0.98),
+        inset 0 0 2.2rem 0.7rem rgba(19, 17, 10, 0.095);
+}
+
+.dp-background-vignette::after {
+    content: "";
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 24rem;
+    height: 11rem;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.82) 38%,
+            rgba(0, 0, 0, 0.36) 68%,
+            rgba(0, 0, 0, 0.00) 100%
+        );
+}
+
+
+.dp-background-fallback {
+    z-index: -3;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(224, 191, 98, 0.14), transparent 34rem),
+        radial-gradient(circle at 15% 20%, rgba(139, 43, 35, 0.24), transparent 30rem),
+        linear-gradient(180deg, #090604 0%, #020202 100%);
 }
 
 .block-container {
@@ -27,8 +98,73 @@
 }
 
 [data-testid="stSidebar"] {
-    background: rgba(4, 4, 4, 0.96);
-    border-right: 1px solid rgba(212, 175, 55, 0.12);
+    background: rgba(18, 14, 10, 0.62);
+    border-right: 1px solid rgba(242, 217, 159, 0.22);
+    backdrop-filter: blur(18px) saturate(1.12);
+    box-shadow: 32px 0 80px rgba(0, 0, 0, 0.28);
+}
+
+[data-testid="stSidebar"] * {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] label {
+    color: var(--dp-text);
+}
+
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] .stCaptionContainer {
+    color: var(--dp-muted);
+}
+
+.dp-title-gate {
+    min-height: calc(100vh - 9rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(2rem, 6vw, 5rem) 0 2rem 0;
+}
+
+.dp-title-panel {
+    width: min(1060px, 100%);
+    border: 1px solid rgba(242, 217, 159, 0.34);
+    border-radius: 34px;
+    padding: clamp(2rem, 6vw, 5.6rem);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.025)),
+        rgba(10, 8, 6, 0.86);
+    backdrop-filter: blur(16px) saturate(1.12);
+    box-shadow: 0 44px 150px rgba(0, 0, 0, 0.72), inset 0 0 100px rgba(255, 255, 255, 0.034);
+}
+
+.dp-gate-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4.2rem, 10vw, 9.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+    color: var(--dp-text);
+    max-width: 980px;
+    margin-bottom: 1.3rem;
+    text-wrap: balance;
+}
+
+.dp-gate-subtitle {
+    max-width: 840px;
+    color: var(--dp-muted);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.55;
+    text-wrap: pretty;
+}
+
+.dp-gate-note {
+    margin-top: 2rem;
+    color: var(--dp-gold);
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
 .dp-hero {
@@ -37,14 +173,15 @@
     padding: clamp(2rem, 4vw, 4rem);
     margin: 0.5rem 0 1.4rem 0;
     background:
-        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.004)),
-        radial-gradient(circle at 80% 0%, rgba(212,175,55,0.12), transparent 22rem),
-        rgba(6,6,6,0.84);
-    box-shadow: 0 0 90px rgba(0,0,0,0.72), inset 0 0 90px rgba(255,255,255,0.018);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.078), rgba(255, 255, 255, 0.012)),
+        radial-gradient(circle at 80% 0%, rgba(224, 191, 98, 0.14), transparent 22rem),
+        rgba(11, 9, 7, 0.54);
+    backdrop-filter: blur(10px) saturate(1.08);
+    box-shadow: 0 34px 110px var(--dp-shadow), inset 0 0 90px rgba(255, 255, 255, 0.022);
 }
 
 .dp-kicker {
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     color: var(--dp-gold);
     text-transform: uppercase;
     letter-spacing: 0.28em;
@@ -53,12 +190,13 @@
 }
 
 .dp-title {
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(3rem, 7vw, 6.6rem);
     line-height: 0.92;
     color: var(--dp-text);
     letter-spacing: -0.06em;
     margin-bottom: 1.2rem;
+    text-wrap: balance;
 }
 
 .dp-subtitle {
@@ -66,6 +204,7 @@
     color: var(--dp-muted);
     font-size: clamp(1.12rem, 1.8vw, 1.55rem);
     line-height: 1.65;
+    text-wrap: pretty;
 }
 
 .dp-stage {
@@ -75,14 +214,15 @@
     padding: clamp(2rem, 4.8vw, 5rem);
     margin: 1.3rem 0;
     background:
-        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
-        radial-gradient(circle at 50% 0%, rgba(212,175,55,0.10), transparent 30rem),
-        rgba(8,8,8,0.92);
-    box-shadow: 0 0 110px rgba(0,0,0,0.82);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.018)),
+        radial-gradient(circle at 50% 0%, rgba(224, 191, 98, 0.12), transparent 30rem),
+        rgba(10, 8, 6, 0.70);
+    backdrop-filter: blur(9px) saturate(1.06);
+    box-shadow: 0 38px 120px rgba(0, 0, 0, 0.58), inset 0 0 70px rgba(255, 255, 255, 0.018);
 }
 
 .dp-section-label {
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     color: var(--dp-gold);
     text-transform: uppercase;
     letter-spacing: 0.22em;
@@ -113,15 +253,16 @@
 }
 
 .dp-card {
-    border: 1px solid rgba(212,175,55,0.14);
+    border: 1px solid rgba(242, 217, 159, 0.18);
     border-radius: 18px;
     padding: 1.2rem;
-    background: rgba(255,255,255,0.025);
+    background: rgba(14, 11, 8, 0.50);
+    backdrop-filter: blur(7px);
 }
 
 .dp-card-title {
     color: var(--dp-gold);
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 1.05rem;
     margin-bottom: 0.5rem;
 }
@@ -133,11 +274,21 @@
 }
 
 .dp-dock {
-    border: 1px solid rgba(212,175,55,0.14);
+    border: 1px solid rgba(242, 217, 159, 0.18);
     border-radius: 18px;
     padding: 1.1rem 1.25rem;
     margin-top: 1rem;
-    background: rgba(255,255,255,0.022);
+    background: rgba(14, 11, 8, 0.46);
+    backdrop-filter: blur(7px);
+}
+
+div[data-testid="stTextInput"] input,
+div[data-testid="stTextArea"] textarea,
+.stSelectbox div,
+.stRadio div,
+.stCheckbox div,
+.stSlider div {
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 div[data-testid="stTextInput"] input {
@@ -152,24 +303,28 @@ div[data-testid="stTextArea"] textarea {
     border-radius: 16px;
 }
 
-.stButton > button {
+.stButton > button,
+.stDownloadButton > button {
     border-radius: 999px;
-    border: 1px solid rgba(212,175,55,0.32);
-    background: rgba(20, 20, 20, 0.92);
+    border: 1px solid rgba(242, 217, 159, 0.36);
+    background: rgba(23, 18, 13, 0.66);
     color: var(--dp-gold);
     min-height: 3rem;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 1rem;
     letter-spacing: 0.02em;
+    backdrop-filter: blur(10px);
 }
 
-.stButton > button:hover {
-    border-color: rgba(212,175,55,0.75);
-    background: rgba(212,175,55,0.16);
-    color: #f7e6a2;
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+    border-color: rgba(242, 217, 159, 0.82);
+    background: rgba(224, 191, 98, 0.18);
+    color: #fff0b5;
 }
 
 hr {
-    border-color: rgba(212,175,55,0.10);
+    border-color: rgba(242, 217, 159, 0.14);
 }
 
 @media (max-width: 900px) {
@@ -179,5 +334,16 @@ hr {
 
     .dp-stage {
         min-height: 35vh;
+    }
+
+    .dp-title-gate {
+        align-items: flex-start;
+        min-height: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dp-background-video {
+        display: none;
     }
 }

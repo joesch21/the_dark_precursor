@@ -1,3 +1,4 @@
+import base64
 import html
 import os
 import re
@@ -5,6 +6,7 @@ import time
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -39,6 +41,58 @@ def load_local_css(relative_path: str) -> None:
 
 
 load_local_css("styles/dark_precursor.css")
+
+
+@st.cache_data(show_spinner=False)
+def load_video_data_uri(relative_path: str) -> str:
+    """Return a local frontend asset as a browser-safe video data URI."""
+    video_path = FRONTEND_ROOT / relative_path
+    if not video_path.exists():
+        return ""
+
+    encoded = base64.b64encode(video_path.read_bytes()).decode("ascii")
+    return f"data:video/mp4;base64,{encoded}"
+
+
+def render_background_stream() -> None:
+    """Render the cinematic background stream behind the Streamlit controls."""
+    video_src = load_video_data_uri("assets/dark_precursor.mp4")
+
+    if not video_src:
+        st.markdown('<div class="dp-background-fallback"></div>', unsafe_allow_html=True)
+        return
+
+    st.markdown(
+        f"""
+        <video class="dp-background-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+            <source src="{video_src}" type="video/mp4">
+        </video>
+        <div class="dp-background-vignette"></div>
+        """,
+        unsafe_allow_html=True,
+    )
+    components.html(
+    """
+    <script>
+    const tuneDarkPrecursorVideo = () => {
+        const videos = window.parent.document.querySelectorAll("video.dp-background-video");
+        videos.forEach((video) => {
+            video.muted = true;
+            video.defaultMuted = true;
+            video.volume = 0;
+            video.playbackRate = 0.42;
+        });
+    };
+
+    tuneDarkPrecursorVideo();
+    setInterval(tuneDarkPrecursorVideo, 1000);
+    </script>
+    """,
+    height=0,
+)
+
+
+render_background_stream()
 
 
 # ============================================================
@@ -289,6 +343,45 @@ def render_governed_reference_dock() -> None:
 
 
 # ============================================================
+# TITLE GATE
+# ============================================================
+
+
+def render_title_gate() -> None:
+    """Render the opening title page before the operator enters the interface."""
+    st.markdown(
+        """
+        <div class="dp-title-gate">
+            <div class="dp-title-panel">
+                <div class="dp-kicker">THE DARK PRECURSOR</div>
+                <div class="dp-gate-title">A concept enters as a scene.</div>
+                <div class="dp-gate-subtitle">
+                    A cinematic front page for the Buchanan Vault: video as atmosphere,
+                    large readable text as the main instrument, and governed synthesis
+                    clearly separated from evidence authority.
+                </div>
+                <div class="dp-gate-note">
+                    Press enter when the room is ready. The evidence spine remains untouched.
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    gate_cols = st.columns([1.2, 1, 1.2])
+    with gate_cols[1]:
+        if st.button("Enter the Vault", type="primary", use_container_width=True):
+            st.session_state["dark_precursor_gate_open"] = True
+            st.rerun()
+
+
+if not st.session_state.get("dark_precursor_gate_open", False):
+    render_title_gate()
+    st.stop()
+
+
+# ============================================================
 # SIDEBAR
 # ============================================================
 
@@ -320,10 +413,17 @@ with st.sidebar:
     st.markdown("---")
     selected_preset = st.selectbox("Concept preset", CONCEPT_PRESETS, index=0)
     if st.button("Use selected concept"):
-        st.session_state.dark_precursor_query = selected_preset
+        st.session_state["dark_precursor_query"] = selected_preset
+        st.session_state["dark_precursor_query_input"] = selected_preset
+        st.session_state.pop("last_dark_precursor_response", None)
+        st.rerun()
 
     st.markdown("---")
-    st.caption("BDP-003C • cinematic reset • provisional synthesis")
+    if st.button("Return to title page", use_container_width=True):
+        st.session_state["dark_precursor_gate_open"] = False
+        st.rerun()
+
+    st.caption("BDP-003D • cinematic video front page • provisional synthesis")
 
 
 # ============================================================
@@ -336,8 +436,8 @@ st.markdown(
         <div class="dp-kicker">THE DARK PRECURSOR</div>
         <div class="dp-title">Concepts should move.</div>
         <div class="dp-subtitle">
-            Enter a concept and let the interface stage it as an assemblage:
-            a flow, a cut, a capture, an affect, and a possible line of flight.
+            The background is not decoration. It is atmosphere: a moving field behind
+            the question, the cut, the response, and the possible line of flight.
         </div>
     </div>
     """,
