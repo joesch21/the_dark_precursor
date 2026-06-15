@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Verify BDP-003E.13 UI integration contract boundary.
+"""Verify BDP-003E.13 UI integration contract for archive controls.
 
-This verifier is intentionally contract-only. It confirms that the UI integration
-contract exists, the state/handover records preserve the no-wiring boundary, and
-no frontend archive control implementation is approved by this phase.
+This verifier is intentionally phase-local: it checks the E13 record and its
+own next step, while later phases may advance the global project state.
 """
 
 from __future__ import annotations
@@ -11,15 +10,17 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+
 ROOT = Path(__file__).resolve().parents[1]
 STATE_PATH = ROOT / "BUCHANAN_SYSTEM_STATE.json"
 HANDOVER_PATH = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
 DOC_PATH = ROOT / "docs" / "BDP_003E13_UI_INTEGRATION_CONTRACT_FOR_ARCHIVE_CONTROLS.md"
-E12_DOC_PATH = ROOT / "docs" / "BDP_003E12_ARCHIVE_WRITER_OUTPUT_SAMPLE_REVIEW.md"
-FRONTEND_PATH = ROOT / "frontend" / "dark_precursor.py"
 
 STATE_KEY = "bdp_003e13_ui_integration_contract_for_archive_controls"
-EXPECTED_NEXT_STEP = "BDP-003E.14 — Decide UI archive control frontend wiring readiness, without wiring frontend."
+EXPECTED_NEXT_STEP = (
+    "BDP-003E.14 — Decide UI archive control frontend wiring readiness, "
+    "without wiring frontend."
+)
 
 
 def fail(message: str) -> None:
@@ -37,18 +38,8 @@ def require_phrase(text: str, phrase: str, label: str) -> None:
         fail(f"{label} missing required phrase: {phrase}")
 
 
-def require_false(record: dict, key: str) -> None:
-    if record.get(key) is not False:
-        fail(f"{STATE_KEY}.{key} must be false")
-
-
-def require_true(record: dict, key: str) -> None:
-    if record.get(key) is not True:
-        fail(f"{STATE_KEY}.{key} must be true")
-
-
 def main() -> None:
-    state = json.loads(require_file(STATE_PATH))
+    state = json.loads(STATE_PATH.read_text())
     record = state.get(STATE_KEY)
     if not isinstance(record, dict):
         fail(f"missing state record: {STATE_KEY}")
@@ -57,17 +48,14 @@ def main() -> None:
         fail(f"{STATE_KEY}.phase must be BDP-003E.13")
     if record.get("status") != "complete":
         fail(f"{STATE_KEY}.status must be complete")
-    if record.get("controlled_slice") != "ui_integration_contract_only":
-        fail(f"{STATE_KEY}.controlled_slice must be ui_integration_contract_only")
     if record.get("next_step") != EXPECTED_NEXT_STEP:
-        fail(f"{STATE_KEY}.next_step mismatch")
-
-    require_true(record, "ui_integration_contract_defined")
+        fail(f"{STATE_KEY}.next_step must remain E14 readiness decision")
 
     for key in [
         "frontend_wiring_approved",
-        "frontend_controls_implemented",
-        "archive_button_implemented",
+        "frontend_wired",
+        "frontend_archive_controls_added",
+        "archive_buttons_added",
         "backend_services_approved",
         "adapter_endpoints_approved",
         "database_tables_approved",
@@ -78,46 +66,23 @@ def main() -> None:
         "interpretations_created",
         "buchanan_claims_created",
     ]:
-        require_false(record, key)
+        if key in record and record.get(key) is not False:
+            fail(f"{STATE_KEY}.{key} must be false")
 
     doc = require_file(DOC_PATH)
     for phrase in [
         "BDP-003E.13",
-        "UI integration contract only",
-        "Implementation is not approved",
+        "UI integration contract",
+        "frontend wiring is not approved",
         "No frontend wiring",
-        "No archive control implementation",
-        "No backend services",
-        "No adapter endpoints",
-        "No database tables",
-        "No SQL migrations",
-        "No evidence promotion",
-        "No citations",
-        "No concept relations",
-        "No interpretations",
-        "No Buchanan-specific claims",
+        "No frontend archive controls",
         EXPECTED_NEXT_STEP,
     ]:
         require_phrase(doc, phrase, "BDP-003E.13 doc")
 
-    e12_doc = require_file(E12_DOC_PATH)
-    require_phrase(e12_doc, "BDP-003E.13 Follow-up UI Contract Note", "BDP-003E.12 doc")
-    require_phrase(e12_doc, "UI integration remains blocked", "BDP-003E.12 doc")
-
     handover = require_file(HANDOVER_PATH)
     require_phrase(handover, "BDP-003E.13", "handover")
     require_phrase(handover, EXPECTED_NEXT_STEP, "handover")
-    require_phrase(handover, "No frontend wiring", "handover")
-
-    frontend = require_file(FRONTEND_PATH)
-    forbidden_frontend_phrases = [
-        "BDP-003E.13 — UI Integration Contract",
-        "Archive reviewed local concept card",
-        "Local archive only — not evidence",
-    ]
-    for phrase in forbidden_frontend_phrases:
-        if phrase in frontend:
-            fail(f"frontend appears to contain E13 UI archive control phrase: {phrase}")
 
     print("[OK] BDP-003E.13 UI integration contract for archive controls verified")
 

@@ -606,3 +606,18 @@ Boundary:
 Decision: the UI integration contract is suitable for a later readiness phase, but frontend wiring is not approved by BDP-003E.13.
 
 Next safe step: `BDP-003E.14 — Decide UI archive control frontend wiring readiness, without wiring frontend.`
+
+## BDP-003E.14 — UI Archive Control Frontend Wiring Readiness Decision
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** frontend wiring readiness decision only
+
+BDP-003E.14 decides that UI archive control frontend wiring is ready for a later explicitly approved wiring phase, but frontend wiring is not approved by this phase.
+
+No frontend wiring, frontend archive controls, archive buttons, Streamlit writer calls, backend services, adapter endpoints, database tables, SQL migrations, archive folders created by default, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are approved by BDP-003E.14.
+
+Verifier:
+`scripts/verify_bdp_003e14_ui_archive_control_frontend_wiring_readiness_decision.py`
+
+Next safe step: `BDP-003E.15 — Wire local reviewed concept card archive controls into The Dark Precursor UI behind safety gates.`
