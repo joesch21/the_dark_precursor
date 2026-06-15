@@ -500,3 +500,33 @@ BDP-003E.9 does not add a writer, archive folder, local file persistence, fronte
 ### Next safe step
 
 `BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.`
+
+
+
+## BDP-003E.10 — Local Reviewed Concept Card Archive Implementation Boundary and Safety Gates
+
+**Status:** Complete
+
+BDP-003E.10 defines the implementation boundary and safety gates before any local reviewed concept card archive writer code is written.
+
+Decision: The writer may proceed only into a later explicitly approved implementation phase guarded by safety gates. Implementation is not approved by BDP-003E.10.
+
+Boundary remains blocked for:
+
+- writer implementation
+- archive folders
+- local files written
+- frontend archive controls
+- backend services
+- adapter endpoints
+- database tables
+- SQL migrations
+- evidence promotion
+- citations
+- concept relations
+- interpretations
+- Buchanan-specific claims
+
+Verifier: `scripts/verify_bdp_003e10_archive_implementation_boundary_and_safety_gates.py`
+
+Next safe step: `BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved.`

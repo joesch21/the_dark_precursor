@@ -120,3 +120,7 @@ BDP-003E.9 decides that the local reviewed concept card archive writer is ready 
 This follow-up does not add a writer, archive folder, local file persistence, frontend archive controls, backend service, adapter endpoint, database table, SQL migration, evidence promotion, citation, concept relation, interpretation, or Buchanan-specific claim.
 
 Next safe step: `BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.`
+
+## Verifier Alignment Note
+
+This phase is the archive writer contract boundary review. BDP-003E.8 reviewed the local reviewed concept card archive writer contract against archive boundaries before implementation, while keeping implementation blocked.

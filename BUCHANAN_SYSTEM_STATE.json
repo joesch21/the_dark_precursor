@@ -432,10 +432,10 @@
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
   "current_next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
-  "next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
+  "next_step": "BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "current_phase": "BDP-003E.8",
+  "current_phase": "BDP-003E.10",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -537,5 +537,52 @@
     "decision_output": "docs/BDP_003E9_ARCHIVE_WRITER_IMPLEMENTATION_READINESS_DECISION.md",
     "verifier": "scripts/verify_bdp_003e9_archive_writer_implementation_readiness_decision.py",
     "next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code."
-  }
+  },
+  "bdp_003e10_archive_implementation_boundary_and_safety_gates": {
+    "phase": "BDP-003E.10",
+    "title": "Define local reviewed concept card archive implementation boundary and safety gates before writing code",
+    "status": "complete",
+    "completed_at": "2026-06-15T19:14:50+00:00",
+    "controlled_slice": "implementation_boundary_and_safety_gates_only",
+    "decision": "The local reviewed concept card archive writer may proceed only into a later explicitly approved implementation phase guarded by safety gates. Implementation is not approved by BDP-003E.10.",
+    "boundary_type": "implementation boundary and safety gates before writing code",
+    "implementation_approved": false,
+    "persistence_approved": false,
+    "writer_implemented": false,
+    "archive_folder_created": false,
+    "local_files_written": false,
+    "frontend_archive_controls_approved": false,
+    "backend_services_approved": false,
+    "adapter_endpoints_approved": false,
+    "database_tables_approved": false,
+    "sql_migrations_approved": false,
+    "evidence_promotion_approved": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "safety_gates": [
+      "writer must accept only locally reviewed concept card payloads that match the BDP-003E.5 schema candidate",
+      "writer must reject unreviewed generated drafts and malformed payloads",
+      "writer must write only to a later approved local archive path",
+      "writer must be idempotent and preserve reviewed metadata without evidence promotion",
+      "writer must not create citations, concept relations, interpretations, or Buchanan-specific claims",
+      "writer must remain separate from frontend controls, backend services, adapter endpoints, and database migrations unless later approved"
+    ],
+    "review_inputs": [
+      "BDP-003E.3 exported cinematic concept card sample cases",
+      "BDP-003E.5 local reviewed archive schema candidate",
+      "BDP-003E.6 archive schema sample review",
+      "BDP-003E.7 writer contract only",
+      "BDP-003E.8 archive writer contract boundary review",
+      "BDP-003E.9 implementation readiness decision",
+      "docs/BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md",
+      "docs/BDP_003E8_ARCHIVE_WRITER_CONTRACT_BOUNDARY_REVIEW.md",
+      "docs/BDP_003E9_ARCHIVE_WRITER_IMPLEMENTATION_READINESS_DECISION.md"
+    ],
+    "boundary_output": "docs/BDP_003E10_ARCHIVE_IMPLEMENTATION_BOUNDARY_AND_SAFETY_GATES.md",
+    "verifier": "scripts/verify_bdp_003e10_archive_implementation_boundary_and_safety_gates.py",
+    "next_step": "BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved."
+  },
+  "current_status": "complete"
 }

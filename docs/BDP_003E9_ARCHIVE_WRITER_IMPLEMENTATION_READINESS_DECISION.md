@@ -76,3 +76,7 @@ Implementation is not approved.
 ## Next Step
 
 **BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.**
+
+## Verifier Alignment Note
+
+This phase is the implementation readiness decision. BDP-003E.9 decides readiness for a future implementation-boundary phase only. Implementation is not approved.
