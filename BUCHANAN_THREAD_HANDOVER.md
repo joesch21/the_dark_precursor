@@ -1,3 +1,54 @@
+# BDP-003E.2 — Read-only Cinematic Concept Card Export Draft
+
+**Date:** 2026-06-15T17:01:19+00:00  
+**Status:** Complete  
+**Authority:** Frontend download-only draft export; no database mutation.
+
+## What changed
+
+BDP-003E.2 adds a local export dock to The Dark Precursor after a cinematic response has been generated.
+
+The operator can download:
+
+1. A Markdown cinematic concept card draft.
+2. A JSON cinematic concept card data object.
+
+The export is generated in memory from the visible response and current interaction controls.
+
+## Governance
+
+Generated cinematic concept cards are not evidence. They are provisional cinematic synthesis drafts only.
+
+This slice does not add database persistence, backend services, adapter endpoints, server-side file persistence, image generation, video generation, citation creation, concept relation creation, or evidence-spine mutation.
+
+## Files updated
+
+- `frontend/dark_precursor.py`
+- `frontend/styles/dark_precursor.css`
+- `docs/BDP_003E2_CINEMATIC_CONCEPT_CARD_EXPORT_DRAFT.md`
+- `docs/BDP_003E_CINEMATIC_CONCEPT_CARD_PERSISTENCE_CONTRACT.md`
+- `scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py`
+- `BUCHANAN_SYSTEM_STATE.json`
+- `BUCHANAN_THREAD_HANDOVER.md`
+
+## Verification
+
+Run:
+
+```bash
+python3 -m py_compile frontend/dark_precursor.py
+python3 scripts/verify_bdp_003c_cinematic_experience_reset.py
+python3 scripts/verify_bdp_003d_cinematic_video_front_page.py
+python3 scripts/verify_bdp_003e1_cinematic_concept_card_contract.py
+python3 scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py
+```
+
+## Next recommended step
+
+BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation.
+
+---
+
 # BDP-003E.1 — Cinematic Concept Card Persistence Contract
 
 **Date:** 2026-06-15T16:51:45+00:00  

@@ -347,3 +347,11 @@ hr {
         display: none;
     }
 }
+
+/* BDP-003E.2 — local concept card export draft dock */
+.dp-export-note {
+    color: var(--dp-muted);
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+

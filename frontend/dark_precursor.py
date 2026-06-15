@@ -1,9 +1,12 @@
 import base64
+import hashlib
 import html
+import json
 import os
 import re
 import time
 from pathlib import Path
+from datetime import datetime, timezone
 
 import streamlit as st
 import streamlit.components.v1 as components
@@ -93,6 +96,154 @@ def render_background_stream() -> None:
 
 
 render_background_stream()
+
+
+
+# ============================================================
+# BDP-003E.2 — CINEMATIC CONCEPT CARD EXPORT DRAFTS
+# ============================================================
+
+CONCEPT_CARD_SCHEMA_VERSION = "bdp_003e2_cinematic_concept_card_export_draft_v1"
+CONCEPT_CARD_AUTHORITY_LABEL = "provisional_cinematic_synthesis_not_evidence"
+CONCEPT_CARD_STORAGE_POSTURE = "download_only_no_database_mutation"
+
+
+def make_safe_export_slug(value: str) -> str:
+    """Return a filesystem-friendly slug for local download filenames only."""
+    cleaned = re.sub(r"[^a-zA-Z0-9]+", "-", value.strip().lower()).strip("-")
+    return cleaned[:72] or "cinematic-concept-card"
+
+
+def build_cinematic_concept_card_export(
+    concept: str,
+    mode: str,
+    site: str,
+    include_clip_brief: bool,
+    response_markdown: str,
+) -> dict:
+    """Build a read-only/download-only cinematic concept card draft.
+
+    This is not database persistence. It creates an operator-downloadable draft
+    object in memory from the currently visible generated response.
+    """
+    concept_clean = (concept or "Untitled concept").strip()
+    mode_clean = (mode or "Narrator").strip()
+    site_clean = (site or "").strip()
+    response_clean = (response_markdown or "").strip()
+    created_utc = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    digest_source = "|".join([concept_clean, mode_clean, site_clean, response_clean[:1200]])
+    digest = hashlib.sha256(digest_source.encode("utf-8")).hexdigest()[:12]
+    slug = make_safe_export_slug(concept_clean)
+
+    return {
+        "schema_version": CONCEPT_CARD_SCHEMA_VERSION,
+        "card_id": f"concept-card-draft-{slug}-{digest}",
+        "created_utc": created_utc,
+        "authority_label": CONCEPT_CARD_AUTHORITY_LABEL,
+        "storage_posture": CONCEPT_CARD_STORAGE_POSTURE,
+        "review_status": "draft_unreviewed",
+        "concept_query": concept_clean,
+        "cinematic_mode": mode_clean,
+        "site_context": site_clean,
+        "includes_film_clip_brief": bool(include_clip_brief),
+        "generated_material_is_evidence": False,
+        "evidence_spine_mutation": False,
+        "database_mutation": False,
+        "adapter_invocation": False,
+        "promotion_allowed": False,
+        "response_markdown": response_clean,
+        "required_human_review": [
+            "confirm conceptual fidelity",
+            "confirm evidence-backed claims remain distinguishable from synthesis",
+            "confirm no generated claim is promoted to the evidence spine",
+            "confirm any later image/video prompt remains labelled as provisional synthesis",
+        ],
+        "blocked_actions": [
+            "database_persistence",
+            "citation_creation",
+            "concept_relation_creation",
+            "buchanan_specific_claim_creation",
+            "automatic_evidence_promotion",
+            "image_or_video_adapter_invocation",
+        ],
+        "next_safe_action": "Human review only. Export may be downloaded as a local draft; it must not be treated as evidence.",
+    }
+
+
+def format_concept_card_markdown(card: dict) -> str:
+    """Format a cinematic concept card draft as Markdown for local download."""
+    lines = [
+        f"# Cinematic Concept Card Draft — {card['concept_query']}",
+        "",
+        "## Governance",
+        "",
+        f"- Schema: `{card['schema_version']}`",
+        f"- Card ID: `{card['card_id']}`",
+        f"- Created UTC: `{card['created_utc']}`",
+        f"- Authority label: `{card['authority_label']}`",
+        f"- Storage posture: `{card['storage_posture']}`",
+        "- Generated material is not evidence.",
+        "- This draft does not mutate the evidence spine, citation layer, concept relation layer, or database.",
+        "- Human review is required before any later use beyond local drafting.",
+        "",
+        "## Source Interaction",
+        "",
+        f"- Concept query: {card['concept_query']}",
+        f"- Cinematic mode: {card['cinematic_mode']}",
+        f"- Site/context: {card['site_context'] or 'Not specified'}",
+        f"- Includes film/storyboard brief: {card['includes_film_clip_brief']}",
+        "",
+        "## Blocked Actions",
+        "",
+    ]
+    lines.extend(f"- `{item}`" for item in card["blocked_actions"])
+    lines.extend(["", "## Required Human Review", ""])
+    lines.extend(f"- {item}" for item in card["required_human_review"])
+    lines.extend([
+        "",
+        "## Generated Cinematic Draft",
+        "",
+        card["response_markdown"] or "_No response captured._",
+        "",
+        "---",
+        "BDP-003E.2 read-only cinematic concept card export draft. Download-only. No database mutation.",
+    ])
+    return "\n".join(lines)
+
+
+def render_cinematic_concept_card_export_dock(card: dict) -> None:
+    """Render local download controls for a concept card draft."""
+    markdown_data = format_concept_card_markdown(card)
+    json_data = json.dumps(card, indent=2, ensure_ascii=False)
+    file_base = card["card_id"]
+
+    with st.expander("🗂 Cinematic concept card export draft", expanded=False):
+        st.markdown(
+            """
+            **Status:** `draft_unreviewed`  
+            **Authority:** `provisional_cinematic_synthesis_not_evidence`  
+            **Storage:** local download only — no database mutation, no adapter call, no evidence promotion.
+            """
+        )
+        st.caption("Generated material is not evidence. Human review is required before any later use.")
+        st.code(card["card_id"], language="text")
+        col_md, col_json = st.columns(2)
+        with col_md:
+            st.download_button(
+                "Download concept card draft (.md)",
+                data=markdown_data,
+                file_name=f"{file_base}.md",
+                mime="text/markdown",
+                use_container_width=True,
+            )
+        with col_json:
+            st.download_button(
+                "Download concept card data (.json)",
+                data=json_data,
+                file_name=f"{file_base}.json",
+                mime="application/json",
+                use_container_width=True,
+            )
 
 
 # ============================================================
@@ -555,6 +706,17 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+
+if st.session_state.get("last_dark_precursor_response"):
+    concept_card_export_draft = build_cinematic_concept_card_export(
+        concept=locals().get("query", st.session_state.get("dark_precursor_query_input", "Untitled concept")),
+        mode=locals().get("mode", "Narrator"),
+        site=locals().get("site", ""),
+        include_clip_brief=locals().get("include_clip_brief", False),
+        response_markdown=st.session_state.get("last_dark_precursor_response", ""),
+    )
+    render_cinematic_concept_card_export_dock(concept_card_export_draft)
 
 with st.expander("🎬 What this cinematic mode can produce", expanded=False):
     st.markdown(

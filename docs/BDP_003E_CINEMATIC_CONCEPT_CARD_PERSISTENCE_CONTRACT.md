@@ -201,3 +201,16 @@ Generated material is not evidence.
 Generated cinematic concept cards are not evidence. They are provisional cinematic synthesis drafts only. They must not be promoted into the evidence spine, citation layer, concept relation layer, or Buchanan-specific claim layer without a later governed review phase.
 
 The persistence contract defined here describes what a future card record must contain if persistence is implemented later. It does not itself persist cards.
+
+
+## BDP-003E.2 Implementation Note
+
+BDP-003E.2 implements the first contract-bound export surface as a local download-only draft mechanism.
+
+It does not alter the BDP-003E.1 contract boundary. The export draft remains provisional cinematic synthesis, not evidence.
+
+Next recommended step after BDP-003E.2:
+
+```text
+BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation.
+```

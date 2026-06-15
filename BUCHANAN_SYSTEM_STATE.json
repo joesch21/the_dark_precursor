@@ -137,9 +137,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003E.1",
-  "last_updated_utc": "2026-06-15T16:51:45+00:00",
-  "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation.",
+  "last_updated_phase": "BDP-003E.2",
+  "last_updated_utc": "2026-06-15T17:01:19+00:00",
+  "next_recommended_step": "BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -238,5 +238,45 @@
     ],
     "verifier": "scripts/verify_bdp_003e1_cinematic_concept_card_contract.py",
     "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation."
+  },
+  "bdp_003e2_cinematic_concept_card_export_draft": {
+    "phase": "BDP-003E.2",
+    "title": "Read-only cinematic concept card export draft",
+    "status": "complete",
+    "completed_at": "2026-06-15T17:01:19+00:00",
+    "authority": "frontend_download_only_provisional_synthesis",
+    "database_mutation": false,
+    "sql_migration": false,
+    "backend_service": false,
+    "adapter_endpoint": false,
+    "adapter_invocation": false,
+    "server_file_persistence": false,
+    "evidence_spine_change": false,
+    "source_ingestion": false,
+    "citation_creation": false,
+    "concept_relation_creation": false,
+    "interpretation_insertion": false,
+    "buchanan_specific_claim_creation": false,
+    "image_generation": false,
+    "video_generation": false,
+    "implemented_behaviours": [
+      "session_response_to_structured_concept_card_draft",
+      "markdown_download",
+      "json_download",
+      "explicit_generated_material_not_evidence_labels",
+      "blocked_action_labels",
+      "human_review_required_labels"
+    ],
+    "files": [
+      "frontend/dark_precursor.py",
+      "frontend/styles/dark_precursor.css",
+      "docs/BDP_003E2_CINEMATIC_CONCEPT_CARD_EXPORT_DRAFT.md",
+      "docs/BDP_003E_CINEMATIC_CONCEPT_CARD_PERSISTENCE_CONTRACT.md",
+      "scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py",
+      "BUCHANAN_SYSTEM_STATE.json",
+      "BUCHANAN_THREAD_HANDOVER.md"
+    ],
+    "verifier": "scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py",
+    "next_recommended_step": "BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation."
   }
 }
