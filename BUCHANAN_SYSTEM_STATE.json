@@ -536,7 +536,8 @@
     ],
     "decision_output": "docs/BDP_003E9_ARCHIVE_WRITER_IMPLEMENTATION_READINESS_DECISION.md",
     "verifier": "scripts/verify_bdp_003e9_archive_writer_implementation_readiness_decision.py",
-    "next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code."
+    "next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
+    "sql_migrations_approved": false
   },
   "bdp_003e10_archive_implementation_boundary_and_safety_gates": {
     "phase": "BDP-003E.10",
