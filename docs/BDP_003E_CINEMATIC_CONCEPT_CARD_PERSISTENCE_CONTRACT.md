@@ -185,3 +185,19 @@ BDP-003E.2 — Implement read-only cinematic concept card export draft without d
 ```
 
 This should create a local export mechanism only. It should not create a database schema, adapter endpoint, or automatic evidence promotion.
+
+## BDP-003E.1 Boundary Clarification
+
+This phase is contract-only.
+
+No frontend implementation is added in BDP-003E.1.
+
+No backend implementation is added in BDP-003E.1.
+
+No database table, migration, persistence writer, adapter, image generator, video generator, or runtime export mechanism is implemented in this phase.
+
+Generated material is not evidence.
+
+Generated cinematic concept cards are not evidence. They are provisional cinematic synthesis drafts only. They must not be promoted into the evidence spine, citation layer, concept relation layer, or Buchanan-specific claim layer without a later governed review phase.
+
+The persistence contract defined here describes what a future card record must contain if persistence is implemented later. It does not itself persist cards.
