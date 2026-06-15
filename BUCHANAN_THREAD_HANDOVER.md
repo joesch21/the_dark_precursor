@@ -477,3 +477,26 @@ Blocked by this phase:
 Next safe step:
 
 `BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.`
+
+## BDP-003E.9 — Local Reviewed Concept Card Archive Writer Implementation Readiness Decision
+
+**Status:** Complete
+**Controlled slice:** readiness-decision only
+**Commit status:** pending local commit after verification
+
+### Decision
+
+The local reviewed concept card archive writer is ready for a future implementation-boundary phase, but Implementation is not approved by BDP-003E.9.
+
+### Boundary
+
+BDP-003E.9 does not add a writer, archive folder, local file persistence, frontend archive controls, backend service, adapter endpoint, database table, SQL migration, evidence promotion, citation, concept relation, interpretation, or Buchanan-specific claim.
+
+### Files
+
+- `docs/BDP_003E9_ARCHIVE_WRITER_IMPLEMENTATION_READINESS_DECISION.md`
+- `scripts/verify_bdp_003e9_archive_writer_implementation_readiness_decision.py`
+
+### Next safe step
+
+`BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.`

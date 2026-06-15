@@ -112,3 +112,11 @@ Implementation is not approved. BDP-003E.8 remains review-only and creates no wr
 ## 8. Next Safe Step
 
 `BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.`
+
+## BDP-003E.9 Follow-up Readiness Decision Note
+
+BDP-003E.9 decides that the local reviewed concept card archive writer is ready for a future implementation-boundary phase, but Implementation is not approved by BDP-003E.9.
+
+This follow-up does not add a writer, archive folder, local file persistence, frontend archive controls, backend service, adapter endpoint, database table, SQL migration, evidence promotion, citation, concept relation, interpretation, or Buchanan-specific claim.
+
+Next safe step: `BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.`
