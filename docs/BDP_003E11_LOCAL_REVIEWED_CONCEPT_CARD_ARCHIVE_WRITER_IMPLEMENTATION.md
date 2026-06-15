@@ -77,3 +77,11 @@ No evidence integration is approved by this phase.
 ## Next Step
 
 **BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration.**
+
+## BDP-003E.12 Follow-up Output Review Note
+
+BDP-003E.12 reviewed the local reviewed concept card archive writer output against controlled sample payloads.
+
+The review uses a temporary directory only. UI integration is not approved. This follow-up does not add frontend archive controls, backend services, adapter endpoints, database tables, SQL migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
+
+Next safe step: `BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend.`

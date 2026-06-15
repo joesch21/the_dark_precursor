@@ -561,3 +561,28 @@ Boundary:
 The verifier writes only to a temporary directory to prove validation, idempotency, path-safety, and rejection behavior.
 
 Next safe step: `BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration.`
+
+## BDP-003E.12 — Local Reviewed Concept Card Archive Writer Output Sample Review
+
+**Status:** Complete
+
+BDP-003E.12 reviews the BDP-003E.11 local reviewed concept card archive writer output against controlled sample payloads before UI integration.
+
+The verifier exercises the writer in a temporary directory only and checks deterministic output shape, boundary flags, payload preservation, idempotency, and rejection behavior.
+
+Boundary:
+
+- writer output sample review only
+- no frontend archive controls
+- no backend services
+- no adapter endpoints
+- no database tables
+- no SQL migrations
+- no evidence promotion
+- no citations
+- no concept relations
+- no interpretations
+- no Buchanan-specific claims
+- no repository archive records written
+
+Next safe step: `BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend.`

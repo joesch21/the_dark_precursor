@@ -432,10 +432,10 @@
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
   "current_next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
-  "next_step": "BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration.",
+  "next_step": "BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "current_phase": "BDP-003E.11",
+  "current_phase": "BDP-003E.12",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -634,5 +634,45 @@
       "docs/BDP_003E10_ARCHIVE_IMPLEMENTATION_BOUNDARY_AND_SAFETY_GATES.md"
     ],
     "next_step": "BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration."
+  },
+  "bdp_003e12_archive_writer_output_sample_review": {
+    "phase": "BDP-003E.12",
+    "title": "Review local reviewed concept card archive writer output against sample payloads before UI integration",
+    "status": "complete",
+    "completed_at": "2026-06-15T19:44:38+00:00",
+    "controlled_slice": "writer_output_sample_review_only",
+    "decision": "The local reviewed concept card archive writer output is suitable for controlled sample payload review, but UI integration is not approved by BDP-003E.12.",
+    "review_type": "writer output sample review before UI integration",
+    "writer_output_reviewed": true,
+    "sample_payloads_reviewed": true,
+    "temporary_directory_review_only": true,
+    "writer_implemented": true,
+    "writer_modified": false,
+    "ui_integration_approved": false,
+    "frontend_archive_controls_approved": false,
+    "backend_services_approved": false,
+    "adapter_endpoints_approved": false,
+    "database_tables_approved": false,
+    "sql_migrations_approved": false,
+    "evidence_promotion_approved": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "repo_archive_records_written": false,
+    "review_inputs": [
+      "BDP-003E.3 exported cinematic concept card sample cases",
+      "BDP-003E.5 local reviewed archive schema candidate",
+      "BDP-003E.6 archive schema sample review",
+      "BDP-003E.7 local reviewed concept card archive writer contract",
+      "BDP-003E.8 archive writer contract boundary review",
+      "BDP-003E.9 implementation readiness decision",
+      "BDP-003E.10 implementation boundary and safety gates",
+      "BDP-003E.11 local reviewed concept card archive writer implementation",
+      "scripts/local_reviewed_concept_card_archive_writer.py"
+    ],
+    "review_output": "docs/BDP_003E12_ARCHIVE_WRITER_OUTPUT_SAMPLE_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003e12_archive_writer_output_sample_review.py",
+    "next_step": "BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend."
   }
 }
