@@ -137,7 +137,7 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.1",
+  "last_updated_phase": "BDP-003F.2",
   "last_updated_utc": "2026-06-15T17:25:27+00:00",
   "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
   "bdp_003c_cinematic_experience_reset": {
@@ -431,8 +431,8 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes.",
-  "next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes.",
+  "current_next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes.",
+  "next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "current_phase": "BDP-003E.12",
@@ -856,5 +856,36 @@
     "review_output": "docs/BDP_003F1_TELEPROMPTER_NARRATOR_STAGE.md",
     "verifier": "scripts/verify_bdp_003f1_teleprompter_narrator_stage.py",
     "next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes."
+  },
+  "bdp_003f2_about_page": {
+    "phase": "BDP-003F.2",
+    "title": "About page for The Dark Precursor",
+    "status": "complete",
+    "completed_at": "2026-06-15T23:09:05+00:00",
+    "controlled_slice": "frontend_explanatory_ux_only",
+    "implementation_type": "about_page",
+    "decision": "Add an explanatory About page that presents The Dark Precursor as a governed cinematic concept laboratory.",
+    "frontend_ux_changed": true,
+    "about_page_added": true,
+    "about_sidebar_control_added": true,
+    "public_explanation_added": true,
+    "governance_boundary_visible": true,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "archive_workflow_expanded": false,
+    "evidence_promotion_added": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "frontend_targets": [
+      "frontend/dark_precursor.py",
+      "frontend/styles/dark_precursor.css"
+    ],
+    "review_output": "docs/BDP_003F2_ABOUT_PAGE.md",
+    "verifier": "scripts/verify_bdp_003f2_about_page.py",
+    "next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes."
   }
 }

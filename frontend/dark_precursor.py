@@ -500,6 +500,75 @@ def render_governed_reference_dock() -> None:
 
 
 # ============================================================
+# BDP-003F.2 — About page
+# ============================================================
+
+
+def render_about_page() -> None:
+    '''Render the public-facing explanation of The Dark Precursor.'''
+    st.markdown(
+        '''
+        <div class="dp-about-shell">
+            <div class="dp-about-panel">
+                <div class="dp-kicker">ABOUT THE DARK PRECURSOR</div>
+                <div class="dp-about-title">A governed cinematic concept laboratory.</div>
+                <div class="dp-about-lede">
+                    The Dark Precursor is a cinematic research interface for working with
+                    Deleuze, Guattari, and Ian Buchanan’s conceptual field. It stages concepts
+                    as scenes while keeping generated synthesis clearly separate from evidence authority.
+                </div>
+                <div class="dp-about-pullquote">
+                    It separates atmosphere from authority.
+                </div>
+                <div class="dp-about-grid">
+                    <div class="dp-about-card">
+                        <h3>What it is</h3>
+                        <p>
+                            A pedagogical and research workbench for slowing concepts down,
+                            making their operations visible, and turning difficult conceptual
+                            material into readable cinematic scenes, differential traces,
+                            concept cards, and film prompts.
+                        </p>
+                    </div>
+                    <div class="dp-about-card">
+                        <h3>What it is not</h3>
+                        <p>
+                            It does not claim to think like Ian Buchanan, impersonate Ian Buchanan,
+                            replace scholarship, or produce authoritative Deleuzian interpretation.
+                        </p>
+                    </div>
+                    <div class="dp-about-card">
+                        <h3>How it works</h3>
+                        <p>
+                            A user enters a concept or scene. The interface asks what is moving,
+                            what is being cut, what is captured, what desire is assembled,
+                            what affect is produced, and where a line of flight might remain possible.
+                        </p>
+                    </div>
+                    <div class="dp-about-card">
+                        <h3>Governance</h3>
+                        <p>
+                            Generated synthesis is not evidence. It does not become a Buchanan claim,
+                            citation, concept relation, interpretation, or evidence record without
+                            explicit review and governed promotion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        ''',
+        unsafe_allow_html=True,
+    )
+
+    cols = st.columns([1.2, 1, 1.2])
+    with cols[1]:
+        if st.button("Return to concept stage", type="primary", use_container_width=True):
+            st.session_state["dark_precursor_view"] = "stage"
+            st.rerun()
+
+
+
+# ============================================================
 # TITLE GATE
 # ============================================================
 
@@ -580,7 +649,18 @@ with st.sidebar:
         st.session_state["dark_precursor_gate_open"] = False
         st.rerun()
 
+    st.markdown("---")
+    if st.button("About The Dark Precursor", use_container_width=True):
+        st.session_state["dark_precursor_view"] = "about"
+        st.rerun()
+
     st.caption("BDP-003D • cinematic video front page • provisional synthesis")
+
+
+# BDP-003F.2 About page route
+if st.session_state.get("dark_precursor_view") == "about":
+    render_about_page()
+    st.stop()
 
 
 # ============================================================

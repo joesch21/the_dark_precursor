@@ -674,3 +674,20 @@ Verifier:
 `scripts/verify_bdp_003f1_teleprompter_narrator_stage.py`
 
 Next safe step: `BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes.`
+
+## BDP-003F.2 — About Page
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** frontend explanatory UX only
+
+BDP-003F.2 adds an About page to The Dark Precursor. The page explains the application as a governed cinematic concept laboratory and makes clear that it does not claim to think like Ian Buchanan, impersonate Ian Buchanan, replace scholarship, or produce authoritative Deleuzian interpretation.
+
+The page foregrounds the governing distinction: it separates atmosphere from authority.
+
+No backend services, adapter endpoints, database tables, SQL migrations, archive workflow expansion, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are added.
+
+Verifier:
+`scripts/verify_bdp_003f2_about_page.py`
+
+Next safe step: `BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes.`
