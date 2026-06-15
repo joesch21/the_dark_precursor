@@ -111,3 +111,15 @@ BDP-003E.5 — Define local reviewed concept card archive schema candidate only,
 ```
 
 This should remain design-only. No persistence implementation should occur until after the schema candidate is reviewed.
+
+## BDP-003E.5 Schema Candidate Note
+
+BDP-003E.5 defines a local reviewed concept card archive schema candidate only.
+
+It does not reverse the BDP-003E.4 readiness decision. The platform remains not ready for database persistence, backend services, adapter endpoints, or evidence promotion.
+
+Next recommended step after BDP-003E.5:
+
+```text
+BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.
+```

@@ -137,9 +137,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003E.4",
-  "last_updated_utc": "2026-06-15T17:16:44+00:00",
-  "next_recommended_step": "BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation.",
+  "last_updated_phase": "BDP-003E.5",
+  "last_updated_utc": "2026-06-15T17:25:27+00:00",
+  "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -362,5 +362,42 @@
     ],
     "verifier": "scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py",
     "next_recommended_step": "BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation."
+  },
+  "bdp_003e5_local_reviewed_concept_card_archive_schema_candidate": {
+    "phase": "BDP-003E.5",
+    "title": "Local reviewed concept card archive schema candidate",
+    "status": "complete",
+    "completed_at": "2026-06-15T17:25:27+00:00",
+    "authority": "schema_candidate_only_no_implementation",
+    "schema_candidate_only": true,
+    "frontend_change": false,
+    "backend_service": false,
+    "database_mutation": false,
+    "sql_migration": false,
+    "file_writer": false,
+    "local_archive_implementation": false,
+    "server_file_persistence": false,
+    "adapter_endpoint": false,
+    "adapter_invocation": false,
+    "evidence_spine_change": false,
+    "source_ingestion": false,
+    "citation_creation": false,
+    "concept_relation_creation": false,
+    "interpretation_insertion": false,
+    "buchanan_specific_claim_creation": false,
+    "image_generation": false,
+    "video_generation": false,
+    "candidate_schema_version": "bdp_003e5_local_reviewed_concept_card_archive_candidate_v1",
+    "readiness_decision": "define_schema_candidate_only_not_ready_for_implementation",
+    "files": [
+      "docs/BDP_003E5_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_SCHEMA_CANDIDATE.md",
+      "docs/BDP_003E4_CONCEPT_CARD_PERSISTENCE_READINESS_DECISION.md",
+      "scripts/verify_bdp_003e5_local_reviewed_concept_card_archive_schema_candidate.py",
+      "scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py",
+      "BUCHANAN_SYSTEM_STATE.json",
+      "BUCHANAN_THREAD_HANDOVER.md"
+    ],
+    "verifier": "scripts/verify_bdp_003e5_local_reviewed_concept_card_archive_schema_candidate.py",
+    "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation."
   }
 }

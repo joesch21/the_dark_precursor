@@ -1,3 +1,51 @@
+# BDP-003E.5 — Local Reviewed Concept Card Archive Schema Candidate
+
+**Date:** 2026-06-15T17:25:27+00:00  
+**Status:** Complete  
+**Authority:** Schema candidate only; no implementation.
+
+## What changed
+
+BDP-003E.5 defines a local reviewed concept card archive schema candidate only.
+
+It specifies the future record shape for reviewed cinematic concept card drafts, including archive identifiers, source card identifiers, review status, review decision, authority labels, governance flags, and blocked actions.
+
+## Governance
+
+This phase does not add frontend implementation, backend services, database mutation, SQL migration, local file writing, folder persistence, adapter endpoints, image generation, video generation, or evidence promotion.
+
+Generated and reviewed cinematic concept cards remain provisional synthesis unless a later governed evidence-review phase separately promotes a specific citation-backed claim.
+
+## Files updated
+
+- `docs/BDP_003E5_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_SCHEMA_CANDIDATE.md`
+- `docs/BDP_003E4_CONCEPT_CARD_PERSISTENCE_READINESS_DECISION.md`
+- `scripts/verify_bdp_003e5_local_reviewed_concept_card_archive_schema_candidate.py`
+- `scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py`
+- `BUCHANAN_SYSTEM_STATE.json`
+- `BUCHANAN_THREAD_HANDOVER.md`
+
+## Verification
+
+Run:
+
+```bash
+python3 -m py_compile frontend/dark_precursor.py
+python3 scripts/verify_bdp_003c_cinematic_experience_reset.py
+python3 scripts/verify_bdp_003d_cinematic_video_front_page.py
+python3 scripts/verify_bdp_003e1_cinematic_concept_card_contract.py
+python3 scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py
+python3 scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py
+python3 scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py
+python3 scripts/verify_bdp_003e5_local_reviewed_concept_card_archive_schema_candidate.py
+```
+
+## Next recommended step
+
+BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.
+
+---
+
 # BDP-003E.4 — Concept Card Persistence Readiness Decision
 
 **Date:** 2026-06-15T17:16:44+00:00  
