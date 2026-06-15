@@ -431,11 +431,11 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
+  "current_next_step": "BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.",
+  "next_step": "BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "current_phase": "BDP-003E.7",
+  "current_phase": "BDP-003E.8",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -465,5 +465,39 @@
     "contract_output": "docs/BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md",
     "verifier": "scripts/verify_bdp_003e7_local_reviewed_concept_card_archive_writer_contract.py",
     "next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation."
+  },
+  "bdp_003e8_archive_writer_contract_boundary_review": {
+    "phase": "BDP-003E.8",
+    "title": "Review archive writer contract against archive boundaries",
+    "status": "complete",
+    "completed_at": "2026-06-15T18:53:14+00:00",
+    "controlled_slice": "review_only_writer_contract_boundary",
+    "decision": "The local reviewed concept card archive writer contract is suitable as a boundary contract for a later implementation-readiness decision. Implementation is not approved.",
+    "review_type": "contract boundary review only",
+    "implementation_approved": false,
+    "persistence_approved": false,
+    "writer_implemented": false,
+    "archive_folder_created": false,
+    "local_files_written": false,
+    "frontend_archive_controls_approved": false,
+    "backend_services_approved": false,
+    "adapter_endpoints_approved": false,
+    "database_migration_approved": false,
+    "evidence_promotion_approved": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "review_inputs": [
+      "BDP-003E.3 exported cinematic concept card sample cases",
+      "BDP-003E.5 local reviewed archive schema candidate",
+      "BDP-003E.6 archive schema sample review",
+      "BDP-003E.7 local reviewed concept card archive writer contract",
+      "docs/BDP_003E6_ARCHIVE_SCHEMA_SAMPLE_REVIEW.md",
+      "docs/BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md"
+    ],
+    "review_output": "docs/BDP_003E8_ARCHIVE_WRITER_CONTRACT_BOUNDARY_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003e8_archive_writer_contract_boundary_review.py",
+    "next_step": "BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation."
   }
 }

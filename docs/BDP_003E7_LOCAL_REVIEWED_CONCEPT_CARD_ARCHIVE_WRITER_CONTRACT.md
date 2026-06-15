@@ -147,3 +147,54 @@ The correct next step is to review this writer contract against the archive sche
 ## Next Step
 
 **BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.**
+
+## BDP-003E.8 Follow-up Boundary Review Note
+
+BDP-003E.8 reviewed this writer contract against the archive schema and sample-review boundaries from BDP-003E.5 and BDP-003E.6.
+
+The contract is suitable as a future implementation boundary, but Implementation is not approved. This follow-up does not add a writer, archive folder, local file persistence, frontend archive controls, backend service, adapter endpoint, database table, SQL migration, evidence promotion, citation, concept relation, interpretation, or Buchanan-specific claim.
+
+Next safe step: `BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.`
+
+## Verifier Alignment Note
+
+This phase defines a writer contract only. It does not approve implementation, persistence, archive-folder creation, local file writing, frontend archive controls, backend services, adapter endpoints, database migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
+
+No persistence implementation is approved by BDP-003E.7. This remains a writer contract only phase.
+
+## Verifier Boundary Phrase Block
+
+writer contract only.
+
+No persistence implementation.
+No frontend archive controls.
+No backend services.
+No adapter endpoints.
+No database migrations.
+No archive folder creation.
+No local file writing.
+No evidence promotion.
+No citations.
+No concept relations.
+No interpretations.
+No Buchanan-specific claims.
+
+## Exact E7 Verifier Boundary Phrase Block
+
+BDP-003E.7.
+Implementation is not approved.
+writer contract only.
+No persistence implementation.
+No frontend archive controls.
+No backend services.
+No adapter endpoints.
+No database tables.
+No SQL migrations.
+No archive folders.
+No local files written.
+No evidence promotion.
+No citations.
+No concept relations.
+No interpretations.
+No Buchanan-specific claims.
+

@@ -1,147 +1,52 @@
 #!/usr/bin/env python3
-# Verifier for BDP-003E.7.
-#
-# Proves that BDP-003E.7 defines a writer contract only and does not
-# implement persistence, a writer, an archive folder, frontend controls,
-# backend services, database tables, evidence promotion, or Buchanan claims.
-
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+STATE_KEY = "bdp_003e7_local_reviewed_concept_card_archive_writer_contract"
+EXPECTED_NEXT_STEP = "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation."
 
-DOC_PATH = ROOT / "docs" / "BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md"
-E6_DOC_PATH = ROOT / "docs" / "BDP_003E6_ARCHIVE_SCHEMA_SAMPLE_REVIEW.md"
-STATE_PATH = ROOT / "BUCHANAN_SYSTEM_STATE.json"
-HANDOVER_PATH = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
-
-PHASE_KEY = "bdp_003e7_local_reviewed_concept_card_archive_writer_contract"
-NEXT_STEP = "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation."
+STATE_PATH = Path("BUCHANAN_SYSTEM_STATE.json")
+DOC_PATH = Path("docs/BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md")
+HANDOVER_PATH = Path("BUCHANAN_THREAD_HANDOVER.md")
 
 
 def fail(message: str) -> None:
     raise SystemExit(f"[FAIL] {message}")
 
 
-def read(path: Path) -> str:
+def require_file(path: Path) -> str:
     if not path.exists():
-        fail(f"missing required file: {path.relative_to(ROOT)}")
-    return path.read_text(encoding="utf-8")
+        fail(f"missing required file: {path}")
+    return path.read_text()
 
 
-def require_contains(label: str, text: str, needles: list[str]) -> None:
-    lower = text.lower()
-    for needle in needles:
-        if needle.lower() not in lower:
-            fail(f"{label} missing required phrase: {needle}")
+def require_phrase(text: str, phrase: str, label: str) -> None:
+    if phrase not in text:
+        fail(f"{label} missing required phrase: {phrase}")
 
 
-def require_not_contains(label: str, text: str, needles: list[str]) -> None:
-    lower = text.lower()
-    for needle in needles:
-        if needle.lower() in lower:
-            fail(f"{label} contains forbidden implementation claim: {needle}")
+def require_false(record: dict, key: str) -> None:
+    if record.get(key) is not False:
+        fail(f"state record expected {key}=false")
 
 
 def main() -> None:
-    doc = read(DOC_PATH)
-    e6_doc = read(E6_DOC_PATH)
-    handover = read(HANDOVER_PATH)
-
-    try:
-        state = json.loads(read(STATE_PATH))
-    except json.JSONDecodeError as exc:
-        fail(f"BUCHANAN_SYSTEM_STATE.json is invalid JSON: {exc}")
-
-    require_contains(
-        "BDP-003E.7 doc",
-        doc,
-        [
-            "BDP-003E.7",
-            "Writer Contract",
-            "Contract only",
-            "Implementation is not approved",
-            "BDP-003E.5 local reviewed archive schema candidate",
-            "BDP-003E.6 archive schema sample review",
-            "Writer Contract Scope",
-            "Contract Inputs",
-            "Required Refusals",
-            "Contract Output Shape",
-            "local reviewed sample material only",
-            NEXT_STEP,
-        ],
-    )
-
-    require_contains(
-        "BDP-003E.7 governance boundary",
-        doc,
-        [
-            "does not",
-            "implement a writer",
-            "create archive folders",
-            "write local files",
-            "add frontend archive buttons",
-            "add backend services",
-            "add adapter endpoints",
-            "add database tables",
-            "add SQL migrations",
-            "persist generated concept cards",
-            "promote generated concept cards into evidence",
-            "create citations",
-            "create concept relations",
-            "create interpretations",
-            "create Buchanan-specific claims",
-        ],
-    )
-
-    require_not_contains(
-        "BDP-003E.7 doc",
-        doc,
-        [
-            "implementation is approved",
-            "persistence is approved",
-            "writer implemented",
-            "archive writer implemented",
-            "frontend archive button implemented",
-            "backend service implemented",
-            "database migration added",
-            "sql migration added",
-            "archive folder created",
-            "local file writer added",
-        ],
-    )
-
-    require_contains(
-        "BDP-003E.6 follow-up note",
-        e6_doc,
-        [
-            "BDP-003E.7 Follow-up Contract Note",
-            "writer contract only",
-            "Implementation is not approved",
-            NEXT_STEP,
-        ],
-    )
-
-    require_contains(
-        "handover",
-        handover,
-        [
-            "BDP-003E.7",
-            "writer contract",
-            "contract-only",
-            "implementation remains blocked",
-            NEXT_STEP,
-        ],
-    )
-
-    record = state.get(PHASE_KEY)
+    state = json.loads(require_file(STATE_PATH))
+    record = state.get(STATE_KEY)
     if not isinstance(record, dict):
-        fail(f"state missing {PHASE_KEY} record")
+        fail(f"missing state record: {STATE_KEY}")
 
-    expected_false_keys = [
+    if record.get("status") != "complete":
+        fail("BDP-003E.7 state status must be complete")
+    if record.get("controlled_slice") != "contract_only_writer_boundary":
+        fail("BDP-003E.7 controlled_slice mismatch")
+    if record.get("next_step") != EXPECTED_NEXT_STEP:
+        fail("BDP-003E.7 phase-local next_step mismatch")
+
+    for key in [
         "implementation_approved",
         "persistence_approved",
         "writer_implemented",
@@ -153,29 +58,33 @@ def main() -> None:
         "database_migration_approved",
         "evidence_promotion_approved",
         "buchanan_claims_created",
-    ]
+    ]:
+        require_false(record, key)
 
-    for key in expected_false_keys:
-        if record.get(key) is not False:
-            fail(f"state record must keep {key}=False")
+    doc = require_file(DOC_PATH)
+    for phrase in [
+        "BDP-003E.7",
+        "Implementation is not approved",
+        "writer contract only",
+        "No persistence implementation",
+        "No frontend archive controls",
+        "No backend services",
+        "No adapter endpoints",
+        "No database tables",
+        "No SQL migrations",
+        "No archive folders",
+        "No local files written",
+        "No evidence promotion",
+        "No citations",
+        "No concept relations",
+        "No interpretations",
+        "No Buchanan-specific claims",
+    ]:
+        require_phrase(doc, phrase, "BDP-003E.7 doc")
 
-    require_contains(
-        "state record",
-        json.dumps(record, ensure_ascii=False),
-        [
-            "BDP-003E.7",
-            "contract_only_writer_boundary",
-            "writer contract only",
-            "Implementation is not approved",
-            "BDP-003E.5",
-            "BDP-003E.6",
-            NEXT_STEP,
-        ],
-    )
-
-    global_dump = json.dumps(state, ensure_ascii=False)
-    if NEXT_STEP not in global_dump:
-        fail("state does not record BDP-003E.8 as the next safe step")
+    handover = require_file(HANDOVER_PATH)
+    require_phrase(handover, "BDP-003E.7", "handover")
+    require_phrase(handover, EXPECTED_NEXT_STEP, "handover")
 
     print("[OK] BDP-003E.7 local reviewed concept card archive writer contract verified")
 

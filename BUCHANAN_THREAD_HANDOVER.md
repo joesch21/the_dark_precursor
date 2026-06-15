@@ -1,7 +1,7 @@
 # BDP-003E.5 — Local Reviewed Concept Card Archive Schema Candidate
 
 **Date:** 2026-06-15T17:25:27+00:00  
-**Status:** Complete  
+**Status:** Complete
 **Authority:** Schema candidate only; no implementation.
 
 ## What changed
@@ -49,7 +49,7 @@ BDP-003E.6 — Review local reviewed concept card archive schema candidate again
 # BDP-003E.4 — Concept Card Persistence Readiness Decision
 
 **Date:** 2026-06-15T17:16:44+00:00  
-**Status:** Complete  
+**Status:** Complete
 **Authority:** Review decision only; no persistence implementation.
 
 ## Decision
@@ -101,7 +101,7 @@ BDP-003E.5 — Define local reviewed concept card archive schema candidate only,
 # BDP-003E.3 — Cinematic Concept Card Sample Review
 
 **Date:** 2026-06-15T17:07:39+00:00  
-**Status:** Complete  
+**Status:** Complete
 **Authority:** Review-only; no runtime change, no persistence, no adapter implementation.
 
 ## What changed
@@ -152,7 +152,7 @@ BDP-003E.4 — Decide concept card persistence readiness from reviewed samples o
 # BDP-003E.2 — Read-only Cinematic Concept Card Export Draft
 
 **Date:** 2026-06-15T17:01:19+00:00  
-**Status:** Complete  
+**Status:** Complete
 **Authority:** Frontend download-only draft export; no database mutation.
 
 ## What changed
@@ -203,7 +203,7 @@ BDP-003E.3 — Review exported cinematic concept card samples before any persist
 # BDP-003E.1 — Cinematic Concept Card Persistence Contract
 
 **Date:** 2026-06-15T16:51:45+00:00  
-**Status:** Complete  
+**Status:** Complete
 **Authority:** Contract only; no runtime implementation.
 
 ## What changed
@@ -301,7 +301,7 @@ BDP-003E — Define cinematic concept card persistence and optional image/video 
 
 ## BDP-002G — Add differential reading engine contract
 
-**Status:** Complete  
+**Status:** Complete
 **Updated:** 2026-06-15T03:12:20+00:00  
 **Type:** Doctrine and application contract  
 **Database mutation:** No  
@@ -401,7 +401,7 @@ BDP-003D — Add cinematic concept card output persistence and optional image/vi
 <!-- BDP-003E.6-ARCHIVE-SCHEMA-SAMPLE-REVIEW-START -->
 ## BDP-003E.6 — Archive Schema Sample Review
 
-**Status:** Complete  
+**Status:** Complete
 **Type:** review-only governance phase
 
 BDP-003E.6 reviewed the BDP-003E.5 local reviewed concept card archive schema candidate against the BDP-003E.3 exported cinematic concept card sample cases.
@@ -424,7 +424,7 @@ Current next step:
 <!-- BDP-003E.7-WRITER-CONTRACT-START -->
 ## BDP-003E.7 — Local Reviewed Concept Card Archive Writer Contract
 
-**Status:** Complete  
+**Status:** Complete
 **Type:** contract-only governance phase
 
 BDP-003E.7 defines the contract for a future local reviewed concept card archive writer.
@@ -443,3 +443,38 @@ Current next step:
 
 `BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.`
 <!-- BDP-003E.7-WRITER-CONTRACT-END -->
+
+## BDP-003E.8 — Local Reviewed Concept Card Archive Writer Contract Boundary Review
+
+**Status:** Complete
+**Controlled slice:** review_only_writer_contract_boundary
+**Commit:** pending local commit after verifier pass
+**Verifier:** `scripts/verify_bdp_003e8_archive_writer_contract_boundary_review.py`
+
+BDP-003E.8 reviewed the BDP-003E.7 local reviewed concept card archive writer contract against the archive boundaries established by BDP-003E.5 and BDP-003E.6.
+
+Decision: the writer contract is suitable as a future implementation boundary, but Implementation is not approved.
+
+Boundary findings:
+
+1. The writer contract may carry forward as a contract-only specification.
+2. Future writer behavior must remain limited to reviewed concept card archive records.
+3. Future writer behavior must preserve generated/exported/reviewed separation.
+4. Future writer behavior must not promote cinematic concept cards into the evidence spine.
+5. Future writer behavior must not create citations, concept relations, interpretations, or Buchanan-specific claims.
+6. No implementation was added in this phase.
+
+Blocked by this phase:
+
+1. No persistence implementation.
+2. No frontend archive controls.
+3. No backend services.
+4. No adapter endpoints.
+5. No database tables or SQL migrations.
+6. No archive folders.
+7. No local files written.
+
+Next safe step:
+
+`BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.`
+
