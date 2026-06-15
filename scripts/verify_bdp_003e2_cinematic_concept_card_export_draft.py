@@ -68,7 +68,7 @@ checks = {
     "state_no_db": state.get("bdp_003e2_cinematic_concept_card_export_draft", {}).get("database_mutation") is False,
     "state_no_backend": state.get("bdp_003e2_cinematic_concept_card_export_draft", {}).get("backend_service") is False,
     "state_no_adapter": state.get("bdp_003e2_cinematic_concept_card_export_draft", {}).get("adapter_invocation") is False,
-    "state_next_e3": "BDP-003E.3" in state.get("next_recommended_step", ""),
+    "state_next_e3": "BDP-003E.3" in state.get("bdp_003e2_cinematic_concept_card_export_draft", {}).get("next_recommended_step", ""),
     "handover_recorded": "BDP-003E.2" in handover and "read-only cinematic concept card export draft" in handover.lower(),
     "no_forbidden_runtime_patterns": not any(pattern in app for pattern in forbidden_runtime_patterns),
 }

@@ -137,9 +137,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003E.2",
-  "last_updated_utc": "2026-06-15T17:01:19+00:00",
-  "next_recommended_step": "BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation.",
+  "last_updated_phase": "BDP-003E.3",
+  "last_updated_utc": "2026-06-15T17:07:39+00:00",
+  "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -277,6 +277,53 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py",
-    "next_recommended_step": "BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation."
+    "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only."
+  },
+  "bdp_003e3_cinematic_concept_card_sample_review": {
+    "phase": "BDP-003E.3",
+    "title": "Review exported cinematic concept card samples before persistence or adapter implementation",
+    "status": "complete",
+    "completed_at": "2026-06-15T17:07:39+00:00",
+    "authority": "review_only_no_runtime_change",
+    "database_mutation": false,
+    "sql_migration": false,
+    "frontend_change": false,
+    "backend_service": false,
+    "adapter_endpoint": false,
+    "adapter_invocation": false,
+    "server_file_persistence": false,
+    "persistence_approved": false,
+    "adapter_approved": false,
+    "image_generation": false,
+    "video_generation": false,
+    "evidence_spine_change": false,
+    "source_ingestion": false,
+    "citation_creation": false,
+    "concept_relation_creation": false,
+    "interpretation_insertion": false,
+    "buchanan_specific_claim_creation": false,
+    "reviewed_sample_cases_required": [
+      "E3-S1 Body without Organs / Narrator",
+      "E3-S2 Assemblage / Cinematic Treatment",
+      "E3-S3 Lines of Flight / Storyboard Film Clip Brief"
+    ],
+    "decision": "export_format_acceptable_for_local_human_review_only",
+    "blocked_until_later_decision": [
+      "database_persistence",
+      "server_side_persistence",
+      "adapter_endpoint",
+      "image_generation",
+      "video_generation",
+      "automatic_evidence_promotion"
+    ],
+    "files": [
+      "docs/BDP_003E3_CINEMATIC_CONCEPT_CARD_SAMPLE_REVIEW.md",
+      "docs/BDP_003E2_CINEMATIC_CONCEPT_CARD_EXPORT_DRAFT.md",
+      "scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py",
+      "BUCHANAN_SYSTEM_STATE.json",
+      "BUCHANAN_THREAD_HANDOVER.md"
+    ],
+    "verifier": "scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py",
+    "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only."
   }
 }

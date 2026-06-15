@@ -129,3 +129,15 @@ BDP-003E.3 — Review exported cinematic concept card samples before any persist
 ```
 
 The next step should review real exported examples before any persistence, adapter boundary, or external generation feature is added.
+
+## BDP-003E.3 Review Note
+
+BDP-003E.3 reviewed the BDP-003E.2 export draft surface as a local human-review mechanism only.
+
+The export format is acceptable for local review, but it is not yet approved for database persistence, server-side persistence, backend services, adapter endpoints, image generation, video generation, or evidence promotion.
+
+Next recommended step:
+
+```text
+BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only.
+```

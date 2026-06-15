@@ -1,3 +1,54 @@
+# BDP-003E.3 — Cinematic Concept Card Sample Review
+
+**Date:** 2026-06-15T17:07:39+00:00  
+**Status:** Complete  
+**Authority:** Review-only; no runtime change, no persistence, no adapter implementation.
+
+## What changed
+
+BDP-003E.3 adds a review-only governance gate for the exported cinematic concept card drafts introduced in BDP-003E.2.
+
+The phase records the required sample cases and confirms that exported cards remain local provisional synthesis drafts only.
+
+## Review decision
+
+The BDP-003E.2 export format is acceptable for local human review only.
+
+It is not yet approved for database persistence, server-side persistence, adapter endpoints, image generation, video generation, or evidence promotion.
+
+## Required sample cases
+
+1. Body without Organs / Narrator.
+2. Assemblage / Cinematic Treatment.
+3. Lines of Flight / Storyboard Film Clip Brief.
+
+## Files updated
+
+- `docs/BDP_003E3_CINEMATIC_CONCEPT_CARD_SAMPLE_REVIEW.md`
+- `docs/BDP_003E2_CINEMATIC_CONCEPT_CARD_EXPORT_DRAFT.md`
+- `scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py`
+- `BUCHANAN_SYSTEM_STATE.json`
+- `BUCHANAN_THREAD_HANDOVER.md`
+
+## Verification
+
+Run:
+
+```bash
+python3 -m py_compile frontend/dark_precursor.py
+python3 scripts/verify_bdp_003c_cinematic_experience_reset.py
+python3 scripts/verify_bdp_003d_cinematic_video_front_page.py
+python3 scripts/verify_bdp_003e1_cinematic_concept_card_contract.py
+python3 scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py
+python3 scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py
+```
+
+## Next recommended step
+
+BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only.
+
+---
+
 # BDP-003E.2 — Read-only Cinematic Concept Card Export Draft
 
 **Date:** 2026-06-15T17:01:19+00:00  
