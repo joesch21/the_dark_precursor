@@ -432,10 +432,10 @@
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
   "current_next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
-  "next_step": "BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved.",
+  "next_step": "BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "current_phase": "BDP-003E.10",
+  "current_phase": "BDP-003E.11",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -585,5 +585,54 @@
     "verifier": "scripts/verify_bdp_003e10_archive_implementation_boundary_and_safety_gates.py",
     "next_step": "BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved."
   },
-  "current_status": "complete"
+  "current_status": "complete",
+  "bdp_003e11_local_reviewed_concept_card_archive_writer": {
+    "phase": "BDP-003E.11",
+    "title": "Implement local reviewed concept card archive writer behind safety gates",
+    "status": "complete",
+    "completed_at": "2026-06-15T19:28:44+00:00",
+    "controlled_slice": "local_writer_implementation_only",
+    "decision": "The local reviewed concept card archive writer is implemented as a local/manual utility behind safety gates. No frontend, backend, adapter, database, evidence, citation, relation, interpretation, or Buchanan-claim integration is approved by BDP-003E.11.",
+    "implementation_type": "local writer only",
+    "implementation_approved": true,
+    "persistence_approved": true,
+    "writer_implemented": true,
+    "local_file_writer_implemented": true,
+    "archive_folder_created": false,
+    "repo_archive_records_written": false,
+    "frontend_archive_controls_approved": false,
+    "backend_services_approved": false,
+    "adapter_endpoints_approved": false,
+    "database_tables_approved": false,
+    "sql_migrations_approved": false,
+    "evidence_promotion_approved": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "safety_gates_enforced": [
+      "accept only locally reviewed payloads with the approved archive schema marker",
+      "reject unreviewed generated drafts",
+      "reject governance flags that would promote evidence or create scholarship claims",
+      "write only to an explicit operator-supplied local archive root",
+      "sanitize archive record identifiers before deriving file names",
+      "preserve idempotency and refuse conflicting existing archive files",
+      "run verifier writes only inside a temporary directory"
+    ],
+    "implementation_files": [
+      "scripts/local_reviewed_concept_card_archive_writer.py"
+    ],
+    "verifier": "scripts/verify_bdp_003e11_local_reviewed_concept_card_archive_writer.py",
+    "documentation": "docs/BDP_003E11_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_IMPLEMENTATION.md",
+    "review_inputs": [
+      "BDP-003E.5 local reviewed archive schema candidate",
+      "BDP-003E.6 archive schema sample review",
+      "BDP-003E.7 writer contract only",
+      "BDP-003E.8 archive writer contract boundary review",
+      "BDP-003E.9 implementation readiness decision",
+      "BDP-003E.10 implementation boundary and safety gates",
+      "docs/BDP_003E10_ARCHIVE_IMPLEMENTATION_BOUNDARY_AND_SAFETY_GATES.md"
+    ],
+    "next_step": "BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration."
+  }
 }

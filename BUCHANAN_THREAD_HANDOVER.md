@@ -530,3 +530,34 @@ Boundary remains blocked for:
 Verifier: `scripts/verify_bdp_003e10_archive_implementation_boundary_and_safety_gates.py`
 
 Next safe step: `BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved.`
+
+
+
+## BDP-003E.11 — Local Reviewed Concept Card Archive Writer Implementation
+
+**Status:** Complete
+
+BDP-003E.11 implements the local reviewed concept card archive writer behind the BDP-003E.10 safety gates.
+
+Implemented file: `scripts/local_reviewed_concept_card_archive_writer.py`
+
+Verifier: `scripts/verify_bdp_003e11_local_reviewed_concept_card_archive_writer.py`
+
+Boundary:
+
+- local writer implementation only
+- no frontend archive controls
+- no backend services
+- no adapter endpoints
+- no database tables
+- no SQL migrations
+- no evidence promotion
+- no citations
+- no concept relations
+- no interpretations
+- no Buchanan-specific claims
+- no repository archive folder or archived concept card payload is created by this phase
+
+The verifier writes only to a temporary directory to prove validation, idempotency, path-safety, and rejection behavior.
+
+Next safe step: `BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration.`

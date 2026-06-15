@@ -67,3 +67,13 @@ It does not approve persistence implementation.
 ## Next Step
 
 **BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved.**
+
+## BDP-003E.11 Follow-up Implementation Note
+
+BDP-003E.11 implements the local reviewed concept card archive writer behind safety gates.
+
+This follow-up does not add frontend archive controls, backend services, adapter endpoints, database tables, SQL migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
+
+The implementation is local writer only and is verified with temporary-directory writes rather than repository archive records.
+
+Next safe step: `BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration.`
