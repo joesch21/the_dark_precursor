@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-# Verifier for BDP-003E.6.
+# Verifier for BDP-003E.7.
 #
-# Proves that BDP-003E.6 is a review-only phase:
-# - the archive schema candidate was compared against exported samples,
-# - implementation remains blocked,
-# - the E6 phase record preserves its own next-step chain to BDP-003E.7.
+# Proves that BDP-003E.7 defines a writer contract only and does not
+# implement persistence, a writer, an archive folder, frontend controls,
+# backend services, database tables, evidence promotion, or Buchanan claims.
 
 from __future__ import annotations
 
@@ -14,13 +13,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-DOC_PATH = ROOT / "docs" / "BDP_003E6_ARCHIVE_SCHEMA_SAMPLE_REVIEW.md"
-E5_DOC_PATH = ROOT / "docs" / "BDP_003E5_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_SCHEMA_CANDIDATE.md"
+DOC_PATH = ROOT / "docs" / "BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md"
+E6_DOC_PATH = ROOT / "docs" / "BDP_003E6_ARCHIVE_SCHEMA_SAMPLE_REVIEW.md"
 STATE_PATH = ROOT / "BUCHANAN_SYSTEM_STATE.json"
 HANDOVER_PATH = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
 
-PHASE_KEY = "bdp_003e6_archive_schema_sample_review"
-EXPECTED_NEXT = "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation."
+PHASE_KEY = "bdp_003e7_local_reviewed_concept_card_archive_writer_contract"
+NEXT_STEP = "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation."
 
 
 def fail(message: str) -> None:
@@ -49,7 +48,7 @@ def require_not_contains(label: str, text: str, needles: list[str]) -> None:
 
 def main() -> None:
     doc = read(DOC_PATH)
-    e5_doc = read(E5_DOC_PATH)
+    e6_doc = read(E6_DOC_PATH)
     handover = read(HANDOVER_PATH)
 
     try:
@@ -58,30 +57,38 @@ def main() -> None:
         fail(f"BUCHANAN_SYSTEM_STATE.json is invalid JSON: {exc}")
 
     require_contains(
-        "BDP-003E.6 doc",
+        "BDP-003E.7 doc",
         doc,
         [
-            "BDP-003E.6",
-            "Review only",
-            "BDP-003E.3 exported cinematic concept card sample cases",
-            "BDP-003E.5 local reviewed concept card archive schema candidate",
-            "Sample Comparison Method",
-            "suitable for reviewed sample comparison",
+            "BDP-003E.7",
+            "Writer Contract",
+            "Contract only",
             "Implementation is not approved",
-            EXPECTED_NEXT,
+            "BDP-003E.5 local reviewed archive schema candidate",
+            "BDP-003E.6 archive schema sample review",
+            "Writer Contract Scope",
+            "Contract Inputs",
+            "Required Refusals",
+            "Contract Output Shape",
+            "local reviewed sample material only",
+            NEXT_STEP,
         ],
     )
 
     require_contains(
-        "BDP-003E.6 doc governance boundary",
+        "BDP-003E.7 governance boundary",
         doc,
         [
             "does not",
-            "implement persistence",
+            "implement a writer",
+            "create archive folders",
+            "write local files",
             "add frontend archive buttons",
             "add backend services",
-            "add database tables or SQL migrations",
-            "add local file writers",
+            "add adapter endpoints",
+            "add database tables",
+            "add SQL migrations",
+            "persist generated concept cards",
             "promote generated concept cards into evidence",
             "create citations",
             "create concept relations",
@@ -91,25 +98,30 @@ def main() -> None:
     )
 
     require_not_contains(
-        "BDP-003E.6 doc",
+        "BDP-003E.7 doc",
         doc,
         [
             "implementation is approved",
             "persistence is approved",
+            "writer implemented",
             "archive writer implemented",
             "frontend archive button implemented",
+            "backend service implemented",
             "database migration added",
+            "sql migration added",
+            "archive folder created",
+            "local file writer added",
         ],
     )
 
     require_contains(
-        "BDP-003E.5 follow-up note",
-        e5_doc,
+        "BDP-003E.6 follow-up note",
+        e6_doc,
         [
-            "BDP-003E.6 Follow-up Review Note",
-            "suitable for reviewed sample comparison",
-            "implementation is still not approved",
-            EXPECTED_NEXT,
+            "BDP-003E.7 Follow-up Contract Note",
+            "writer contract only",
+            "Implementation is not approved",
+            NEXT_STEP,
         ],
     )
 
@@ -117,10 +129,11 @@ def main() -> None:
         "handover",
         handover,
         [
-            "BDP-003E.6",
-            "archive schema sample review",
-            "review-only",
+            "BDP-003E.7",
+            "writer contract",
+            "contract-only",
             "implementation remains blocked",
+            NEXT_STEP,
         ],
     )
 
@@ -128,40 +141,43 @@ def main() -> None:
     if not isinstance(record, dict):
         fail(f"state missing {PHASE_KEY} record")
 
-    for key in [
+    expected_false_keys = [
         "implementation_approved",
         "persistence_approved",
+        "writer_implemented",
+        "archive_folder_created",
+        "local_files_written",
         "frontend_archive_controls_approved",
         "backend_services_approved",
+        "adapter_endpoints_approved",
         "database_migration_approved",
-        "local_writer_approved",
         "evidence_promotion_approved",
         "buchanan_claims_created",
-    ]:
+    ]
+
+    for key in expected_false_keys:
         if record.get(key) is not False:
             fail(f"state record must keep {key}=False")
 
-    record_dump = json.dumps(record, ensure_ascii=False)
     require_contains(
-        "state phase record",
-        record_dump,
+        "state record",
+        json.dumps(record, ensure_ascii=False),
         [
-            "BDP-003E.6",
-            "review_only_schema_candidate_against_exported_samples",
-            "suitable for reviewed sample comparison",
-            "BDP-003E.3",
+            "BDP-003E.7",
+            "contract_only_writer_boundary",
+            "writer contract only",
+            "Implementation is not approved",
             "BDP-003E.5",
-            EXPECTED_NEXT,
+            "BDP-003E.6",
+            NEXT_STEP,
         ],
     )
 
-    # E6's next step must be preserved inside its own phase record. Do not
-    # inspect global current_next_step here; BDP-003E.7 and later phases may
-    # legitimately advance the global current step.
-    if EXPECTED_NEXT not in record_dump:
-        fail("E6 phase record does not preserve its own next-step chain to BDP-003E.7")
+    global_dump = json.dumps(state, ensure_ascii=False)
+    if NEXT_STEP not in global_dump:
+        fail("state does not record BDP-003E.8 as the next safe step")
 
-    print("[OK] BDP-003E.6 archive schema sample review verified")
+    print("[OK] BDP-003E.7 local reviewed concept card archive writer contract verified")
 
 
 if __name__ == "__main__":

@@ -420,3 +420,26 @@ Current next step:
 
 `BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.`
 <!-- BDP-003E.6-ARCHIVE-SCHEMA-SAMPLE-REVIEW-END -->
+
+<!-- BDP-003E.7-WRITER-CONTRACT-START -->
+## BDP-003E.7 — Local Reviewed Concept Card Archive Writer Contract
+
+**Status:** Complete  
+**Type:** contract-only governance phase
+
+BDP-003E.7 defines the contract for a future local reviewed concept card archive writer.
+
+Decision: the writer contract is defined as a future boundary only; implementation remains blocked.
+
+No writer was implemented. No archive folders were created. No local files were written. No frontend archive controls, backend services, adapter endpoints, database tables, SQL migrations, persistence path, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims were created.
+
+Verifier added:
+
+```bash
+python3 scripts/verify_bdp_003e7_local_reviewed_concept_card_archive_writer_contract.py
+```
+
+Current next step:
+
+`BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.`
+<!-- BDP-003E.7-WRITER-CONTRACT-END -->

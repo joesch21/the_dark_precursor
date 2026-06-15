@@ -98,3 +98,17 @@ That phase may define the contract for a local reviewed concept card archive wri
 
 Implementation is not approved. BDP-003E.6 remains a review-only sample comparison phase. The archive schema candidate may be carried forward for a later contract phase, but no persistence implementation, frontend archive control, backend service, database table, SQL migration, local archive writer, adapter endpoint, evidence promotion, citation, concept relation, interpretation, or Buchanan-specific claim is approved by this phase.
 
+
+<!-- BDP-003E.7-FOLLOW-UP-CONTRACT-NOTE-START -->
+## BDP-003E.7 Follow-up Contract Note
+
+BDP-003E.7 defines the local reviewed concept card archive writer contract only.
+
+The BDP-003E.6 decision remains intact: the archive schema candidate is suitable for reviewed sample comparison, but implementation is still not approved.
+
+Implementation is not approved. This note does not authorize a writer, archive folder creation, local file writing, frontend archive controls, backend services, adapter endpoints, database tables, SQL migrations, persistence execution, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
+
+Next step:
+
+`BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.`
+<!-- BDP-003E.7-FOLLOW-UP-CONTRACT-NOTE-END -->
