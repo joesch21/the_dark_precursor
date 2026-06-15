@@ -1,6 +1,6 @@
 # Patch & Addition Workflow (Official Preferred Method)
 
-**Status:** Official Standard  
+**Status:** Official Standard
 **Date:** June 2026
 
 ## Preferred Method of Working

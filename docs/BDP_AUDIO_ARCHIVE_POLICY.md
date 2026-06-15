@@ -1,7 +1,7 @@
 # BDP Audio Archive Policy
 
-**Status:** Governing Rule  
-**Version:** 1.0  
+**Status:** Governing Rule
+**Version:** 1.0
 **Date:** June 2026
 
 ## Purpose
@@ -10,20 +10,20 @@ This document establishes the rules for incorporating Ian Buchanan’s spoken ma
 
 ## Core Principles
 
-1. **Rights First**  
+1. **Rights First**
    We only use publicly available audio sources. We do **not** host, download, or redistribute full audio files without explicit permission from the rights holder.
 
-2. **External Linking Only**  
+2. **External Linking Only**
    All audio content must remain on its original platform (YouTube, SoundCloud, Podcasts, etc.). The Dark Precursor provides links and context only.
 
-3. **Short Excerpts Only**  
+3. **Short Excerpts Only**
    Where fair use or permission allows, short transcribed excerpts may be included for conceptual reference. Full transcripts are not stored unless rights-cleared.
 
-4. **Clear Authority Labelling**  
-   Every reference to Buchanan’s spoken voice must carry the label:  
+4. **Clear Authority Labelling**
+   Every reference to Buchanan’s spoken voice must carry the label:
    `External Audio Source – Publicly Available`
 
-5. **No Substitution for Written Evidence**  
+5. **No Substitution for Written Evidence**
    Audio sources are supplementary. The primary evidence spine remains the reviewed written passages in The Vault.
 
 ## Approved Sources (Current)

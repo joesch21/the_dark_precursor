@@ -1,6 +1,6 @@
 # New Thread Onboarding Guide
 
-**Status:** Mandatory Reading  
+**Status:** Mandatory Reading
 **Applies to:** Anyone starting a new thread or joining the project
 
 ---

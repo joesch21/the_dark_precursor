@@ -1,7 +1,7 @@
 # Documentation Update Policy (Mandatory)
 
-**Status:** Governing Rule  
-**Version:** 1.0  
+**Status:** Governing Rule
+**Version:** 1.0
 **Date:** June 2026
 
 ## Core Principle

@@ -1,8 +1,8 @@
 # Buchanan Metaphor Density Approach
 
-**Status:** Reference Document  
-**Version:** 1.0  
-**Date:** June 2026  
+**Status:** Reference Document
+**Version:** 1.0
+**Date:** June 2026
 **Related:** `BUCHANAN_PSYCHOLINGUISTIC_MODELLING_BLUEPRINT.md`
 
 ---

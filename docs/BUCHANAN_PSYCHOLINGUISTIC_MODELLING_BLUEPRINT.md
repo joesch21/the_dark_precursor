@@ -1,7 +1,7 @@
 # Buchanan Psycho-Linguistic Modelling Blueprint
 
-**Status:** Foundational Reference Document  
-**Version:** 1.0  
+**Status:** Foundational Reference Document
+**Version:** 1.0
 **Date:** June 2026
 
 ---
@@ -41,7 +41,7 @@ Psycho-linguistic modelling exists to make some of these dimensions observable a
 Psycho-linguistic observations must always be traceable back to specific passages and must carry clear authority labels.
 
 ### 3.2 Description Before Claim
-Psycho-linguistic modelling may describe patterns, densities, movements, and tensions in the text.  
+Psycho-linguistic modelling may describe patterns, densities, movements, and tensions in the text.
 It must **not** attribute intentions, positions, or theoretical consequences to Buchanan (or Deleuze & Guattari) unless supported by stronger evidence layers.
 
 ### 3.3 Experimental Status
