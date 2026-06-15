@@ -1,6 +1,6 @@
 # Buchanan Deleuze Intelligence Platform
 
-**Status:** Active Development  
+**Status:** Active Development
 **Focus:** Governed, evidence-first cognitive research environment for Ian Buchanan’s scholarship and Deleuze & Guattari studies.
 
 ---
@@ -12,11 +12,11 @@ The main interface is **The Dark Precursor** — a cinematic, Buchanan-voiced ge
 ```bash
 cd ~/Applications/the_dark_precursor/buchanan_platform_docs
 
-# 1. Activate the environment
-./activate_env.sh
+# 1. Activate the working environment
+source venv/bin/activate
 
 # 2. Run The Dark Precursor
-streamlit run frontend/dark_precursor.py
+python -m streamlit run frontend/dark_precursor.py
 ```
 
 Then open the link shown in your terminal (usually `http://localhost:8501`).
@@ -40,4 +40,3 @@ Before starting new work, read:
 - `BUCHANAN_SYSTEM_STATE.json`
 
 All significant changes should be delivered as **patch bundles**.
-
