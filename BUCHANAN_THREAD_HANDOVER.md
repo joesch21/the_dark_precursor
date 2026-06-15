@@ -1,3 +1,52 @@
+# BDP-003D.2 — Cinematic Video Front Page Closeout
+
+**Date:** 2026-06-15T16:43:10+00:00
+**Status:** Complete
+**Authority:** Frontend display only; no evidence-spine mutation.
+
+## What changed
+
+BDP-003D is now closed out as the completed cinematic video front page slice.
+
+The committed application already contains the BDP-003D behaviours:
+
+1. Local MP4 cinematic background stream.
+2. Fallback cinematic background when the video asset is absent.
+3. Title gate before the main interface.
+4. `Enter the Vault` transition.
+5. `Return to title page` sidebar control.
+6. Slowed atmospheric playback.
+7. Large cinematic typography and softened translucent panels.
+
+## Files updated
+
+- `docs/BDP_003D_CINEMATIC_VIDEO_FRONT_PAGE.md`
+- `docs/BDP_003C_CINEMATIC_EXPERIENCE_RESET.md`
+- `BUCHANAN_SYSTEM_STATE.json`
+- `scripts/verify_bdp_003d_cinematic_video_front_page.py`
+
+## Verification
+
+Run:
+
+```bash
+python3 -m py_compile frontend/dark_precursor.py
+python3 scripts/verify_bdp_003c_cinematic_experience_reset.py
+python3 scripts/verify_bdp_003d_cinematic_video_front_page.py
+```
+
+## Boundary
+
+No database mutation, citation insertion, source ingestion, concept relation creation, interpretation insertion, or video generation backend was added.
+
+The video remains atmosphere only. It is not evidence and does not carry conceptual authority.
+
+## Next recommended step
+
+BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.
+
+---
+
 # Buchanan Thread Handover
 
 <!-- BDP-002G DIFFERENTIAL READING ENGINE -->

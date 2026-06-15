@@ -1,6 +1,6 @@
 # BDP-003D — Cinematic Video Front Page
 
-**Status:** Patch candidate
+**Status:** Implemented / verified
 **Interface:** `frontend/dark_precursor.py`
 **Stylesheet:** `frontend/styles/dark_precursor.css`
 
@@ -65,8 +65,18 @@ Then verify manually:
 
 ## Documentation Follow-up
 
-After operator approval, update:
+Completed in BDP-003D.2:
 
-- `BUCHANAN_THREAD_HANDOVER.md`
-- `BUCHANAN_SYSTEM_STATE.json`
-- any active BDP phase index that tracks Dark Precursor frontend changes
+- `BUCHANAN_THREAD_HANDOVER.md` updated.
+- `BUCHANAN_SYSTEM_STATE.json` updated.
+- `scripts/verify_bdp_003d_cinematic_video_front_page.py` added.
+
+## Closeout Status
+
+BDP-003D is now treated as the completed cinematic video front page slice.
+
+The next feature slice is no longer BDP-003D. It is:
+
+```text
+BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.
+```

@@ -132,7 +132,7 @@ The verifier must confirm:
 After BDP-003C verifies, the next safe slice is:
 
 ```text
-BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.
+BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.
 ```
 
 This should still be governed and should not auto-promote cinematic synthesis into evidence.

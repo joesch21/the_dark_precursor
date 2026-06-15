@@ -139,7 +139,7 @@
   },
   "last_updated_phase": "BDP-003C",
   "last_updated_utc": "2026-06-15T03:18:11+00:00",
-  "next_recommended_step": "BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.",
+  "next_recommended_step": "BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -163,7 +163,42 @@
       "scripts/update_bdp_003c_cinematic_experience_reset.py",
       "scripts/verify_bdp_003c_cinematic_experience_reset.py"
     ],
-    "next_recommended_step": "BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.",
+    "next_recommended_step": "BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.",
     "updated_at": "2026-06-15T03:26:40+00:00"
+  },
+  "bdp_003d_cinematic_video_front_page": {
+    "phase": "BDP-003D",
+    "closeout_phase": "BDP-003D.2",
+    "title": "Cinematic video front page",
+    "status": "complete",
+    "completed_at": "2026-06-15T16:43:10+00:00",
+    "authority": "frontend_display_only",
+    "database_mutation": false,
+    "sql_migration": false,
+    "evidence_spine_change": false,
+    "source_ingestion": false,
+    "citation_creation": false,
+    "concept_relation_creation": false,
+    "interpretation_insertion": false,
+    "buchanan_specific_claim_creation": false,
+    "video_generation_backend": false,
+    "background_video_authority": "atmosphere_only_not_evidence",
+    "implemented_behaviours": [
+      "local_mp4_background_stream",
+      "fallback_cinematic_background",
+      "title_gate",
+      "enter_the_vault_button",
+      "return_to_title_page_control",
+      "softened_translucent_sidebar",
+      "large_cinematic_typography"
+    ],
+    "files": [
+      "frontend/dark_precursor.py",
+      "frontend/styles/dark_precursor.css",
+      "docs/BDP_003D_CINEMATIC_VIDEO_FRONT_PAGE.md",
+      "scripts/verify_bdp_003d_cinematic_video_front_page.py"
+    ],
+    "verifier": "scripts/verify_bdp_003d_cinematic_video_front_page.py",
+    "next_recommended_step": "BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary."
   }
 }
