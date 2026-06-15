@@ -137,7 +137,7 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003E.16",
+  "last_updated_phase": "BDP-003F.1",
   "last_updated_utc": "2026-06-15T17:25:27+00:00",
   "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
   "bdp_003c_cinematic_experience_reset": {
@@ -431,8 +431,8 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.",
-  "next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.",
+  "current_next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes.",
+  "next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "current_phase": "BDP-003E.12",
@@ -825,5 +825,36 @@
     "review_output": "docs/BDP_003E16_WIRED_ARCHIVE_CONTROLS_SAFETY_REVIEW.md",
     "verifier": "scripts/verify_bdp_003e16_wired_archive_controls_safety_review.py",
     "next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls."
+  },
+  "bdp_003f1_teleprompter_narrator_stage": {
+    "phase": "BDP-003F.1",
+    "title": "Teleprompter narrator stage",
+    "status": "complete",
+    "completed_at": "2026-06-15T20:31:48+00:00",
+    "controlled_slice": "frontend_cinematic_narrator_ux_only",
+    "implementation_type": "teleprompter_narrator_stage",
+    "decision": "Narrator text now scrolls upward through a large teleprompter-style stage.",
+    "frontend_ux_changed": true,
+    "teleprompter_stage_added": true,
+    "narrator_scrolls_upward": true,
+    "uses_existing_reveal_path": true,
+    "reduced_motion_guard_preserved": true,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "archive_workflow_expanded": false,
+    "evidence_promotion_added": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "frontend_targets": [
+      "frontend/dark_precursor.py",
+      "frontend/styles/dark_precursor.css"
+    ],
+    "review_output": "docs/BDP_003F1_TELEPROMPTER_NARRATOR_STAGE.md",
+    "verifier": "scripts/verify_bdp_003f1_teleprompter_narrator_stage.py",
+    "next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes."
   }
 }

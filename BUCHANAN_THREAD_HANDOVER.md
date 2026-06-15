@@ -657,3 +657,20 @@ Verifier:
 `scripts/verify_bdp_003e16_wired_archive_controls_safety_review.py`
 
 Next safe step: `BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls.`
+
+## BDP-003F.1 — Teleprompter Narrator Stage
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** frontend cinematic narrator UX only
+
+BDP-003F.1 changes narrator display from chunk-by-chunk reveal to a fullscreen-style upward scrolling teleprompter stage.
+
+The change affects `frontend/dark_precursor.py` and `frontend/styles/dark_precursor.css` only.
+
+No backend services, adapter endpoints, database tables, SQL migrations, archive workflow expansion, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are added.
+
+Verifier:
+`scripts/verify_bdp_003f1_teleprompter_narrator_stage.py`
+
+Next safe step: `BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes.`

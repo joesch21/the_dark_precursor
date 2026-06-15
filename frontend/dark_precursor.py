@@ -416,28 +416,34 @@ def markdown_to_stage_html(markdown_text: str) -> str:
     return safe
 
 
+# BDP-003F.1 — teleprompter narrator stage
+def teleprompter_duration_seconds(text: str, seconds_per_chunk: float) -> float:
+    """Estimate a readable teleprompter duration from response length and pacing.
+
+    The sidebar still controls speed: higher values create a slower scroll.
+    """
+    word_count = max(1, len(text.split()))
+    base_duration = word_count / 2.15
+    pacing_bonus = max(0.0, seconds_per_chunk) * word_count * 1.85
+    return min(360.0, max(36.0, base_duration + pacing_bonus))
+
+
 def reveal_text(text: str, seconds_per_chunk: float) -> None:
-    """Slowly reveal text in readable chunks instead of character-by-character noise."""
-    stage = st.empty()
-    words = text.split(" ")
-    displayed: list[str] = []
-
-    chunk_size = 3 if len(words) < 220 else 5
-
-    for i in range(0, len(words), chunk_size):
-        displayed.extend(words[i : i + chunk_size])
-        visible = " ".join(displayed)
-        stage.markdown(
-            f"""
-            <div class="dp-stage">
-                <div class="dp-section-label">THE NARRATOR SPEAKS</div>
-                <div class="dp-narrator-text">{markdown_to_stage_html(visible)}</div>
+    """Render the narrator as a full-screen upward scrolling teleprompter."""
+    duration = teleprompter_duration_seconds(text, seconds_per_chunk)
+    st.markdown(
+        f"""
+        <div class="dp-teleprompter-stage" style="--dp-teleprompter-duration: {duration:.2f}s;">
+            <div class="dp-teleprompter-label">THE NARRATOR SPEAKS</div>
+            <div class="dp-teleprompter-window">
+                <div class="dp-teleprompter-track">
+                    <div class="dp-teleprompter-text">{markdown_to_stage_html(text)}</div>
+                </div>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        time.sleep(seconds_per_chunk)
-
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 def speak_response(full_response: str) -> None:
     voice_key = os.getenv("OPENAI_API_KEY_VOICE")

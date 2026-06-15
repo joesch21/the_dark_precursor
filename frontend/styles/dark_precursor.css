@@ -355,3 +355,116 @@ hr {
     line-height: 1.55;
 }
 
+/* BDP-003F.1 — teleprompter narrator stage */
+.dp-teleprompter-stage {
+    position: relative;
+    height: min(86vh, 980px);
+    min-height: 72vh;
+    overflow: hidden;
+    border: 1px solid var(--dp-border);
+    border-radius: 30px;
+    margin: 1.3rem 0;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.070), rgba(255, 255, 255, 0.016)),
+        radial-gradient(circle at 50% 0%, rgba(224, 191, 98, 0.11), transparent 32rem),
+        rgba(8, 7, 5, 0.76);
+    backdrop-filter: blur(9px) saturate(1.06);
+    box-shadow: 0 38px 120px rgba(0, 0, 0, 0.62), inset 0 0 80px rgba(255, 255, 255, 0.018);
+}
+
+.dp-teleprompter-stage::before,
+.dp-teleprompter-stage::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 24%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.dp-teleprompter-stage::before {
+    top: 0;
+    background: linear-gradient(180deg, rgba(5, 4, 3, 0.96), rgba(5, 4, 3, 0.00));
+}
+
+.dp-teleprompter-stage::after {
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(5, 4, 3, 0.96), rgba(5, 4, 3, 0.00));
+}
+
+.dp-teleprompter-label {
+    position: absolute;
+    top: clamp(1.1rem, 2vw, 1.8rem);
+    left: clamp(1.4rem, 4vw, 4rem);
+    right: clamp(1.4rem, 4vw, 4rem);
+    z-index: 3;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--dp-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.9rem;
+}
+
+.dp-teleprompter-window {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.dp-teleprompter-track {
+    width: min(1080px, calc(100% - clamp(2.2rem, 9vw, 9rem)));
+    margin: 0 auto;
+    padding-top: 68vh;
+    padding-bottom: 62vh;
+    animation: dpTeleprompterScroll var(--dp-teleprompter-duration, 90s) linear forwards;
+    will-change: transform;
+}
+
+.dp-teleprompter-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.4rem, 4.45vw, 5.8rem);
+    line-height: 1.2;
+    color: var(--dp-text);
+    letter-spacing: -0.045em;
+    text-wrap: pretty;
+    text-shadow: 0 0 28px rgba(0, 0, 0, 0.72);
+}
+
+@keyframes dpTeleprompterScroll {
+    from {
+        transform: translateY(24vh);
+    }
+    to {
+        transform: translateY(-88%);
+    }
+}
+
+@media (max-width: 900px) {
+    .dp-teleprompter-stage {
+        height: 78vh;
+        min-height: 62vh;
+    }
+
+    .dp-teleprompter-text {
+        font-size: clamp(2rem, 8vw, 3.4rem);
+        line-height: 1.24;
+    }
+
+    .dp-teleprompter-track {
+        width: calc(100% - 2.4rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dp-teleprompter-track {
+        animation: none;
+        transform: none;
+        padding-top: 7rem;
+        padding-bottom: 5rem;
+    }
+
+    .dp-teleprompter-stage {
+        overflow: auto;
+    }
+}
