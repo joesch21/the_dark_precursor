@@ -197,4 +197,3 @@ No citations.
 No concept relations.
 No interpretations.
 No Buchanan-specific claims.
-

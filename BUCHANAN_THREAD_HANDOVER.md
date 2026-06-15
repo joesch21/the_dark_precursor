@@ -477,4 +477,3 @@ Blocked by this phase:
 Next safe step:
 
 `BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation.`
-
