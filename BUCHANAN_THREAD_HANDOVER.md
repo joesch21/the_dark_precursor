@@ -71,3 +71,32 @@ BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precurs
 
 BDP-002I — Decide where the Differential Reading Engine panel belongs inside the main Dark Precursor flow.
 
+
+<!-- BDP-003C CINEMATIC EXPERIENCE RESET -->
+
+## BDP-003C — Dark Precursor Cinematic Experience Reset
+
+**Status:** Prepared  
+**Updated:** 2026-06-15T03:26:40+00:00  
+**Type:** Frontend / generative surface reset
+
+### Summary
+
+BDP-003C resets The Dark Precursor toward the intended cinematic experience:
+
+- large readable narrator text.
+- slower chunked reveal.
+- simplified concept-first stage.
+- cinematic treatment and storyboard / film clip brief modes.
+- differential method mechanics embedded in the prompt.
+- CSS isolated in `frontend/styles/dark_precursor.css`.
+- no impersonation claim that the app is Ian Buchanan.
+- no database mutation, SQL migration, evidence-spine change, interpretation insertion, or Buchanan-specific claim creation.
+
+### Boundary
+
+Film/video backend generation is not implemented in this slice. The patch creates the governed cinematic brief pathway only.
+
+### Next Recommended Step
+
+BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.

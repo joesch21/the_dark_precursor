@@ -1,35 +1,183 @@
+/* BDP-003C — Dark Precursor cinematic experience reset */
+
+:root {
+    --dp-bg: #030303;
+    --dp-panel: #080808;
+    --dp-panel-soft: #101010;
+    --dp-border: rgba(212, 175, 55, 0.22);
+    --dp-gold: #d4af37;
+    --dp-gold-soft: rgba(212, 175, 55, 0.18);
+    --dp-text: #f2efe8;
+    --dp-muted: #a9a39a;
+    --dp-red: #7b1e1e;
+}
+
 .stApp {
-        background-color: #050505;
-        color: #e8e8e8;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 34rem),
+        radial-gradient(circle at 15% 20%, rgba(123, 30, 30, 0.18), transparent 30rem),
+        linear-gradient(180deg, #050505 0%, #020202 100%);
+    color: var(--dp-text);
+}
+
+.block-container {
+    max-width: 1180px;
+    padding-top: 2.1rem;
+    padding-bottom: 5rem;
+}
+
+[data-testid="stSidebar"] {
+    background: rgba(4, 4, 4, 0.96);
+    border-right: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.dp-hero {
+    border: 1px solid var(--dp-border);
+    border-radius: 28px;
+    padding: clamp(2rem, 4vw, 4rem);
+    margin: 0.5rem 0 1.4rem 0;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.004)),
+        radial-gradient(circle at 80% 0%, rgba(212,175,55,0.12), transparent 22rem),
+        rgba(6,6,6,0.84);
+    box-shadow: 0 0 90px rgba(0,0,0,0.72), inset 0 0 90px rgba(255,255,255,0.018);
+}
+
+.dp-kicker {
+    font-family: Georgia, serif;
+    color: var(--dp-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.84rem;
+    margin-bottom: 1rem;
+}
+
+.dp-title {
+    font-family: Georgia, serif;
+    font-size: clamp(3rem, 7vw, 6.6rem);
+    line-height: 0.92;
+    color: var(--dp-text);
+    letter-spacing: -0.06em;
+    margin-bottom: 1.2rem;
+}
+
+.dp-subtitle {
+    max-width: 880px;
+    color: var(--dp-muted);
+    font-size: clamp(1.12rem, 1.8vw, 1.55rem);
+    line-height: 1.65;
+}
+
+.dp-stage {
+    border: 1px solid var(--dp-border);
+    border-radius: 30px;
+    min-height: 45vh;
+    padding: clamp(2rem, 4.8vw, 5rem);
+    margin: 1.3rem 0;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+        radial-gradient(circle at 50% 0%, rgba(212,175,55,0.10), transparent 30rem),
+        rgba(8,8,8,0.92);
+    box-shadow: 0 0 110px rgba(0,0,0,0.82);
+}
+
+.dp-section-label {
+    font-family: Georgia, serif;
+    color: var(--dp-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.9rem;
+    margin-bottom: 1.4rem;
+}
+
+.dp-narrator-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 3.35vw, 4.45rem);
+    line-height: 1.24;
+    color: var(--dp-text);
+    letter-spacing: -0.035em;
+    text-wrap: pretty;
+}
+
+.dp-support-text {
+    font-size: clamp(1.05rem, 1.5vw, 1.32rem);
+    line-height: 1.7;
+    color: var(--dp-muted);
+}
+
+.dp-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 1.4rem 0;
+}
+
+.dp-card {
+    border: 1px solid rgba(212,175,55,0.14);
+    border-radius: 18px;
+    padding: 1.2rem;
+    background: rgba(255,255,255,0.025);
+}
+
+.dp-card-title {
+    color: var(--dp-gold);
+    font-family: Georgia, serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.dp-caption {
+    color: var(--dp-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.dp-dock {
+    border: 1px solid rgba(212,175,55,0.14);
+    border-radius: 18px;
+    padding: 1.1rem 1.25rem;
+    margin-top: 1rem;
+    background: rgba(255,255,255,0.022);
+}
+
+div[data-testid="stTextInput"] input {
+    font-size: 1.32rem;
+    min-height: 3.4rem;
+    border-radius: 16px;
+}
+
+div[data-testid="stTextArea"] textarea {
+    font-size: 1.16rem;
+    line-height: 1.55;
+    border-radius: 16px;
+}
+
+.stButton > button {
+    border-radius: 999px;
+    border: 1px solid rgba(212,175,55,0.32);
+    background: rgba(20, 20, 20, 0.92);
+    color: var(--dp-gold);
+    min-height: 3rem;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.stButton > button:hover {
+    border-color: rgba(212,175,55,0.75);
+    background: rgba(212,175,55,0.16);
+    color: #f7e6a2;
+}
+
+hr {
+    border-color: rgba(212,175,55,0.10);
+}
+
+@media (max-width: 900px) {
+    .dp-card-grid {
+        grid-template-columns: 1fr;
     }
-    .cinematic-wall {
-        background-color: #0a0a0a;
-        border: 1px solid #2a2a2a;
-        border-radius: 10px;
-        padding: 60px 80px;
-        margin: 25px 0;
-        box-shadow: 0 0 70px rgba(0,0,0,0.55);
+
+    .dp-stage {
+        min-height: 35vh;
     }
-    .narrator-text {
-        font-family: 'Georgia', serif;
-        font-size: 1.55rem;
-        line-height: 1.9;
-        color: #e8e8e8;
-        letter-spacing: 0.2px;
-    }
-    .section-label {
-        font-family: 'Georgia', serif;
-        color: #d4af37;
-        font-size: 1.1rem;
-        letter-spacing: 1.5px;
-        margin-bottom: 12px;
-    }
-    .stButton > button {
-        background-color: #1a1a1a;
-        color: #d4af37;
-        border: 1px solid #3a3a3a;
-    }
-    .stButton > button:hover {
-        background-color: #d4af37;
-        color: #050505;
-    }
+}

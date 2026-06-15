@@ -72,6 +72,19 @@
         "interpretation": false,
         "generative_prompt_change": false
       }
+    },
+    "BDP-003C": {
+      "status": "prepared",
+      "type": "frontend_generative_surface_reset",
+      "description": "Dark Precursor cinematic experience reset",
+      "updated_at": "2026-06-15T03:26:40+00:00",
+      "boundaries": {
+        "database_mutation": false,
+        "sql_migration": false,
+        "evidence_spine_change": false,
+        "buchanan_specific_claim_creation": false,
+        "actual_video_generation_backend": false
+      }
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -124,7 +137,33 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-002H",
+  "last_updated_phase": "BDP-003C",
   "last_updated_utc": "2026-06-15T03:18:11+00:00",
-  "next_recommended_step": "BDP-002I — Decide where the Differential Reading Engine panel belongs inside the main Dark Precursor flow after verified CSS split."
+  "next_recommended_step": "BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.",
+  "bdp_003c_cinematic_experience_reset": {
+    "phase": "BDP-003C",
+    "title": "Dark Precursor cinematic experience reset",
+    "status": "prepared",
+    "type": "frontend_generative_surface_reset",
+    "database_mutation": false,
+    "sql_migration": false,
+    "evidence_spine_change": false,
+    "buchanan_specific_claim_creation": false,
+    "interpretation_insertion": false,
+    "reader_state_tracking": false,
+    "psychological_assessment": false,
+    "frontend_reset": true,
+    "generative_surface_prompt_change": true,
+    "film_clip_backend_integration": false,
+    "film_storyboard_brief_generation": true,
+    "deliverables": [
+      "docs/BDP_003C_CINEMATIC_EXPERIENCE_RESET.md",
+      "frontend/dark_precursor.py",
+      "frontend/styles/dark_precursor.css",
+      "scripts/update_bdp_003c_cinematic_experience_reset.py",
+      "scripts/verify_bdp_003c_cinematic_experience_reset.py"
+    ],
+    "next_recommended_step": "BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.",
+    "updated_at": "2026-06-15T03:26:40+00:00"
+  }
 }

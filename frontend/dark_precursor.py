@@ -1,191 +1,490 @@
-import streamlit as st
+import html
 import os
+import re
 import time
+from pathlib import Path
+
+import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
-from pathlib import Path
-from differential_engine_panel import render_differential_engine_panel
 
-load_dotenv(dotenv_path=".env")
 
-st.set_page_config(page_title="The Dark Precursor", layout="wide", initial_sidebar_state="expanded")
+# ============================================================
+# BOOTSTRAP
+# ============================================================
 
-# === Cinematic + Sensual Minimalist Theme ===
+st.set_page_config(
+    page_title="The Dark Precursor",
+    page_icon="◼",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+APP_ROOT = Path(__file__).resolve().parents[1]
+FRONTEND_ROOT = Path(__file__).resolve().parent
+
+load_dotenv(dotenv_path=APP_ROOT / ".env")
+
+
 def load_local_css(relative_path: str) -> None:
     """Load a local CSS file into Streamlit."""
-    css_path = Path(__file__).resolve().parent / relative_path
+    css_path = FRONTEND_ROOT / relative_path
     if css_path.exists():
-        css = css_path.read_text(encoding="utf-8")
-        st.markdown(f"<style>\n{css}\n</style>", unsafe_allow_html=True)
+        st.markdown(
+            f"<style>\n{css_path.read_text(encoding='utf-8')}\n</style>",
+            unsafe_allow_html=True,
+        )
     else:
         st.warning(f"Stylesheet not found: {css_path}")
 
+
 load_local_css("styles/dark_precursor.css")
 
-# ============================================================
-# DIFFERENTIAL READING ENGINE PANEL
-# ============================================================
-render_differential_engine_panel()
 
 # ============================================================
-# GOVERNED REFERENCES PANEL
+# OPTIONAL MODULES
 # ============================================================
-with st.expander("📚 Governed References — Methodological & Resource Documents", expanded=False):
-    st.markdown("""
-    **Purpose**: Human-curated reference material supporting differential reading, 
-    rhizomatic cartography, and Vault resource integration.  
-    **Governance**: All documents are read-only. Content must be reviewed by a human 
-    operator before any application to analysis or interpretation.  
-    **Label**: `governed_reference_only` — not evidence, not training data.
-    """)
 
+try:
+    from differential_engine_panel import render_differential_engine_panel
+except Exception:
+    render_differential_engine_panel = None
+
+
+# ============================================================
+# CONTENT / PROMPT CONTRACT
+# ============================================================
+
+CONCEPT_PRESETS = [
+    "Assemblage",
+    "Body without Organs",
+    "Content and Expression",
+    "Territorialisation and Deterritorialisation",
+    "Strata",
+    "Lines of Flight",
+    "Desire",
+    "Affect",
+    "War Machine",
+    "Differential Method",
+]
+
+MODE_LABELS = {
+    "Narrator": "A slow cinematic explanation with a clear differential trace.",
+    "Cinematic Treatment": "A concept explained as a film scene, with visual atmosphere and analytic spine.",
+    "Storyboard / Film Clip Brief": "A shot-by-shot brief that can later feed an image/video generation pipeline.",
+}
+
+
+def build_system_prompt(mode: str) -> str:
+    """Return the governed cinematic system prompt for the selected mode."""
+    return f"""You are The Dark Precursor, a governed cinematic guide to Deleuze, Guattari, and Ian Buchanan's conceptual field.
+
+You are not Ian Buchanan and must not claim to be him.
+Write in a Buchanan-informed voice: precise, skeptical of reductive readings, conceptually rigorous, and resistant to flattening assemblage theory into mere connectivity.
+
+The experience must be cinematic, slow, clear, and readable. Use vivid but disciplined imagery. Avoid academic clutter.
+
+Core method:
+Do not merely define the concept.
+Show how the concept operates.
+
+Always try to trace:
+1. the assemblage at work
+2. the flow being organized
+3. the cut, break, interruption, or subtraction
+4. what is captured or extracted
+5. what desire is being assembled
+6. what affect or intensity is produced
+7. what qualitative difference matters
+8. what line of flight remains possible
+
+Authority and governance:
+- Distinguish evidence-backed claims from provisional cinematic synthesis.
+- Do not invent a Buchanan-specific claim.
+- Do not present generated synthesis as canonical scholarship.
+- Prefer "the available frame suggests" over false certainty.
+- If using a contemporary example, keep it as an analytic scene, not as proof.
+
+Selected mode: {mode}
+Mode purpose: {MODE_LABELS.get(mode, MODE_LABELS["Narrator"])}
+"""
+
+
+def build_user_prompt(concept: str, mode: str, site: str, include_clip_brief: bool) -> str:
+    clip_instruction = ""
+    if include_clip_brief or mode in {"Cinematic Treatment", "Storyboard / Film Clip Brief"}:
+        clip_instruction = """
+Include a section titled "Film Clip Brief" with:
+- visual palette
+- sound design
+- 5 to 7 shot sequence
+- one image/video generation prompt
+- one sentence explaining what the viewer should understand conceptually
+"""
+
+    if mode == "Storyboard / Film Clip Brief":
+        mode_instruction = """
+Structure the response as:
+1. Conceptual Core
+2. Differential Trace
+3. Storyboard
+4. Film Clip Brief
+5. Governance Note
+"""
+    elif mode == "Cinematic Treatment":
+        mode_instruction = """
+Structure the response as:
+1. Opening Image
+2. What the Concept Does
+3. Differential Trace
+4. Cinematic Treatment
+5. Governance Note
+"""
+    else:
+        mode_instruction = """
+Structure the response as:
+1. Narrator
+2. Differential Trace
+3. Why It Matters
+4. Governance Note
+"""
+
+    return f"""Concept or question:
+{concept}
+
+Preferred site of analysis:
+{site or "choose a concrete scene that makes the concept visible"}
+
+{mode_instruction}
+
+{clip_instruction}
+
+Keep the language large, cinematic, and easy to read. Avoid long dense paragraphs. Use short sections and strong images, but preserve conceptual precision.
+"""
+
+
+def get_openai_client(api_key_env: str = "OPENAI_API_KEY_LLM") -> OpenAI | None:
+    api_key = os.getenv(api_key_env)
+    if not api_key:
+        return None
+    return OpenAI(api_key=api_key)
+
+
+def generate_buchanan_response(
+    concept: str,
+    mode: str,
+    site: str,
+    include_clip_brief: bool,
+) -> str:
+    client = get_openai_client()
+    if client is None:
+        return (
+            "OPENAI_API_KEY_LLM was not found in `.env`.\n\n"
+            "The stage is ready, but the narrator cannot speak yet."
+        )
+
+    response = client.chat.completions.create(
+        model=os.getenv("OPENAI_TEXT_MODEL", "gpt-4o-mini"),
+        messages=[
+            {"role": "system", "content": build_system_prompt(mode)},
+            {
+                "role": "user",
+                "content": build_user_prompt(
+                    concept=concept,
+                    mode=mode,
+                    site=site,
+                    include_clip_brief=include_clip_brief,
+                ),
+            },
+        ],
+        temperature=float(os.getenv("DARK_PRECURSOR_TEMPERATURE", "0.42")),
+        max_tokens=int(os.getenv("DARK_PRECURSOR_MAX_TOKENS", "1100")),
+    )
+    return response.choices[0].message.content.strip()
+
+
+def markdown_to_stage_html(markdown_text: str) -> str:
+    """Render readable text safely inside the cinematic wall."""
+    safe = html.escape(markdown_text)
+    safe = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", safe)
+    safe = safe.replace("\n", "<br>")
+    return safe
+
+
+def reveal_text(text: str, seconds_per_chunk: float) -> None:
+    """Slowly reveal text in readable chunks instead of character-by-character noise."""
+    stage = st.empty()
+    words = text.split(" ")
+    displayed: list[str] = []
+
+    chunk_size = 3 if len(words) < 220 else 5
+
+    for i in range(0, len(words), chunk_size):
+        displayed.extend(words[i : i + chunk_size])
+        visible = " ".join(displayed)
+        stage.markdown(
+            f"""
+            <div class="dp-stage">
+                <div class="dp-section-label">THE NARRATOR SPEAKS</div>
+                <div class="dp-narrator-text">{markdown_to_stage_html(visible)}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        time.sleep(seconds_per_chunk)
+
+
+def speak_response(full_response: str) -> None:
+    voice_key = os.getenv("OPENAI_API_KEY_VOICE")
+    if not voice_key:
+        st.warning("Voice unavailable: OPENAI_API_KEY_VOICE not found in `.env`.")
+        return
+
+    try:
+        voice_model = os.getenv("VOICE_MODEL", "gpt-4o-mini-tts")
+        voice_name = os.getenv("VOICE_NAME", "onyx")
+        client = OpenAI(api_key=voice_key)
+        audio = client.audio.speech.create(
+            model=voice_model,
+            voice=voice_name,
+            input=full_response,
+        )
+        st.audio(audio.content, format="audio/mp3", autoplay=True)
+    except Exception as exc:
+        st.warning(f"Voice unavailable: {exc}")
+
+
+def render_governed_reference_dock() -> None:
     reference_docs = [
-        "docs/BUCHANAN_DIFFERENTIAL_METHOD_EXPLORATION.md",
-        "docs/BUCHANAN_DELEUZIAN_CONCEPT_MAPPING_INVESTIGATION.md",
-        "docs/BUCHANAN_VAULT_RESOURCES_INTEGRATION.md",
-        "docs/BUCHANAN_VAULT_USABLE_ELEMENTS_ASSESSMENT.md",
-        "docs/INTEGRATION_OF_METHODOLOGICAL_DOCS.md",
-        "docs/LAYER_INTERACTION_WORKED_EXAMPLE.md",
+        "docs/BDP_003B_DARK_PRECURSOR.md",
+        "docs/BDP_003C_CINEMATIC_EXPERIENCE_RESET.md",
+        "docs/BDP_002G_DIFFERENTIAL_READING_ENGINE.md",
+        "docs/BUCHANAN_SEMANTIC_WORKBENCH.md",
+        "docs/BUCHANAN_PSYCHOLINGUISTIC_SEMANTIC_ARCHITECTURE.md",
+        "docs/BUCHANAN_ARCHITECTURE.md",
+        "docs/BUCHANAN_CITATION_AND_RIGHTS.md",
     ]
 
-    selected_doc = st.selectbox(
-        "Select governed reference document",
-        reference_docs,
+    with st.expander("📚 Governed method dock", expanded=False):
+        st.markdown(
+            """
+            These documents are operator references. They are not automatically passed
+            into the model and do not override the evidence spine.
+            """
+        )
+
+        selected_doc = st.selectbox(
+            "Open governed reference",
+            reference_docs,
+            index=0,
+            help="Reference-only. Human review required before application.",
+        )
+
+        doc_path = APP_ROOT / selected_doc
+        if doc_path.exists():
+            st.markdown(doc_path.read_text(encoding="utf-8"), unsafe_allow_html=False)
+            st.caption(f"{selected_doc} — governed_reference_only")
+        else:
+            st.warning(f"Document not found: {selected_doc}")
+
+
+# ============================================================
+# SIDEBAR
+# ============================================================
+
+with st.sidebar:
+    st.markdown("## The Vault")
+    st.caption("Cinematic conceptual exploration over a governed evidence spine.")
+
+    mode = st.radio(
+        "Experience mode",
+        list(MODE_LABELS.keys()),
         index=0,
-        help="These are human-curated reference documents only. Human review required."
+        help="Choose how the concept should be staged.",
     )
 
-    if selected_doc:
-        doc_path = Path(selected_doc)
-        if doc_path.exists():
-            with open(doc_path, "r", encoding="utf-8") as f:
-                content = f.read()
-            st.markdown(content, unsafe_allow_html=False)
-            st.caption(f"Source: {selected_doc} — governed_reference_only — human review required")
-        else:
-            st.warning(f"Document not found: {selected_doc}. Verify path or run from project root.")
+    st.markdown("---")
+    st.markdown("### Pacing")
+    reveal_speed = st.slider(
+        "Text reveal speed",
+        min_value=0.0,
+        max_value=0.18,
+        value=0.045,
+        step=0.005,
+        help="Higher is slower. Set to 0 for instant display.",
+    )
 
-# End of Governed References Panel
-
-# === Rest of your original code continues here ===
-# (the rest of your file remains unchanged)
-
-# Sidebar
-with st.sidebar:
-    st.header("The Vault")
-    st.caption("Reviewed passages & conceptual intensities")
-
-    st.markdown("### Concepts")
-    concepts = ["What's an assemblage?", "Content and Expression", "Territorialisation & Deterritorialisation", "Strata", "Lines of Flight"]
-    for concept in concepts:
-        if st.button(concept, key=concept):
-            st.session_state.selected_concept = concept
+    auto_voice = st.checkbox("Voice narration", value=False)
+    include_clip_brief = st.checkbox("Include film / storyboard brief", value=True)
 
     st.markdown("---")
-    st.header("Settings")
-    auto_voice = st.checkbox("Auto Voice Narration", value=True)
+    selected_preset = st.selectbox("Concept preset", CONCEPT_PRESETS, index=0)
+    if st.button("Use selected concept"):
+        st.session_state.dark_precursor_query = selected_preset
 
-# === Main Cinematic Area ===
-st.markdown('<p class="section-label">THE NARRATOR SPEAKS</p>', unsafe_allow_html=True)
+    st.markdown("---")
+    st.caption("BDP-003C • cinematic reset • provisional synthesis")
 
-default_query = st.session_state.get("selected_concept", "What's an assemblage")
-query = st.text_input("What conceptual intensity calls to you?", value=default_query)
 
-def generate_buchanan_response(concept: str) -> str:
-    try:
-        api_key = os.getenv("OPENAI_API_KEY_LLM")
-        if not api_key:
-            return "Error: OPENAI_API_KEY_LLM not found in .env file."
+# ============================================================
+# MAIN STAGE
+# ============================================================
 
-        client = OpenAI(api_key=api_key)
+st.markdown(
+    """
+    <div class="dp-hero">
+        <div class="dp-kicker">THE DARK PRECURSOR</div>
+        <div class="dp-title">Concepts should move.</div>
+        <div class="dp-subtitle">
+            Enter a concept and let the interface stage it as an assemblage:
+            a flow, a cut, a capture, an affect, and a possible line of flight.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-        system_prompt = """You are Ian Buchanan. You speak with precision, rigor, and a healthy skepticism toward reductive or fashionable readings of Deleuze and Guattari.
+default_query = st.session_state.get("dark_precursor_query", "What is an assemblage?")
+concept_query = st.text_input(
+    "What conceptual intensity should become visible?",
+    value=default_query,
+    key="dark_precursor_query_input",
+)
 
-Core principles:
-- Concepts are tools for analysis, not static objects.
-- Resist simplification and flattening of complexity.
-- Follow the movement of concepts (lines of flight, territorialisation/deterritorialisation, strata).
-- Use concrete examples (such as the university) to illuminate ideas without replacing conceptual work.
-- Maintain conceptual fidelity and nuance."""
+site_of_analysis = st.text_input(
+    "Optional concrete site",
+    value="the university",
+    help="Example: the university, Instagram feed, airport, family dinner, classroom, trading desk.",
+)
 
-        user_prompt = f"""Respond to this conceptual intensity. Use the university as a concrete site of analysis where helpful, but do not reduce the concept to the example.
-
-Concept: {concept}
-
-Your response:"""
-
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            temperature=0.35,
-            max_tokens=720
+cols = st.columns([1, 1, 1])
+with cols[0]:
+    invoke = st.button("Invoke the Precursor", type="primary", use_container_width=True)
+with cols[1]:
+    clear = st.button("Clear stage", use_container_width=True)
+with cols[2]:
+    save_ready = st.session_state.get("last_dark_precursor_response") is not None
+    if save_ready:
+        st.download_button(
+            "Download cinematic brief",
+            data=st.session_state["last_dark_precursor_response"],
+            file_name="dark_precursor_cinematic_brief.md",
+            mime="text/markdown",
+            use_container_width=True,
         )
-        return response.choices[0].message.content.strip()
+    else:
+        st.button("Download cinematic brief", disabled=True, use_container_width=True)
 
-    except Exception as e:
-        return f"Error: {e}"
+if clear:
+    st.session_state.pop("last_dark_precursor_response", None)
+    st.rerun()
 
-if st.button("Invoke the Precursor", type="primary"):
-    with st.spinner("The Narrator enters..."):
-        time.sleep(0.8)
+if invoke:
+    with st.spinner("The room darkens. The concept begins to move..."):
+        full_response = generate_buchanan_response(
+            concept=concept_query,
+            mode=mode,
+            site=site_of_analysis,
+            include_clip_brief=include_clip_brief,
+        )
+        st.session_state["last_dark_precursor_response"] = full_response
 
-        full_response = generate_buchanan_response(query)
+    if reveal_speed > 0:
+        reveal_text(full_response, reveal_speed)
+    else:
+        st.markdown(
+            f"""
+            <div class="dp-stage">
+                <div class="dp-section-label">THE NARRATOR SPEAKS</div>
+                <div class="dp-narrator-text">{markdown_to_stage_html(full_response)}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-        wall = st.empty()
-        displayed = ""
-        for char in full_response:
-            displayed += char
-            wall.markdown(f'<div class="cinematic-wall"><div class="narrator-text">{displayed}</div></div>', unsafe_allow_html=True)
-            time.sleep(0.026)
+    st.caption("Generated cinematic synthesis • evidence spine not modified • human review required")
 
-        st.caption("Grounded in The Vault • Experimental Intensity")
+    if auto_voice:
+        speak_response(full_response)
 
-        if auto_voice:
-            try:
-                voice_key = os.getenv("OPENAI_API_KEY_VOICE")
-                voice_model = os.getenv("VOICE_MODEL", "gpt-4o-mini-tts")
-                client = OpenAI(api_key=voice_key)
-                audio = client.audio.speech.create(model=voice_model, voice="onyx", input=full_response)
-                st.audio(audio.content, format="audio/mp3", autoplay=True)
-            except Exception as e:
-                st.warning(f"Voice unavailable: {e}")
+elif st.session_state.get("last_dark_precursor_response"):
+    full_response = st.session_state["last_dark_precursor_response"]
+    st.markdown(
+        f"""
+        <div class="dp-stage">
+            <div class="dp-section-label">LAST INVOCATION</div>
+            <div class="dp-narrator-text">{markdown_to_stage_html(full_response)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        """
+        <div class="dp-stage">
+            <div class="dp-section-label">THE STAGE IS WAITING</div>
+            <div class="dp-narrator-text">
+                Choose a concept. Choose a scene. Then let the cut appear.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        st.markdown("---")
-        st.markdown('<p class="section-label">THE NARRATOR ASKS</p>', unsafe_allow_html=True)
-        st.info("If we were to take the university — or any institution you know well — as our site of analysis, what would content and expression look like on the different strata at play? Where do you sense lines of flight beginning to emerge?")
 
-        user_reply = st.text_area("Your reply to the Narrator", height=100)
+# ============================================================
+# EXPLORATION CARDS
+# ============================================================
 
-        if st.button("Send reply to the Narrator"):
-            if user_reply.strip():
-                st.markdown('<p class="section-label">THE NARRATOR REPLIES</p>', unsafe_allow_html=True)
-                st.markdown("Your observation is precise. What you describe is a tension between strata — the administrative coding that seeks to capture and measure, versus those minoritarian spaces where thought still escapes. The question becomes: how do these lines of flight endure?")
+st.markdown(
+    """
+    <div class="dp-card-grid">
+        <div class="dp-card">
+            <div class="dp-card-title">1. Find the flow</div>
+            <div class="dp-caption">What moves through the scene: desire, attention, bodies, images, money, language?</div>
+        </div>
+        <div class="dp-card">
+            <div class="dp-card-title">2. Name the cut</div>
+            <div class="dp-caption">What interruption, subtraction, threshold, filter, or capture makes the flow visible?</div>
+        </div>
+        <div class="dp-card">
+            <div class="dp-card-title">3. Stage the image</div>
+            <div class="dp-caption">Turn the concept into a scene without reducing it to a metaphor.</div>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-# === Bottom Section ===
-st.markdown("---")
-st.markdown('<div style="background-color:#0a0a0a; padding:30px; border-radius:8px; border:1px solid #2a2a2a;">', unsafe_allow_html=True)
-st.header("Voices from The Vault")
-st.caption("Publicly available talks by Ian Buchanan")
+with st.expander("🎬 What this cinematic mode can produce", expanded=False):
+    st.markdown(
+        """
+        - large-font cinematic explanations
+        - differential traces
+        - concept-to-scene descriptions
+        - storyboard sequences
+        - film clip briefs
+        - image/video generation prompts for a later adapter
 
-st.markdown("""
-**Machinic Unconscious Happy Hour – Ian Buchanan on Assemblage Theory (2024)**  
-[Listen to the real Ian Buchanan](https://www.youtube.com/results?search_query=ian+buchanan+assemblage+theory+machinic+unconscious+happy+hour)
-""")
-st.markdown('</div>', unsafe_allow_html=True)
+        This phase does not generate video files directly. It prepares the governed
+        cinematic brief that a later ComfyUI / Flux / video pipeline can consume.
+        """
+    )
 
-st.markdown("---")
-st.markdown('<p class="section-label">EXPLORE FURTHER</p>', unsafe_allow_html=True)
+render_governed_reference_dock()
 
-cols = st.columns(5)
-buttons = ["Content & Expression", "Lines of Flight", "Territorialisation", "Strata", "Assemblage"]
+if render_differential_engine_panel is not None:
+    with st.expander("🜂 Differential engine tool", expanded=False):
+        render_differential_engine_panel()
 
-for i, label in enumerate(buttons):
-    with cols[i]:
-        if st.button(label, key=f"explore_{i}"):
-            st.session_state.selected_concept = label
-            st.rerun()
-
-st.caption("The Dark Precursor • Phase 1 • Slower • More Sensual")
+st.markdown(
+    """
+    <div class="dp-dock">
+        <div class="dp-caption">
+            The Dark Precursor • BDP-003C • cinematic reset • governed provisional synthesis.
+            Evidence, citation, relation, and interpretation authority remain controlled by the Vault.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
