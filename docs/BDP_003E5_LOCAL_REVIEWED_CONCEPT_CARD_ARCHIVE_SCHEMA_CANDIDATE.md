@@ -156,3 +156,17 @@ BDP-003E.6 — Review local reviewed concept card archive schema candidate again
 ```
 
 That next phase should review the schema candidate against real exported examples. It should still not implement persistence.
+
+<!-- BDP-003E.6-FOLLOW-UP-NOTE-START -->
+## BDP-003E.6 Follow-up Review Note
+
+BDP-003E.6 reviewed this BDP-003E.5 local reviewed concept card archive schema candidate against the BDP-003E.3 exported cinematic concept card sample cases.
+
+Decision: the candidate is suitable for reviewed sample comparison.
+
+Implementation is still not approved. This note does not authorize persistence, frontend archive buttons, backend services, SQL migrations, local file writers, archive folders, adapter endpoints, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
+
+Next step:
+
+`BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.`
+<!-- BDP-003E.6-FOLLOW-UP-NOTE-END -->

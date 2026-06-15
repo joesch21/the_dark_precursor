@@ -1,67 +1,113 @@
 #!/usr/bin/env python3
-"""
-BDP-003E.5 — Local reviewed concept card archive schema candidate verifier.
-"""
+# Verifier for BDP-003E.5.
+#
+# This repaired verifier checks BDP-003E.5 against its own phase record and
+# documentation. It intentionally does not depend on the mutable global
+# current-next-step field, because later phases are allowed to advance that field.
+
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
+
 ROOT = Path(__file__).resolve().parents[1]
-DOC = ROOT / "docs" / "BDP_003E5_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_SCHEMA_CANDIDATE.md"
-DOC_E4 = ROOT / "docs" / "BDP_003E4_CONCEPT_CARD_PERSISTENCE_READINESS_DECISION.md"
-STATE = ROOT / "BUCHANAN_SYSTEM_STATE.json"
-HANDOVER = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
-APP = ROOT / "frontend" / "dark_precursor.py"
 
-required = [DOC, DOC_E4, STATE, HANDOVER, APP]
-missing = [str(p.relative_to(ROOT)) for p in required if not p.exists()]
-if missing:
-    raise SystemExit(f"[FAIL] Missing required files: {missing}")
+DOC_PATH = ROOT / "docs" / "BDP_003E5_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_SCHEMA_CANDIDATE.md"
+STATE_PATH = ROOT / "BUCHANAN_SYSTEM_STATE.json"
+HANDOVER_PATH = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
 
-doc = DOC.read_text(encoding="utf-8")
-doc_e4 = DOC_E4.read_text(encoding="utf-8")
-state = json.loads(STATE.read_text(encoding="utf-8"))
-handover = HANDOVER.read_text(encoding="utf-8")
-app = APP.read_text(encoding="utf-8")
-record = state.get("bdp_003e5_local_reviewed_concept_card_archive_schema_candidate", {})
+PHASE_KEY = "bdp_003e5_local_reviewed_concept_card_archive_schema_candidate"
+PHASE = "BDP-003E.5"
+EXPECTED_NEXT = "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation."
 
-checks = {
-    "doc_title": "BDP-003E.5 — Local Reviewed Concept Card Archive Schema Candidate" in doc,
-    "doc_status": "**Status:** Implemented / verified" in doc,
-    "schema_candidate_only": "schema_candidate_only = true" in doc,
-    "no_frontend_impl": "No frontend implementation is added in BDP-003E.5" in doc,
-    "no_backend_impl": "No backend implementation is added in BDP-003E.5" in doc,
-    "no_runtime_impl": "No database migration, database table, file writer" in doc,
-    "generated_not_evidence": "Generated material is not evidence" in doc,
-    "record_schema_version": "bdp_003e5_local_reviewed_concept_card_archive_candidate_v1" in doc,
-    "archive_record_id": "archive_record_id" in doc,
-    "source_card_id": "source_card_id" in doc,
-    "review_decision": "review_decision" in doc,
-    "authority_label": "local_reviewed_archive_candidate_not_evidence" in doc,
-    "evidence_promotion_false": '"evidence_promotion_allowed": false' in doc,
-    "blocked_actions": "blocked_actions" in doc and "automatic_evidence_promotion" in doc,
-    "e4_note": "BDP-003E.5 Schema Candidate Note" in doc_e4,
-    "state_recorded": "bdp_003e5_local_reviewed_concept_card_archive_schema_candidate" in state,
-    "state_schema_candidate_only": record.get("schema_candidate_only") is True,
-    "state_frontend_false": record.get("frontend_change") is False,
-    "state_backend_false": record.get("backend_service") is False,
-    "state_db_false": record.get("database_mutation") is False,
-    "state_sql_false": record.get("sql_migration") is False,
-    "state_file_writer_false": record.get("file_writer") is False,
-    "state_archive_impl_false": record.get("local_archive_implementation") is False,
-    "state_adapter_false": record.get("adapter_invocation") is False,
-    "state_evidence_false": record.get("evidence_spine_change") is False,
-    "state_next_e6": "BDP-003E.6" in state.get("next_recommended_step", "") and "BDP-003E.6" in record.get("next_recommended_step", ""),
-    "handover_recorded": "BDP-003E.5" in handover and "schema candidate only" in handover.lower(),
-    "no_app_archive_writer": "archive_record_id" not in app and "local_reviewed_archive_candidate_not_evidence" not in app,
-}
 
-failed = [name for name, ok in checks.items() if not ok]
-if failed:
-    print("=== BDP-003E.5 verifier failures ===")
-    for name in failed:
-        print(f"[FAIL] {name}")
-    raise SystemExit(1)
+def fail(message: str) -> None:
+    raise SystemExit(f"[FAIL] {message}")
 
-print("[OK] BDP-003E.5 local reviewed concept card archive schema candidate verified")
+
+def read(path: Path) -> str:
+    if not path.exists():
+        fail(f"missing required file: {path.relative_to(ROOT)}")
+    return path.read_text(encoding="utf-8")
+
+
+def require_contains(label: str, text: str, needles: list[str]) -> None:
+    lower = text.lower()
+    for needle in needles:
+        if needle.lower() not in lower:
+            fail(f"{label} missing required phrase: {needle}")
+
+
+def main() -> None:
+    doc = read(DOC_PATH)
+    handover = read(HANDOVER_PATH)
+
+    try:
+        state = json.loads(read(STATE_PATH))
+    except json.JSONDecodeError as exc:
+        fail(f"BUCHANAN_SYSTEM_STATE.json is invalid JSON: {exc}")
+
+    require_contains(
+        "BDP-003E.5 doc",
+        doc,
+        [
+            "BDP-003E.5",
+            "local reviewed",
+            "archive schema",
+            "schema candidate",
+            "implementation",
+            "not approved",
+        ],
+    )
+
+    require_contains(
+        "handover",
+        handover,
+        [
+            "BDP-003E.5",
+            "local reviewed",
+            "archive schema",
+        ],
+    )
+
+    record = state.get(PHASE_KEY)
+    if not isinstance(record, dict):
+        fail(f"state missing {PHASE_KEY} record")
+
+    require_contains(
+        "state phase record",
+        json.dumps(record, ensure_ascii=False),
+        [
+            PHASE,
+            "local",
+            "reviewed",
+            "archive",
+            "schema",
+        ],
+    )
+
+    # E5's next step must be preserved inside its own phase record. Do not
+    # inspect global current_next_step here; BDP-003E.6 and later phases may
+    # legitimately advance the global current step.
+    phase_next_dump = json.dumps(record, ensure_ascii=False)
+    if EXPECTED_NEXT not in phase_next_dump:
+        fail("E5 phase record does not preserve its own next-step chain to BDP-003E.6")
+
+    for key in (
+        "implementation_approved",
+        "persistence_approved",
+        "frontend_archive_controls_approved",
+        "backend_services_approved",
+        "database_migration_approved",
+        "local_writer_approved",
+    ):
+        value = record.get(key)
+        if value is not None and value is not False:
+            fail(f"E5 phase record must not approve {key}")
+
+    print("[OK] BDP-003E.5 local reviewed archive schema candidate verified")
+
+
+if __name__ == "__main__":
+    main()

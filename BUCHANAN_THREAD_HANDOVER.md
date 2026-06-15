@@ -397,3 +397,26 @@ Film/video backend generation is not implemented in this slice. The patch create
 ### Next Recommended Step
 
 BDP-003D — Add cinematic concept card output persistence and optional image/video generation adapter boundary.
+
+<!-- BDP-003E.6-ARCHIVE-SCHEMA-SAMPLE-REVIEW-START -->
+## BDP-003E.6 — Archive Schema Sample Review
+
+**Status:** Complete  
+**Type:** review-only governance phase
+
+BDP-003E.6 reviewed the BDP-003E.5 local reviewed concept card archive schema candidate against the BDP-003E.3 exported cinematic concept card sample cases.
+
+Decision: the schema candidate is suitable for reviewed sample comparison, but implementation remains blocked.
+
+No persistence was implemented. No frontend archive controls were added. No backend services, SQL migrations, local file writers, archive folders, adapter endpoints, citations, concept relations, interpretations, evidence promotions, or Buchanan-specific claims were created.
+
+Verifier added:
+
+```bash
+python3 scripts/verify_bdp_003e6_archive_schema_sample_review.py
+```
+
+Current next step:
+
+`BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.`
+<!-- BDP-003E.6-ARCHIVE-SCHEMA-SAMPLE-REVIEW-END -->

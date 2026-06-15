@@ -398,6 +398,38 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e5_local_reviewed_concept_card_archive_schema_candidate.py",
-    "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation."
-  }
+    "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "next_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "follow_up_phase": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "phase_chain_note": "BDP-003E.5 points to BDP-003E.6 inside its own phase record; later phases must not require E5 to inspect the mutable global current-next-step field."
+  },
+  "bdp_003e6_archive_schema_sample_review": {
+    "phase": "BDP-003E.6",
+    "title": "Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "status": "complete",
+    "completed_at": "2026-06-15T18:29:30+00:00",
+    "controlled_slice": "review_only_schema_candidate_against_exported_samples",
+    "decision": "The BDP-003E.5 local reviewed archive schema candidate is suitable for reviewed sample comparison against the exported BDP-003E.3 cinematic concept card samples.",
+    "implementation_approved": false,
+    "persistence_approved": false,
+    "frontend_archive_controls_approved": false,
+    "backend_services_approved": false,
+    "database_migration_approved": false,
+    "local_writer_approved": false,
+    "evidence_promotion_approved": false,
+    "buchanan_claims_created": false,
+    "review_inputs": [
+      "docs/BDP_003E5_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_SCHEMA_CANDIDATE.md",
+      "BDP-003E.3 exported cinematic concept card sample cases",
+      "BDP-003E.4 persistence readiness decision boundary"
+    ],
+    "review_output": "docs/BDP_003E6_ARCHIVE_SCHEMA_SAMPLE_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003e6_archive_schema_sample_review.py",
+    "next_step": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation."
+  },
+  "current_next_step": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.",
+  "next_step": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.",
+  "recommended_next_step": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.",
+  "next_safe_step": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.",
+  "current_phase": "BDP-003E.6"
 }
