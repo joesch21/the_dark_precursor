@@ -1,3 +1,49 @@
+# BDP-003E.1 — Cinematic Concept Card Persistence Contract
+
+**Date:** 2026-06-15T16:51:45+00:00  
+**Status:** Complete  
+**Authority:** Contract only; no runtime implementation.
+
+## What changed
+
+BDP-003E.1 defines the persistence contract for future Dark Precursor cinematic concept cards.
+
+The contract specifies:
+
+1. The minimum card shape.
+2. Required governance labels.
+3. Evidence-spine separation.
+4. Human-review requirements.
+5. The optional downstream image/video adapter boundary.
+6. The next implementation slice.
+
+## Files updated
+
+- `docs/BDP_003E_CINEMATIC_CONCEPT_CARD_PERSISTENCE_CONTRACT.md`
+- `scripts/verify_bdp_003e1_cinematic_concept_card_contract.py`
+- `BUCHANAN_SYSTEM_STATE.json`
+- `BUCHANAN_THREAD_HANDOVER.md`
+
+## Boundary
+
+No frontend, backend, SQL, database, citation, source-ingestion, or adapter implementation was added.
+
+The phase is contract-only. Generated cinematic cards remain `cinematic_synthesis`, `not_evidence`, `not_promoted`, and `human_review_required`.
+
+## Verification
+
+Run:
+
+```bash
+python3 scripts/verify_bdp_003e1_cinematic_concept_card_contract.py
+```
+
+## Next recommended step
+
+BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation.
+
+---
+
 # BDP-003D.2 — Cinematic Video Front Page Closeout
 
 **Date:** 2026-06-15T16:43:10+00:00

@@ -137,9 +137,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003C",
-  "last_updated_utc": "2026-06-15T03:18:11+00:00",
-  "next_recommended_step": "BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.",
+  "last_updated_phase": "BDP-003E.1",
+  "last_updated_utc": "2026-06-15T16:51:45+00:00",
+  "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -163,7 +163,7 @@
       "scripts/update_bdp_003c_cinematic_experience_reset.py",
       "scripts/verify_bdp_003c_cinematic_experience_reset.py"
     ],
-    "next_recommended_step": "BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary.",
+    "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation.",
     "updated_at": "2026-06-15T03:26:40+00:00"
   },
   "bdp_003d_cinematic_video_front_page": {
@@ -199,6 +199,44 @@
       "scripts/verify_bdp_003d_cinematic_video_front_page.py"
     ],
     "verifier": "scripts/verify_bdp_003d_cinematic_video_front_page.py",
-    "next_recommended_step": "BDP-003E — Define cinematic concept card persistence and optional image/video generation adapter boundary."
+    "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation."
+  },
+  "bdp_003e1_cinematic_concept_card_persistence_contract": {
+    "phase": "BDP-003E.1",
+    "title": "Cinematic concept card persistence contract",
+    "status": "complete",
+    "completed_at": "2026-06-15T16:51:45+00:00",
+    "authority": "contract_only",
+    "contract_only": true,
+    "runtime_persistence": false,
+    "frontend_change": false,
+    "backend_change": false,
+    "database_mutation": false,
+    "sql_migration": false,
+    "evidence_spine_change": false,
+    "source_ingestion": false,
+    "citation_creation": false,
+    "concept_relation_creation": false,
+    "interpretation_insertion": false,
+    "buchanan_specific_claim_creation": false,
+    "image_generation_backend": false,
+    "video_generation_backend": false,
+    "adapter_boundary_only": true,
+    "required_governance_labels": [
+      "authority=cinematic_synthesis",
+      "evidence_status=not_evidence",
+      "promotion_status=not_promoted",
+      "human_review_required=true",
+      "adapter_boundary=optional_downstream_generation_only",
+      "evidence_spine_mutation=false"
+    ],
+    "files": [
+      "docs/BDP_003E_CINEMATIC_CONCEPT_CARD_PERSISTENCE_CONTRACT.md",
+      "scripts/verify_bdp_003e1_cinematic_concept_card_contract.py",
+      "BUCHANAN_SYSTEM_STATE.json",
+      "BUCHANAN_THREAD_HANDOVER.md"
+    ],
+    "verifier": "scripts/verify_bdp_003e1_cinematic_concept_card_contract.py",
+    "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation."
   }
 }
