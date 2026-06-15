@@ -137,9 +137,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003E.3",
-  "last_updated_utc": "2026-06-15T17:07:39+00:00",
-  "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only.",
+  "last_updated_phase": "BDP-003E.4",
+  "last_updated_utc": "2026-06-15T17:16:44+00:00",
+  "next_recommended_step": "BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -325,5 +325,42 @@
     ],
     "verifier": "scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py",
     "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only."
+  },
+  "bdp_003e4_concept_card_persistence_readiness_decision": {
+    "phase": "BDP-003E.4",
+    "title": "Concept card persistence readiness decision",
+    "status": "complete",
+    "completed_at": "2026-06-15T17:16:44+00:00",
+    "authority": "review_decision_only_no_implementation",
+    "database_mutation": false,
+    "sql_migration": false,
+    "frontend_change": false,
+    "backend_service": false,
+    "server_file_persistence": false,
+    "adapter_endpoint": false,
+    "adapter_invocation": false,
+    "image_generation": false,
+    "video_generation": false,
+    "evidence_spine_change": false,
+    "citation_creation": false,
+    "concept_relation_creation": false,
+    "interpretation_insertion": false,
+    "buchanan_specific_claim_creation": false,
+    "export_format_reviewed": true,
+    "local_download_draft_surface_ready": true,
+    "database_persistence_ready": false,
+    "adapter_implementation_ready": false,
+    "evidence_promotion_ready": false,
+    "local_archive_schema_candidate_ready": true,
+    "decision": "not_ready_for_persistence_or_adapter; ready_for_schema_candidate_only",
+    "files": [
+      "docs/BDP_003E4_CONCEPT_CARD_PERSISTENCE_READINESS_DECISION.md",
+      "docs/BDP_003E3_CINEMATIC_CONCEPT_CARD_SAMPLE_REVIEW.md",
+      "scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py",
+      "BUCHANAN_SYSTEM_STATE.json",
+      "BUCHANAN_THREAD_HANDOVER.md"
+    ],
+    "verifier": "scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py",
+    "next_recommended_step": "BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation."
   }
 }

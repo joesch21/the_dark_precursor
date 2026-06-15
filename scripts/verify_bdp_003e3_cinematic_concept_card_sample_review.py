@@ -68,7 +68,7 @@ checks = {
     "state_no_adapter": record.get("adapter_invocation") is False,
     "state_no_persistence": record.get("persistence_approved") is False,
     "state_no_evidence": record.get("evidence_spine_change") is False,
-    "state_next_e4": "BDP-003E.4" in state.get("next_recommended_step", ""),
+    "state_next_e4": "BDP-003E.4" in state.get("bdp_003e3_cinematic_concept_card_sample_review", {}).get("next_recommended_step", ""),
     "handover_recorded": "BDP-003E.3" in handover and "sample review" in handover.lower(),
     "no_runtime_forbidden": not any(pattern in app for pattern in runtime_forbidden),
 }

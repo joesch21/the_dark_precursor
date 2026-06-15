@@ -1,3 +1,55 @@
+# BDP-003E.4 — Concept Card Persistence Readiness Decision
+
+**Date:** 2026-06-15T17:16:44+00:00  
+**Status:** Complete  
+**Authority:** Review decision only; no persistence implementation.
+
+## Decision
+
+BDP-003E.4 decides that exported cinematic concept cards are **not ready** for database persistence, backend persistence services, adapter endpoints, image/video generation invocation, or evidence promotion.
+
+They are ready only for a future design-only schema candidate concerning local reviewed-card archiving.
+
+## Readiness flags
+
+```text
+export_format_reviewed = true
+local_download_draft_surface_ready = true
+database_persistence_ready = false
+adapter_implementation_ready = false
+evidence_promotion_ready = false
+local_archive_schema_candidate_ready = true
+implementation_allowed_in_this_phase = false
+```
+
+## Files updated
+
+- `docs/BDP_003E4_CONCEPT_CARD_PERSISTENCE_READINESS_DECISION.md`
+- `docs/BDP_003E3_CINEMATIC_CONCEPT_CARD_SAMPLE_REVIEW.md`
+- `scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py`
+- `BUCHANAN_SYSTEM_STATE.json`
+- `BUCHANAN_THREAD_HANDOVER.md`
+
+## Verification
+
+Run:
+
+```bash
+python3 -m py_compile frontend/dark_precursor.py
+python3 scripts/verify_bdp_003c_cinematic_experience_reset.py
+python3 scripts/verify_bdp_003d_cinematic_video_front_page.py
+python3 scripts/verify_bdp_003e1_cinematic_concept_card_contract.py
+python3 scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py
+python3 scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py
+python3 scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py
+```
+
+## Next recommended step
+
+BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation.
+
+---
+
 # BDP-003E.3 — Cinematic Concept Card Sample Review
 
 **Date:** 2026-06-15T17:07:39+00:00  

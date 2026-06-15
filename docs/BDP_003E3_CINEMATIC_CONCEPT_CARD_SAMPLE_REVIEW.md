@@ -152,3 +152,22 @@ BDP-003E.4 — Decide concept card persistence readiness from reviewed samples o
 ```
 
 BDP-003E.4 should be a decision gate, not a persistence implementation.
+
+## BDP-003E.4 Decision Follow-up
+
+BDP-003E.4 records the readiness decision from this review gate.
+
+Decision outcome:
+
+```text
+database_persistence_ready = false
+adapter_implementation_ready = false
+evidence_promotion_ready = false
+local_archive_schema_candidate_ready = true
+```
+
+Next recommended step:
+
+```text
+BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation.
+```
