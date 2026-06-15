@@ -55,7 +55,7 @@ checks = {
     "e3_followup": "BDP-003E.4 Decision Follow-up" in e3_doc and next_step in e3_doc,
     "state_recorded": bool(record),
     "state_last_phase": "bdp_003e4_concept_card_persistence_readiness_decision" in state,
-    "state_global_next": state.get("next_recommended_step") == next_step,
+    "state_global_next": state.get("bdp_003e4_concept_card_persistence_readiness_decision", {}).get("next_recommended_step") == next_step,
     "state_e3_next_local": state.get("bdp_003e3_cinematic_concept_card_sample_review", {}).get("next_recommended_step") == e4_step,
     "state_no_db": record.get("database_mutation") is False and record.get("database_persistence_ready") is False,
     "state_no_backend": record.get("backend_service") is False,
