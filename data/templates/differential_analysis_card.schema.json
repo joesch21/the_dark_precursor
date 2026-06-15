@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://buchanan-platform.local/schema/differential_analysis_card.schema.json",
+  "title": "Differential Analysis Card",
+  "description": "Governed card for differential reading engine outputs. This schema does not authorize Buchanan-specific claims.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "card_id",
+    "version",
+    "authority_label",
+    "target",
+    "evidence_posture",
+    "assemblage",
+    "flows",
+    "cuts",
+    "captures",
+    "desire",
+    "affect_intensity",
+    "qualitative_difference",
+    "line_of_flight",
+    "blocked_claims",
+    "review_status"
+  ],
+  "properties": {
+    "card_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "authority_label": {
+      "type": "string",
+      "enum": [
+        "primary_text_backed",
+        "buchanan_direct",
+        "secondary_scholarship",
+        "source_bound_description",
+        "system_synthesis",
+        "user_interpretation",
+        "experimental_modelling",
+        "system_synthesis_example_not_buchanan_claim"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "concept": {
+          "type": "string"
+        },
+        "source_locator": {
+          "type": "string"
+        },
+        "rights_status": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence_posture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_backed",
+        "buchanan_specific_claim_authorized",
+        "notes"
+      ],
+      "properties": {
+        "citation_backed": {
+          "type": "boolean"
+        },
+        "buchanan_specific_claim_authorized": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "assemblage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "specificity_note"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "specificity_note": {
+          "type": "string"
+        }
+      }
+    },
+    "flows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cuts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "subtraction_or_interruption",
+          "effect"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "subtraction_or_interruption": {
+            "type": "string"
+          },
+          "effect": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "captures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "captured_or_extracted",
+          "mechanism"
+        ],
+        "properties": {
+          "captured_or_extracted": {
+            "type": "string"
+          },
+          "mechanism": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "desire": {
+      "type": "string"
+    },
+    "affect_intensity": {
+      "type": "string"
+    },
+    "qualitative_difference": {
+      "type": "string"
+    },
+    "line_of_flight": {
+      "type": "string"
+    },
+    "blocked_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "operator_review_required",
+        "reviewed",
+        "accepted",
+        "rejected"
+      ]
+    }
+  }
+}

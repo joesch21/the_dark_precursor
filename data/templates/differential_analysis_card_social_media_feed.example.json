@@ -1,0 +1,70 @@
+{
+  "card_id": "example.social_media_image_feed.v1",
+  "version": "0.1",
+  "authority_label": "system_synthesis_example_not_buchanan_claim",
+  "target": {
+    "name": "Social media image-feed",
+    "type": "example_assemblage",
+    "concept": "differential_method",
+    "rights_status": "not_applicable"
+  },
+  "evidence_posture": {
+    "citation_backed": false,
+    "buchanan_specific_claim_authorized": false,
+    "notes": "Illustrative system synthesis for testing the differential reading template. It is not a Buchanan claim."
+  },
+  "assemblage": {
+    "name": "Platform feed assemblage",
+    "specificity_note": "A platform interface that converts discontinuous image storage into a continuous, scrollable feed."
+  },
+  "flows": [
+    {
+      "name": "images",
+      "description": "Photographs and visual posts appear as a continuous feed rather than as discontinuous files, albums, folders, or devices."
+    },
+    {
+      "name": "attention",
+      "description": "User attention is drawn through scroll continuity, recommendation, novelty, and social comparison."
+    },
+    {
+      "name": "affect",
+      "description": "Mood, comparison, desire, envy, recognition, and belonging circulate through the feed."
+    }
+  ],
+  "cuts": [
+    {
+      "name": "Removal of storage discontinuity",
+      "subtraction_or_interruption": "Folder, device, album, and time boundaries are reduced or hidden.",
+      "effect": "Images appear as a continuous stream."
+    },
+    {
+      "name": "Algorithmic selection threshold",
+      "subtraction_or_interruption": "Only some images are surfaced while others disappear.",
+      "effect": "The feed feels continuous while being constantly cut, ranked, and filtered."
+    }
+  ],
+  "captures": [
+    {
+      "captured_or_extracted": "attention",
+      "mechanism": "Continuous feed design and algorithmic ranking extend time-on-platform."
+    },
+    {
+      "captured_or_extracted": "data",
+      "mechanism": "Engagement produces behavioural traces that can be measured and monetised."
+    },
+    {
+      "captured_or_extracted": "affective intensity",
+      "mechanism": "The feed organizes comparison, recognition, anxiety, desire, and social belonging."
+    }
+  ],
+  "desire": "The assemblage produces desire for visibility, recognition, update, response, and belonging.",
+  "affect_intensity": "The feed intensifies anticipation, comparison, distraction, pleasure, anxiety, and the compulsion to continue.",
+  "qualitative_difference": "The same image differs when it is stored privately in a folder versus circulated publicly in a feed. The material image may be similar, but the assemblage and effect change.",
+  "line_of_flight": "Possible exits include refusal of infinite scroll, return to private archives, slower curation, alternative platforms, or practices that break the capture of attention.",
+  "blocked_claims": [
+    "Do not state that Buchanan directly made this social media argument unless later evidence is inserted.",
+    "Do not treat this as a citation-backed claim.",
+    "Do not infer psychological states of a specific user."
+  ],
+  "review_status": "operator_review_required"
+}
