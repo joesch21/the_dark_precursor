@@ -94,3 +94,9 @@ The following remain blocked until a later explicitly approved phase:
 ## Next Step
 
 **BDP-003E.15 — Wire local reviewed concept card archive controls into The Dark Precursor UI behind safety gates.**
+
+## BDP-003E.15 Follow-up UI Wiring Note
+
+BDP-003E.15 wires local reviewed concept card archive controls into The Dark Precursor UI behind safety gates.
+
+This follow-up does not add backend services, adapter endpoints, database tables, SQL migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.

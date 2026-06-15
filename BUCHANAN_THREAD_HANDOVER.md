@@ -621,3 +621,20 @@ Verifier:
 `scripts/verify_bdp_003e14_ui_archive_control_frontend_wiring_readiness_decision.py`
 
 Next safe step: `BDP-003E.15 — Wire local reviewed concept card archive controls into The Dark Precursor UI behind safety gates.`
+
+## BDP-003E.15 — Archive Controls UI Wiring
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** guarded frontend wiring only
+
+BDP-003E.15 wires local reviewed concept card archive controls into The Dark Precursor UI behind safety gates.
+
+The UI wiring requires a locally reviewed payload, an explicit local archive path, and operator confirmation before calling the local archive writer.
+
+No backend services, adapter endpoints, database tables, SQL migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are added by this phase.
+
+Verifier:
+`scripts/verify_bdp_003e15_archive_controls_ui_wiring.py`
+
+Next safe step: `BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow.`

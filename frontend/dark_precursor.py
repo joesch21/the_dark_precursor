@@ -750,3 +750,16 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# --- BDP-003E.15 Local reviewed concept card archive controls wiring ---
+try:
+    from scripts.ui_reviewed_concept_card_archive_controls import render_bdp_003e15_archive_controls
+
+    _bdp003e15_st = globals().get("st")
+    if _bdp003e15_st is not None:
+        render_bdp_003e15_archive_controls(_bdp003e15_st)
+except Exception as _bdp003e15_archive_error:
+    _bdp003e15_st = globals().get("st")
+    if _bdp003e15_st is not None:
+        _bdp003e15_st.caption(f"BDP-003E.15 archive controls unavailable: {_bdp003e15_archive_error}")
+# --- end BDP-003E.15 archive controls wiring ---

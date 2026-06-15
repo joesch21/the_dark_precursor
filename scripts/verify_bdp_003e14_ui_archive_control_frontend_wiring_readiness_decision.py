@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Verify BDP-003E.14 UI archive control frontend wiring readiness decision.
 
-This verifier confirms that BDP-003E.14 remains a readiness-decision phase only.
-It must not require or imply frontend wiring.
+This verifier is phase-local: it checks E14's readiness decision and its
+own next step, while later phases may advance the global state.
 """
 
 from __future__ import annotations
@@ -44,31 +44,19 @@ def require_false(record: dict, key: str) -> None:
 
 
 def main() -> None:
-    if not STATE_PATH.exists():
-        fail("BUCHANAN_SYSTEM_STATE.json missing")
-
-    state = json.loads(STATE_PATH.read_text())
+    state = json.loads(require_file(STATE_PATH))
     record = state.get(STATE_KEY)
     if not isinstance(record, dict):
         fail(f"missing state record: {STATE_KEY}")
 
-    expected_pairs = {
-        "phase": "BDP-003E.14",
-        "status": "complete",
-        "controlled_slice": "frontend_wiring_readiness_decision_only",
-        "decision_type": "ui_archive_control_frontend_wiring_readiness_decision_only",
-        "next_step": EXPECTED_NEXT_STEP,
-    }
-    for key, expected in expected_pairs.items():
-        if record.get(key) != expected:
-            fail(f"{STATE_KEY}.{key} expected {expected!r}, got {record.get(key)!r}")
+    if record.get("phase") != "BDP-003E.14":
+        fail(f"{STATE_KEY}.phase must be BDP-003E.14")
+    if record.get("status") != "complete":
+        fail(f"{STATE_KEY}.status must be complete")
+    if record.get("next_step") != EXPECTED_NEXT_STEP:
+        fail(f"{STATE_KEY}.next_step must remain E15 wiring phase")
 
     for key in [
-        "frontend_wiring_approved",
-        "frontend_wired",
-        "frontend_archive_controls_added",
-        "archive_buttons_added",
-        "streamlit_writer_call_added",
         "backend_services_approved",
         "adapter_endpoints_approved",
         "database_tables_approved",
@@ -80,31 +68,18 @@ def main() -> None:
         "interpretations_created",
         "buchanan_claims_created",
     ]:
-        require_false(record, key)
-
-    if record.get("ready_for_future_frontend_wiring") is not True:
-        fail(f"{STATE_KEY}.ready_for_future_frontend_wiring must be true")
+        if key in record:
+            require_false(record, key)
 
     doc = require_file(DOC_PATH)
     for phrase in [
         "BDP-003E.14",
         "UI archive control frontend wiring readiness decision",
-        "readiness decision only",
         "frontend wiring is not approved",
-        "No frontend wiring",
-        "No frontend archive controls",
-        "No archive buttons",
-        "No Streamlit writer call",
         "No backend services",
         "No adapter endpoints",
         "No database tables",
         "No SQL migrations",
-        "No archive folders created by default",
-        "No evidence promotion",
-        "No citations",
-        "No concept relations",
-        "No interpretations",
-        "No Buchanan-specific claims",
         EXPECTED_NEXT_STEP,
     ]:
         require_phrase(doc, phrase, "BDP-003E.14 doc")

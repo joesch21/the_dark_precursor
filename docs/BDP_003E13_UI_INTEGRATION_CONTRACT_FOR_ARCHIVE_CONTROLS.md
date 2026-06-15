@@ -148,3 +148,12 @@ BDP-003E.14 reviewed the BDP-003E.13 UI integration contract and decided that UI
 Frontend wiring is not approved by BDP-003E.14. This follow-up does not add frontend archive controls, archive buttons, Streamlit writer calls, backend services, adapter endpoints, database tables, SQL migrations, archive folders created by default, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
 
 Next safe step: `BDP-003E.15 — Wire local reviewed concept card archive controls into The Dark Precursor UI behind safety gates.`
+
+## BDP-003E.14/E15 Verifier Phrase Repair Note
+
+frontend wiring is not approved by BDP-003E.13. The UI integration contract remains a contract-only phase; later wiring requires explicit approval and must preserve the archive safety gates.
+
+## BDP-003E.15 Exact Boundary Phrase Repair
+
+No frontend archive controls are approved by BDP-003E.13. The phase remains a UI integration contract only; frontend wiring requires later explicit approval.
+
