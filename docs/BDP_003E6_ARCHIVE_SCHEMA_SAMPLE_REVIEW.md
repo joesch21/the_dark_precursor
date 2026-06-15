@@ -93,3 +93,8 @@ The correct next move is not a writer implementation. The correct next move is a
 **BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.**
 
 That phase may define the contract for a local reviewed concept card archive writer, but it must still avoid implementation unless a later explicitly implementation-bound phase authorizes it.
+
+## Verifier Repair Note
+
+Implementation is not approved. BDP-003E.6 remains a review-only sample comparison phase. The archive schema candidate may be carried forward for a later contract phase, but no persistence implementation, frontend archive control, backend service, database table, SQL migration, local archive writer, adapter endpoint, evidence promotion, citation, concept relation, interpretation, or Buchanan-specific claim is approved by this phase.
+
