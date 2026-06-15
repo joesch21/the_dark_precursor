@@ -277,7 +277,7 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py",
-    "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only."
+    "next_recommended_step": "BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation."
   },
   "bdp_003e3_cinematic_concept_card_sample_review": {
     "phase": "BDP-003E.3",
