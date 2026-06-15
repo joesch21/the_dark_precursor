@@ -37,14 +37,14 @@ The Dark Precursor is designed as:
 - **Minimalist + Atmospheric**: Clean, dark, high-end aesthetic (Apple-like restraint with philosophical depth)
 - **Sensual & Contemplative**: Larger, elegant typography with slower, human-like pacing
 - **Relational**: Not one-way explanation, but conceptual dialogue
-- **Governed**: Responses are shaped by a strong Buchanan-style system prompt aligned with project documentation
+- **Governed**: Responses are shaped by a governed Buchanan-informed system prompt aligned with project documentation
 
 ## 5. Governance Boundaries
 
 - All responses are generated through a strengthened system prompt designed to remain Buchanan-informed without claiming to be Ian Buchanan.
 - The interface does **not** yet perform strict retrieval-augmented generation from the SQL database.
-- Voice synthesis uses a separate API key (`OPENAI_API_KEY_VOICE`).
-- Text generation uses `OPENAI_API_KEY_LLM` + `gpt-4o-mini`.
+- Voice synthesis uses a separate API key (`OPENAI_API_KEY_VOICE`) when voice narration is enabled.
+- Text generation uses `OPENAI_API_KEY_LLM` and the configured text model.
 
 ## 6. Current Limitations
 
