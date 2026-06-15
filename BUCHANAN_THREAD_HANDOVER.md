@@ -586,3 +586,23 @@ Boundary:
 - no repository archive records written
 
 Next safe step: `BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend.`
+
+## BDP-003E.13 — UI Integration Contract for Local Reviewed Concept Card Archive Controls
+
+**Status:** Complete
+**Controlled slice:** UI integration contract only
+
+BDP-003E.13 defines the future UI integration contract for local reviewed concept card archive controls before frontend wiring.
+
+Boundary:
+- No frontend wiring
+- No archive control implementation
+- No Streamlit archive button
+- No backend services
+- No adapter endpoints
+- No database tables or SQL migrations
+- No evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims
+
+Decision: the UI integration contract is suitable for a later readiness phase, but frontend wiring is not approved by BDP-003E.13.
+
+Next safe step: `BDP-003E.14 — Decide UI archive control frontend wiring readiness, without wiring frontend.`

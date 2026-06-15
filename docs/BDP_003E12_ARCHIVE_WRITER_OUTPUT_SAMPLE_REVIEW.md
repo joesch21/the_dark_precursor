@@ -95,3 +95,11 @@ The writer remains unsuitable for UI integration until a later UI integration co
 ## Next Step
 
 **BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend.**
+
+## BDP-003E.13 Follow-up UI Contract Note
+
+BDP-003E.13 defines a UI integration contract only for future local reviewed concept card archive controls.
+
+UI integration remains blocked. This follow-up does not wire frontend controls, add archive buttons, call the local writer from the UI, add backend services, add adapter endpoints, add database tables, add SQL migrations, promote evidence, create citations, create concept relations, create interpretations, or create Buchanan-specific claims.
+
+Next safe step: `BDP-003E.14 — Decide UI archive control frontend wiring readiness, without wiring frontend.`
