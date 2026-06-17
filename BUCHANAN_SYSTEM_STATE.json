@@ -917,5 +917,55 @@
     "review_output": "docs/BDP_003F3_ABOUT_PAGE_RUNNING_FRONTEND_REVIEW.md",
     "verifier": "scripts/verify_bdp_003f3_about_page_running_frontend_review.py",
     "next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages."
+  },
+  "bdp_003f4_dark_precursor_navigation_architecture": {
+    "phase": "BDP-003F.4",
+    "title": "Define The Dark Precursor navigation architecture before adding further frontend pages",
+    "status": "complete",
+    "completed_at": "2026-06-17T00:00:00+00:00",
+    "controlled_slice": "navigation_architecture_definition_only",
+    "definition_only": true,
+    "frontend_implementation": false,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "archive_workflow_expanded": false,
+    "evidence_promotion_added": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "adaptive_navigation_added": false,
+    "hidden_personalization_added": false,
+    "primary_surface": "cinematic_concept_stage",
+    "supporting_surfaces": [
+      "about_page"
+    ],
+    "future_surface_candidates": [
+      "concept_stage",
+      "about",
+      "archive_reviewed_outputs",
+      "source_evidence_posture",
+      "settings_controls",
+      "help_orientation"
+    ],
+    "navigation_principles": [
+      "preserve_cinematic_immersion",
+      "avoid_dashboard_drift",
+      "supporting_surfaces_return_to_concept_stage",
+      "navigation_does_not_create_authority",
+      "no_hidden_adaptation"
+    ],
+    "authority_boundary": [
+      "navigation_does_not_create_citations",
+      "navigation_does_not_create_interpretations",
+      "navigation_does_not_create_evidence_promotion",
+      "navigation_does_not_create_concept_relations",
+      "navigation_does_not_create_buchanan_claims"
+    ],
+    "review_output": "docs/BDP_003F4_DARK_PRECURSOR_NAVIGATION_ARCHITECTURE.md",
+    "verifier": "scripts/verify_bdp_003f4_navigation_architecture.py",
+    "next_step": "BDP-003F.5 — Wire navigation architecture only after BDP-003F.4 is committed and pushed."
   }
 }

@@ -722,3 +722,34 @@ Next safe step:
 ```text
 BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages.
 ```
+
+
+## BDP-003F.4 — Navigation Architecture Definition
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** navigation architecture definition only
+
+BDP-003F.4 defines The Dark Precursor navigation architecture before adding further frontend pages.
+
+The cinematic concept stage remains the primary surface. The About page is a supporting explanation surface.
+
+Future surface candidates may include the concept stage, About, archive/reviewed outputs, source/evidence posture, settings/controls, and help/orientation, but these are architectural candidates only. BDP-003F.4 does not implement them.
+
+Navigation must preserve cinematic immersion, avoid dashboard drift, make page movement explicit, and ensure supporting pages return clearly to the concept stage.
+
+Navigation does not create citation authority, evidence promotion, interpretation, concept relation, source ingestion, database mutation, adapter invocation, or Buchanan-specific claim.
+
+No frontend implementation, backend services, adapter endpoints, database tables, SQL migrations, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are added.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f4_navigation_architecture.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.5 — Wire navigation architecture only after BDP-003F.4 is committed and pushed.
+```
