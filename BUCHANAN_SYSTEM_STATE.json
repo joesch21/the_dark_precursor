@@ -137,7 +137,7 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.2",
+  "last_updated_phase": "BDP-003F.3",
   "last_updated_utc": "2026-06-15T17:25:27+00:00",
   "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
   "bdp_003c_cinematic_experience_reset": {
@@ -431,8 +431,8 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes.",
-  "next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes.",
+  "current_next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages.",
+  "next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages.",
   "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
   "current_phase": "BDP-003E.12",
@@ -887,5 +887,35 @@
     "review_output": "docs/BDP_003F2_ABOUT_PAGE.md",
     "verifier": "scripts/verify_bdp_003f2_about_page.py",
     "next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes."
+  },
+  "bdp_003f3_about_page_running_frontend_review": {
+    "phase": "BDP-003F.3",
+    "title": "Review The Dark Precursor About page in the running frontend before further public-facing explanation changes",
+    "status": "complete",
+    "completed_at": "2026-06-17T00:00:00+00:00",
+    "controlled_slice": "running_frontend_review_only",
+    "implementation_type": "manual_about_page_frontend_review",
+    "decision": "Record the running-frontend inspection of the BDP-003F.2 About page before further public-facing explanation changes.",
+    "review_only": true,
+    "manual_frontend_inspection_recorded": true,
+    "application_launches": true,
+    "about_page_opens": true,
+    "return_to_concept_stage_control_works": true,
+    "core_cinematic_interface_remains_available": true,
+    "frontend_ux_changed": false,
+    "new_controls_added": false,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "archive_workflow_expanded": false,
+    "evidence_promotion_added": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "review_output": "docs/BDP_003F3_ABOUT_PAGE_RUNNING_FRONTEND_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003f3_about_page_running_frontend_review.py",
+    "next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages."
   }
 }

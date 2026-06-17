@@ -691,3 +691,34 @@ Verifier:
 `scripts/verify_bdp_003f2_about_page.py`
 
 Next safe step: `BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes.`
+## BDP-003F.3 — About Page Running Frontend Review
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** running-frontend review only
+
+BDP-003F.3 records the manual running-frontend inspection of the BDP-003F.2 About page before further public-facing explanation changes.
+
+Manual inspection result:
+
+```text
+The About page works in the running frontend.
+The application launches.
+The About page opens.
+The Return to concept stage control works.
+The core cinematic interface remains available.
+```
+
+No new frontend UX, controls, backend services, adapter endpoints, database work, archive workflow expansion, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims are added.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f3_about_page_running_frontend_review.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages.
+```
