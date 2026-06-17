@@ -46,6 +46,24 @@ def load_local_css(relative_path: str) -> None:
 load_local_css("styles/dark_precursor.css")
 
 
+SURFACE_STAGE = "stage"
+SURFACE_ABOUT = "about"
+APPROVED_DARK_PRECURSOR_SURFACES = {SURFACE_STAGE, SURFACE_ABOUT}
+
+
+def get_dark_precursor_surface() -> str:
+    surface = st.session_state.get("dark_precursor_view", SURFACE_STAGE)
+    if surface not in APPROVED_DARK_PRECURSOR_SURFACES:
+        return SURFACE_STAGE
+    return surface
+
+
+def set_dark_precursor_surface(surface_key: str) -> None:
+    if surface_key not in APPROVED_DARK_PRECURSOR_SURFACES:
+        raise ValueError(f"Unsupported Dark Precursor surface: {surface_key}")
+    st.session_state["dark_precursor_view"] = surface_key
+
+
 @st.cache_data(show_spinner=False)
 def load_video_data_uri(relative_path: str) -> str:
     """Return a local frontend asset as a browser-safe video data URI."""
@@ -563,7 +581,7 @@ def render_about_page() -> None:
     cols = st.columns([1.2, 1, 1.2])
     with cols[1]:
         if st.button("Return to concept stage", type="primary", use_container_width=True):
-            st.session_state["dark_precursor_view"] = "stage"
+            set_dark_precursor_surface(SURFACE_STAGE)
             st.rerun()
 
 
@@ -651,14 +669,14 @@ with st.sidebar:
 
     st.markdown("---")
     if st.button("About The Dark Precursor", use_container_width=True):
-        st.session_state["dark_precursor_view"] = "about"
+        set_dark_precursor_surface(SURFACE_ABOUT)
         st.rerun()
 
     st.caption("BDP-003D • cinematic video front page • provisional synthesis")
 
 
 # BDP-003F.2 About page route
-if st.session_state.get("dark_precursor_view") == "about":
+if get_dark_precursor_surface() == SURFACE_ABOUT:
     render_about_page()
     st.stop()
 

@@ -753,3 +753,53 @@ Next safe step:
 ```text
 BDP-003F.5 — Wire navigation architecture only after BDP-003F.4 is committed and pushed.
 ```
+
+
+## BDP-003F.5 — Navigation Wiring
+
+**Status:** Complete
+**Commit status:** Pending operator commit
+**Controlled slice:** minimal frontend navigation wiring only
+
+BDP-003F.5 wires the already-approved BDP-003F.4 navigation architecture into the existing Dark Precursor frontend.
+
+This phase does not add new pages. It does not add a dashboard. It does not add backend services, adapter endpoints, database tables, SQL migrations, archive workflow expansion, evidence promotion, citations, concept relations, interpretations, or Buchanan-specific claims.
+
+Implemented frontend change:
+
+```text
+frontend/dark_precursor.py
+```
+
+The frontend now defines explicit approved surface keys for the existing concept stage and About page:
+
+```text
+SURFACE_STAGE
+SURFACE_ABOUT
+APPROVED_DARK_PRECURSOR_SURFACES
+```
+
+The frontend now routes surface movement through:
+
+```text
+get_dark_precursor_surface
+set_dark_precursor_surface
+```
+
+The verified launch authority is README/docs.
+
+The verified launch method is:
+
+```bash
+cd ~/Applications/the_dark_precursor/buchanan_platform_docs
+. ./venv/bin/activate
+python -m streamlit run frontend/dark_precursor.py
+```
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f5_navigation_wiring.py
+```
+
+Next safe step: do not start BDP-003F.6 in this thread.

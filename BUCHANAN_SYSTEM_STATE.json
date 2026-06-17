@@ -967,5 +967,59 @@
     "review_output": "docs/BDP_003F4_DARK_PRECURSOR_NAVIGATION_ARCHITECTURE.md",
     "verifier": "scripts/verify_bdp_003f4_navigation_architecture.py",
     "next_step": "BDP-003F.5 — Wire navigation architecture only after BDP-003F.4 is committed and pushed."
+  },
+  "bdp_003f5_dark_precursor_navigation_wiring": {
+    "phase": "BDP-003F.5",
+    "title": "Wire The Dark Precursor navigation architecture without adding new pages",
+    "status": "complete",
+    "completed_at": "2026-06-17T00:00:00+00:00",
+    "controlled_slice": "minimal_frontend_navigation_wiring_only",
+    "implementation_type": "frontend_navigation_helper_wiring",
+    "decision": "Wire the already-approved BDP-003F.4 navigation architecture into the existing Streamlit frontend without adding pages.",
+    "definition_source": "docs/BDP_003F4_DARK_PRECURSOR_NAVIGATION_ARCHITECTURE.md",
+    "frontend_implementation": true,
+    "frontend_target": "frontend/dark_precursor.py",
+    "approved_surface_keys": [
+      "stage",
+      "about"
+    ],
+    "navigation_helpers_added": [
+      "get_dark_precursor_surface",
+      "set_dark_precursor_surface"
+    ],
+    "raw_navigation_assignments_removed": true,
+    "route_check_uses_governed_helper": true,
+    "title_gate_preserved": true,
+    "about_button_preserved": true,
+    "return_to_concept_stage_button_preserved": true,
+    "main_cinematic_concept_stage_preserved": true,
+    "teleprompter_narrator_stage_preserved": true,
+    "existing_visual_atmosphere_preserved": true,
+    "existing_concept_input_and_generation_path_preserved": true,
+    "existing_archive_controls_preserved": true,
+    "existing_governed_reference_dock_preserved": true,
+    "new_public_pages_added": false,
+    "dashboard_added": false,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "archive_workflow_expanded": false,
+    "evidence_promotion_added": false,
+    "citations_created": false,
+    "concept_relations_created": false,
+    "interpretations_created": false,
+    "buchanan_claims_created": false,
+    "adaptive_navigation_added": false,
+    "hidden_personalization_added": false,
+    "verified_launch_authority": "README/docs",
+    "verified_launch_method": [
+      "cd ~/Applications/the_dark_precursor/buchanan_platform_docs",
+      ". ./venv/bin/activate",
+      "python -m streamlit run frontend/dark_precursor.py"
+    ],
+    "review_output": "docs/BDP_003F5_DARK_PRECURSOR_NAVIGATION_WIRING.md",
+    "verifier": "scripts/verify_bdp_003f5_navigation_wiring.py",
+    "next_step": "Do not start BDP-003F.6 in this thread."
   }
 }
