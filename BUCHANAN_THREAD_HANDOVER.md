@@ -803,3 +803,53 @@ scripts/verify_bdp_003f5_navigation_wiring.py
 ```
 
 Next safe step: do not start BDP-003F.6 in this thread.
+
+## BDP-003F.6 — Concept Lens Architecture
+
+**Status:** Complete  
+**Commit status:** Pending operator commit  
+**Controlled slice:** architecture definition only
+
+BDP-003F.6 defines the Concept Lens as a future archive-grounded Deleuzian concept exploration dock inside The Dark Precursor concept stage.
+
+The Concept Lens is intended to let students and users ask concept questions while preserving the evidence spine and avoiding conceptual flattening. It is not a new dashboard, not a general chatbot, and not a per-concept page system.
+
+Defined future answer layers:
+
+```text
+plain_explanation
+technical_deleuzian_explanation
+archive_evidence_posture
+fidelity_warning
+```
+
+Defined future archive readback chain:
+
+```text
+concepts -> concept_mentions -> passages -> citations -> sources
+```
+
+Defined future evidence posture levels:
+
+```text
+archive_grounded
+source_bound_description
+secondary_scholarship_supported
+system_synthesis
+exploratory_unverified
+```
+
+BDP-003F.6 does not add frontend implementation, Streamlit controls, new navigation surface keys, backend services, adapter endpoints, SQL migrations, database tables, source ingestion, citations, concept mentions, concept relations, interpretations, evidence promotion, Buchanan-specific claims, external LLM routing, automatic chat filtering, hidden personalization, or psychological assessment.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f6_concept_lens_architecture.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.
+```
+

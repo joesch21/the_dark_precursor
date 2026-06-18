@@ -85,6 +85,39 @@
         "buchanan_specific_claim_creation": false,
         "actual_video_generation_backend": false
       }
+    },
+    "BDP-003F.6": {
+      "phase": "BDP-003F.6",
+      "title": "Define Concept Lens architecture for archive-grounded Deleuzian concept exploration",
+      "status": "complete",
+      "type": "architecture_definition_only",
+      "updated_at": "2026-06-18T01:50:00+00:00",
+      "summary": "Defines the Concept Lens as a future archive-grounded concept exploration dock inside The Dark Precursor concept stage, without implementation.",
+      "deliverables": [
+        "docs/BDP_003F6_CONCEPT_LENS_ARCHITECTURE.md",
+        "scripts/verify_bdp_003f6_concept_lens_architecture.py",
+        "BUCHANAN_SYSTEM_STATE.json",
+        "BUCHANAN_THREAD_HANDOVER.md"
+      ],
+      "boundaries": {
+        "frontend_implementation": false,
+        "backend_services_added": false,
+        "adapter_endpoints_added": false,
+        "database_tables_added": false,
+        "sql_migrations_added": false,
+        "database_mutation": false,
+        "source_ingestion_added": false,
+        "citation_creation_added": false,
+        "concept_mention_creation_added": false,
+        "concept_relation_creation_added": false,
+        "interpretation_insertion_added": false,
+        "evidence_promotion_added": false,
+        "buchanan_claims_created": false,
+        "automatic_chat_filtering_added": false,
+        "hidden_personalization_added": false,
+        "psychological_assessment_added": false
+      },
+      "next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation."
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -137,9 +170,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.3",
-  "last_updated_utc": "2026-06-15T17:25:27+00:00",
-  "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+  "last_updated_phase": "BDP-003F.6",
+  "last_updated_utc": "2026-06-18T01:50:00+00:00",
+  "next_recommended_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -431,11 +464,11 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages.",
-  "next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages.",
-  "recommended_next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "next_safe_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation.",
-  "current_phase": "BDP-003E.12",
+  "current_next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.",
+  "next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.",
+  "recommended_next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.",
+  "next_safe_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.",
+  "current_phase": "BDP-003F.6",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -1021,5 +1054,85 @@
     "review_output": "docs/BDP_003F5_DARK_PRECURSOR_NAVIGATION_WIRING.md",
     "verifier": "scripts/verify_bdp_003f5_navigation_wiring.py",
     "next_step": "Do not start BDP-003F.6 in this thread."
+  },
+  "bdp_003f6_concept_lens_architecture": {
+    "phase": "BDP-003F.6",
+    "title": "Define Concept Lens architecture for archive-grounded Deleuzian concept exploration",
+    "status": "complete",
+    "completed_at": "2026-06-18T01:50:00+00:00",
+    "controlled_slice": "architecture_definition_only",
+    "definition_only": true,
+    "concept_lens_defined": true,
+    "implementation_approved": false,
+    "placement": "future_dock_inside_cinematic_concept_stage",
+    "frontend_implementation": false,
+    "backend_services_added": false,
+    "adapter_endpoints_added": false,
+    "database_tables_added": false,
+    "sql_migrations_added": false,
+    "database_mutation": false,
+    "source_ingestion_added": false,
+    "citation_creation_added": false,
+    "concept_mention_creation_added": false,
+    "concept_relation_creation_added": false,
+    "interpretation_insertion_added": false,
+    "evidence_promotion_added": false,
+    "buchanan_claims_created": false,
+    "new_navigation_surface_keys_added": false,
+    "dashboard_added": false,
+    "per_concept_pages_added": false,
+    "general_chatbot_added": false,
+    "automatic_chat_filtering_added": false,
+    "hidden_personalization_added": false,
+    "psychological_assessment_added": false,
+    "concept_lens_role": "archive_grounded_deleuzian_concept_exploration",
+    "concept_lens_non_role": "not_general_chatbot_not_dashboard_not_evidence_promotion_path",
+    "future_answer_layers": [
+      "plain_explanation",
+      "technical_deleuzian_explanation",
+      "archive_evidence_posture",
+      "fidelity_warning"
+    ],
+    "future_archive_readback_chain": [
+      "concepts",
+      "concept_mentions",
+      "passages",
+      "citations",
+      "sources"
+    ],
+    "optional_future_archive_layers": [
+      "concept_relations",
+      "interpretations",
+      "source_candidates",
+      "passage_candidates"
+    ],
+    "future_evidence_posture_levels": [
+      "archive_grounded",
+      "source_bound_description",
+      "secondary_scholarship_supported",
+      "system_synthesis",
+      "exploratory_unverified"
+    ],
+    "authority_labels_preserved": [
+      "primary_text",
+      "buchanan_direct",
+      "secondary_scholarship",
+      "system_synthesis",
+      "user_interpretation"
+    ],
+    "fidelity_warning_scope_defined": true,
+    "fidelity_warning_implemented": false,
+    "blocked_simplification_risks": [
+      "habit",
+      "routine",
+      "pattern recognition",
+      "self-help psychology",
+      "generic identity maintenance",
+      "unsupported author-position claims",
+      "ordinary metaphor without qualification"
+    ],
+    "review_output": "docs/BDP_003F6_CONCEPT_LENS_ARCHITECTURE.md",
+    "verifier": "scripts/verify_bdp_003f6_concept_lens_architecture.py",
+    "next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation."
   }
 }
