@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Verify BDP-003F.12 Concept Lens bridge output smoke review."""
+"""Verify BDP-003F.12 Concept Lens bridge output smoke review.
+
+Historical-phase safe: BDP-003F.13 may advance global current_phase/next_step
+without invalidating the F12 phase record.
+"""
 
 from __future__ import annotations
 
@@ -14,7 +18,9 @@ STATE = ROOT / "BUCHANAN_SYSTEM_STATE.json"
 HANDOVER = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
 F11_BRIDGE = ROOT / "scripts/concept_lens_existing_archive_evidence_readback_bridge.py"
 F8_SERVICE = ROOT / "scripts/concept_lens_archive_evidence_posture_service.py"
-NEXT_STEP = "BDP-003F.13 — Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring."
+F12_NEXT_STEP = "BDP-003F.13 — Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring."
+ALLOWED_CURRENT_PHASES = {"BDP-003F.12", "BDP-003F.13"}
+ALLOWED_NEXT_PREFIXES = ("BDP-003F.13", "BDP-003F.14")
 
 
 def require(condition: bool, message: str) -> None:
@@ -29,7 +35,7 @@ def read(path: Path) -> str:
 
 def verify_doc() -> None:
     doc = read(DOC)
-    required = [
+    for needle in [
         "BDP-003F.12",
         "read-only bridge output smoke review only",
         "Body without Organs",
@@ -40,9 +46,8 @@ def verify_doc() -> None:
         "no Concept Lens UI dock",
         "no database mutation",
         "no SQL migration",
-        NEXT_STEP,
-    ]
-    for needle in required:
+        F12_NEXT_STEP,
+    ]:
         require(needle in doc, f"F12 doc missing required text: {needle}")
 
 
@@ -52,7 +57,8 @@ def verify_existing_bridge_boundary() -> None:
     require("concept_lens" in bridge.lower(), "F11 bridge should remain Concept Lens scoped")
     require("read" in bridge.lower(), "F11 bridge should expose read-oriented logic")
     require("concept_lens" in service.lower(), "F8 service should remain Concept Lens scoped")
-    forbidden_service_terms = [
+    combined = bridge + "\n" + service
+    for needle in [
         "st.button(\"Concept Lens",
         "st.text_input(\"Concept Lens",
         "CREATE TABLE concept_lens",
@@ -60,9 +66,7 @@ def verify_existing_bridge_boundary() -> None:
         "INSERT INTO citations",
         "INSERT INTO concept_relations",
         "INSERT INTO interpretations",
-    ]
-    combined = bridge + "\n" + service
-    for needle in forbidden_service_terms:
+    ]:
         require(needle not in combined, f"Forbidden implementation expansion found: {needle}")
 
 
@@ -90,8 +94,9 @@ def verify_state() -> None:
         "buchanan_claims_created",
     ]:
         require(record.get(blocked) is False, f"F12 must keep {blocked}=false")
-    require(data.get("current_phase") == PHASE, "Global current_phase should be BDP-003F.12")
-    require(data.get("next_step") == NEXT_STEP, "Global next_step mismatch")
+    require(record.get("next_step") == F12_NEXT_STEP, "F12 record next_step mismatch")
+    require(data.get("current_phase") in ALLOWED_CURRENT_PHASES, "Global current_phase should remain in approved F12-F13 progression")
+    require(data.get("next_step", "").startswith(ALLOWED_NEXT_PREFIXES), "Global next_step should remain in approved F12-F13 progression")
 
 
 def verify_handover() -> None:
@@ -103,7 +108,7 @@ def verify_handover() -> None:
         "assemblage",
         "concepts -> concept_mentions -> passages -> citations -> sources",
         "no Concept Lens UI dock",
-        NEXT_STEP,
+        F12_NEXT_STEP,
     ]:
         require(needle in handover, f"Handover missing required text: {needle}")
 

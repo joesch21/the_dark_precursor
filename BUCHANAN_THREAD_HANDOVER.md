@@ -1216,3 +1216,74 @@ This handover section preserves the required F11 boundary vocabulary for histori
 ```text
 existing archive readback bridge
 ```
+
+## BDP-003F.13 — Concept Lens UI Integration Contract for Read-only Evidence Posture Display
+
+**Status:** Complete
+**Controlled slice:** UI integration contract only
+
+BDP-003F.13 defines the UI integration contract for displaying read-only Concept Lens evidence posture before frontend wiring.
+
+Approved display model:
+
+```text
+Archive evidence posture
+Archive-grounded match
+Source-bound description
+Exploratory / unverified
+No archive match
+Rights-limited display
+Read-only archive evidence
+```
+
+Preserved archive chain:
+
+```text
+concepts -> concept_mentions -> passages -> citations -> sources
+```
+
+Required service handoff boundary:
+
+```text
+read_concept_lens_archive_evidence_posture_via_existing_archive_bridge
+```
+
+First future UI smoke cases:
+
+```text
+Body without Organs
+we repress because we repeat
+assemblage
+```
+
+Boundary:
+
+- no frontend wiring
+- no Concept Lens UI dock implementation
+- no Streamlit controls
+- no backend routes
+- no adapter endpoints
+- no SQL migrations
+- no database mutation
+- no citation creation
+- no concept mention creation
+- no concept relation creation
+- no interpretation insertion
+- no evidence promotion
+- no Buchanan-specific claims
+- no automatic chat filtering
+- no external LLM routing
+- no unrestricted passage reproduction
+- no source ingestion
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f13_concept_lens_ui_integration_contract.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.
+```
