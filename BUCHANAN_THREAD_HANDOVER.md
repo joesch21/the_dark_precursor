@@ -1,6 +1,6 @@
 # BDP-003E.5 — Local Reviewed Concept Card Archive Schema Candidate
 
-**Date:** 2026-06-15T17:25:27+00:00  
+**Date:** 2026-06-15T17:25:27+00:00
 **Status:** Complete
 **Authority:** Schema candidate only; no implementation.
 
@@ -48,7 +48,7 @@ BDP-003E.6 — Review local reviewed concept card archive schema candidate again
 
 # BDP-003E.4 — Concept Card Persistence Readiness Decision
 
-**Date:** 2026-06-15T17:16:44+00:00  
+**Date:** 2026-06-15T17:16:44+00:00
 **Status:** Complete
 **Authority:** Review decision only; no persistence implementation.
 
@@ -100,7 +100,7 @@ BDP-003E.5 — Define local reviewed concept card archive schema candidate only,
 
 # BDP-003E.3 — Cinematic Concept Card Sample Review
 
-**Date:** 2026-06-15T17:07:39+00:00  
+**Date:** 2026-06-15T17:07:39+00:00
 **Status:** Complete
 **Authority:** Review-only; no runtime change, no persistence, no adapter implementation.
 
@@ -151,7 +151,7 @@ BDP-003E.4 — Decide concept card persistence readiness from reviewed samples o
 
 # BDP-003E.2 — Read-only Cinematic Concept Card Export Draft
 
-**Date:** 2026-06-15T17:01:19+00:00  
+**Date:** 2026-06-15T17:01:19+00:00
 **Status:** Complete
 **Authority:** Frontend download-only draft export; no database mutation.
 
@@ -202,7 +202,7 @@ BDP-003E.3 — Review exported cinematic concept card samples before any persist
 
 # BDP-003E.1 — Cinematic Concept Card Persistence Contract
 
-**Date:** 2026-06-15T16:51:45+00:00  
+**Date:** 2026-06-15T16:51:45+00:00
 **Status:** Complete
 **Authority:** Contract only; no runtime implementation.
 
@@ -302,11 +302,11 @@ BDP-003E — Define cinematic concept card persistence and optional image/video 
 ## BDP-002G — Add differential reading engine contract
 
 **Status:** Complete
-**Updated:** 2026-06-15T03:12:20+00:00  
-**Type:** Doctrine and application contract  
-**Database mutation:** No  
-**SQL migration:** No  
-**Frontend auto-wiring:** No  
+**Updated:** 2026-06-15T03:12:20+00:00
+**Type:** Doctrine and application contract
+**Database mutation:** No
+**SQL migration:** No
+**Frontend auto-wiring:** No
 
 ### What changed
 
@@ -346,9 +346,9 @@ BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precurs
 
 ## BDP-002H — Dark Precursor Style Split
 
-**Status:** complete  
-**Type:** frontend refactor  
-**Updated:** 2026-06-15T03:18:11+00:00  
+**Status:** complete
+**Type:** frontend refactor
+**Updated:** 2026-06-15T03:18:11+00:00
 
 ### What changed
 
@@ -373,8 +373,8 @@ BDP-002I — Decide where the Differential Reading Engine panel belongs inside t
 
 ## BDP-003C — Dark Precursor Cinematic Experience Reset
 
-**Status:** Prepared  
-**Updated:** 2026-06-15T03:26:40+00:00  
+**Status:** Prepared
+**Updated:** 2026-06-15T03:26:40+00:00
 **Type:** Frontend / generative surface reset
 
 ### Summary
@@ -806,8 +806,8 @@ Next safe step: do not start BDP-003F.6 in this thread.
 
 ## BDP-003F.6 — Concept Lens Architecture
 
-**Status:** Complete  
-**Commit status:** Pending operator commit  
+**Status:** Complete
+**Commit status:** Pending operator commit
 **Controlled slice:** architecture definition only
 
 BDP-003F.6 defines the Concept Lens as a future archive-grounded Deleuzian concept exploration dock inside The Dark Precursor concept stage.
@@ -855,8 +855,8 @@ BDP-003F.7 — Define read-only Concept Lens archive evidence posture service co
 
 ## BDP-003F.7 — Concept Lens Archive Evidence Posture Service Contract
 
-**Status:** Complete  
-**Commit status:** Pending operator commit  
+**Status:** Complete
+**Commit status:** Pending operator commit
 **Controlled slice:** service contract only
 
 BDP-003F.7 defines the contract for a future read-only Concept Lens archive evidence posture service.
@@ -987,4 +987,39 @@ Next safe step:
 
 ```text
 BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration.
+```
+
+## BDP-003F.9 — Concept Lens Evidence Posture Output Review
+
+**Status:** Complete
+**Controlled slice:** review-only evidence posture output review
+
+BDP-003F.9 reviews the BDP-003F.8 Concept Lens archive evidence posture service output against known archive cases before UI integration.
+
+Finding: Outcome C.
+
+```text
+The archive evidence exists in governed project state, but no approved live readback adapter is currently exposed for the Concept Lens service default path.
+```
+
+Review decision:
+
+1. Body without Organs is a known governed archive case in project state.
+2. The F8 default service path is safe and intentionally conservative when no live archive adapter is configured.
+3. The F8 service must not report `archive_grounded` for Body without Organs from the default no-live-archive invocation.
+4. Concept Lens UI integration remains blocked.
+5. A read-only bridge from existing archive evidence readback into the Concept Lens service is needed before frontend wiring.
+
+No frontend wiring, Concept Lens UI dock, Streamlit controls, backend route, adapter endpoint, SQL migration, database mutation, citation creation, concept mention creation, concept relation creation, interpretation insertion, evidence promotion, Buchanan-specific claim, automatic chat filtering, or external LLM routing is approved by this phase.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f9_concept_lens_evidence_posture_output_review.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.
 ```

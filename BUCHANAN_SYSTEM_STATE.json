@@ -118,6 +118,34 @@
         "psychological_assessment_added": false
       },
       "next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation."
+    },
+    "BDP-003F.9": {
+      "phase": "BDP-003F.9",
+      "title": "Review Concept Lens evidence posture service output against known archive cases before UI integration",
+      "status": "complete",
+      "type": "review_only_evidence_posture_output_review",
+      "updated_at": "2026-06-18T02:50:33+00:00",
+      "summary": "The archive evidence exists in governed project state, but no approved live readback adapter is currently exposed for the Concept Lens service default path.",
+      "deliverables": [
+        "docs/BDP_003F9_CONCEPT_LENS_EVIDENCE_POSTURE_OUTPUT_REVIEW.md",
+        "scripts/verify_bdp_003f9_concept_lens_evidence_posture_output_review.py",
+        "scripts/update_bdp_003f9_concept_lens_evidence_posture_output_review.py",
+        "BDP_003F9_PATCH_README.md"
+      ],
+      "boundaries": {
+        "frontend_implementation": false,
+        "backend_route_added": false,
+        "adapter_endpoint_added": false,
+        "sql_migration_added": false,
+        "database_mutation": false,
+        "citation_creation_added": false,
+        "concept_mention_creation_added": false,
+        "concept_relation_creation_added": false,
+        "interpretation_insertion_added": false,
+        "evidence_promotion_added": false,
+        "buchanan_claims_created": false
+      },
+      "next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service."
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -170,9 +198,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.8",
-  "last_updated_utc": "2026-06-18T02:45:00+00:00",
-  "next_recommended_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.",
+  "last_updated_phase": "BDP-003F.9",
+  "last_updated_utc": "2026-06-18T02:50:33+00:00",
+  "next_recommended_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -464,11 +492,11 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration.",
-  "next_step": "BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration.",
-  "recommended_next_step": "BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration.",
-  "next_safe_step": "BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration.",
-  "current_phase": "BDP-003F.8",
+  "current_next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
+  "next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
+  "recommended_next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
+  "next_safe_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
+  "current_phase": "BDP-003F.9",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -1281,5 +1309,57 @@
       "docs/BDP_003F7_CONCEPT_LENS_ARCHIVE_EVIDENCE_POSTURE_SERVICE_CONTRACT.md"
     ],
     "next_step": "BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration."
+  },
+  "bdp_003f9_concept_lens_evidence_posture_output_review": {
+    "phase": "BDP-003F.9",
+    "title": "Review Concept Lens evidence posture service output against known archive cases before UI integration",
+    "status": "complete",
+    "completed_at": "2026-06-18T02:50:33+00:00",
+    "controlled_slice": "review_only_evidence_posture_output_review",
+    "review_only": true,
+    "review_target": "scripts/concept_lens_archive_evidence_posture_service.py",
+    "review_output": "docs/BDP_003F9_CONCEPT_LENS_EVIDENCE_POSTURE_OUTPUT_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003f9_concept_lens_evidence_posture_output_review.py",
+    "finding": "outcome_c_existing_archive_evidence_not_currently_reachable_by_default_service_path",
+    "decision": "The archive evidence exists in governed project state, but no approved live readback adapter is currently exposed for the Concept Lens service default path.",
+    "body_without_organs_project_archive_status": "known_governed_archive_case",
+    "body_without_organs_default_f8_service_status": "must_not_report_archive_grounded_without_configured_live_bridge",
+    "f8_service_intentionally_non_live_by_default": true,
+    "f8_default_no_live_archive_output_safe": true,
+    "default_archive_lookup_status": "no_archive_match",
+    "default_evidence_posture": "exploratory_unverified",
+    "known_archive_readback_chain": [
+      "concepts",
+      "concept_mentions",
+      "passages",
+      "citations",
+      "sources"
+    ],
+    "known_archive_case": "Body without Organs",
+    "known_prior_readback_scripts_to_inspect": [
+      "scripts/read_bdp_001r_bwo_source_bound_description.py",
+      "scripts/read_bdp_002b_bwo_evidence_card.py"
+    ],
+    "live_sql_archive_adapter_contract_needed_next": true,
+    "ui_integration_blocked": true,
+    "frontend_implementation": false,
+    "concept_lens_ui_dock_added": false,
+    "streamlit_controls_added": false,
+    "new_navigation_surface_keys_added": false,
+    "backend_route_added": false,
+    "adapter_endpoint_added": false,
+    "sql_migration_added": false,
+    "database_tables_added": false,
+    "database_mutation": false,
+    "source_ingestion_added": false,
+    "citation_creation_added": false,
+    "concept_mention_creation_added": false,
+    "concept_relation_creation_added": false,
+    "interpretation_insertion_added": false,
+    "evidence_promotion_added": false,
+    "buchanan_claims_created": false,
+    "automatic_chat_filtering_added": false,
+    "external_llm_routing_added": false,
+    "next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service."
   }
 }
