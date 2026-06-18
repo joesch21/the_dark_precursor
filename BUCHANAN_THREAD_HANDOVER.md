@@ -853,3 +853,62 @@ Next safe step:
 BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation.
 ```
 
+## BDP-003F.7 — Concept Lens Archive Evidence Posture Service Contract
+
+**Status:** Complete  
+**Commit status:** Pending operator commit  
+**Controlled slice:** service contract only
+
+BDP-003F.7 defines the contract for a future read-only Concept Lens archive evidence posture service.
+
+The service contract answers one bounded question:
+
+```text
+For this requested concept, what does the archive currently support?
+```
+
+The contract defines the future service as readback-only. It is not generation, not a philosophical fidelity review, and not a frontend UI dock.
+
+Defined future primary archive readback chain:
+
+```text
+concepts -> concept_mentions -> passages -> citations -> sources
+```
+
+Defined future evidence posture levels:
+
+```text
+archive_grounded
+source_bound_description
+secondary_scholarship_supported
+system_synthesis
+exploratory_unverified
+```
+
+Defined future archive lookup statuses:
+
+```text
+archive_grounded_match
+source_bound_match
+concept_found_without_reviewed_evidence
+no_archive_match
+ambiguous_concept_match
+rights_restricted_match
+optional_layer_required_but_blocked
+```
+
+The contract preserves the rule that missing archive evidence is a valid evidence posture, not a failure. It also preserves the rights boundary: restricted text remains reference-only or omitted unless later rights-governed display is approved.
+
+BDP-003F.7 does not add frontend implementation, Streamlit controls, Concept Lens UI dock, new navigation surface keys, backend service code, route handlers, adapter endpoints, SQL queries, SQL migrations, database tables, database mutation, source ingestion, citation creation, concept mention creation, concept relation creation, interpretation insertion, evidence promotion, Buchanan-specific claims, external LLM routing, automatic chat filtering, hidden personalization, or psychological assessment.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f7_concept_lens_archive_evidence_posture_service_contract.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.8 — Implement read-only Concept Lens archive evidence posture service behind this contract, if approved.
+```
