@@ -1023,3 +1023,71 @@ Next safe step:
 ```text
 BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service.
 ```
+
+<!-- BDP-003F.10-CONCEPT-LENS-READ-ONLY-BRIDGE-CONTRACT-START -->
+## BDP-003F.10 — Concept Lens Existing Archive Evidence Readback Bridge Contract
+
+**Status:** Complete
+**Controlled slice:** read-only bridge contract definition only
+
+BDP-003F.10 defines the approved read-only bridge contract from existing governed archive evidence readback into the BDP-003F.8 Concept Lens archive evidence posture service.
+
+Decision: the bridge contract is approved as a future implementation boundary, but implementation is not added by BDP-003F.10.
+
+Contract name:
+
+```text
+concept_lens_existing_archive_evidence_readback_bridge.v1
+```
+
+Future implementation target, if later approved:
+
+```text
+scripts/concept_lens_existing_archive_evidence_readback_bridge.py
+```
+
+Approved source readback candidates to inspect before implementation:
+
+```text
+scripts/read_bdp_001r_bwo_source_bound_description.py
+scripts/read_bdp_002b_bwo_evidence_card.py
+```
+
+Bridge target:
+
+```text
+scripts/concept_lens_archive_evidence_posture_service.py
+read_concept_lens_archive_evidence_posture
+```
+
+Required primary chain preserved:
+
+```text
+concepts -> concept_mentions -> passages -> citations -> sources
+```
+
+Boundary:
+
+1. no frontend wiring;
+2. no Concept Lens UI dock;
+3. no backend route;
+4. no adapter endpoint;
+5. no SQL migration;
+6. no database mutation;
+7. no citation, concept mention, concept relation, interpretation, evidence promotion, or Buchanan-specific claim creation;
+8. no F8 service implementation change.
+
+UI integration remains blocked.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f10_concept_lens_read_only_bridge_contract.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.
+```
+<!-- BDP-003F.10-CONCEPT-LENS-READ-ONLY-BRIDGE-CONTRACT-END -->
