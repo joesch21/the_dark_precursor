@@ -10,6 +10,7 @@ from pathlib import Path
 
 PHASE = "BDP-003F.14"
 NEXT_STEP = "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage."
+F16_NEXT_STEP = "BDP-003F.17 — Define Concept Lens limited control expansion contract after F16 readiness decision."
 FRONTEND = Path("frontend/dark_precursor.py")
 DOC = Path("docs/BDP_003F14_CONCEPT_LENS_FRONTEND_READ_ONLY_EVIDENCE_POSTURE_WIRING.md")
 README = Path("BDP_003F14_PATCH_README.md")
@@ -38,6 +39,7 @@ ALLOWED_CHANGED_FILES = {
     "scripts/update_bdp_003f14_verifier_progression_repair_v2.py",
     "docs/BDP_003F14_VERIFIER_PROGRESSION_REPAIR_V2.md",
     "BDP_003F14_VERIFIER_PROGRESSION_REPAIR_V2_README.md",
+    "scripts/verify_bdp_003f15_concept_lens_running_frontend_review.py",
 }
 
 
@@ -207,14 +209,14 @@ def verify_state() -> None:
         require(phase_record.get(flag) is False, f"system state flag must remain false: {flag}")
 
         require(
-        str(state.get("last_updated_phase", "")).startswith(("BDP-003F.14", "BDP-003F.15")),
-        "last_updated_phase should remain in approved F14-F15 progression",
+        str(state.get("last_updated_phase", "")).startswith(("BDP-003F.14", "BDP-003F.15", "BDP-003F.16")),
+        "last_updated_phase should remain in approved F14-F16 progression",
     )
         require(
-        state.get("next_recommended_step") == NEXT_STEP
-        or state.get("next_step") == NEXT_STEP
-        or str(state.get("next_step", "")).startswith("BDP-003F.16")
-        or str(state.get("next_recommended_step", "")).startswith("BDP-003F.16"),
+        state.get("next_recommended_step") in {NEXT_STEP, F16_NEXT_STEP}
+        or state.get("next_step") in {NEXT_STEP, F16_NEXT_STEP}
+        or str(state.get("next_step", "")).startswith(("BDP-003F.16", "BDP-003F.17"))
+        or str(state.get("next_recommended_step", "")).startswith(("BDP-003F.16", "BDP-003F.17")),
         "system state next step is not F15 running frontend review or approved F16 descendant",
     )
 

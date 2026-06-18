@@ -1409,3 +1409,39 @@ Next safe step:
 BDP-003F.16 — Decide Concept Lens control and concept coverage expansion readiness after running frontend review.
 
 <!-- BDP-003F.15 RUNNING FRONTEND REVIEW END -->
+
+<!-- BDP-003F.16 HANDOVER START -->
+
+## BDP-003F.16 — Concept Lens expansion readiness decision
+
+**Status:** complete
+**Completed at:** 2026-06-18T06:31:28+00:00
+**Input:** BDP-003F.15 running frontend review
+**Outcome:** Outcome C — Ready for both separate later contract tracks, but implementation remains blocked.
+
+### What changed
+
+1. Added `docs/BDP_003F16_CONCEPT_LENS_EXPANSION_READINESS_DECISION.md`.
+2. Added `scripts/verify_bdp_003f16_concept_lens_expansion_readiness_decision.py`.
+3. Updated `BUCHANAN_SYSTEM_STATE.json` with the F16 decision record.
+4. Recorded this handover block.
+
+### Boundary preserved
+
+1. No frontend changes were made.
+2. No Concept Lens service or bridge changes were made.
+3. No controls were added.
+4. No concept examples were added.
+5. No free-text search was added.
+6. No citation, claim, interpretation, concept relation, or database record creation path was added.
+7. The read-only evidence posture boundary remains intact.
+
+### Next safe step
+
+BDP-003F.17 — Define Concept Lens limited control expansion contract after F16 readiness decision.
+
+Later, separately:
+
+BDP-003F.18 — Define Concept Lens controlled concept coverage expansion contract after control readiness boundary.
+
+<!-- BDP-003F.16 HANDOVER END -->

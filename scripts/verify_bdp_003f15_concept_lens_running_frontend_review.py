@@ -156,6 +156,24 @@ def verify_documents() -> None:
     require("database_writes_added" in update_script, "Updater must preserve no database writes flag")
 
 
+
+def global_next_step_is_allowed(value: object, f15_next_safe_step: object) -> bool:
+    """Allow F15 verifier to pass after later approved F16/F17 progression.
+
+    During F15 itself, global next-step fields should match the F15 record.
+    After F16, those same global fields may validly advance to the F16
+    readiness decision or the F17 limited-control contract next step.
+    """
+    text = str(value or "")
+    f15_text = str(f15_next_safe_step or "")
+    return (
+        text == f15_text
+        or text.startswith("BDP-003F.16")
+        or text.startswith("BDP-003F.17")
+        or "Decide Concept Lens control and concept coverage expansion readiness" in text
+        or "Define Concept Lens limited control expansion contract after F16 readiness decision" in text
+    )
+
 def verify_state() -> None:
     state = load_state()
     phases = state.get("phases", {})
@@ -191,7 +209,10 @@ def verify_state() -> None:
         require("Repair the Concept Lens read-only evidence posture display" in phase_record.get("next_safe_step", ""), "Repair-needed F15 must point to bounded repair next")
 
     for key in ["next_recommended_step", "current_next_step", "next_step", "recommended_next_step", "next_safe_step"]:
-        require(state.get(key) == phase_record.get("next_safe_step"), f"Global {key} must match F15 next safe step")
+        require(
+            global_next_step_is_allowed(state.get(key), phase_record.get("next_safe_step")),
+            f"Global {key} must match F15 next safe step or approved F16/F17 progression",
+        )
 
 
 def main() -> int:

@@ -522,6 +522,62 @@
       "external_llm_routing_added": false,
       "automatic_chat_filtering_added": false,
       "unrestricted_passage_reproduction_added": false
+    },
+    "BDP-003F.16": {
+      "phase": "BDP-003F.16",
+      "title": "Decide Concept Lens control and concept coverage expansion readiness after running frontend review",
+      "status": "complete",
+      "type": "decision_only_readiness_record",
+      "controlled_slice": "decision_only_no_implementation",
+      "input_phase": "BDP-003F.15 — Concept Lens running frontend review",
+      "readiness_outcome": "Outcome C — Ready for both separate later contract tracks, but implementation remains blocked.",
+      "completed_at": "2026-06-18T06:31:28+00:00",
+      "decision": {
+        "controls_ready_for_later_contract": true,
+        "concept_coverage_ready_for_later_contract": true,
+        "implementation_authorized_in_f16": false,
+        "next_safe_move": "later_bounded_contract_phase_not_implementation"
+      },
+      "boundaries": {
+        "frontend_changes": false,
+        "service_changes": false,
+        "bridge_changes": false,
+        "new_frontend_controls": false,
+        "new_concept_search_box": false,
+        "new_concept_examples": false,
+        "backend_route": false,
+        "adapter_endpoint": false,
+        "sql_mutation": false,
+        "database_writes": false,
+        "archive_row_creation": false,
+        "citation_creation": false,
+        "concept_mention_creation": false,
+        "concept_relation_creation": false,
+        "interpretation_insertion": false,
+        "evidence_promotion": false,
+        "external_llm_routing": false,
+        "source_ingestion": false,
+        "unrestricted_passage_reproduction": false,
+        "buchanan_specific_interpretive_claim_generation": false,
+        "general_chat_filtering": false
+      },
+      "risk_record": [
+        "Evidence posture display must not be mistaken for interpretive authority.",
+        "Control expansion must not drift into free-text search or backend mutation.",
+        "Concept coverage expansion must not create claims, citations, relations, or interpretations.",
+        "Running-frontend stability is not archive mutation authorization.",
+        "Rights boundaries must continue to block unrestricted passage reproduction."
+      ],
+      "docs": [
+        "docs/BDP_003F16_CONCEPT_LENS_EXPANSION_READINESS_DECISION.md",
+        "BDP_003F16_PATCH_README.md"
+      ],
+      "scripts": [
+        "scripts/update_bdp_003f16_concept_lens_expansion_readiness_decision.py",
+        "scripts/verify_bdp_003f16_concept_lens_expansion_readiness_decision.py"
+      ],
+      "next_safe_step": "BDP-003F.17 — Define Concept Lens limited control expansion contract after F16 readiness decision.",
+      "later_separate_step": "BDP-003F.18 — Define Concept Lens controlled concept coverage expansion contract after control readiness boundary."
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -574,9 +630,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.15",
-  "last_updated_utc": "2026-06-18T05:59:29+00:00",
-  "next_recommended_step": "BDP-003F.16 — Decide Concept Lens control and concept coverage expansion readiness after running frontend review.",
+  "last_updated_phase": "BDP-003F.16",
+  "last_updated_utc": "2026-06-18T06:31:28+00:00",
+  "next_recommended_step": "BDP-003F.17 — Define Concept Lens limited control expansion contract after F16 readiness decision.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -872,7 +928,7 @@
   "next_step": "BDP-003F.16 — Decide Concept Lens control and concept coverage expansion readiness after running frontend review.",
   "recommended_next_step": "BDP-003F.16 — Decide Concept Lens control and concept coverage expansion readiness after running frontend review.",
   "next_safe_step": "BDP-003F.16 — Decide Concept Lens control and concept coverage expansion readiness after running frontend review.",
-  "current_phase": "BDP-003F.15",
+  "current_phase": "BDP-003F.16",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -2113,5 +2169,77 @@
     "external_llm_routing_added": false,
     "automatic_chat_filtering_added": false,
     "unrestricted_passage_reproduction_added": false
-  }
+  },
+  "bdp_003f16_concept_lens_expansion_readiness_decision": {
+    "phase": "BDP-003F.16",
+    "title": "Decide Concept Lens control and concept coverage expansion readiness after running frontend review",
+    "status": "complete",
+    "type": "decision_only_readiness_record",
+    "controlled_slice": "decision_only_no_implementation",
+    "input_phase": "BDP-003F.15 — Concept Lens running frontend review",
+    "readiness_outcome": "Outcome C — Ready for both separate later contract tracks, but implementation remains blocked.",
+    "completed_at": "2026-06-18T06:31:28+00:00",
+    "decision": {
+      "controls_ready_for_later_contract": true,
+      "concept_coverage_ready_for_later_contract": true,
+      "implementation_authorized_in_f16": false,
+      "next_safe_move": "later_bounded_contract_phase_not_implementation"
+    },
+    "boundaries": {
+      "frontend_changes": false,
+      "service_changes": false,
+      "bridge_changes": false,
+      "new_frontend_controls": false,
+      "new_concept_search_box": false,
+      "new_concept_examples": false,
+      "backend_route": false,
+      "adapter_endpoint": false,
+      "sql_mutation": false,
+      "database_writes": false,
+      "archive_row_creation": false,
+      "citation_creation": false,
+      "concept_mention_creation": false,
+      "concept_relation_creation": false,
+      "interpretation_insertion": false,
+      "evidence_promotion": false,
+      "external_llm_routing": false,
+      "source_ingestion": false,
+      "unrestricted_passage_reproduction": false,
+      "buchanan_specific_interpretive_claim_generation": false,
+      "general_chat_filtering": false
+    },
+    "risk_record": [
+      "Evidence posture display must not be mistaken for interpretive authority.",
+      "Control expansion must not drift into free-text search or backend mutation.",
+      "Concept coverage expansion must not create claims, citations, relations, or interpretations.",
+      "Running-frontend stability is not archive mutation authorization.",
+      "Rights boundaries must continue to block unrestricted passage reproduction."
+    ],
+    "docs": [
+      "docs/BDP_003F16_CONCEPT_LENS_EXPANSION_READINESS_DECISION.md",
+      "BDP_003F16_PATCH_README.md"
+    ],
+    "scripts": [
+      "scripts/update_bdp_003f16_concept_lens_expansion_readiness_decision.py",
+      "scripts/verify_bdp_003f16_concept_lens_expansion_readiness_decision.py"
+    ],
+    "next_safe_step": "BDP-003F.17 — Define Concept Lens limited control expansion contract after F16 readiness decision.",
+    "later_separate_step": "BDP-003F.18 — Define Concept Lens controlled concept coverage expansion contract after control readiness boundary."
+  },
+  "next_phase": "BDP-003F.17",
+  "last_completed_phase": "BDP-003F.16",
+  "bdp_003f_concept_lens_next_tracks": {
+    "status": "contract_ready_no_implementation",
+    "readiness_outcome": "Outcome C — Ready for both separate later contract tracks, but implementation remains blocked.",
+    "control_expansion_contract_next": "BDP-003F.17 — Define Concept Lens limited control expansion contract after F16 readiness decision.",
+    "concept_coverage_contract_later": "BDP-003F.18 — Define Concept Lens controlled concept coverage expansion contract after control readiness boundary.",
+    "implementation_blocked_until_contracts_verified": true
+  },
+  "recent_phase_notes": [
+    {
+      "phase": "BDP-003F.16",
+      "recorded_at": "2026-06-18T06:31:28+00:00",
+      "summary": "Recorded Outcome C: Concept Lens is ready for separate later control and concept coverage contract tracks, while implementation remains blocked."
+    }
+  ]
 }

@@ -92,7 +92,7 @@ def verify_state() -> None:
     ]:
         require(record.get(blocked) is False, f"F13 must keep {blocked}=false")
     require(record.get("next_step") == NEXT_STEP, "F13 record next_step mismatch")
-    require(data.get("current_phase") in {PHASE, "BDP-003F.14", "BDP-003F.15"}, "Global current_phase should remain in approved F13-F14 progression")
+    require(data.get("current_phase") in {PHASE, "BDP-003F.14", "BDP-003F.15", "BDP-003F.16"}, "Global current_phase should remain in approved F13-F16 progression")
     require(data.get("next_step", "").startswith(("BDP-003F.14", "BDP-003F.15", "BDP-003F.16")), "Global next_step should remain in approved F13-F16 progression")
 
 
