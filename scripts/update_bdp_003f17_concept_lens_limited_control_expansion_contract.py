@@ -19,10 +19,10 @@ NEXT_SAFE_STEP = "BDP-003F.18 — Define Concept Lens controlled concept coverag
 
 DOC_TEXT = """# BDP-003F.17 — Concept Lens Limited Control Expansion Contract
 
-**Phase:** BDP-003F.17  
-**Title:** Define Concept Lens limited control expansion contract after F16 readiness decision  
-**Controlled slice:** limited-control contract only  
-**Status:** complete  
+**Phase:** BDP-003F.17
+**Title:** Define Concept Lens limited control expansion contract after F16 readiness decision
+**Controlled slice:** limited-control contract only
+**Status:** complete
 
 ## 1. Purpose
 
@@ -216,9 +216,9 @@ HANDOVER_SECTION = f"""{HANDOVER_START}
 
 ## BDP-003F.17 — Concept Lens limited control expansion contract
 
-**Status:** complete  
-**Commit target:** pending operator commit  
-**Controlled slice:** limited-control contract only  
+**Status:** complete
+**Commit target:** pending operator commit
+**Controlled slice:** limited-control contract only
 
 ### What changed
 
