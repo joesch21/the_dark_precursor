@@ -386,6 +386,55 @@
         "scripts/verify_bdp_003f12_concept_lens_bridge_output_smoke_review.py"
       ],
       "next_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification."
+    },
+    "BDP-003F.14": {
+      "phase": "BDP-003F.14",
+      "title": "Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification",
+      "status": "complete",
+      "completed_at": "2026-06-18T04:25:16+00:00",
+      "controlled_slice": "frontend_read_only_evidence_posture_display_only",
+      "implementation_type": "controlled_frontend_display_dock",
+      "contract_source": "BDP-003F.13",
+      "frontend_implementation": true,
+      "frontend_target": "frontend/dark_precursor.py",
+      "concept_lens_display_added": true,
+      "concept_lens_ui_dock_added": true,
+      "streamlit_display_added": true,
+      "approved_service_handoff": "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge",
+      "controlled_concept_examples": [
+        "Body without Organs",
+        "we repress because we repeat",
+        "assemblage"
+      ],
+      "free_text_search_input_added": false,
+      "backend_routes_added": false,
+      "adapter_endpoints_added": false,
+      "sql_migrations_added": false,
+      "database_mutation": false,
+      "database_writes_added": false,
+      "archive_row_creation_added": false,
+      "source_ingestion_added": false,
+      "citation_creation_added": false,
+      "concept_mention_creation_added": false,
+      "concept_relation_creation_added": false,
+      "interpretation_insertion_added": false,
+      "evidence_promotion_added": false,
+      "buchanan_claims_created": false,
+      "external_llm_routing_added": false,
+      "automatic_chat_filtering_added": false,
+      "unrestricted_passage_reproduction_added": false,
+      "rights_limited_display": true,
+      "boundary_note": "This panel displays read-only archive evidence posture. It does not create citations, claims, interpretations, concept relations, or database records.",
+      "preserved_archive_chain": [
+        "concepts",
+        "concept_mentions",
+        "passages",
+        "citations",
+        "sources"
+      ],
+      "documentation": "docs/BDP_003F14_CONCEPT_LENS_FRONTEND_READ_ONLY_EVIDENCE_POSTURE_WIRING.md",
+      "verifier": "scripts/verify_bdp_003f14_concept_lens_frontend_read_only_evidence_posture_wiring.py",
+      "next_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage."
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -438,9 +487,9 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.13",
-  "last_updated_utc": "2026-06-18T04:04:59+00:00",
-  "next_recommended_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.",
+  "last_updated_phase": "BDP-003F.14",
+  "last_updated_utc": "2026-06-18T04:25:16+00:00",
+  "next_recommended_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -732,11 +781,11 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.",
-  "next_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.",
-  "recommended_next_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.",
-  "next_safe_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.",
-  "current_phase": "BDP-003F.13",
+  "current_next_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage.",
+  "next_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage.",
+  "recommended_next_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage.",
+  "next_safe_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage.",
+  "current_phase": "BDP-003F.14",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -1841,5 +1890,54 @@
       "scripts/verify_bdp_003f12_concept_lens_bridge_output_smoke_review.py"
     ],
     "next_step": "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification."
+  },
+  "bdp_003f14_concept_lens_frontend_read_only_evidence_posture_wiring": {
+    "phase": "BDP-003F.14",
+    "title": "Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification",
+    "status": "complete",
+    "completed_at": "2026-06-18T04:25:16+00:00",
+    "controlled_slice": "frontend_read_only_evidence_posture_display_only",
+    "implementation_type": "controlled_frontend_display_dock",
+    "contract_source": "BDP-003F.13",
+    "frontend_implementation": true,
+    "frontend_target": "frontend/dark_precursor.py",
+    "concept_lens_display_added": true,
+    "concept_lens_ui_dock_added": true,
+    "streamlit_display_added": true,
+    "approved_service_handoff": "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge",
+    "controlled_concept_examples": [
+      "Body without Organs",
+      "we repress because we repeat",
+      "assemblage"
+    ],
+    "free_text_search_input_added": false,
+    "backend_routes_added": false,
+    "adapter_endpoints_added": false,
+    "sql_migrations_added": false,
+    "database_mutation": false,
+    "database_writes_added": false,
+    "archive_row_creation_added": false,
+    "source_ingestion_added": false,
+    "citation_creation_added": false,
+    "concept_mention_creation_added": false,
+    "concept_relation_creation_added": false,
+    "interpretation_insertion_added": false,
+    "evidence_promotion_added": false,
+    "buchanan_claims_created": false,
+    "external_llm_routing_added": false,
+    "automatic_chat_filtering_added": false,
+    "unrestricted_passage_reproduction_added": false,
+    "rights_limited_display": true,
+    "boundary_note": "This panel displays read-only archive evidence posture. It does not create citations, claims, interpretations, concept relations, or database records.",
+    "preserved_archive_chain": [
+      "concepts",
+      "concept_mentions",
+      "passages",
+      "citations",
+      "sources"
+    ],
+    "documentation": "docs/BDP_003F14_CONCEPT_LENS_FRONTEND_READ_ONLY_EVIDENCE_POSTURE_WIRING.md",
+    "verifier": "scripts/verify_bdp_003f14_concept_lens_frontend_read_only_evidence_posture_wiring.py",
+    "next_step": "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage."
   }
 }

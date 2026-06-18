@@ -1287,3 +1287,85 @@ Next safe step:
 ```text
 BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification.
 ```
+
+## BDP-003F.14 — Concept Lens Frontend Read-only Evidence Posture Wiring
+
+**Status:** Complete
+**Controlled slice:** frontend read-only evidence posture display only
+**Frontend target:** `frontend/dark_precursor.py`
+
+BDP-003F.14 wires the approved BDP-003F.13 Concept Lens UI integration contract into The Dark Precursor frontend as a conservative read-only evidence posture display.
+
+Implemented frontend surface:
+
+```text
+Concept Lens
+Evidence posture
+Archive evidence posture
+Read-only archive evidence posture
+```
+
+Required service handoff used:
+
+```text
+read_concept_lens_archive_evidence_posture_via_existing_archive_bridge
+```
+
+Controlled smoke cases only:
+
+```text
+Body without Organs
+we repress because we repeat
+assemblage
+```
+
+Boundary note visible in frontend:
+
+```text
+This panel displays read-only archive evidence posture. It does not create citations, claims, interpretations, concept relations, or database records.
+```
+
+Boundary:
+
+- no free-text concept search input
+- no backend route
+- no adapter endpoint
+- no SQL migration
+- no database mutation
+- no archive row creation
+- no source ingestion
+- no citation creation
+- no concept mention creation
+- no concept relation creation
+- no interpretation insertion
+- no evidence promotion
+- no Buchanan-specific claims
+- no external LLM routing
+- no unrestricted passage reproduction
+- no general chat filtering
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f14_concept_lens_frontend_read_only_evidence_posture_wiring.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage.
+```
+
+
+### BDP-003F.14 verifier progression repair
+
+A narrow verifier repair was applied after F14 wiring so the historical F10-F13 verifiers remain valid once global state advances to BDP-003F.14.
+
+The repair updates only verifier progression allowances. It does not change frontend behavior, Concept Lens UI behavior, SQL, database writes, archive row creation, citation creation, concept mention creation, concept relation creation, interpretation insertion, evidence promotion, external LLM routing, free-text concept search input, source ingestion, unrestricted passage reproduction, Buchanan-specific interpretive claim generation, backend routes, adapter endpoints, or general chat filtering.
+
+
+### BDP-003F.14 verifier progression repair V2
+
+A second narrow verifier repair was applied because the first repair could skip F10-F12 when `BDP-003F.14` appeared elsewhere in those files outside the `ALLOWED_CURRENT_PHASES` block.
+
+This V2 repair directly updates historical verifier allowlist blocks and F13 global next-step progression acceptance. It does not change frontend behavior, Concept Lens UI behavior, SQL, database writes, archive row creation, citation creation, concept mention creation, concept relation creation, interpretation insertion, evidence promotion, external LLM routing, free-text concept search input, source ingestion, unrestricted passage reproduction, Buchanan-specific interpretive claim generation, backend routes, adapter endpoints, or general chat filtering.

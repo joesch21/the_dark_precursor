@@ -19,8 +19,9 @@ HANDOVER = ROOT / "BUCHANAN_THREAD_HANDOVER.md"
 F11_BRIDGE = ROOT / "scripts/concept_lens_existing_archive_evidence_readback_bridge.py"
 F8_SERVICE = ROOT / "scripts/concept_lens_archive_evidence_posture_service.py"
 F12_NEXT_STEP = "BDP-003F.13 — Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring."
-ALLOWED_CURRENT_PHASES = {"BDP-003F.12", "BDP-003F.13"}
-ALLOWED_NEXT_PREFIXES = ("BDP-003F.13", "BDP-003F.14")
+
+ALLOWED_CURRENT_PHASES = {"BDP-003F.12", "BDP-003F.13", "BDP-003F.14"}
+ALLOWED_NEXT_PREFIXES = ("BDP-003F.13", "BDP-003F.14", "BDP-003F.15")
 
 
 def require(condition: bool, message: str) -> None:
@@ -95,8 +96,8 @@ def verify_state() -> None:
     ]:
         require(record.get(blocked) is False, f"F12 must keep {blocked}=false")
     require(record.get("next_step") == F12_NEXT_STEP, "F12 record next_step mismatch")
-    require(data.get("current_phase") in ALLOWED_CURRENT_PHASES, "Global current_phase should remain in approved F12-F13 progression")
-    require(data.get("next_step", "").startswith(ALLOWED_NEXT_PREFIXES), "Global next_step should remain in approved F12-F13 progression")
+    require(data.get("current_phase") in ALLOWED_CURRENT_PHASES, "Global current_phase should remain in approved F12-F14 progression")
+    require(data.get("next_step", "").startswith(ALLOWED_NEXT_PREFIXES), "Global next_step should remain in approved F12-F14 progression")
 
 
 def verify_handover() -> None:

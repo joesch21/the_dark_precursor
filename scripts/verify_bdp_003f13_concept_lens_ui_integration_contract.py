@@ -17,8 +17,7 @@ F10_VERIFIER = ROOT / "scripts/verify_bdp_003f10_concept_lens_read_only_bridge_c
 F11_VERIFIER = ROOT / "scripts/verify_bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation.py"
 F12_VERIFIER = ROOT / "scripts/verify_bdp_003f12_concept_lens_bridge_output_smoke_review.py"
 NEXT_STEP = "BDP-003F.14 — Wire the approved Concept Lens read-only evidence posture display into the frontend after contract verification."
-
-
+NEXT_AFTER_F14 = "BDP-003F.15 — Review the Concept Lens read-only evidence posture display in the running frontend before expanding controls or concept coverage."
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise AssertionError(message)
@@ -93,8 +92,8 @@ def verify_state() -> None:
     ]:
         require(record.get(blocked) is False, f"F13 must keep {blocked}=false")
     require(record.get("next_step") == NEXT_STEP, "F13 record next_step mismatch")
-    require(data.get("current_phase") == PHASE, "Global current_phase should be BDP-003F.13")
-    require(data.get("next_step") == NEXT_STEP, "Global next_step mismatch")
+    require(data.get("current_phase") in {PHASE, "BDP-003F.14"}, "Global current_phase should remain in approved F13-F14 progression")
+    require(data.get("next_step") in {NEXT_STEP, NEXT_AFTER_F14}, "Global next_step should remain in approved F13-F14 progression")
 
 
 def verify_handover() -> None:
@@ -121,15 +120,17 @@ def verify_progression_safe_verifiers() -> None:
 
 
 def verify_frontend_not_wired_by_f13() -> None:
-    frontend = read(FRONTEND)
-    forbidden = [
-        "BDP-003F.13 CONCEPT LENS UI INTEGRATION START",
-        "Archive evidence posture",
-        "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge(",
-    ]
-    for needle in forbidden:
-        require(needle not in frontend, f"F13 must not wire frontend implementation marker/text: {needle}")
+    """Historical-phase safe after BDP-003F.14.
 
+    BDP-003F.13 was contract-only and did not wire the frontend in that phase.
+    After BDP-003F.14, the current frontend is allowed to contain Concept Lens
+    display labels, so this verifier must not scan the current frontend for
+    markers that F14 intentionally added.
+    """
+    doc = read(DOC)
+    require("Frontend implementation: No" in doc, "F13 doc must preserve frontend implementation boundary")
+    require("Streamlit wiring: No" in doc, "F13 doc must preserve Streamlit wiring boundary")
+    require("BDP-003F.14" in doc, "F13 doc must point to F14 as the approved next wiring phase")
 
 def main() -> None:
     verify_doc()

@@ -867,3 +867,189 @@ except Exception as _bdp003e15_archive_error:
     if _bdp003e15_st is not None:
         _bdp003e15_st.caption(f"BDP-003E.15 archive controls unavailable: {_bdp003e15_archive_error}")
 # --- end BDP-003E.15 archive controls wiring ---
+
+
+# BDP-003F.14 CONCEPT LENS READ-ONLY EVIDENCE POSTURE DISPLAY START
+BDP_003F14_CONCEPT_LENS_CONTROLLED_EXAMPLES = (
+    "Body without Organs",
+    "we repress because we repeat",
+    "assemblage",
+)
+
+BDP_003F14_CONCEPT_LENS_BOUNDARY_NOTE = (
+    "This panel displays read-only archive evidence posture. It does not create "
+    "citations, claims, interpretations, concept relations, or database records."
+)
+
+BDP_003F14_CONCEPT_LENS_SERVICE_HANDOFF = (
+    "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge"
+)
+
+
+def _bdp_003f14_concept_lens_value(result, key, default=""):
+    """Read a value from a dict-like or object-like Concept Lens result."""
+    if isinstance(result, dict):
+        return result.get(key, default)
+    return getattr(result, key, default)
+
+
+def _bdp_003f14_concept_lens_chain_summary(result):
+    chain_summary = _bdp_003f14_concept_lens_value(result, "chain_completeness_summary")
+    if chain_summary:
+        return chain_summary
+
+    chain_complete = _bdp_003f14_concept_lens_value(result, "chain_complete")
+    if chain_complete is True:
+        return "complete reviewed chain: concepts -> concept_mentions -> passages -> citations -> sources"
+    if chain_complete is False:
+        return "chain completeness not established"
+
+    archive_chain = _bdp_003f14_concept_lens_value(result, "archive_chain")
+    if archive_chain:
+        if isinstance(archive_chain, (list, tuple)):
+            return " -> ".join(str(part) for part in archive_chain)
+        return str(archive_chain)
+
+    return "concepts -> concept_mentions -> passages -> citations -> sources"
+
+
+def _bdp_003f14_concept_lens_source_summary(result):
+    source_title = _bdp_003f14_concept_lens_value(result, "source_title")
+    source_author = _bdp_003f14_concept_lens_value(result, "source_author")
+    source_year = _bdp_003f14_concept_lens_value(result, "source_year")
+    source_doi = _bdp_003f14_concept_lens_value(result, "source_doi")
+    source_locator = _bdp_003f14_concept_lens_value(result, "source_locator")
+    locator = _bdp_003f14_concept_lens_value(result, "locator") or source_locator
+
+    parts = []
+    if source_author:
+        parts.append(str(source_author))
+    if source_title:
+        parts.append(str(source_title))
+    if source_year:
+        parts.append(str(source_year))
+    if source_doi:
+        parts.append(f"DOI: {source_doi}")
+    if locator:
+        parts.append(f"Locator: {locator}")
+
+    return " · ".join(parts) if parts else "No rights-safe source metadata returned for this controlled smoke case."
+
+
+def _bdp_003f14_render_concept_lens_read_only_evidence_posture_display():
+    """Render the BDP-003F.14 read-only Concept Lens evidence posture dock."""
+    from pathlib import Path
+    import sys
+
+    repo_root = Path(__file__).resolve().parents[1]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
+    try:
+        from scripts.concept_lens_existing_archive_evidence_readback_bridge import (
+            read_concept_lens_archive_evidence_posture_via_existing_archive_bridge,
+        )
+    except Exception as exc:
+        st.markdown("### Concept Lens")
+        st.caption("Read-only archive evidence posture")
+        st.warning(f"Concept Lens read-only bridge is unavailable: {exc}")
+        return
+
+    st.markdown(
+        """
+        <style>
+        .bdp-003f14-concept-lens-dock {
+            border: 1px solid rgba(230, 211, 160, 0.24);
+            border-radius: 22px;
+            padding: 1.25rem 1.35rem;
+            margin-top: 1.5rem;
+            background: linear-gradient(135deg, rgba(12, 10, 8, 0.78), rgba(18, 24, 34, 0.70));
+            box-shadow: 0 0 28px rgba(0, 0, 0, 0.28);
+        }
+        .bdp-003f14-concept-lens-kicker {
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(230, 211, 160, 0.78);
+            font-size: 0.72rem;
+            margin-bottom: 0.35rem;
+        }
+        .bdp-003f14-concept-lens-boundary {
+            border-left: 3px solid rgba(230, 211, 160, 0.42);
+            padding-left: 0.85rem;
+            color: rgba(245, 237, 219, 0.84);
+            font-size: 0.92rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown('<div class="bdp-003f14-concept-lens-dock">', unsafe_allow_html=True)
+    st.markdown('<div class="bdp-003f14-concept-lens-kicker">Read-only archive evidence posture</div>', unsafe_allow_html=True)
+    st.markdown("### Concept Lens")
+    st.caption("Evidence posture · Archive evidence posture · Rights-limited display")
+
+    selected_concept = st.radio(
+        "Controlled Concept Lens smoke case",
+        BDP_003F14_CONCEPT_LENS_CONTROLLED_EXAMPLES,
+        horizontal=True,
+        key="bdp_003f14_concept_lens_controlled_smoke_case",
+    )
+
+    result = read_concept_lens_archive_evidence_posture_via_existing_archive_bridge(selected_concept)
+
+    requested_label = _bdp_003f14_concept_lens_value(result, "requested_concept_label") or selected_concept
+    normalized_label = (
+        _bdp_003f14_concept_lens_value(result, "normalized_concept_label")
+        or _bdp_003f14_concept_lens_value(result, "normalized_label")
+        or "not returned"
+    )
+    archive_lookup_status = _bdp_003f14_concept_lens_value(result, "archive_lookup_status", "no_archive_match")
+    evidence_posture = _bdp_003f14_concept_lens_value(result, "evidence_posture", "exploratory_unverified")
+    passage_display_status = (
+        _bdp_003f14_concept_lens_value(result, "passage_text_display")
+        or _bdp_003f14_concept_lens_value(result, "passage_display_status")
+        or "omitted_by_rights_policy"
+    )
+
+    col_a, col_b = st.columns(2)
+    with col_a:
+        st.markdown(f"**Requested concept**  \\n`{requested_label}`")
+        st.markdown(f"**Normalized concept**  \\n`{normalized_label}`")
+        st.markdown(f"**Archive lookup status**  \\n`{archive_lookup_status}`")
+    with col_b:
+        st.markdown(f"**Evidence posture**  \\n`{evidence_posture}`")
+        st.markdown(f"**Passage display status**  \\n`{passage_display_status}`")
+        st.markdown(f"**Service handoff**  \\n`{BDP_003F14_CONCEPT_LENS_SERVICE_HANDOFF}`")
+
+    st.markdown("**Chain completeness summary**")
+    st.caption(_bdp_003f14_concept_lens_chain_summary(result))
+
+    st.markdown("**Rights-safe source / locator metadata**")
+    st.caption(_bdp_003f14_concept_lens_source_summary(result))
+
+    st.markdown("**Approved status vocabulary**")
+    st.caption(
+        "Archive-grounded match · Source-bound description · Exploratory / unverified · "
+        "No archive match · Rights-limited display · Read-only archive evidence"
+    )
+
+    st.markdown(
+        f'<div class="bdp-003f14-concept-lens-boundary">{BDP_003F14_CONCEPT_LENS_BOUNDARY_NOTE}</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+try:
+    _bdp_003f14_current_surface = (
+        get_dark_precursor_surface()
+        if "get_dark_precursor_surface" in globals()
+        else st.session_state.get("dark_precursor_surface", "stage")
+    )
+except Exception:
+    _bdp_003f14_current_surface = "stage"
+
+if str(_bdp_003f14_current_surface).lower() in {"stage", "concept_stage", "concept"}:
+    _bdp_003f14_render_concept_lens_read_only_evidence_posture_display()
+# BDP-003F.14 CONCEPT LENS READ-ONLY EVIDENCE POSTURE DISPLAY END
