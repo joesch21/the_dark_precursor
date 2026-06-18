@@ -158,7 +158,7 @@ def verify_documents() -> None:
 
 
 def global_next_step_is_allowed(value: object, f15_next_safe_step: object) -> bool:
-    """Allow F15 verifier to pass after later approved F16/F17 progression.
+    """Allow F15 verifier to pass after later approved F16/F18 progression.
 
     During F15 itself, global next-step fields should match the F15 record.
     After F16, those same global fields may validly advance to the F16
@@ -208,10 +208,15 @@ def verify_state() -> None:
         require(phase_record.get("running_frontend_review_findings"), "repair_needed result must record findings")
         require("Repair the Concept Lens read-only evidence posture display" in phase_record.get("next_safe_step", ""), "Repair-needed F15 must point to bounded repair next")
 
+    allowed_later_global_next_prefixes = ("BDP-003F.16", "BDP-003F.17", "BDP-003F.18")
     for key in ["next_recommended_step", "current_next_step", "next_step", "recommended_next_step", "next_safe_step"]:
+        value = str(state.get(key) or "")
         require(
-            global_next_step_is_allowed(state.get(key), phase_record.get("next_safe_step")),
-            f"Global {key} must match F15 next safe step or approved F16/F17 progression",
+            value == phase_record.get("next_safe_step")
+            or value.startswith(allowed_later_global_next_prefixes)
+            or "Concept Lens limited control expansion contract" in value
+            or "Concept Lens controlled concept coverage expansion contract" in value,
+            f"Global {key} must match F15 next safe step or approved F16-F18 progression",
         )
 
 

@@ -209,15 +209,15 @@ def verify_state() -> None:
         require(phase_record.get(flag) is False, f"system state flag must remain false: {flag}")
 
         require(
-        str(state.get("last_updated_phase", "")).startswith(("BDP-003F.14", "BDP-003F.15", "BDP-003F.16")),
-        "last_updated_phase should remain in approved F14-F16 progression",
+        str(state.get("last_updated_phase", "")).startswith(("BDP-003F.14", "BDP-003F.15", "BDP-003F.16", "BDP-003F.17", "BDP-003F.18")),
+        "last_updated_phase should remain in approved F14-F18 progression",
     )
         require(
-        state.get("next_recommended_step") in {NEXT_STEP, F16_NEXT_STEP}
-        or state.get("next_step") in {NEXT_STEP, F16_NEXT_STEP}
-        or str(state.get("next_step", "")).startswith(("BDP-003F.16", "BDP-003F.17"))
-        or str(state.get("next_recommended_step", "")).startswith(("BDP-003F.16", "BDP-003F.17")),
-        "system state next step is not F15 running frontend review or approved F16 descendant",
+        state.get("next_recommended_step") == NEXT_STEP
+        or state.get("next_step") == NEXT_STEP
+        or str(state.get("next_step", "")).startswith(("BDP-003F.16", "BDP-003F.17", "BDP-003F.18"))
+        or str(state.get("next_recommended_step", "")).startswith(("BDP-003F.16", "BDP-003F.17", "BDP-003F.18")),
+        "system state next step is not F15 running frontend review or approved F16-F18 descendant",
     )
 
 

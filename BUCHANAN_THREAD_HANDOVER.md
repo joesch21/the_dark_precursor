@@ -1,3 +1,46 @@
+<!-- BDP-003F.17 START -->
+
+## BDP-003F.17 — Concept Lens limited control expansion contract
+
+**Status:** complete
+**Commit target:** pending operator commit
+**Controlled slice:** limited-control contract only
+
+### What changed
+
+- Added `docs/BDP_003F17_CONCEPT_LENS_LIMITED_CONTROL_EXPANSION_CONTRACT.md`.
+- Added `scripts/update_bdp_003f17_concept_lens_limited_control_expansion_contract.py`.
+- Added `scripts/verify_bdp_003f17_concept_lens_limited_control_expansion_contract.py`.
+- Recorded that F17 is a contract-only phase after the F16 readiness decision.
+- Defined the only later controls that may be considered under this contract:
+  - controlled preset selector over existing examples only
+  - display density control
+  - read-only evidence detail expander
+  - rights boundary explainer toggle
+  - reset to default Concept Lens view
+
+### Boundary preserved
+
+- No frontend changes were made.
+- No service or bridge changes were made.
+- No new frontend controls were added.
+- No concept examples were added.
+- No free-text search was added.
+- No database writes were added.
+- No citation, claim, interpretation, concept mention, concept relation, or archive record creation path was added.
+- No external LLM routing was added.
+- No unrestricted passage reproduction was added.
+
+### Next safe step
+
+```text
+BDP-003F.18 — Define Concept Lens controlled concept coverage expansion contract after F17 control boundary.
+```
+
+This next step must remain contract-only unless explicitly re-scoped by the operator.
+
+<!-- BDP-003F.17 END -->
+
 # BDP-003E.5 — Local Reviewed Concept Card Archive Schema Candidate
 
 **Date:** 2026-06-15T17:25:27+00:00

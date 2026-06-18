@@ -25,8 +25,8 @@ PHASE_KEY = "bdp_003f11_concept_lens_existing_archive_readback_bridge_implementa
 F11_NEXT_STEP = "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration."
 WRAPPER = "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge"
 
-ALLOWED_CURRENT_PHASES = {'BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', "BDP-003F.16"}
-ALLOWED_NEXT_PREFIXES = ('BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', 'BDP-003F.16')
+ALLOWED_CURRENT_PHASES = {'BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', 'BDP-003F.16', 'BDP-003F.17', 'BDP-003F.18'}
+ALLOWED_NEXT_PREFIXES = ('BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', 'BDP-003F.16', 'BDP-003F.17', 'BDP-003F.18')
 
 
 def require(condition: bool, message: str) -> None:
@@ -99,8 +99,8 @@ def verify_state() -> None:
     }
     for key, value in expected.items():
         require(record.get(key) == value, f"State mismatch for {key}: expected {value!r}, got {record.get(key)!r}")
-    require(data.get("current_phase") in ALLOWED_CURRENT_PHASES, "Global current_phase should remain in approved F11-F16 progression")
-    require(data.get("next_step", "").startswith(ALLOWED_NEXT_PREFIXES), "Global next_step should remain in approved F11-F16 progression")
+    require(data.get("current_phase") in ALLOWED_CURRENT_PHASES, "Global current_phase should remain in approved F11-F18 progression")
+    require(data.get("next_step", "").startswith(ALLOWED_NEXT_PREFIXES), "Global next_step should remain in approved F11-F18 progression")
 
 
 def verify_bridge_module_and_service() -> None:
