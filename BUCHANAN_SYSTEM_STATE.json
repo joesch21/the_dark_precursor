@@ -50,7 +50,7 @@
         "authority_label"
       ],
       "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
-      "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
+      "next_recommended_action": "BDP-002G.1 \u2014 Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
     },
     "BDP-002H": {
       "status": "complete",
@@ -117,7 +117,7 @@
         "hidden_personalization_added": false,
         "psychological_assessment_added": false
       },
-      "next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation."
+      "next_step": "BDP-003F.7 \u2014 Define read-only Concept Lens archive evidence posture service contract before implementation."
     },
     "BDP-003F.9": {
       "phase": "BDP-003F.9",
@@ -145,7 +145,7 @@
         "evidence_promotion_added": false,
         "buchanan_claims_created": false
       },
-      "next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service."
+      "next_step": "BDP-003F.10 \u2014 Define approved read-only bridge from existing archive evidence readback into the Concept Lens service."
     },
     "BDP-003F.10": {
       "phase": "BDP-003F.10",
@@ -206,7 +206,7 @@
         "scripts/read_bdp_001r_bwo_source_bound_description.py",
         "scripts/read_bdp_002b_bwo_evidence_card.py"
       ],
-      "next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
+      "next_step": "BDP-003F.11 \u2014 Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
     },
     "BDP-003F.11": {
       "phase": "BDP-003F.11",
@@ -264,7 +264,54 @@
         "scripts/concept_lens_archive_evidence_posture_service.py"
       ],
       "verifier": "scripts/verify_bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation.py",
-      "next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration."
+      "next_step": "BDP-003F.12 \u2014 Review live Body without Organs bridge output against the Concept Lens service before UI integration."
+    },
+    "BDP-003F.12": {
+      "phase": "BDP-003F.12",
+      "title": "Review Concept Lens bridge output smoke posture before UI integration",
+      "status": "complete",
+      "completed_at": "2026-06-18T03:18:15+00:00",
+      "controlled_slice": "read_only_bridge_output_smoke_review_only",
+      "review_type": "bridge_output_smoke_review_before_ui_integration",
+      "decision": "The BDP-003F.11 bridge may be used for read-only local smoke review, but Concept Lens UI integration remains blocked until a separate UI integration contract or wiring phase is approved.",
+      "smoke_cases_required": [
+        "Body without Organs",
+        "we repress because we repeat",
+        "assemblage"
+      ],
+      "preserved_archive_chain": [
+        "concepts",
+        "concept_mentions",
+        "passages",
+        "citations",
+        "sources"
+      ],
+      "read_only_bridge_reviewed": true,
+      "frontend_wiring_approved": false,
+      "concept_lens_ui_dock_added": false,
+      "streamlit_controls_added": false,
+      "backend_routes_added": false,
+      "adapter_endpoints_added": false,
+      "sql_migrations_added": false,
+      "database_mutation": false,
+      "source_ingestion_added": false,
+      "citation_creation_added": false,
+      "concept_mention_creation_added": false,
+      "concept_relation_creation_added": false,
+      "interpretation_insertion_added": false,
+      "evidence_promotion_added": false,
+      "buchanan_claims_created": false,
+      "automatic_chat_filtering_added": false,
+      "external_llm_routing_added": false,
+      "documentation": "docs/BDP_003F12_CONCEPT_LENS_BRIDGE_OUTPUT_SMOKE_REVIEW.md",
+      "verifier": "scripts/verify_bdp_003f12_concept_lens_bridge_output_smoke_review.py",
+      "review_inputs": [
+        "BDP-003F.10 Concept Lens read-only bridge contract",
+        "BDP-003F.11 Concept Lens existing archive readback bridge implementation",
+        "scripts/concept_lens_existing_archive_evidence_readback_bridge.py",
+        "scripts/concept_lens_archive_evidence_posture_service.py"
+      ],
+      "next_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring."
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -315,11 +362,11 @@
       "authority_label"
     ],
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
-    "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
+    "next_recommended_action": "BDP-002G.1 \u2014 Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.11",
-  "last_updated_utc": "2026-06-18T03:06:49+00:00",
-  "next_recommended_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
+  "last_updated_phase": "BDP-003F.12",
+  "last_updated_utc": "2026-06-18T03:18:15+00:00",
+  "next_recommended_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
     "title": "Dark Precursor cinematic experience reset",
@@ -343,7 +390,7 @@
       "scripts/update_bdp_003c_cinematic_experience_reset.py",
       "scripts/verify_bdp_003c_cinematic_experience_reset.py"
     ],
-    "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation.",
+    "next_recommended_step": "BDP-003E.2 \u2014 Implement read-only cinematic concept card export draft without database mutation.",
     "updated_at": "2026-06-15T03:26:40+00:00"
   },
   "bdp_003d_cinematic_video_front_page": {
@@ -379,7 +426,7 @@
       "scripts/verify_bdp_003d_cinematic_video_front_page.py"
     ],
     "verifier": "scripts/verify_bdp_003d_cinematic_video_front_page.py",
-    "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation."
+    "next_recommended_step": "BDP-003E.2 \u2014 Implement read-only cinematic concept card export draft without database mutation."
   },
   "bdp_003e1_cinematic_concept_card_persistence_contract": {
     "phase": "BDP-003E.1",
@@ -417,7 +464,7 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e1_cinematic_concept_card_contract.py",
-    "next_recommended_step": "BDP-003E.2 — Implement read-only cinematic concept card export draft without database mutation."
+    "next_recommended_step": "BDP-003E.2 \u2014 Implement read-only cinematic concept card export draft without database mutation."
   },
   "bdp_003e2_cinematic_concept_card_export_draft": {
     "phase": "BDP-003E.2",
@@ -457,7 +504,7 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e2_cinematic_concept_card_export_draft.py",
-    "next_recommended_step": "BDP-003E.3 — Review exported cinematic concept card samples before any persistence or adapter implementation."
+    "next_recommended_step": "BDP-003E.3 \u2014 Review exported cinematic concept card samples before any persistence or adapter implementation."
   },
   "bdp_003e3_cinematic_concept_card_sample_review": {
     "phase": "BDP-003E.3",
@@ -504,7 +551,7 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e3_cinematic_concept_card_sample_review.py",
-    "next_recommended_step": "BDP-003E.4 — Decide concept card persistence readiness from reviewed samples only."
+    "next_recommended_step": "BDP-003E.4 \u2014 Decide concept card persistence readiness from reviewed samples only."
   },
   "bdp_003e4_concept_card_persistence_readiness_decision": {
     "phase": "BDP-003E.4",
@@ -541,7 +588,7 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e4_concept_card_persistence_readiness_decision.py",
-    "next_recommended_step": "BDP-003E.5 — Define local reviewed concept card archive schema candidate only, without implementation."
+    "next_recommended_step": "BDP-003E.5 \u2014 Define local reviewed concept card archive schema candidate only, without implementation."
   },
   "bdp_003e5_local_reviewed_concept_card_archive_schema_candidate": {
     "phase": "BDP-003E.5",
@@ -578,9 +625,9 @@
       "BUCHANAN_THREAD_HANDOVER.md"
     ],
     "verifier": "scripts/verify_bdp_003e5_local_reviewed_concept_card_archive_schema_candidate.py",
-    "next_recommended_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
-    "next_step": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
-    "follow_up_phase": "BDP-003E.6 — Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "next_recommended_step": "BDP-003E.6 \u2014 Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "next_step": "BDP-003E.6 \u2014 Review local reviewed concept card archive schema candidate against exported samples before implementation.",
+    "follow_up_phase": "BDP-003E.6 \u2014 Review local reviewed concept card archive schema candidate against exported samples before implementation.",
     "phase_chain_note": "BDP-003E.5 points to BDP-003E.6 inside its own phase record; later phases must not require E5 to inspect the mutable global current-next-step field."
   },
   "bdp_003e6_archive_schema_sample_review": {
@@ -605,17 +652,17 @@
     ],
     "review_output": "docs/BDP_003E6_ARCHIVE_SCHEMA_SAMPLE_REVIEW.md",
     "verifier": "scripts/verify_bdp_003e6_archive_schema_sample_review.py",
-    "next_step": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.",
-    "follow_up_phase": "BDP-003E.7 — Define local reviewed concept card archive writer contract only, without implementation.",
+    "next_step": "BDP-003E.7 \u2014 Define local reviewed concept card archive writer contract only, without implementation.",
+    "follow_up_phase": "BDP-003E.7 \u2014 Define local reviewed concept card archive writer contract only, without implementation.",
     "reviewed_export_phase": "BDP-003E.3",
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
-  "next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
-  "recommended_next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
-  "next_safe_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
-  "current_phase": "BDP-003F.11",
+  "current_next_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring.",
+  "next_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring.",
+  "recommended_next_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring.",
+  "next_safe_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring.",
+  "current_phase": "BDP-003F.12",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -644,7 +691,7 @@
     ],
     "contract_output": "docs/BDP_003E7_LOCAL_REVIEWED_CONCEPT_CARD_ARCHIVE_WRITER_CONTRACT.md",
     "verifier": "scripts/verify_bdp_003e7_local_reviewed_concept_card_archive_writer_contract.py",
-    "next_step": "BDP-003E.8 — Review local reviewed concept card archive writer contract against archive boundaries before implementation."
+    "next_step": "BDP-003E.8 \u2014 Review local reviewed concept card archive writer contract against archive boundaries before implementation."
   },
   "bdp_003e8_archive_writer_contract_boundary_review": {
     "phase": "BDP-003E.8",
@@ -678,7 +725,7 @@
     ],
     "review_output": "docs/BDP_003E8_ARCHIVE_WRITER_CONTRACT_BOUNDARY_REVIEW.md",
     "verifier": "scripts/verify_bdp_003e8_archive_writer_contract_boundary_review.py",
-    "next_step": "BDP-003E.9 — Decide local reviewed concept card archive writer implementation readiness, without implementation."
+    "next_step": "BDP-003E.9 \u2014 Decide local reviewed concept card archive writer implementation readiness, without implementation."
   },
   "bdp_003e9_archive_writer_implementation_readiness_decision": {
     "phase": "BDP-003E.9",
@@ -716,7 +763,7 @@
     ],
     "decision_output": "docs/BDP_003E9_ARCHIVE_WRITER_IMPLEMENTATION_READINESS_DECISION.md",
     "verifier": "scripts/verify_bdp_003e9_archive_writer_implementation_readiness_decision.py",
-    "next_step": "BDP-003E.10 — Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
+    "next_step": "BDP-003E.10 \u2014 Define local reviewed concept card archive implementation boundary and safety gates before writing code.",
     "sql_migrations_approved": false
   },
   "bdp_003e10_archive_implementation_boundary_and_safety_gates": {
@@ -763,7 +810,7 @@
     ],
     "boundary_output": "docs/BDP_003E10_ARCHIVE_IMPLEMENTATION_BOUNDARY_AND_SAFETY_GATES.md",
     "verifier": "scripts/verify_bdp_003e10_archive_implementation_boundary_and_safety_gates.py",
-    "next_step": "BDP-003E.11 — Implement local reviewed concept card archive writer behind safety gates, if approved."
+    "next_step": "BDP-003E.11 \u2014 Implement local reviewed concept card archive writer behind safety gates, if approved."
   },
   "current_status": "complete",
   "bdp_003e11_local_reviewed_concept_card_archive_writer": {
@@ -813,7 +860,7 @@
       "BDP-003E.10 implementation boundary and safety gates",
       "docs/BDP_003E10_ARCHIVE_IMPLEMENTATION_BOUNDARY_AND_SAFETY_GATES.md"
     ],
-    "next_step": "BDP-003E.12 — Review local reviewed concept card archive writer output against sample payloads before UI integration."
+    "next_step": "BDP-003E.12 \u2014 Review local reviewed concept card archive writer output against sample payloads before UI integration."
   },
   "bdp_003e12_archive_writer_output_sample_review": {
     "phase": "BDP-003E.12",
@@ -853,7 +900,7 @@
     ],
     "review_output": "docs/BDP_003E12_ARCHIVE_WRITER_OUTPUT_SAMPLE_REVIEW.md",
     "verifier": "scripts/verify_bdp_003e12_archive_writer_output_sample_review.py",
-    "next_step": "BDP-003E.13 — Define UI integration contract for local reviewed concept card archive controls before wiring frontend."
+    "next_step": "BDP-003E.13 \u2014 Define UI integration contract for local reviewed concept card archive controls before wiring frontend."
   },
   "bdp_003e13_ui_integration_contract_for_archive_controls": {
     "phase": "BDP-003E.13",
@@ -889,7 +936,7 @@
     ],
     "contract_output": "docs/BDP_003E13_UI_INTEGRATION_CONTRACT_FOR_ARCHIVE_CONTROLS.md",
     "verifier": "scripts/verify_bdp_003e13_ui_integration_contract_for_archive_controls.py",
-    "next_step": "BDP-003E.14 — Decide UI archive control frontend wiring readiness, without wiring frontend."
+    "next_step": "BDP-003E.14 \u2014 Decide UI archive control frontend wiring readiness, without wiring frontend."
   },
   "bdp_003e14_ui_archive_control_frontend_wiring_readiness_decision": {
     "phase": "BDP-003E.14",
@@ -927,7 +974,7 @@
     ],
     "decision_output": "docs/BDP_003E14_UI_ARCHIVE_CONTROL_FRONTEND_WIRING_READINESS_DECISION.md",
     "verifier": "scripts/verify_bdp_003e14_ui_archive_control_frontend_wiring_readiness_decision.py",
-    "next_step": "BDP-003E.15 — Wire local reviewed concept card archive controls into The Dark Precursor UI behind safety gates."
+    "next_step": "BDP-003E.15 \u2014 Wire local reviewed concept card archive controls into The Dark Precursor UI behind safety gates."
   },
   "bdp_003e15_archive_controls_ui_wiring": {
     "phase": "BDP-003E.15",
@@ -964,7 +1011,7 @@
       "docs/BDP_003E14_UI_ARCHIVE_CONTROL_FRONTEND_WIRING_READINESS_DECISION.md"
     ],
     "verifier": "scripts/verify_bdp_003e15_archive_controls_ui_wiring.py",
-    "next_step": "BDP-003E.16 — Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow."
+    "next_step": "BDP-003E.16 \u2014 Review wired archive controls in The Dark Precursor UI against safety gates before broader archive workflow."
   },
   "bdp_003e16_wired_archive_controls_safety_gate_review": {
     "phase": "BDP-003E.16",
@@ -1004,7 +1051,7 @@
     ],
     "review_output": "docs/BDP_003E16_WIRED_ARCHIVE_CONTROLS_SAFETY_REVIEW.md",
     "verifier": "scripts/verify_bdp_003e16_wired_archive_controls_safety_review.py",
-    "next_step": "BDP-003E.17 — Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls."
+    "next_step": "BDP-003E.17 \u2014 Decide broader archive workflow readiness before expanding beyond local reviewed UI archive controls."
   },
   "bdp_003f1_teleprompter_narrator_stage": {
     "phase": "BDP-003F.1",
@@ -1035,7 +1082,7 @@
     ],
     "review_output": "docs/BDP_003F1_TELEPROMPTER_NARRATOR_STAGE.md",
     "verifier": "scripts/verify_bdp_003f1_teleprompter_narrator_stage.py",
-    "next_step": "BDP-003F.2 — Review teleprompter narrator stage in the running frontend before further cinematic UX changes."
+    "next_step": "BDP-003F.2 \u2014 Review teleprompter narrator stage in the running frontend before further cinematic UX changes."
   },
   "bdp_003f2_about_page": {
     "phase": "BDP-003F.2",
@@ -1066,7 +1113,7 @@
     ],
     "review_output": "docs/BDP_003F2_ABOUT_PAGE.md",
     "verifier": "scripts/verify_bdp_003f2_about_page.py",
-    "next_step": "BDP-003F.3 — Review The Dark Precursor About page in the running frontend before further public-facing explanation changes."
+    "next_step": "BDP-003F.3 \u2014 Review The Dark Precursor About page in the running frontend before further public-facing explanation changes."
   },
   "bdp_003f3_about_page_running_frontend_review": {
     "phase": "BDP-003F.3",
@@ -1096,7 +1143,7 @@
     "buchanan_claims_created": false,
     "review_output": "docs/BDP_003F3_ABOUT_PAGE_RUNNING_FRONTEND_REVIEW.md",
     "verifier": "scripts/verify_bdp_003f3_about_page_running_frontend_review.py",
-    "next_step": "BDP-003F.4 — Define The Dark Precursor navigation architecture before adding further frontend pages."
+    "next_step": "BDP-003F.4 \u2014 Define The Dark Precursor navigation architecture before adding further frontend pages."
   },
   "bdp_003f4_dark_precursor_navigation_architecture": {
     "phase": "BDP-003F.4",
@@ -1146,7 +1193,7 @@
     ],
     "review_output": "docs/BDP_003F4_DARK_PRECURSOR_NAVIGATION_ARCHITECTURE.md",
     "verifier": "scripts/verify_bdp_003f4_navigation_architecture.py",
-    "next_step": "BDP-003F.5 — Wire navigation architecture only after BDP-003F.4 is committed and pushed."
+    "next_step": "BDP-003F.5 \u2014 Wire navigation architecture only after BDP-003F.4 is committed and pushed."
   },
   "bdp_003f5_dark_precursor_navigation_wiring": {
     "phase": "BDP-003F.5",
@@ -1280,7 +1327,7 @@
     ],
     "review_output": "docs/BDP_003F6_CONCEPT_LENS_ARCHITECTURE.md",
     "verifier": "scripts/verify_bdp_003f6_concept_lens_architecture.py",
-    "next_step": "BDP-003F.7 — Define read-only Concept Lens archive evidence posture service contract before implementation."
+    "next_step": "BDP-003F.7 \u2014 Define read-only Concept Lens archive evidence posture service contract before implementation."
   },
   "bdp_003f7_concept_lens_archive_evidence_posture_service_contract": {
     "phase": "BDP-003F.7",
@@ -1356,7 +1403,7 @@
     "service_output_scope": "archive evidence posture only; not generation and not fidelity review",
     "review_output": "docs/BDP_003F7_CONCEPT_LENS_ARCHIVE_EVIDENCE_POSTURE_SERVICE_CONTRACT.md",
     "verifier": "scripts/verify_bdp_003f7_concept_lens_archive_evidence_posture_service_contract.py",
-    "next_step": "BDP-003F.8 — Implement read-only Concept Lens archive evidence posture service behind this contract, if approved."
+    "next_step": "BDP-003F.8 \u2014 Implement read-only Concept Lens archive evidence posture service behind this contract, if approved."
   },
   "bdp_003f8_concept_lens_archive_evidence_posture_service": {
     "phase": "BDP-003F.8",
@@ -1427,7 +1474,7 @@
       "BDP-003F.7 Concept Lens archive evidence posture service contract",
       "docs/BDP_003F7_CONCEPT_LENS_ARCHIVE_EVIDENCE_POSTURE_SERVICE_CONTRACT.md"
     ],
-    "next_step": "BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration."
+    "next_step": "BDP-003F.9 \u2014 Review Concept Lens evidence posture service output against known archive cases before UI integration."
   },
   "bdp_003f9_concept_lens_evidence_posture_output_review": {
     "phase": "BDP-003F.9",
@@ -1479,7 +1526,7 @@
     "buchanan_claims_created": false,
     "automatic_chat_filtering_added": false,
     "external_llm_routing_added": false,
-    "next_step": "BDP-003F.10 — Define approved read-only bridge from existing archive evidence readback into the Concept Lens service."
+    "next_step": "BDP-003F.10 \u2014 Define approved read-only bridge from existing archive evidence readback into the Concept Lens service."
   },
   "bdp_003f10_concept_lens_existing_archive_readback_bridge_contract": {
     "phase": "BDP-003F.10",
@@ -1540,7 +1587,7 @@
       "scripts/read_bdp_001r_bwo_source_bound_description.py",
       "scripts/read_bdp_002b_bwo_evidence_card.py"
     ],
-    "next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
+    "next_step": "BDP-003F.11 \u2014 Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
   },
   "bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation": {
     "phase": "BDP-003F.11",
@@ -1598,6 +1645,53 @@
       "scripts/concept_lens_archive_evidence_posture_service.py"
     ],
     "verifier": "scripts/verify_bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation.py",
-    "next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration."
+    "next_step": "BDP-003F.12 \u2014 Review live Body without Organs bridge output against the Concept Lens service before UI integration."
+  },
+  "bdp_003f12_concept_lens_bridge_output_smoke_review": {
+    "phase": "BDP-003F.12",
+    "title": "Review Concept Lens bridge output smoke posture before UI integration",
+    "status": "complete",
+    "completed_at": "2026-06-18T03:18:15+00:00",
+    "controlled_slice": "read_only_bridge_output_smoke_review_only",
+    "review_type": "bridge_output_smoke_review_before_ui_integration",
+    "decision": "The BDP-003F.11 bridge may be used for read-only local smoke review, but Concept Lens UI integration remains blocked until a separate UI integration contract or wiring phase is approved.",
+    "smoke_cases_required": [
+      "Body without Organs",
+      "we repress because we repeat",
+      "assemblage"
+    ],
+    "preserved_archive_chain": [
+      "concepts",
+      "concept_mentions",
+      "passages",
+      "citations",
+      "sources"
+    ],
+    "read_only_bridge_reviewed": true,
+    "frontend_wiring_approved": false,
+    "concept_lens_ui_dock_added": false,
+    "streamlit_controls_added": false,
+    "backend_routes_added": false,
+    "adapter_endpoints_added": false,
+    "sql_migrations_added": false,
+    "database_mutation": false,
+    "source_ingestion_added": false,
+    "citation_creation_added": false,
+    "concept_mention_creation_added": false,
+    "concept_relation_creation_added": false,
+    "interpretation_insertion_added": false,
+    "evidence_promotion_added": false,
+    "buchanan_claims_created": false,
+    "automatic_chat_filtering_added": false,
+    "external_llm_routing_added": false,
+    "documentation": "docs/BDP_003F12_CONCEPT_LENS_BRIDGE_OUTPUT_SMOKE_REVIEW.md",
+    "verifier": "scripts/verify_bdp_003f12_concept_lens_bridge_output_smoke_review.py",
+    "review_inputs": [
+      "BDP-003F.10 Concept Lens read-only bridge contract",
+      "BDP-003F.11 Concept Lens existing archive readback bridge implementation",
+      "scripts/concept_lens_existing_archive_evidence_readback_bridge.py",
+      "scripts/concept_lens_archive_evidence_posture_service.py"
+    ],
+    "next_step": "BDP-003F.13 \u2014 Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring."
   }
 }

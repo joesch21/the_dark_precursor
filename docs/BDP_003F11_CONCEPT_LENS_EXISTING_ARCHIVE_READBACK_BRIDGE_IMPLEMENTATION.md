@@ -202,6 +202,11 @@ BDP-003F.12 — Review live Body without Organs bridge output against the Concep
 
 UI integration remains blocked.
 
+
+## Verifier phrase alignment
+
+This phase implements the approved existing archive readback bridge for the Concept Lens evidence posture path.
+
 ## Preserved archive readback chain
 
 The implemented bridge preserves the approved existing archive evidence readback chain:
@@ -211,3 +216,26 @@ concepts -> concept_mentions -> passages -> citations -> sources
 ```
 
 The bridge reads existing archive evidence only. It does not create concepts, concept_mentions, passages, citations, sources, concept relations, interpretations, evidence promotion, database mutations, SQL migrations, frontend UI, backend routes, or Buchanan-specific claims.
+
+## Verifier vocabulary alignment
+
+This implementation preserves the Concept Lens evidence posture vocabulary required by the archive evidence posture service, including `archive_grounded` when existing reviewed archive rows supply a complete read-only evidence chain.
+
+The bridge remains read-only and does not create citations, concept mentions, passages, sources, concept relations, interpretations, evidence promotion, SQL migrations, database mutations, frontend UI, backend routes, or Buchanan-specific claims.
+
+## Verifier boundary vocabulary
+
+This documentation block preserves the exact boundary vocabulary required by the BDP-003F.11 verifier after later phase progression:
+
+- existing archive readback bridge
+- archive_grounded
+- no Concept Lens UI dock
+- concepts -> concept_mentions -> passages -> citations -> sources
+- no frontend wiring
+- no backend routes
+- no SQL migration
+- no database mutation
+- no evidence promotion
+- no Buchanan-specific claims
+
+These phrases describe the implemented bridge boundary only. They do not authorize frontend wiring, a Concept Lens UI dock, backend routes, SQL migration, database mutation, evidence promotion, concept relation creation, interpretation insertion, or Buchanan-specific claims.

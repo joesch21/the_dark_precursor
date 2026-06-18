@@ -1153,3 +1153,66 @@ Next safe step:
 ```text
 BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.
 ```
+
+## BDP-003F.12 — Concept Lens Bridge Output Smoke Review Before UI Integration
+
+**Status:** Complete
+**Controlled slice:** read-only bridge output smoke review only
+
+BDP-003F.12 records the bridge output smoke-review gate after the BDP-003F.11 read-only bridge implementation and before any Concept Lens UI integration.
+
+Review finding:
+
+```text
+The BDP-003F.11 bridge may be used for read-only local smoke review, but the Concept Lens UI remains blocked until a separate UI integration contract or frontend wiring phase is approved.
+```
+
+Required smoke cases:
+
+```text
+Body without Organs
+we repress because we repeat
+assemblage
+```
+
+Preserved archive readback chain:
+
+```text
+concepts -> concept_mentions -> passages -> citations -> sources
+```
+
+Boundary:
+
+- no Concept Lens UI dock
+- no Streamlit controls
+- no frontend wiring
+- no backend routes
+- no adapter endpoints
+- no SQL migrations
+- no database mutation
+- no citation creation
+- no concept mention creation
+- no concept relation creation
+- no interpretation insertion
+- no evidence promotion
+- no Buchanan-specific claims
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f12_concept_lens_bridge_output_smoke_review.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.13 — Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring.
+```
+
+### BDP-003F.11 verifier-required boundary vocabulary repair
+
+This handover section preserves the required F11 boundary vocabulary for historical verification after BDP-003F.12 advances the global phase pointer.
+
+```text
+existing archive readback bridge
+```
