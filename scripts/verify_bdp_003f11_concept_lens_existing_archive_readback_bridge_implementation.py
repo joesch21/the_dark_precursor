@@ -25,8 +25,8 @@ PHASE_KEY = "bdp_003f11_concept_lens_existing_archive_readback_bridge_implementa
 F11_NEXT_STEP = "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration."
 WRAPPER = "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge"
 
-ALLOWED_CURRENT_PHASES = {"BDP-003F.11", "BDP-003F.12", "BDP-003F.13", "BDP-003F.14"}
-ALLOWED_NEXT_PREFIXES = ("BDP-003F.12", "BDP-003F.13", "BDP-003F.14", "BDP-003F.15")
+ALLOWED_CURRENT_PHASES = {'BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15'}
+ALLOWED_NEXT_PREFIXES = ('BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', 'BDP-003F.16')
 
 
 def require(condition: bool, message: str) -> None:

@@ -206,8 +206,17 @@ def verify_state() -> None:
     for flag in false_flags:
         require(phase_record.get(flag) is False, f"system state flag must remain false: {flag}")
 
-    require(state.get("last_updated_phase") == PHASE, "last_updated_phase not advanced to BDP-003F.14")
-    require(state.get("next_recommended_step") == NEXT_STEP or state.get("next_step") == NEXT_STEP, "system state next step is not F15 running frontend review")
+        require(
+        str(state.get("last_updated_phase", "")).startswith(("BDP-003F.14", "BDP-003F.15")),
+        "last_updated_phase should remain in approved F14-F15 progression",
+    )
+        require(
+        state.get("next_recommended_step") == NEXT_STEP
+        or state.get("next_step") == NEXT_STEP
+        or str(state.get("next_step", "")).startswith("BDP-003F.16")
+        or str(state.get("next_recommended_step", "")).startswith("BDP-003F.16"),
+        "system state next step is not F15 running frontend review or approved F16 descendant",
+    )
 
 
 def verify_changed_file_scope_if_available() -> None:

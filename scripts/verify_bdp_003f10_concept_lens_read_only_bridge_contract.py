@@ -20,8 +20,8 @@ F9_DOC = ROOT / "docs" / "BDP_003F9_CONCEPT_LENS_EVIDENCE_POSTURE_OUTPUT_REVIEW.
 PHASE_KEY = "bdp_003f10_concept_lens_existing_archive_readback_bridge_contract"
 F10_NEXT_STEP = "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
 
-ALLOWED_CURRENT_PHASES = {"BDP-003F.10", "BDP-003F.11", "BDP-003F.12", "BDP-003F.13", "BDP-003F.14"}
-ALLOWED_NEXT_PREFIXES = ("BDP-003F.11", "BDP-003F.12", "BDP-003F.13", "BDP-003F.14", "BDP-003F.15")
+ALLOWED_CURRENT_PHASES = {'BDP-003F.10', 'BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15'}
+ALLOWED_NEXT_PREFIXES = ('BDP-003F.10', 'BDP-003F.11', 'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', 'BDP-003F.16')
 
 
 def require(condition: bool, message: str) -> None:

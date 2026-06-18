@@ -1369,3 +1369,43 @@ The repair updates only verifier progression allowances. It does not change fron
 A second narrow verifier repair was applied because the first repair could skip F10-F12 when `BDP-003F.14` appeared elsewhere in those files outside the `ALLOWED_CURRENT_PHASES` block.
 
 This V2 repair directly updates historical verifier allowlist blocks and F13 global next-step progression acceptance. It does not change frontend behavior, Concept Lens UI behavior, SQL, database writes, archive row creation, citation creation, concept mention creation, concept relation creation, interpretation insertion, evidence promotion, external LLM routing, free-text concept search input, source ingestion, unrestricted passage reproduction, Buchanan-specific interpretive claim generation, backend routes, adapter endpoints, or general chat filtering.
+
+<!-- BDP-003F.15 RUNNING FRONTEND REVIEW START -->
+
+## BDP-003F.15 — Concept Lens Running Frontend Review
+
+Status: complete
+Review result: pass
+Completed at: 2026-06-18T05:59:29+00:00
+
+Summary:
+BDP-003F.15 records a manual running-frontend review of the Concept Lens read-only evidence posture display added in BDP-003F.14. The phase is review-only and does not modify frontend, service, or bridge code.
+
+Reviewed controlled examples:
+1. Body without Organs
+2. we repress because we repeat
+3. assemblage
+
+Confirmed boundary:
+This panel displays read-only archive evidence posture. It does not create citations, claims, interpretations, concept relations, or database records.
+
+Files added or updated by this phase:
+1. docs/BDP_003F15_CONCEPT_LENS_RUNNING_FRONTEND_REVIEW.md
+2. scripts/update_bdp_003f15_concept_lens_running_frontend_review.py
+3. scripts/verify_bdp_003f15_concept_lens_running_frontend_review.py
+4. BDP_003F15_PATCH_README.md
+5. BUCHANAN_SYSTEM_STATE.json
+6. BUCHANAN_THREAD_HANDOVER.md
+
+Files intentionally not modified:
+1. frontend/dark_precursor.py
+2. scripts/concept_lens_archive_evidence_posture_service.py
+3. scripts/concept_lens_existing_archive_evidence_readback_bridge.py
+
+Review findings:
+No repair findings recorded.
+
+Next safe step:
+BDP-003F.16 — Decide Concept Lens control and concept coverage expansion readiness after running frontend review.
+
+<!-- BDP-003F.15 RUNNING FRONTEND REVIEW END -->

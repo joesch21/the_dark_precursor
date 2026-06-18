@@ -20,8 +20,8 @@ F11_BRIDGE = ROOT / "scripts/concept_lens_existing_archive_evidence_readback_bri
 F8_SERVICE = ROOT / "scripts/concept_lens_archive_evidence_posture_service.py"
 F12_NEXT_STEP = "BDP-003F.13 — Define Concept Lens UI integration contract for read-only evidence posture display before frontend wiring."
 
-ALLOWED_CURRENT_PHASES = {"BDP-003F.12", "BDP-003F.13", "BDP-003F.14"}
-ALLOWED_NEXT_PREFIXES = ("BDP-003F.13", "BDP-003F.14", "BDP-003F.15")
+ALLOWED_CURRENT_PHASES = {'BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15'}
+ALLOWED_NEXT_PREFIXES = ('BDP-003F.12', 'BDP-003F.13', 'BDP-003F.14', 'BDP-003F.15', 'BDP-003F.16')
 
 
 def require(condition: bool, message: str) -> None:
