@@ -93,9 +93,25 @@ def verify_state() -> None:
     require(record.get("evidence_promotion_added") is False, "F10 must not promote evidence")
     require(record.get("buchanan_claims_created") is False, "F10 must not create Buchanan claims")
     require(record.get("next_step") == NEXT_STEP, "State next step mismatch")
-    require(data.get("current_phase") == "BDP-003F.10", "Global current_phase should be BDP-003F.10")
-    require(data.get("next_step") == NEXT_STEP, "Global next_step mismatch")
 
+    # Global pointers are mutable thread state. F10 remains valid after later approved
+    # dependent bridge phases advance current_phase / next_step beyond F10.
+    current_phase = data.get("current_phase")
+    require(
+        current_phase in {"BDP-003F.10", "BDP-003F.11", "BDP-003F.12"},
+        "Global current_phase should be F10 or an approved dependent Concept Lens bridge phase",
+    )
+
+    global_next_step = data.get("next_step")
+    require(
+        global_next_step == NEXT_STEP
+        or (
+            isinstance(global_next_step, str)
+            and global_next_step.startswith(("BDP-003F.11", "BDP-003F.12", "BDP-003F.13"))
+            and "Concept Lens" in global_next_step
+        ),
+        "Global next_step should remain at F10 next step or advance only inside the approved Concept Lens bridge chain",
+    )
 
 def verify_handover() -> None:
     text = read(HANDOVER)

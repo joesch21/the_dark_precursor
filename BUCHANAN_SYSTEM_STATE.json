@@ -207,6 +207,64 @@
         "scripts/read_bdp_002b_bwo_evidence_card.py"
       ],
       "next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
+    },
+    "BDP-003F.11": {
+      "phase": "BDP-003F.11",
+      "title": "Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service",
+      "status": "complete",
+      "completed_at": "2026-06-18T03:06:49+00:00",
+      "controlled_slice": "read_only_bridge_implementation_only",
+      "implementation_type": "existing_archive_readback_bridge_to_f8_service_rows",
+      "contract_source": "BDP-003F.10",
+      "bridge_contract_name": "concept_lens_existing_archive_evidence_readback_bridge.v1",
+      "bridge_implemented": true,
+      "bridge_module": "scripts/concept_lens_existing_archive_evidence_readback_bridge.py",
+      "bridge_function": "read_existing_archive_evidence_rows_for_concept",
+      "bridge_review_helper": "read_existing_archive_evidence_rows_from_readback_text",
+      "target_service_module": "scripts/concept_lens_archive_evidence_posture_service.py",
+      "target_service_function": "read_concept_lens_archive_evidence_posture",
+      "service_wrapper_added": true,
+      "service_wrapper_function": "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge",
+      "first_supported_review_case": "Body without Organs",
+      "approved_source_readback_candidates": [
+        "scripts/read_bdp_001r_bwo_source_bound_description.py",
+        "scripts/read_bdp_002b_bwo_evidence_card.py"
+      ],
+      "primary_archive_readback_chain": [
+        "concepts",
+        "concept_mentions",
+        "passages",
+        "citations",
+        "sources"
+      ],
+      "rights_boundary": "restricted passage text remains omitted_by_rights_policy; metadata and locators only",
+      "failure_posture": "return_empty_rows_for_no_confirmed_readback; F8 remains conservative",
+      "frontend_implementation": false,
+      "concept_lens_ui_dock_added": false,
+      "streamlit_controls_added": false,
+      "new_navigation_surface_keys_added": false,
+      "backend_route_added": false,
+      "adapter_endpoint_added": false,
+      "database_tables_added": false,
+      "sql_migration_added": false,
+      "database_mutation": false,
+      "source_ingestion_added": false,
+      "citation_creation_added": false,
+      "concept_mention_creation_added": false,
+      "concept_relation_creation_added": false,
+      "interpretation_insertion_added": false,
+      "evidence_promotion_added": false,
+      "buchanan_claims_created": false,
+      "automatic_chat_filtering_added": false,
+      "external_llm_routing_added": false,
+      "philosophical_fidelity_review_added": false,
+      "review_output": "docs/BDP_003F11_CONCEPT_LENS_EXISTING_ARCHIVE_READBACK_BRIDGE_IMPLEMENTATION.md",
+      "implementation_files": [
+        "scripts/concept_lens_existing_archive_evidence_readback_bridge.py",
+        "scripts/concept_lens_archive_evidence_posture_service.py"
+      ],
+      "verifier": "scripts/verify_bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation.py",
+      "next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration."
     }
   },
   "bdp_002g_differential_reading_engine": {
@@ -259,8 +317,8 @@
     "operator_rule": "Do not map everything. Find the cut. Follow the flow. Name the capture. Preserve the difference.",
     "next_recommended_action": "BDP-002G.1 — Wire the optional Differential Engine panel into The Dark Precursor after operator review, or test the template on one reviewed example."
   },
-  "last_updated_phase": "BDP-003F.10",
-  "last_updated_utc": "2026-06-18T03:01:31+00:00",
+  "last_updated_phase": "BDP-003F.11",
+  "last_updated_utc": "2026-06-18T03:06:49+00:00",
   "next_recommended_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
   "bdp_003c_cinematic_experience_reset": {
     "phase": "BDP-003C",
@@ -553,11 +611,11 @@
     "reviewed_schema_phase": "BDP-003E.5",
     "phase_chain_note": "BDP-003E.6 points to BDP-003E.7 inside its own phase record; later phases must not require E6 to inspect the mutable global current-next-step field."
   },
-  "current_next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
-  "next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
-  "recommended_next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
-  "next_safe_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.",
-  "current_phase": "BDP-003F.10",
+  "current_next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
+  "next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
+  "recommended_next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
+  "next_safe_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.",
+  "current_phase": "BDP-003F.11",
   "bdp_003e7_local_reviewed_concept_card_archive_writer_contract": {
     "phase": "BDP-003E.7",
     "title": "Define local reviewed concept card archive writer contract only, without implementation.",
@@ -1483,5 +1541,63 @@
       "scripts/read_bdp_002b_bwo_evidence_card.py"
     ],
     "next_step": "BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service."
+  },
+  "bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation": {
+    "phase": "BDP-003F.11",
+    "title": "Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service",
+    "status": "complete",
+    "completed_at": "2026-06-18T03:06:49+00:00",
+    "controlled_slice": "read_only_bridge_implementation_only",
+    "implementation_type": "existing_archive_readback_bridge_to_f8_service_rows",
+    "contract_source": "BDP-003F.10",
+    "bridge_contract_name": "concept_lens_existing_archive_evidence_readback_bridge.v1",
+    "bridge_implemented": true,
+    "bridge_module": "scripts/concept_lens_existing_archive_evidence_readback_bridge.py",
+    "bridge_function": "read_existing_archive_evidence_rows_for_concept",
+    "bridge_review_helper": "read_existing_archive_evidence_rows_from_readback_text",
+    "target_service_module": "scripts/concept_lens_archive_evidence_posture_service.py",
+    "target_service_function": "read_concept_lens_archive_evidence_posture",
+    "service_wrapper_added": true,
+    "service_wrapper_function": "read_concept_lens_archive_evidence_posture_via_existing_archive_bridge",
+    "first_supported_review_case": "Body without Organs",
+    "approved_source_readback_candidates": [
+      "scripts/read_bdp_001r_bwo_source_bound_description.py",
+      "scripts/read_bdp_002b_bwo_evidence_card.py"
+    ],
+    "primary_archive_readback_chain": [
+      "concepts",
+      "concept_mentions",
+      "passages",
+      "citations",
+      "sources"
+    ],
+    "rights_boundary": "restricted passage text remains omitted_by_rights_policy; metadata and locators only",
+    "failure_posture": "return_empty_rows_for_no_confirmed_readback; F8 remains conservative",
+    "frontend_implementation": false,
+    "concept_lens_ui_dock_added": false,
+    "streamlit_controls_added": false,
+    "new_navigation_surface_keys_added": false,
+    "backend_route_added": false,
+    "adapter_endpoint_added": false,
+    "database_tables_added": false,
+    "sql_migration_added": false,
+    "database_mutation": false,
+    "source_ingestion_added": false,
+    "citation_creation_added": false,
+    "concept_mention_creation_added": false,
+    "concept_relation_creation_added": false,
+    "interpretation_insertion_added": false,
+    "evidence_promotion_added": false,
+    "buchanan_claims_created": false,
+    "automatic_chat_filtering_added": false,
+    "external_llm_routing_added": false,
+    "philosophical_fidelity_review_added": false,
+    "review_output": "docs/BDP_003F11_CONCEPT_LENS_EXISTING_ARCHIVE_READBACK_BRIDGE_IMPLEMENTATION.md",
+    "implementation_files": [
+      "scripts/concept_lens_existing_archive_evidence_readback_bridge.py",
+      "scripts/concept_lens_archive_evidence_posture_service.py"
+    ],
+    "verifier": "scripts/verify_bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation.py",
+    "next_step": "BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration."
   }
 }

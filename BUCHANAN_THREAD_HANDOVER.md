@@ -1091,3 +1091,65 @@ Next safe step:
 BDP-003F.11 — Implement the approved read-only bridge from existing archive evidence readback into the Concept Lens service.
 ```
 <!-- BDP-003F.10-CONCEPT-LENS-READ-ONLY-BRIDGE-CONTRACT-END -->
+
+## BDP-003F.11 — Concept Lens Existing Archive Evidence Readback Bridge Implementation
+
+**Status:** Complete
+**Controlled slice:** read-only bridge implementation only
+
+BDP-003F.11 implements the approved BDP-003F.10 read-only bridge from existing governed archive evidence readback into the BDP-003F.8 Concept Lens archive evidence posture service.
+
+Implemented bridge module:
+
+```text
+scripts/concept_lens_existing_archive_evidence_readback_bridge.py
+```
+
+Implemented bridge function:
+
+```text
+read_existing_archive_evidence_rows_for_concept
+```
+
+Implemented service wrapper:
+
+```text
+read_concept_lens_archive_evidence_posture_via_existing_archive_bridge
+```
+
+The bridge supplies F8-compatible in-memory rows only. The F8 service remains the posture classifier.
+
+First supported review case:
+
+```text
+Body without Organs
+```
+
+Boundary:
+
+1. No frontend wiring.
+2. No Concept Lens UI dock.
+3. No Streamlit controls.
+4. No new navigation surface keys.
+5. No backend route.
+6. No adapter endpoint.
+7. No SQL migration.
+8. No database mutation.
+9. No citation creation.
+10. No concept mention creation.
+11. No concept relation creation.
+12. No interpretation insertion.
+13. No evidence promotion.
+14. No Buchanan-specific claims.
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f11_concept_lens_existing_archive_readback_bridge_implementation.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.12 — Review live Body without Organs bridge output against the Concept Lens service before UI integration.
+```

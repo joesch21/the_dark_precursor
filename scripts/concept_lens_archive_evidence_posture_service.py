@@ -352,3 +352,52 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# BDP-003F.11 EXISTING ARCHIVE READBACK BRIDGE INTEGRATION START
+def read_concept_lens_archive_evidence_posture_via_existing_archive_bridge(
+    concept: str,
+    *,
+    repo_root=None,
+    require_live_readback: bool = True,
+    bridge_rows=None,
+):
+    """Classify Concept Lens posture through the BDP-003F.11 read-only bridge."""
+    import inspect
+    from concept_lens_existing_archive_evidence_readback_bridge import (
+        read_existing_archive_evidence_rows_for_concept,
+    )
+
+    rows = bridge_rows
+    if rows is None:
+        rows = read_existing_archive_evidence_rows_for_concept(
+            concept,
+            repo_root=repo_root,
+            require_live_readback=require_live_readback,
+        )
+
+    classifier = read_concept_lens_archive_evidence_posture
+    signature = inspect.signature(classifier)
+    params = signature.parameters
+
+    for candidate_name in (
+        "archive_rows",
+        "supplied_archive_rows",
+        "evidence_rows",
+        "rows",
+    ):
+        if candidate_name in params:
+            return classifier(concept, **{candidate_name: rows})
+
+    positional = [
+        param
+        for param in params.values()
+        if param.kind in (param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD)
+    ]
+    if len(positional) >= 2:
+        return classifier(concept, rows)
+
+    raise TypeError(
+        "BDP-003F.11 bridge could not locate a supported supplied-row parameter "
+        "on read_concept_lens_archive_evidence_posture."
+    )
+# BDP-003F.11 EXISTING ARCHIVE READBACK BRIDGE INTEGRATION END
