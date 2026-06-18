@@ -912,3 +912,79 @@ Next safe step:
 ```text
 BDP-003F.8 — Implement read-only Concept Lens archive evidence posture service behind this contract, if approved.
 ```
+
+## BDP-003F.8 — Concept Lens Archive Evidence Posture Service Implementation
+
+**Status:** Complete
+**Controlled slice:** read-only local service implementation
+**Commit status:** Pending operator commit
+
+BDP-003F.8 implements the read-only Concept Lens archive evidence posture service behind the BDP-003F.7 contract.
+
+Implemented service module:
+
+```text
+scripts/concept_lens_archive_evidence_posture_service.py
+```
+
+Implemented function:
+
+```text
+read_concept_lens_archive_evidence_posture
+```
+
+The service answers one narrow question:
+
+```text
+For this requested concept, what does the archive currently support?
+```
+
+It classifies supplied or live read-only archive rows into evidence posture results such as:
+
+```text
+archive_grounded
+source_bound_description
+system_synthesis
+exploratory_unverified
+```
+
+The service preserves the primary archive readback chain:
+
+```text
+concepts -> concept_mentions -> passages -> citations -> sources
+```
+
+The verifier uses fixture rows and does not require a live database. The service can optionally use a read-only SQLite path or PostgreSQL URL for later local archive readback.
+
+Boundary:
+
+- no frontend wiring
+- no Concept Lens UI dock
+- no Streamlit controls
+- no new navigation surface keys
+- no backend route handler
+- no adapter endpoint
+- no SQL migration
+- no database tables
+- no database mutation
+- no source ingestion
+- no citation creation
+- no concept mention creation
+- no concept relation creation
+- no interpretation insertion
+- no evidence promotion
+- no Buchanan-specific claims
+- no automatic chat filtering
+- no philosophical fidelity review
+
+Verifier:
+
+```text
+scripts/verify_bdp_003f8_concept_lens_archive_evidence_posture_service.py
+```
+
+Next safe step:
+
+```text
+BDP-003F.9 — Review Concept Lens evidence posture service output against known archive cases before UI integration.
+```
